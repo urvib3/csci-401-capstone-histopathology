@@ -7,7 +7,7 @@ would solve it outside the WCSP framework.
 | Problem                          | Owner     | File                       |
 | -------------------------------- | --------- | -------------------------- |
 | N Queens                         | Abi       | `n_queens.cpp`             |
-| Sudoku                           | Rishi     | TODO                       |
+| Sudoku                           | Rishi     | `sudoku.py`                       |
 | Crosswords                       | Kashvi    | TODO                       |
 | Maximum Weighted Independent Set | Ryan      | TODO                       |
 | Minimum Spanning Tree            | Aakanksha | `minimum_spanning_tree.py` |
