@@ -379,10 +379,6 @@ This section will include:
 
 **Owner:** Ryan
 
-**Status:** TODO
-
-This section will include:
-
 - WCSP formulation
 - one Boolean variable per graph vertex
 - domain size
@@ -393,6 +389,26 @@ This section will include:
 - Toulbar2 example
 - Local Search approach
 - A* approach
+
+## Problem
+
+The maximum weighted independent set is a graph problem in which an independent set of maximal weight must be extracted from a randomized graph, $G(V,E)$. The independent set problem is famously NP complete, and requires finding a maximally sized set of nodes S such that $\forall (u,v) \in S(\nexists e(u,v))$, or rather there is no edge between any two vertices in S. In the case of maximum weighted independent set, we assign weights $w_i$ to each vertex, $v\in V$, then select an independent set S such that we obtain $\max{\sum_{v \in S}w_{v}}$
+
+## WCSP Formulation
+
+Each vertex is represented as a WCSP variable, with value 0 or 1 indicating whether that vertex is chosen. If vertex $i$ is selected, a cost of $-w_i$ is incurred so that by minimising the sum of negative weights, we maximize the actual weight of the set. A constraint is added for all adjacent pairs of vertices such that if both are chosen, the function outputs wcsp.Top to invalidate that solution.
+
+In the solution presented in MWIS_solver.py, the graph is initialized with 10000 vertices of random weight between 1 and 100. Edges between nodes are then created with probability 0.2. As such:
+- **Variables:** [3,4,...,10000], per vertex, can be any positive integer $n>0$ in the general case
+- **Domains:**  [0,1], yes or no selection
+- **Cost:** Sum of negative weights of selected vertices $\sum_{v \in S}-w_v$
+- **Hard constraints:** No adjecent vertices in S, so no two selected vertices may have an edge between them.
+
+## Combinatorial Signature
+- **Maximum arity:** 2 due to the edge constraint.
+- **Number of cost functions:** $|V|+|E|$
+
+The primal graph is exactly the input graph. The tree width grows linearly with n as it is a dense random graph, making it $\Theta(n)$
 
 ---
 
