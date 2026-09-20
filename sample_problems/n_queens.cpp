@@ -100,9 +100,10 @@ public:
 
 
 
-int main() {
+int main(int argc, char** argv) {
     Solution c;
-    int n = 8;
+    if (argc == 1) { cout << "Enter an arg for n" << endl; exit(0);}
+    int n = atoi(argv[1]);
     c.solveNQueens(n);
     cout << "Solved for n =" << n << endl;
     return 0;
