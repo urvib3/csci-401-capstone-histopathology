@@ -10,10 +10,10 @@ For each problem, we identify the WCSP formulation, describe its combinatorial s
 
 | Problem | Owner | File / Status |
 | --- | --- | --- |
-| N-Queens | Abhishek | `n_queens.cpp` |
+| N-Queens | Abhishek | `sample_problems/n_queens.cpp` |
 | Sudoku | Rishi | `sample_problems/sudoku.py` |
 | Crosswords | Kashvi | TODO |
-| Maximum Weighted Independent Set | Ryan | `sample_problems/MWIS/MWIS_solver.py`|
+| Maximum Weighted Independent Set | Ryan | `sample_problems/MWIS/MWIS_solver.py` |
 | Minimum Spanning Tree | Aakanksha | `sample_problems/minimum_spanning_tree.py` |
 | Traveling Salesman Problem | Urvi | `sample_problems/traveling_salesman.py` |
 
@@ -66,9 +66,7 @@ The implementation creates 81 variables and uses Toulbar2's `salldiff` global co
 
 For the included sample Sudoku, Toulbar2 returns a valid solution with total WCSP cost:
 
-\[
-0
-\]
+**0**
 
 Implementation:
 
@@ -82,10 +80,7 @@ Values can be swapped within rows or boxes in an attempt to reduce the number of
 
 A possible objective function is:
 
-\[
-\text{cost} =
-\text{number of row, column, and box conflicts}
-\]
+**cost = number of row, column, and box conflicts**
 
 The search repeatedly chooses changes that reduce this cost.
 
@@ -95,8 +90,8 @@ A limitation is that Local Search may become stuck in a local optimum.
 
 A state can represent a partially completed Sudoku grid.
 
-- \(g\): cost associated with assignments already made
-- \(h\): estimate of the remaining conflicts or work needed to complete the grid
+- **g:** cost associated with assignments already made
+- **h:** estimate of the remaining conflicts or work needed to complete the grid
 
 A* can be formulated for Sudoku, but constraint propagation and backtracking are generally more natural.
 
@@ -106,13 +101,7 @@ A* can be formulated for Sudoku, but constraint propagation and backtracking are
 
 ## Problem
 
-Given a connected, edge-weighted, undirected graph
-
-\[
-G=(V,E),
-\]
-
-the Minimum Spanning Tree problem finds a subset of \(n-1\) edges that:
+Given a connected, edge-weighted, undirected graph G = (V, E), the Minimum Spanning Tree problem finds a subset of n - 1 edges that:
 
 - connects every vertex,
 - contains no cycles,
@@ -122,67 +111,51 @@ the Minimum Spanning Tree problem finds a subset of \(n-1\) edges that:
 
 A parent-variable encoding is used.
 
-For every graph vertex \(v\), define a variable
+For every graph vertex v, define a variable P_v, where:
 
-\[
-P_v
-\]
+**P_v = u**
 
-where
+means that vertex u is the parent of v in a rooted spanning tree.
 
-\[
-P_v=u
-\]
+For a graph containing n vertices:
 
-means that vertex \(u\) is the parent of \(v\) in a rooted spanning tree.
-
-For a graph containing \(n\) vertices:
-
-- **Variables:** \(n\), one parent variable per vertex
+- **Variables:** n, one parent variable per vertex
 - **Domains:** each parent variable can take a vertex index from `0` to `n-1`
 - **Hard constraint:** all parent choices together must form one valid spanning tree
-- **Cost function:** choosing \(u\) as the parent of \(v\) costs the weight of edge \((u,v)\)
+- **Cost function:** choosing u as the parent of v costs the weight of edge (u, v)
 - **Objective:** minimize the total cost of all selected parent edges
 
 One vertex is chosen as the root and points to itself.
 
 ## Combinatorial Signature
 
-- **Number of variables:** \(n\)
-- **Maximum domain size:** \(n\)
+- **Number of variables:** n
+- **Maximum domain size:** n
 - **Unary edge-cost function arity:** 1
-- **Global MST constraint arity:** \(n\)
-- **Maximum arity:** \(n\)
+- **Global MST constraint arity:** n
+- **Maximum arity:** n
 
 The total objective is:
 
-\[
-\min \sum_{v \neq r} w(v,P_v)
-\]
+**minimize the sum of w(v, P_v) for all non-root vertices v**
 
-where \(r\) is the chosen root.
+where r is the chosen root.
 
 ## Treewidth
 
-Under the standard primal-graph interpretation, the global MST constraint contains all \(n\) parent variables in the same scope.
+Under the standard primal-graph interpretation, the global MST constraint contains all n parent variables in the same scope.
 
 This connects every pair of variables and produces a complete graph:
 
-\[
-K_n
-\]
+**K_n**
 
-The treewidth of a complete graph \(K_n\) is:
+The treewidth of a complete graph K_n is:
 
-\[
-\boxed{n-1}
-\]
+**n - 1**
 
 Therefore, for this parent-variable encoding:
 
-\[
-\boxed{\text{treewidth}=n-1}
-\]
+**treewidth = n - 1**
 
 Treewidth is encoding-dependent, so a different representation using auxiliary variables and smaller constraints could produce a different primal graph.
 
@@ -190,9 +163,7 @@ Treewidth is encoding-dependent, so a different representation using auxiliary v
 
 The sample graph contains four vertices:
 
-\[
-V=\{A,B,C,D\}
-\]
+**V = {A, B, C, D}**
 
 with the following weighted edges:
 
@@ -218,15 +189,11 @@ D -> A
 
 This corresponds to the selected edges:
 
-\[
-(A,B), (B,C), (A,D)
-\]
+**(A, B), (B, C), (A, D)**
 
 with total cost:
 
-\[
-1+2+3=\boxed{6}
-\]
+**1 + 2 + 3 = 6**
 
 Implementation:
 
@@ -250,14 +217,12 @@ This allows Local Search to explore nearby spanning trees while maintaining feas
 
 A state can represent a partial acyclic forest.
 
-- \(g\): total weight of the edges already selected
-- \(h\): a lower bound on the additional cost required to connect the remaining components
+- **g:** total weight of the edges already selected
+- **h:** a lower bound on the additional cost required to connect the remaining components
 
 A* expands the state with the lowest:
 
-\[
-f=g+h
-\]
+**f = g + h**
 
 A* can be formulated for MST, but it is unnecessary in practice because MST can be solved exactly in polynomial time using algorithms such as:
 
@@ -271,7 +236,7 @@ A* can be formulated for MST, but it is unnecessary in practice because MST can 
 
 ## Problem
 
-Given \(n\) cities and distances between them, the Traveling Salesman Problem asks for a minimum-cost tour that:
+Given n cities and distances between them, the Traveling Salesman Problem asks for a minimum-cost tour that:
 
 - begins at a city,
 - visits every city exactly once,
@@ -281,20 +246,14 @@ Given \(n\) cities and distances between them, the Traveling Salesman Problem as
 
 City 0 is fixed as the starting city.
 
-The remaining \(n-1\) positions in the tour are represented by WCSP variables.
+The remaining n - 1 positions in the tour are represented by WCSP variables.
 
-Let
-
-\[
-X_p
-\]
-
-represent the city visited at position \(p\).
+Let X_p represent the city visited at position p.
 
 The formulation has:
 
-- **Variables:** \(n-1\), one variable per tour position
-- **Domain size:** \(n-1\), representing all cities except city 0
+- **Variables:** n - 1, one variable per tour position
+- **Domain size:** n - 1, representing all cities except city 0
 - **Hard constraint:** all tour-position variables must contain different cities
 - **Cost functions:**
   - distance from city 0 to the first stop
@@ -305,32 +264,26 @@ The objective is to minimize total tour distance.
 
 ## Combinatorial Signature
 
-- **Number of variables:** \(n-1\)
-- **Domain size:** \(n-1\)
+- **Number of variables:** n - 1
+- **Domain size:** n - 1
 - **Unary distance-cost arity:** 1
 - **Consecutive-distance function arity:** 2
-- **All-different constraint arity:** \(n-1\)
-- **Maximum arity:** \(n-1\)
+- **All-different constraint arity:** n - 1
+- **Maximum arity:** n - 1
 
 ## Treewidth
 
 The consecutive-distance cost functions alone create a path-like structure.
 
-However, the all-different constraint contains all \(n-1\) tour-position variables in the same scope.
+However, the all-different constraint contains all n - 1 tour-position variables in the same scope.
 
 Under the primal-graph interpretation, this produces the complete graph:
 
-\[
-K_{n-1}
-\]
+**K_(n-1)**
 
-Therefore:
+Therefore, for this encoding:
 
-\[
-\boxed{\text{treewidth}=n-2}
-\]
-
-for this encoding.
+**treewidth = n - 2**
 
 ## Toulbar2
 
@@ -364,8 +317,8 @@ The result may be a local optimum rather than the globally optimal tour.
 
 A state is a partial tour.
 
-- \(g\): total distance traveled so far
-- \(h\): optimistic lower bound on the remaining distance
+- **g:** total distance traveled so far
+- **h:** optimistic lower bound on the remaining distance
 
 A useful heuristic can be constructed using:
 
@@ -375,9 +328,7 @@ A useful heuristic can be constructed using:
 
 A* always expands the state with the smallest:
 
-\[
-f=g+h
-\]
+**f = g + h**
 
 With an admissible heuristic, A* can find the optimal TSP tour, although the search space remains exponential.
 
