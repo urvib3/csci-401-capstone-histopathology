@@ -13,7 +13,7 @@ For each problem, we identify the WCSP formulation, describe its combinatorial s
 | N-Queens | Abhishek | `n_queens.cpp` |
 | Sudoku | Rishi | `sample_problems/sudoku.py` |
 | Crosswords | Kashvi | TODO |
-| Maximum Weighted Independent Set | Ryan | TODO |
+| Maximum Weighted Independent Set | Ryan | `sample_problems/MWIS/MWIS_solver.py`|
 | Minimum Spanning Tree | Aakanksha | `sample_problems/minimum_spanning_tree.py` |
 | Traveling Salesman Problem | Urvi | `sample_problems/traveling_salesman.py` |
 
