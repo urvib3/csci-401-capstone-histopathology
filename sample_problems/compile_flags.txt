@@ -1,0 +1,6 @@
+-std=c++17
+-DBOOST
+-DLONGDOUBLE_PROB
+-DLONGLONG_COST
+-I/home/abi/class/toulbar2/build/tb2config
+-I/home/abi/class/toulbar2/src
