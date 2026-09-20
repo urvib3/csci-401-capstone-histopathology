@@ -97,3 +97,13 @@ public:
         
     }
 };
+
+
+
+int main() {
+    Solution c;
+    int n = 8;
+    c.solveNQueens(n);
+    cout << "Solved for n =" << n << endl;
+    return 0;
+}
