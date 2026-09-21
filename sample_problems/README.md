@@ -355,6 +355,10 @@ A standard approach is to use backtracking (essentially DFS with pruning) (check
 placed on a row and then recursively placed on each following row for all possible positions. 
 The algorithmic time complexity is O(N!). It is best to run backtracking for this problem where N is at max 9 queens.
 
+## Some other approaches
+
+it could also be oslved with local search or A*. We would just need a heuristic 
+for A* when searching (i.e number of conflicting pairs of queens.). For local search we could place all queens on the board and search there locally on removing a queen and the placement that minimizes the cost (conflicts).
 
 ## Approach with toulbar
 
