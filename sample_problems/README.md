@@ -507,7 +507,6 @@ A* expands the state with the smallest:
 
 *f = g + h*
 
-A* can find a valid solution, although constraint propagation and backtracking are generally more natural for solving crosswords.
 ---
 
 # Maximum Weighted Independent Set
