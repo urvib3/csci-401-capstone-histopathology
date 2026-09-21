@@ -336,21 +336,71 @@ With an admissible heuristic, A* can find the optimal TSP tour, although the sea
 
 # N-Queens
 
-**Owner:** Abhishek
+**Name:** Abhishek
 
-**Status:** TODO
+## WCSP framework
 
-This section will include:
+Variables: A_1,A_2,A_3... A_n, where A_i = (x_i, y_i) the position of the ith queen.
 
-- WCSP formulation
-- variables and domains
-- column and diagonal constraints
-- domain size
-- constraint arities
-- treewidth
-- Toulbar2 example
-- Local Search / min-conflicts approach
-- A* or backtracking formulation
+Domain: 0 <= x_i < n, 0 <= y_i < n
+
+Constraints: two queens A_i and A_j cannot be on the same row nor column, and they must not be attacking each other diagonally.
+
+Arity = n since there are n queen positions that must be satisfied.
+
+
+## Approach with backtracking
+
+A standard approach is to use backtracking (essentially DFS with pruning) (check sample_problems/n_queens.cpp) where a queen is
+placed on a row and then recursively placed on each following row for all possible positions. 
+The algorithmic time complexity is O(N!). It is best to run backtracking for this problem where N is at max 9 queens.
+
+
+## Approach with toulbar
+
+source: https://toulbar2.github.io/toulbar2/examples/tuto_wnqp.html
+
+followed this source to model the problem as a WCSP in cpp.
+
+It models the n variables as queens on each column, and the domain is the row values the queen can take. the constraints are that queens may not be on the same row, nor on the same upper or lower diagonals. 
+
+### The program can be run like so (replace abi with user)
+```
+$ g++ n_queens_toulbar.cpp \
+  -I/home/abi/class/toulbar2/build/tb2config \
+  -I/home/abi/class/toulbar2/src \
+  -L/home/abi/class/toulbar2/build/lib/Linux \
+  -Wl,-rpath,/home/abi/class/toulbar2/build/lib/Linux \
+  -ltb2 -lgmp -o a.out && ./a.out 8
+
+```
+Output:
+
+```
+Solving for n=8
+Reverse original DAC dual bound: 15 (+6.667%)
+Cost function decomposition time : 0.000 seconds.
+Preprocessing time: 0.011 seconds.
+8 unassigned variables, 64 values in all current domains (med. size:8, max size:8) and 29 
+non-unary cost functions (med. arity:2, med. degree:7)
+Initial lower and upper bounds: [15, 65] 76.923%
+Optimality gap: [16, 65] 75.385 % (3 backtracks, 6 nodes, 0.013 seconds)
+New solution: 34 (3 backtracks, 10 nodes, depth 5, 0.014 seconds)
+Optimality gap: [16, 34] 52.941 % (6 backtracks, 13 nodes, 0.015 seconds)
+Optimality gap: [18, 34] 47.059 % (9 backtracks, 21 nodes, 0.018 seconds)
+New solution: 30 (24 backtracks, 65 nodes, depth 4, 0.027 seconds)
+Optimality gap: [18, 30] 40.000 % (26 backtracks, 67 nodes, 0.027 seconds)
+New solution: 27 (35 backtracks, 95 nodes, depth 5, 0.033 seconds)
+Optimality gap: [20, 27] 25.926 % (41 backtracks, 104 nodes, 0.036 seconds)
+New solution: 23 (43 backtracks, 116 nodes, depth 4, 0.037 seconds)
+Optimality gap: [21, 23] 8.696 % (45 backtracks, 119 nodes, 0.038 seconds)
+Optimality gap: [22, 23] 4.348 % (45 backtracks, 122 nodes, 0.039 seconds)
+Optimality gap: [23, 23] 0.000 % (45 backtracks, 125 nodes, 0.039 seconds)
+Node redundancy during HBFS: 27.200
+Optimum: 23 in 45 backtracks and 125 nodes ( 0 removals by DEE) and 0.039 seconds.
+Optimal soln found with cost: 23
+
+```
 
 ---
 
