@@ -408,7 +408,48 @@ In the solution presented in MWIS_solver.py, the graph is initialized with 10000
 - **Maximum arity:** 2 due to the edge constraint.
 - **Number of cost functions:** $|V|+|E|$
 
-The primal graph is exactly the input graph. The tree width grows linearly with n as it is a dense random graph, making it $\Theta(n)$
+The primal graph is exactly the input graph. The tree width grows linearly with n as it is a dense random graph, making it $\Theta(n)$.
+
+## Local Search Formulation
+
+We can assign a random initial selection onto $V$. A state is any subset $S \subseteq V$, stored as the same 0/1 vector used by the WCSP variables. Because a random selection will usually contain adjacent vertices, the hard edge constraint is relaxed into a penalty:
+
+$$cost(S) = -\sum_{v \in S} w_v + \lambda \cdot |\{(u,v) \in E : u,v \in S\}|$$
+
+with $\lambda > \max_v w_v$ (e.g. $\lambda = 101$ for the solver's weights). This is the WCSP objective with `wcsp.Top` replaced by a finite penalty.
+
+- **Neighborhood:** flip one vertex in or out of $S$.
+  - Removing an endpoint of a conflicting edge saves at least $\lambda$ and loses less than $\lambda$ in weight, so it always lowers the cost.
+  - Adding a vertex with no selected neighbors lowers the cost by $w_v$.
+  - Therefore every local optimum of the flip neighborhood is a *maximal independent set*, which is the same sanity check made by `verify_solution`.
+- **Swap move:** add an unselected vertex $v$ and remove all of its selected neighbors. This improves the solution whenever $w_v > \sum_{u \in N(v) \cap S} w_u$, and lets the search move between independent sets without passing through an infeasible state. The reverse move (remove one vertex, add two non-adjacent vertices that it was blocking) is also useful.
+- **Incremental evaluation:** keeping a counter of selected neighbors for every vertex makes the cost change of a move computable in $O(\deg(v))$ rather than re-evaluating the whole graph.
+
+The search repeatedly applies improving moves until none remain. The result is a maximal independent set but not necessarily a *maximum* one, so random restarts, simulated annealing, or a tabu list (forbidding a recently removed vertex from re-entering) are needed to escape local optima. With $p = 0.2$ each vertex has about $0.2n$ neighbors, so independent sets are very small relative to $n$; a sparse random start (or the empty set) avoids spending most of the run repairing conflicts.
+
+## A* Formulation
+
+A state is a partial solution $(S, C)$, where $S$ is the independent set chosen so far and $C$ is the *candidate set*: undecided vertices with no neighbor in $S$. The start state is $(\emptyset, V)$ and a goal state is any state with $C = \emptyset$.
+
+From a state, pick a branching vertex $v \in C$ (e.g. the one with the most neighbors in $C$) and generate two successors:
+
+- **include $v$:** $S \leftarrow S \cup \{v\}$, $C \leftarrow C \setminus N[v]$
+- **exclude $v$:** $C \leftarrow C \setminus \{v\}$
+
+A* requires non-negative step costs, so the $-w_v$ costs of the WCSP cannot be used directly. Instead we minimize the weight that is *given up*: excluding $v$ costs $w_v$, and including $v$ costs the weight of its neighbors removed from $C$. At a goal state the path cost is $\sum_{v \in V} w_v - w(S)$, so the cheapest goal is exactly the maximum weight independent set.
+
+- **g:** total weight of the vertices discarded so far, $w(V) - w(S) - w(C)$
+- **h:** a lower bound on the weight that must still be discarded from $C$
+
+An admissible $h$ comes from a greedy clique cover of the subgraph induced by $C$. An independent set can contain at most one vertex from each clique $K$, so at least everything except the heaviest vertex of each clique must be given up:
+
+$$h(S, C) = \sum_{K} \left( w(K) - \max_{v \in K} w_v \right)$$
+
+Using a matching instead of a clique cover gives the weaker but cheaper bound $\sum_{(u,v) \in M} \min(w_u, w_v)$, and $h = 0$ reduces A* to uniform-cost search.
+
+A* expands the state with the smallest **f = g + h**, which is equivalent to expanding the state with the largest optimistic total $w(S) + UB(C)$. Since $h$ never overestimates, the first goal state expanded is optimal. Two states with the same candidate set $C$ have identical futures, so only the one with the larger $w(S)$ needs to be kept.
+
+This is best-first branch and bound, closely related to what Toulbar2 does internally with its own lower bounds. The limitation is memory: the open list grows exponentially, so A* is only practical for small graphs and not for the 10000-vertex instances generated in `MWIS_solver.py`.
 
 ---
 
