@@ -9,7 +9,7 @@ Use BCSS to test a baseline tissue segmentation model and investigate how large 
 ## What to Do
 
 1. **Download the BCSS dataset**
-   - Use the Kaggle benchmark link provided by the professor.
+   - Use the Kaggle benchmark link (provided by professor).
    - Check the image and segmentation-mask format.
 
 2. **Understand the labels**
@@ -54,7 +54,7 @@ BCSS produces tissue-level segmentation rather than individual cell predictions.
 
 Before using the output in the WCSP, the segmentation must be compressed into a smaller number of regions or clusters.
 
-We will compare clustering approaches such as:
+Compare clustering approaches such as:
 
 - K-means
 - DBSCAN
