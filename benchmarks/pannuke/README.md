@@ -51,5 +51,3 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 ## Connection to WCSP
 
 The predicted nuclei can later become WCSP variables. Model probabilities can be used to create unary costs, while spatial relationships between nearby cells can be used for biological constraints.
-
-A clustering step will eventually be tested to reduce the number of variables before sending the problem to Toulbar2.
