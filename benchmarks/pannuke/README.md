@@ -59,7 +59,7 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 - Total nuclei detected: 55
 - Average nuclei per patch: 5.5
 - Overall nucleus-weighted mean confidence: ~0.932
-- Runtime for 10 patches: ~0.25 seconds
+- Runtime for 10 patches: ~0.27 seconds
 - HoVer-Net outputs included predicted nucleus type, confidence, centroid, bounding box, and contour.
 
 A sample prediction overlay was generated using the predicted nucleus centroids.
