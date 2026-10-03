@@ -51,8 +51,25 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 ## Tasks
 
 **Aakanksha**
+
+- Download one PanNuke fold.
+- Set up HoVer-Net with the pretrained PanNuke checkpoint.
+- Run inference on a small set of PanNuke images.
+- Save prediction outputs and record setup/runtime information.
+
 **Abhishek**
+
+- Compare HoVer-Net predictions with the PanNuke ground truth.
+- Record Precision, Recall, F1, and PQ if available.
+- Create a small results table.
+- Note which cell classes perform well or poorly.
+
 **Kashvi**
+
+- Inspect example predictions and common classification errors.
+- Document how nucleus predictions can map to WCSP variables and unary costs.
+- Investigate clustering methods for reducing the number of WCSP variables.
+- Compare K-means, DBSCAN, and spatially constrained agglomerative clustering.
 
 ## Connection to WCSP
 
