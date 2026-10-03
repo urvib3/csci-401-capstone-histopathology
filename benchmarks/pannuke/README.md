@@ -52,6 +52,8 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 
 ### Aakanksha - HoVer-Net Inference Results
 
+HoVer-Net was selected because it jointly performs nucleus instance segmentation and classification and has a pretrained PanNuke model. Its nucleus-level outputs also align naturally with our eventual WCSP representation
+
 - Dataset: PanNuke Fold 2
 - Baseline: pretrained `hovernet_fast-pannuke`
 - Inference environment: Google Colab GPU
