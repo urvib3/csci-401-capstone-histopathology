@@ -50,12 +50,19 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 
 ## Tasks
 
-**Aakanksha**
+### Aakanksha - HoVer-Net Inference Results
 
-- Download one PanNuke fold.
-- Set up HoVer-Net with the pretrained PanNuke checkpoint.
-- Run inference on a small set of PanNuke images.
-- Save prediction outputs and record setup/runtime information.
+- Dataset: PanNuke Fold 2
+- Baseline: pretrained `hovernet_fast-pannuke`
+- Inference environment: Google Colab GPU
+- Tested on 10 sample 256x256 PanNuke patches
+- Total nuclei detected: 55
+- Average nuclei per patch: 5.5
+- Overall nucleus-weighted mean confidence: ~0.932
+- Runtime for 10 patches: ~0.25 seconds
+- HoVer-Net outputs included predicted nucleus type, confidence, centroid, bounding box, and contour.
+
+A sample prediction overlay was generated using the predicted nucleus centroids.
 
 **Abhishek**
 
