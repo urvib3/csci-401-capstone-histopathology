@@ -22,8 +22,8 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 
 3. **Run a baseline**
    - Start with **HoVer-Net**.
-   - Use a pretrained PanNuke checkpoint if available.
-   - If time allows, test another model such as CellViT for comparison.
+   - Use a pretrained PanNuke checkpoint.
+   - If time allows, consider another model such as CellViT for comparison.
 
 4. **Record the results**
    Save basic results such as:
@@ -34,7 +34,7 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
    - Approximate runtime
 
 5. **Inspect the predictions**
-   Look at a few example images and check:
+   Look at example images and check:
    - Are nuclei detected correctly?
    - Which cell types are commonly confused?
    - Are the predicted cell locations and classes usable for the WCSP pipeline?
@@ -48,30 +48,95 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
    - Evaluation metrics
    - Any issues encountered
 
+---
+
 ## Tasks
 
-### Aakanksha - HoVer-Net Inference Results
+### Aakanksha - Dataset Setup and HoVer-Net Inference
 
-HoVer-Net was selected because it jointly performs nucleus instance segmentation and classification and has a pretrained PanNuke model. Its nucleus-level outputs also align naturally with our eventual WCSP representation
+HoVer-Net was selected because it performs both nucleus instance segmentation and classification and has a pretrained PanNuke model. Its nucleus-level outputs also align naturally with the eventual WCSP representation.
 
-- Dataset: PanNuke Fold 2
+Completed:
+
+- Dataset: **PanNuke Fold 2**
+- Fold 2 contains **2,523 256x256 histopathology patches**
 - Baseline: pretrained `hovernet_fast-pannuke`
 - Inference environment: Google Colab GPU
-- Tested on 10 sample 256x256 PanNuke patches
-- Total nuclei detected: 55
-- Average nuclei per patch: 5.5
-- Overall nucleus-weighted mean confidence: ~0.932
-- Runtime for 10 patches: ~0.27 seconds
-- HoVer-Net outputs included predicted nucleus type, confidence, centroid, bounding box, and contour.
+- Verified the PanNuke image, tissue type, and mask structure
+- Generated sample input and ground-truth visualizations
+- First tested the inference pipeline on 10 sample images
+- Successfully ran HoVer-Net on **all 2,523 Fold 2 images**
+- Saved nucleus-level predictions including:
+  - Predicted cell type
+  - Confidence
+  - Centroid
+  - Bounding box
+  - Instance segmentation map
+- Generated a sample prediction overlay
 
-A sample prediction overlay was generated using the predicted nucleus centroids.
+Full Fold 2 inference produced:
 
-**Abhishek**
+- **25,301 predicted nuclei**
+- Predictions in **2,338 images**
+- **185 images with no predicted nuclei**
+- Mean prediction confidence: approximately **0.912**
 
-- Compare HoVer-Net predictions with the PanNuke ground truth.
-- Record Precision, Recall, F1, and PQ if available.
-- Create a small results table.
-- Note which cell classes perform well or poorly.
+Predicted class counts:
+
+| Predicted Class | Count |
+|---|---:|
+| Neoplastic | 10,937 |
+| Connective | 6,331 |
+| Inflammatory | 3,686 |
+| Non-neoplastic epithelial | 3,605 |
+| Dead | 555 |
+| Background | 187 |
+
+Saved outputs include:
+
+- `hovernet_fold2_predictions.csv`
+  - One row per predicted nucleus
+  - Contains image index, centroid, predicted type, confidence, and bounding box
+
+- `hovernet_fold2_image_summary.csv`
+  - One row per Fold 2 image
+  - Contains number of predicted nuclei and mean confidence
+
+- `hovernet_instance_maps_*.npz`
+  - Predicted instance segmentation maps saved in batches
+  - Intended for comparison against PanNuke ground-truth masks
+
+- `PanNuke_HoVerNet_Inference.ipynb`
+  - Documents the inference setup and experiment
+
+---
+### Abhishek - Evaluation Against Ground Truth
+
+**Goal:** Quantitatively evaluate the full Fold 2 HoVer-Net predictions against PanNuke ground truth.
+
+Use:
+
+- `hovernet_instance_maps_*.npz`
+- PanNuke Fold 2 `masks.npy`
+- `hovernet_fold2_predictions.csv`
+
+Tasks:
+
+1. Match each predicted instance map with the corresponding Fold 2 ground-truth mask.
+2. Evaluate detection and classification performance.
+3. Record metrics such as:
+   - Precision
+   - Recall
+   - F1 score
+   - Panoptic Quality (PQ), if available
+4. Evaluate performance across the five nucleus classes.
+5. Identify classes that are commonly confused or difficult to detect.
+6. Create a small results table for the final deliverable.
+7. Document any evaluation assumptions or preprocessing decisions.
+
+The confidence values in the prediction CSV are model confidence scores and should not be treated as accuracy. Final performance should be measured against the PanNuke ground truth.
+
+---
 
 ### Kashvi - Prediction Inspection and WCSP Mapping
 
@@ -158,8 +223,16 @@ The script reads the included sample arrays and saved prediction CSV. It prints 
 - [Clustering results](results/clustering_comparison.csv)
 - [Inspection figure](results/sample_predictions/prediction_inspection.png)
 
-Review these outputs alongside the WCSP mapping in Kashvi's section above.
+---
 
 ## Connection to WCSP
 
-The predicted nuclei can later become WCSP variables. Model probabilities can be used to create unary costs, while spatial relationships between nearby cells can be used for biological constraints.
+HoVer-Net produces nucleus-level predictions that can be used as the starting point for the WCSP formulation.
+
+Each predicted nucleus contains a location, predicted class, and confidence score. These can be used to construct unary costs and spatial relationships between nearby nuclei.
+
+Because using every predicted nucleus directly would create a large WCSP, a clustering phase will be used to reduce the number of variables. The clustering method should preserve important spatial and biological structure while reducing problem size.
+
+The overall pipeline is:
+
+**PanNuke image → HoVer-Net predictions → clustering → WCSP variables and constraints → Toulbar2**
