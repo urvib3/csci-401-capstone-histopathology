@@ -227,12 +227,6 @@ The script reads the included sample arrays and saved prediction CSV. It prints 
 
 ## Connection to WCSP
 
-HoVer-Net produces nucleus-level predictions that can be used as the starting point for the WCSP formulation.
-
 Each predicted nucleus contains a location, predicted class, and confidence score. These can be used to construct unary costs and spatial relationships between nearby nuclei.
 
 Because using every predicted nucleus directly would create a large WCSP, a clustering phase will be used to reduce the number of variables. The clustering method should preserve important spatial and biological structure while reducing problem size.
-
-The overall pipeline is:
-
-**PanNuke image → HoVer-Net predictions → clustering → WCSP variables and constraints → Toulbar2**
