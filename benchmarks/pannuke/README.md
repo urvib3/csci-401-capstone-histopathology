@@ -141,7 +141,7 @@ The confidence values in the prediction CSV are model confidence scores and shou
 ### Kashvi - Prediction Inspection and WCSP Mapping
 
 - Dataset: PanNuke Fold 2, first 10 sample 256x256 patches, matching the existing inference run.
-- Baseline: pretrained `hovernet_fast-pannuke`; analysis uses the saved `hovernet_predictions.csv` (55 nuclei). No new inference was run for these results.
+- Baseline: pretrained `hovernet_fast-pannuke`; analysis selects patches 000 through 009 from `fold2/hovernet_fold2_predictions.csv` (55 nuclei). No new inference was run for these results.
 - Scope: ten-patch exploratory analysis, not a full-dataset benchmark.
 
 **Prediction inspection**
@@ -199,7 +199,7 @@ for i, image in enumerate(images):
 ```
 
 3. Run the notebook's setup, model-loading, inference, and CSV-export cells in order.
-4. Download `hovernet_predictions.csv` and place it in `benchmarks/pannuke/results/sample_predictions/`. The current saved CSV can be used directly for inspection and clustering.
+4. The sample cells export `hovernet_predictions.csv`. The current inspection script uses the checked-in `results/sample_predictions/fold2/hovernet_fold2_predictions.csv` and selects image indices 0 through 9. To regenerate that full-fold file, use the complete Fold 2 inputs and the notebook's full-fold inference/export cells.
 
 ### Abhishek - Ground-Truth Evaluation
 TODO

@@ -28,12 +28,15 @@ TARGET_GROUP_SIZE = 3
 
 
 def load_inputs():
-    predictions = pd.read_csv(BASE / 'results/sample_predictions/hovernet_predictions.csv')
+    predictions = pd.read_csv(BASE / 'results/sample_predictions/fold2/hovernet_fold2_predictions.csv')
+    predictions = predictions[predictions.image_index.between(0, PATCH_COUNT - 1)].copy()
     images = np.load(BASE / 'data/sample_fold2/images.npy', mmap_mode='r')
     masks = np.load(BASE / 'data/sample_fold2/masks.npy', mmap_mode='r')
     expected_images = {f'image_{i:03d}.png' for i in range(PATCH_COUNT)}
     if set(predictions.image) != expected_images:
         raise ValueError('Expected predictions for patches 000 through 009.')
+    if not all(row.image == f'image_{row.image_index:03d}.png' for row in predictions.itertuples()):
+        raise ValueError('CSV image indices and filenames disagree.')
     if predictions.duplicated(['image', 'nucleus_id']).any():
         raise ValueError('Nucleus IDs must be unique within each patch.')
     if images.shape != (PATCH_COUNT, INPUT_SIZE, INPUT_SIZE, 3):
