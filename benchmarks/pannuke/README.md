@@ -110,7 +110,6 @@ Saved outputs include:
   - Documents the inference setup and experiment
 
 ---
-
 ### Abhishek - Evaluation Against Ground Truth
 
 **Goal:** Quantitatively evaluate the full Fold 2 HoVer-Net predictions against PanNuke ground truth.
@@ -139,46 +138,90 @@ The confidence values in the prediction CSV are model confidence scores and shou
 
 ---
 
-### Kashvi - Prediction Analysis, Clustering, and WCSP Connection
+### Kashvi - Prediction Inspection and WCSP Mapping
 
-**Goal:** Analyze the HoVer-Net predictions and investigate how they can be compressed into a smaller WCSP representation.
+- Dataset: PanNuke Fold 2, first 10 sample 256x256 patches, matching the existing inference run.
+- Baseline: pretrained `hovernet_fast-pannuke`; analysis uses the saved `hovernet_predictions.csv` (55 nuclei). No new inference was run for these results.
+- Scope: ten-patch exploratory analysis, not a full-dataset benchmark.
 
-Use:
+**Prediction inspection**
 
-- `hovernet_fold2_predictions.csv`
-- `hovernet_fold2_image_summary.csv`
-- Sample prediction overlays
+HoVer-Net fast returns a central 164x164 output from each 256x256 input. Shift output centroids by **(+46, +46)** before plotting on the original patch. The dashed box in the [inspection figure](results/sample_predictions/prediction_inspection.png) marks the predicted area. Nuclei outside it are not counted as missed detections.
 
-The prediction CSV provides the main information needed for clustering:
+Among 40 unique ground-truth instances associated with predictions by rounded-centroid containment, four class-disagreement flags were found:
 
-- `centroid_x`
-- `centroid_y`
-- `predicted_type`
-- `predicted_type_id`
-- `confidence`
-- Bounding box coordinates
+| Patch / CSV nucleus ID | Ground-truth class at centroid | Predicted class |
+| --- | --- | --- |
+| 002 / 0 | Neoplastic | Connective |
+| 003 / 3 | Inflammatory | Connective |
+| 008 / 2 | Connective | Neoplastic |
+| 009 / 5 | Connective | Neoplastic |
 
-Tasks:
+The figure shows patches 002, 003, 008, and 009 with these predictions numbered. Multiple predictions inside one ground-truth instance were excluded as ambiguous. These are qualitative flags: the CSV has no segmentation masks/contours, so this is not one-to-one mask matching or an accuracy/confusion-rate estimate. Instance-level evaluation can validate them. These ten patches contain no dead or non-neoplastic epithelial ground-truth nuclei, so those classes cannot be assessed here.
 
-1. Inspect the distribution of predicted cell types and confidence scores.
-2. Examine example predictions and identify possible classification issues.
-3. Investigate clustering approaches for reducing the number of WCSP variables.
-4. Compare methods such as:
-   - K-means
-   - DBSCAN
-   - Spatially constrained agglomerative clustering
-5. Compare different levels of compression, such as different numbers of clusters.
-6. Consider whether clustering preserves:
-   - Cell-type information
-   - Spatial relationships
-   - Biologically meaningful local structure
-7. Document how the prediction outputs can map into the WCSP:
-   - Nucleus or cluster → WCSP variable
-   - Predicted class/confidence → unary cost
-   - Centroid/location → spatial constraints
-   - Neighbor relationships → biological constraints
+**WCSP mapping**
 
-The goal is to reduce the number of variables sent to the WCSP solver without losing too much useful spatial or classification information.
+- One detected nucleus becomes one variable with the five cell classes as its domain. Keep its patch ID and centroid for spatial relationships.
+- With full class probabilities, unary costs can be `U_i(c) = -log(max(p_i(c), 1e-8))`; likely labels have lower cost.
+- The CSV's single `confidence` value is a selected-class pixel-vote fraction, not a calibrated five-class probability vector. Full probabilities must be retained before the model's argmax for probability-based unary costs; do not invent the remaining class probabilities.
+- A cluster can become one shared-label variable with cost `U_G(c) = sum(U_i(c) for i in G)`. This reduces variables but may erase real mixtures of cell types. Relabeling also cannot recover undetected nuclei.
+
+**Clustering comparison**
+
+Cluster each patch separately using centroids. K-means uses `K=ceil(N/3)`, seed 0, and 10 initializations. DBSCAN uses `eps=40` pixels and `min_samples=2`, retaining each noise nucleus as a separate variable. Spatially constrained agglomerative clustering uses Ward linkage on a 40-pixel radius graph, forming `ceil(component_size/3)` groups within each connected component; disconnected components are never merged. Settings are exploratory.
+
+| Method | Remaining variables | Reduction | Mixed predicted-class groups | Largest group |
+| --- | ---: | ---: | ---: | ---: |
+| No clustering | 55 | 0% | 0 | 1 |
+| K-means | 21 | 61.8% | 9 | 4 |
+| DBSCAN | 47 | 14.5% | 0 | 3 |
+| Spatial Ward | 47 | 14.5% | 0 | 3 |
+
+**Initial recommendation: DBSCAN.** It matches Ward's summary here with simpler settings and preserves isolated nuclei. K-means provides greater reduction but mixes predicted classes. Methods have different variable budgets; no solver-speed or ground-truth accuracy improvement is established. Predicted-class agreement is not proof of biological homogeneity.
+
+## How to Run
+
+The included [Fold 2 sample](data/sample_fold2/README.md) contains the first ten images and their matching ground-truth masks. Run local commands from the repository root.
+
+### Aakanksha - HoVer-Net Inference
+
+1. Open [PanNuke_HoVerNet_Inference.ipynb](PanNuke_HoVerNet_Inference.ipynb) in Google Colab and select a GPU runtime.
+2. Upload `data/sample_fold2/images.npy` to `/content/`. Generate the ten input PNGs before running the notebook's image-list cell:
+
+```python
+import numpy as np
+from PIL import Image
+
+images = np.load("/content/images.npy")
+for i, image in enumerate(images):
+    image = np.clip(image, 0, 255).astype(np.uint8)
+    Image.fromarray(image).save(f"/content/image_{i:03d}.png")
+```
+
+3. Run the notebook's setup, model-loading, inference, and CSV-export cells in order.
+4. Download `hovernet_predictions.csv` and place it in `benchmarks/pannuke/results/sample_predictions/`. The current saved CSV can be used directly for inspection and clustering.
+
+### Abhishek - Ground-Truth Evaluation
+TODO
+
+### Kashvi - Prediction Inspection and Clustering
+
+Install the analysis dependencies in your Python environment:
+
+```bash
+python -m pip install numpy pandas scipy scikit-learn matplotlib
+```
+
+Run the analysis:
+
+```bash
+python benchmarks/pannuke/scripts/inspect_and_cluster.py
+```
+
+The script reads the included sample arrays and saved prediction CSV. It prints the class-disagreement flags and clustering summary, then generates:
+
+- [Clustering results](results/clustering_comparison.csv)
+- [Inspection figure](results/sample_predictions/prediction_inspection.png)
 
 ---
 

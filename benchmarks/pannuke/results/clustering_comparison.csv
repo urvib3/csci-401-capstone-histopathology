@@ -1,0 +1,4 @@
+method,nuclei,variables,mixed_groups,largest_group,reduction_percent
+K-means,55,21,9,4,61.8
+DBSCAN,55,47,0,3,14.5
+Spatial Ward,55,47,0,3,14.5
