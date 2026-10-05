@@ -141,8 +141,8 @@ This is one of three BCSS tracks for Deliverable 3. Questions go to @rn-1.
 
 | Track | Status | Where |
 | --- | --- | --- |
-| Superpixel benchmark (SLIC, Felzenszwalb, watershed and others) | running | `cluster_classical.py --part 1` |
-| Phikon-v2 features: clustering, codebook, linear probe | queued | `dino_features.py` |
+| Superpixel benchmark (SLIC, Felzenszwalb, watershed and others) | done; results in benchmarks/bcss/README.md | `cluster_classical.py --part 1` |
+| Phikon-v2 features: clustering, codebook, linear probe | done; val mIoU 0.561 (codebook), 0.652 (probe) | `dino_features.py` |
 | DINOv2 evaluation and U-Net baseline | deferred | `dino_features.py`, `train_unet.py` |
 
 - Design docs: [segmentation + WCSP pipeline](https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/docs/design/segmentation-wcsp-pipeline.md) and [algorithm reference](https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/docs/design/segmentation-algorithms.md)

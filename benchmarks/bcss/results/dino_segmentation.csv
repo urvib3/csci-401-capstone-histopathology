@@ -1,0 +1,7 @@
+method,param,segments_per_tile,ASA,boundary_recall,oracle_mIoU,sec_per_tile
+phikon2_kmeans_per_tile,4.0000,29.9333,0.8912,0.2372,0.6953,0.0323
+phikon2_kmeans_per_tile,8.0000,55.7833,0.9068,0.2926,0.7480,0.0586
+phikon2_kmeans_per_tile,16.0000,79.4667,0.9180,0.3352,0.7868,0.0950
+phikon2_leiden_per_tile,0.5000,22.9333,0.8828,0.2057,0.6731,0.0345
+phikon2_leiden_per_tile,1.0000,37.0667,0.8934,0.2532,0.6890,0.0263
+phikon2_leiden_per_tile,2.0000,55.2333,0.9043,0.2837,0.7332,0.0272

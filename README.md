@@ -12,6 +12,8 @@ optimization techniques.
   segmentation benchmark (see below).
 - `scripts/` - dataset download and inspection.
 - `tests/` - `python3 -m pytest tests` (runs without the dataset).
+- `benchmarks/` - Deliverable 3 baselines on PanNuke and BCSS; joint write-up in
+  [benchmarks/DELIVERABLE3_REPORT.md](benchmarks/DELIVERABLE3_REPORT.md).
 - `docs/design/` - design docs: [segmentation + WCSP pipeline](docs/design/segmentation-wcsp-pipeline.md)
   (proposed) and [segmentation algorithm reference](docs/design/segmentation-algorithms.md).
 

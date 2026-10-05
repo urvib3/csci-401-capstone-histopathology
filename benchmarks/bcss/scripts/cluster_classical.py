@@ -17,7 +17,7 @@
 #
 # Outputs in benchmarks/bcss/results/:
 #   clustering_superpixels.csv, clustering_semantic.csv,
-#   figures/clustering_examples.png, figures/asa_vs_segments.png
+#   figures/clustering_examples.jpg, figures/asa_vs_segments.png
 
 import argparse
 import os
@@ -314,12 +314,13 @@ def plot_examples(jobs, models):
             if r == 0:
                 axes[r, c + 2].set_title(f"{name}\n{param}", fontsize=8)
     axes[0, 0].set_title("image (Macenko)", fontsize=8)
-    axes[0, 1].set_title("ground truth\nred tumor, pink stroma,\nblue infl., black necr.",
+    axes[0, 1].set_title("ground truth: red tumor,\npink stroma, blue inflam.,\nblack necrosis, green other",
                          fontsize=7)
     for ax in axes.ravel():
         ax.axis("off")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG_DIR, "clustering_examples.png"), dpi=110)
+    fig.savefig(os.path.join(FIG_DIR, "clustering_examples.jpg"), dpi=110,
+                pil_kwargs={"quality": 85})
 
 
 # Part 2 ------------------------------------------------------------------------
