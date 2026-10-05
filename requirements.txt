@@ -1,0 +1,6 @@
+numpy
+pillow
+pytoulbar2
+pytest
+# optional
+torch

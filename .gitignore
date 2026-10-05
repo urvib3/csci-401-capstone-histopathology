@@ -11,3 +11,5 @@ benchmarks/pannuke/data/sample_fold2/*
 benchmarks/pannuke/hovernet_inputs/
 benchmarks/pannuke/results/sample_predictions/ground_truth_mask_0.png
 benchmarks/pannuke/results/sample_predictions/input_image_0.png
+/data/
+/bcss_inspect/
