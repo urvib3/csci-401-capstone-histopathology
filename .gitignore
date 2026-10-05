@@ -9,6 +9,7 @@ benchmarks/pannuke/data/sample_fold2/*
 !benchmarks/pannuke/data/sample_fold2/masks.npy
 !benchmarks/pannuke/data/sample_fold2/README.md
 benchmarks/pannuke/hovernet_inputs/
+benchmarks/pannuke/hovernet_inputs_fold2/
 benchmarks/pannuke/results/sample_predictions/ground_truth_mask_0.png
 benchmarks/pannuke/results/sample_predictions/input_image_0.png
 /data/
