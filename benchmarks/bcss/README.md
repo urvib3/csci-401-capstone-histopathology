@@ -73,7 +73,8 @@ All runs use BCSS_512 with the 5 coarse classes (tumor, stroma, inflammatory, ne
 | Superpixel / clustering benchmark | `cluster_classical.py --part 1` | done, below |
 | Phikon-v2 patch features: clustering, codebook, linear probe | `dino_features.py --model phikon2` | done, below |
 | Unsupervised pixel classification (k-means / GMM on stain colour) | `cluster_classical.py --part 2` | handed off: [HANDOFF_unsupervised_pixel_classification.md](HANDOFF_unsupervised_pixel_classification.md) |
-| DINOv2 (natural-image) features, U-Net baseline | `dino_features.py --model dinov2`, `train_unet.py` | deferred; DINOv2 features already extracted |
+| Pretrained U-Net baseline (TIAToolbox `fcn_resnet50_unet-bcss`) | `evaluate_pretrained.py` | done, below |
+| DINOv2 (natural-image) features, U-Net trained from scratch | `dino_features.py --model dinov2`, `train_unet.py` | deferred; DINOv2 features already extracted |
 
 ### 1. Over-segmentation benchmark
 
@@ -137,6 +138,38 @@ Findings:
 - **Main confusion:** stroma predicted as inflammatory (10% of stroma pixels) and tumor predicted as stroma (7% of tumor pixels). "Other" is weakest (IoU 0.43); it is a mix of 12 rare BCSS codes.
 - For context, an early partial run with natural-image DINOv2 features gave codebook mIoU of only 0.16–0.17, which suggests pathology pretraining matters; that comparison is deferred.
 
+### 3. Pretrained U-Net baseline (TIAToolbox)
+
+**Question:** how well does an off-the-shelf, fully supervised BCSS segmentation model do on the held-out hospitals?
+
+**Model:** `fcn_resnet50_unet-bcss` from [TIAToolbox](https://github.com/TissueImageAnalytics/tiatoolbox) (Tissue Image Analytics Centre, University of Warwick; the same toolbox used for HoVer-Net on PanNuke). It is a ResNet-50 U-Net trained on BCSS with the same 5 coarse classes, in the same order as `coarse_lut`. Weights download from [TIACentre/TIAToolbox_pretrained_weights](https://huggingface.co/TIACentre/TIAToolbox_pretrained_weights) on first use. No training or fine-tuning was done.
+
+**Setup:** all 2,768 val tiles at native 512 px (0.25 µm/px, the model's expected resolution). Input is scaled to 0–1 (`model.preproc`); output is softmaxed, upsampled ×2 and centre-cropped, following TIAToolbox's own `infer_batch`. The network only predicts the **central 256 × 256 px** of each 512 px tile, so ground truth is cropped to the same area (the same idea as HoVer-Net's central 164 px crop on PanNuke). Don't-care pixels are ignored.
+
+| Metric | Value |
+| --- | ---: |
+| Pixel accuracy | 0.841 |
+| Mean IoU | 0.649 |
+| Mean Dice | 0.779 |
+| Runtime | 0.13 s / tile on an M3 GPU (MPS), ≈ 6 min for val |
+
+| Class | Precision | Recall | IoU | Dice |
+| --- | ---: | ---: | ---: | ---: |
+| Tumor | 0.892 | 0.902 | 0.813 | 0.897 |
+| Stroma | 0.828 | 0.848 | 0.721 | 0.838 |
+| Inflammatory | 0.800 | 0.730 | 0.617 | 0.763 |
+| Necrosis | 0.805 | 0.798 | 0.669 | 0.801 |
+| Other | 0.604 | 0.586 | 0.424 | 0.595 |
+
+Outputs: [`results/evaluation/`](results/evaluation/) (overall metrics, per-class metrics, confusion matrix).
+
+Findings:
+
+- **About the same as the Phikon-v2 linear probe** (mIoU 0.649 vs 0.652), with the same per-class pattern: tumor and stroma easiest, "other" hardest.
+- **Main confusions:** inflammatory predicted as stroma (23% of inflammatory pixels), stroma as tumor (8%) and tumor as stroma (7%).
+- **Not a like-for-like comparison with section 2:** this scores the central 256 px at full resolution; the probe scores whole tiles downsampled to 256 px in 32 px cells.
+- **Possible leakage:** we could not find which BCSS ROIs the checkpoint was trained on. If any val hospitals were included, these numbers are optimistic. The probe has no such issue (trained on our train split only).
+
 ### How to reproduce
 
 ```bash
@@ -144,6 +177,8 @@ Findings:
 .venv/bin/python benchmarks/bcss/scripts/cluster_classical.py --part 1 --tiles 60 --workers 3   # ~30–40 min
 .venv/bin/python benchmarks/bcss/scripts/dino_features.py extract --model phikon2                # ~40 min, GPU/MPS
 .venv/bin/python benchmarks/bcss/scripts/dino_features.py evaluate --model phikon2               # ~15 min
+.venv/bin/pip install tiatoolbox
+.venv/bin/python benchmarks/bcss/scripts/evaluate_pretrained.py                                   # ~6 min on MPS; --limit N for a quick check
 ```
 
 Every step caches its progress under `data/outputs/` and resumes if interrupted. Run heavy steps one at a time on a 16 GB machine.

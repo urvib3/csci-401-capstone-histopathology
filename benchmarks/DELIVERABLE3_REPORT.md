@@ -4,14 +4,14 @@
 
 ## Summary
 
-Deliverable 3 set up one baseline per dataset, checked how good its outputs are, and looked at how to shrink those outputs into a small set of WCSP variables. No WCSP has been built or solved yet on either dataset; the numbers below are the baselines a WCSP step would have to improve on.
+Deliverable 3 set up baselines for each dataset (one on PanNuke, three on BCSS), checked how good their outputs are, and looked at how to shrink those outputs into a small set of WCSP variables. No WCSP has been built or solved yet on either dataset; the numbers below are the baselines a WCSP step would have to improve on.
 
 | | PanNuke | BCSS |
 | --- | --- | --- |
 | What is labeled | individual nuclei (5 cell classes) | tissue regions (5 coarse classes) |
-| Baseline | HoVer-Net, pretrained PanNuke checkpoint (TIAToolbox) | Phikon-v2 frozen features + linear probe; unsupervised clustering |
+| Baselines | HoVer-Net, pretrained PanNuke checkpoint (TIAToolbox) | (1) Phikon-v2 features + linear probe; (2) pretrained U-Net (TIAToolbox); (3) unsupervised Phikon-v2 codebook, clusters named by train labels |
 | Data scored | Fold 2, all 2,523 patches | BCSS_512 val, 2,768 tiles from hospitals unseen in train |
-| Headline result | detection F1 0.833, multi-class PQ 0.437 | val mIoU 0.652 (probe), 0.561 (clusters, labels only for naming) |
+| Headline result | detection F1 0.833, multi-class PQ 0.437 | val mIoU 0.652 (probe), 0.649 (U-Net), 0.561 (clusters, labels only for naming) |
 | Natural WCSP variable | one detected nucleus (or a DBSCAN group of nuclei) | one region: a superpixel, a feature cluster or a grid cell |
 | Variable reduction | DBSCAN: 55 → 47 variables on 10 patches (−15%) | Phikon-v2 per-tile clusters: ≈ 80 regions per 512 px tile at 0.79 oracle mIoU |
 
@@ -59,12 +59,15 @@ DBSCAN is the initial pick: same result as Ward with simpler settings, and isola
 | k-means pixel clusters + components | 395 | 0.723 | 0.54 | 0.3 |
 | Normalized cut | 40 | 0.574 | 0.17 | 5.8 |
 
-**Classification with Phikon-v2 features** (frozen pathology foundation model, 16 × 16 patch tokens per tile, scored on all val tiles):
+**Tissue classification baselines** (all 2,768 val tiles):
 
 | Method | Labels used | Val mIoU | Pixel acc |
 | --- | --- | ---: | ---: |
-| Codebook: k-means k = 50, clusters named by majority train label | naming only | 0.561 | 0.775 |
-| Linear probe on tokens | train tiles | 0.652 | 0.836 |
+| Phikon-v2 codebook: k-means k = 50 on frozen patch tokens, clusters named by majority train label | naming only | 0.561 | 0.775 |
+| Phikon-v2 linear probe on frozen patch tokens | train tiles | 0.652 | 0.836 |
+| ResNet-50 U-Net, pretrained BCSS checkpoint (TIAToolbox, no training by us) | fully supervised (by TIA) | 0.649 | 0.841 |
+
+Phikon-v2 rows use 16 × 16 patch tokens per tile and score whole tiles at 256 px. The U-Net predicts only the central 256 px of each 512 px tile and is scored there at full resolution, so the comparison is close but not exact. We could not confirm which ROIs the U-Net checkpoint was trained on. Details in [`bcss/README.md`](bcss/README.md#3-pretrained-u-net-baseline-tiatoolbox).
 
 Findings:
 
@@ -90,4 +93,6 @@ Findings:
 - [ ] PanNuke: commit the `results/evaluation/` CSVs the README links to (overall, per-class, confusion matrix, per-tissue)
 - [ ] PanNuke: re-run HoVer-Net keeping full class probabilities for unary costs; consider CellViT as a second baseline
 - [ ] BCSS: unsupervised pixel classification on stain colour ([handoff](bcss/HANDOFF_unsupervised_pixel_classification.md))
-- [ ] BCSS: DINOv2 (natural-image) comparison and a supervised U-Net baseline (deferred; scripts ready)
+- [x] BCSS: pretrained supervised U-Net baseline (TIAToolbox), val mIoU 0.649
+- [ ] BCSS: rescore the U-Net on whole tiles at 256 px so it is directly comparable with the probe
+- [ ] BCSS: DINOv2 (natural-image) comparison and a U-Net trained from scratch (deferred; scripts ready)

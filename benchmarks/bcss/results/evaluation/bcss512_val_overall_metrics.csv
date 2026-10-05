@@ -1,0 +1,7 @@
+metric,value
+Tiles evaluated,2768
+Pixel accuracy,0.8413919092071649
+Mean IoU,0.6488430560611109
+Mean Dice,0.7790170794558656
+Seconds per tile,0.1338992645715298
+Device,mps
