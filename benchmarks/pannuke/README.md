@@ -112,29 +112,57 @@ Saved outputs include:
 ---
 ### Abhishek - Evaluation Against Ground Truth
 
-**Goal:** Quantitatively evaluate the full Fold 2 HoVer-Net predictions against PanNuke ground truth.
+Compared the full Fold 2 HoVer-Net predictions (all 2,523 patches) against the ground truth, which is `masks.npy` from the Fold 2 zip. No new inference was run, this only uses the saved instance maps and prediction CSV.
 
-Use:
+HoVer-Net fast only outputs the middle 164x164 of each 256x256 patch, so the ground truth is cropped to that same area before comparing. That leaves 28,214 ground-truth nuclei against 25,301 predicted.
 
-- `hovernet_instance_maps_*.npz`
-- PanNuke Fold 2 `masks.npy`
-- `hovernet_fold2_predictions.csv`
+| Metric | Value |
+| --- | ---: |
+| Detection precision | 0.881 |
+| Detection recall | 0.790 |
+| Detection F1 | 0.833 |
+| Class accuracy of detected nuclei | 0.823 |
+| Detection + classification F1 | 0.686 |
+| Binary PQ | 0.645 |
+| Multi-class PQ | 0.437 |
 
-Tasks:
+| Class | Ground truth | Predicted | Precision | Recall | F1 | PQ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Neoplastic | 10,937 | 10,937 | 0.741 | 0.741 | 0.741 | 0.580 |
+| Inflammatory | 4,867 | 3,686 | 0.783 | 0.593 | 0.675 | 0.413 |
+| Connective | 7,904 | 6,331 | 0.704 | 0.564 | 0.626 | 0.398 |
+| Dead | 378 | 555 | 0.292 | 0.429 | 0.347 | 0.382 |
+| Non-neoplastic epithelial | 4,128 | 3,605 | 0.761 | 0.664 | 0.709 | 0.392 |
 
-1. Match each predicted instance map with the corresponding Fold 2 ground-truth mask.
-2. Evaluate detection and classification performance.
-3. Record metrics such as:
-   - Precision
-   - Recall
-   - F1 score
-   - Panoptic Quality (PQ), if available
-4. Evaluate performance across the five nucleus classes.
-5. Identify classes that are commonly confused or difficult to detect.
-6. Create a small results table for the final deliverable.
-7. Document any evaluation assumptions or preprocessing decisions.
+(the neoplastic counts being equal is a coincidence, only 8,103 of them are the same nuclei)
 
-The confidence values in the prediction CSV are model confidence scores and should not be treated as accuracy. Final performance should be measured against the PanNuke ground truth.
+What we see:
+
+- It finds most nuclei. 21% of the real ones are missed and 12% of the predictions don't match any real nucleus.
+- The class is the weaker part. 18% of the detected nuclei get the wrong class.
+- Dead is the hardest class. 42% of dead nuclei are missed and only 162 of the 555 dead predictions are right. It is also the rarest class.
+- Most common mix-ups: connective predicted as neoplastic (715 nuclei), and inflammatory and connective swapped both ways (468 and 464).
+- For the WCSP, relabeling could fix wrong classes but it can't bring back nuclei that were never detected.
+
+The full confusion matrix and per-tissue numbers are in `results/evaluation/`.
+
+How it was evaluated:
+
+- Detection: a predicted nucleus matches a ground-truth nucleus if their centroids are within 12 pixels, one-to-one. This is the radius the HoVer-Net paper uses.
+- Per-class precision/recall/F1 only count a nucleus if it is both detected and given the right class.
+- PQ: masks match if IoU > 0.5. It is averaged per tissue type and then over the 19 tissues, like the PanNuke paper does.
+- The 187 predictions that HoVer-Net typed as background count as detections but always as the wrong class.
+- The instance maps don't store the class, so it is looked up from the CSV (k-th label in the map = `nucleus_id` k).
+- We couldn't find which folds the pretrained checkpoint was trained on. If Fold 2 was one of them these numbers are a bit optimistic.
+
+The confidence values in the CSV are not accuracy and are not used here.
+
+#### Other baseline options
+
+- **CellViT**: same kind of output as HoVer-Net (instance masks + the five PanNuke classes) but with a vision transformer encoder. It has pretrained PanNuke checkpoints and reports better PQ than HoVer-Net, so it is the most natural second baseline. It is a bigger model and heavier to set up and run.
+- **StarDist**: predicts each nucleus as a star-convex polygon. It is fast and good at separating touching nuclei, and it has a version that also predicts classes. We don't know of a ready PanNuke checkpoint for it, so we would probably need to train it ourselves.
+
+We went with HoVer-Net because it does segmentation and classification in one model, it is the baseline used in the PanNuke paper, and there is a pretrained PanNuke checkpoint in TIAToolbox that runs on a free Colab GPU in about a minute for the whole fold. Each output is a nucleus with a location and a class, which is what we need for the WCSP variables.
 
 ---
 
@@ -202,7 +230,31 @@ for i, image in enumerate(images):
 4. The sample cells export `hovernet_predictions.csv`. The current inspection script uses the checked-in `results/sample_predictions/fold2/hovernet_fold2_predictions.csv` and selects image indices 0 through 9. To regenerate that full-fold file, use the complete Fold 2 inputs and the notebook's full-fold inference/export cells.
 
 ### Abhishek - Ground-Truth Evaluation
-TODO
+
+The evaluation needs the complete Fold 2 ground truth, which is too large for the repository. Download the official Fold 2 archive (about 660 MB) and extract the masks and tissue types into the ignored `data/` directory:
+
+```bash
+cd benchmarks/pannuke/data
+wget https://warwick.ac.uk/fac/cross_fac/tia/data/pannuke/fold_2.zip
+mkdir -p masks/fold2 images/fold2
+unzip -j fold_2.zip '*/masks/fold2/masks.npy' -d masks/fold2
+unzip -j fold_2.zip '*/images/fold2/types.npy' -d images/fold2
+cd ../../..
+```
+
+The extracted `masks.npy` is about 7.4 GB; the script memory-maps it, so it does not need that much RAM. Install the dependencies and run the evaluation:
+
+```bash
+python -m pip install numpy pandas scipy
+python benchmarks/pannuke/scripts/evaluate_ground_truth.py
+```
+
+Use `--masks` and `--types` if the files are stored elsewhere. The script reads the checked-in instance maps and prediction CSV, prints the tables above, and writes them to `results/evaluation/`:
+
+- [Overall metrics](results/evaluation/fold2_overall_metrics.csv)
+- [Per-class metrics](results/evaluation/fold2_class_metrics.csv)
+- [Confusion matrix](results/evaluation/fold2_confusion_matrix.csv)
+- [Per-tissue metrics](results/evaluation/fold2_tissue_metrics.csv)
 
 ### Kashvi - Prediction Inspection and Clustering
 
