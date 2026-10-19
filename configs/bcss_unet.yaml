@@ -7,7 +7,7 @@ dataset:
   split: dev                 # fit | dev | val
 classifier:
   name: tia_unet
-  temperature: auto          # fitted on dev by `python -m wcsp calibrate`
+  temperature: 1.0           # raw U-Net softmax
 problem:
   alpha: 1.0
   lam: 2.0
