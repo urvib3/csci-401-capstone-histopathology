@@ -8,17 +8,13 @@ From our previous findings, PanNuke inference and prediction inspection are avai
 
 ## Task 1 — PanNuke: Prepare a real prediction crop
 
-*Section budget: 150–180 words and one small label grid.*
+_Section budget: 150–180 words and one small label grid._
 
-Select a small crop, preferably 3×3 pixels, from an existing HoVer-Net prediction. Explain how instance IDs and predicted types were converted to pixel labels. Record the source patch, crop coordinates, label meanings, and active pixels. Verify alignment with the model's valid prediction area and state how background or untyped pixels were handled.
-
-Include the resulting label grid and a brief finding about whether the input is ready for optimization. Share the crop and label dictionary with Tasks 2 and 3 early.
-
-<!-- Replace these task instructions with your completed contribution. -->
+We selected a real 3×3 crop from the existing hovernet_fast-pannuke inference results for PanNuke Fold 2. The crop comes from image_00748 at HoVer-Net output coordinates x=5–7, y=17–19, corresponding to x=51–53, y=63–65 in the original 256×256 image after applying the 46-pixel offset of the model’s valid 164×164 prediction region. HoVer-Net’s instance map contained three detected nucleus instances in this crop: instance 5, instance 8, and instance 10. Using the associated prediction metadata, these were converted to Non-neoplastic epithelial, Connective, and Inflammatory pixel labels, respectively. Each pixel belonging to an instance inherited that nucleus’s predicted class. Instance-map value 0 was treated as background and excluded rather than interpreted as healthy tissue. The resulting crop contains eight active pixels across three predicted biological classes and one inactive background pixel. This produces a compact, real model-derived input suitable for the preliminary pixel-level WCSP experiment.
 
 ## Task 2 — PanNuke: Construct and run the tiny WCSP
 
-*Section budget: 180–220 words.*
+_Section budget: 180–220 words._
 
 Use Task 1's crop to construct the pixel-level WCSP. Report the actual variable and unique edge counts, unary-cost choice, pairwise settings, and solver/method. State implementation choices without repeating the handout's full matrix or neighborhood definitions.
 
@@ -30,7 +26,7 @@ If real-input or solver access is blocked, use a clearly labeled two-pixel synth
 
 ## Task 3 — PanNuke: Verify and interpret the results
 
-*Section budget: 180–220 words and one compact before/after label grid.*
+_Section budget: 180–220 words and one compact before/after label grid._
 
 Independently check the initial and returned assignments using Task 2's actual costs. Report whether strong fidelity preserved every initial label. For each setting, give the initial and returned objective values under that same setting, changed-pixel count, runtime, and solver status. These can be short bullets; a results table is optional.
 
@@ -40,7 +36,7 @@ Interpret weaker-fidelity changes and record any ties or numerical issues. Do no
 
 ## Task 4 — BCSS: Prepare input and resolve label handling
 
-*Section budget: 180–220 words and one small label grid.*
+_Section budget: 180–220 words and one small label grid._
 
 Identify an actual per-pixel prediction artifact or obtain one tile's predictions using the existing model setup. Aggregate evaluation metrics cannot serve as prediction maps. Select a small crop and record the source, coordinates, class IDs, and excluded pixels. Verify alignment with the predicted central area.
 
@@ -52,7 +48,7 @@ If input access or label compatibility remains unresolved, identify the blocker 
 
 ## Task 5 — BCSS: Run the tiny WCSP experiment
 
-*Section budget: 200–250 words and one compact before/after label grid.*
+_Section budget: 200–250 words and one compact before/after label grid._
 
 Reuse the shared implementation where possible and apply Task 4's explicit label decisions. Report variable and edge counts, unary/pairwise settings, the strong-fidelity bound, and the actual solver configuration.
 
@@ -64,7 +60,7 @@ Keep code and detailed arrays on GitHub. Summarize only the evidence needed to u
 
 ## Task 6 — BCSS: Verify results and specify the next implementation step
 
-*Section budget: 180–220 words.*
+_Section budget: 180–220 words._
 
 Independently check Task 5's objective calculations and strong-fidelity label preservation. Report the verification outcome and any discrepancy, tie, or timeout limitation.
 

@@ -1,0 +1,73 @@
+{
+  "source_dataset": "PanNuke Fold 2",
+  "source_model": "hovernet_fast-pannuke",
+  "source_image": "image_00748",
+  "hovernet_output_coordinates": {
+    "x_start": 5,
+    "x_end": 7,
+    "y_start": 17,
+    "y_end": 19
+  },
+  "original_256x256_coordinates": {
+    "x_start": 51,
+    "x_end": 53,
+    "y_start": 63,
+    "y_end": 65
+  },
+  "label_dictionary": {
+    "0": "Background / inactive",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "active_pixel_definition": "Pixel belongs to a detected nucleus with one of the five biological classes.",
+  "background_handling": "Instance-map value 0 and untyped/background predictions are inactive and excluded from the WCSP variable set.",
+  "active_pixels": 8,
+  "num_unique_active_classes": 3,
+  "active_class_ids": [
+    2,
+    3,
+    5
+  ],
+  "label_grid": [
+    [
+      5,
+      3,
+      3
+    ],
+    [
+      0,
+      3,
+      3
+    ],
+    [
+      2,
+      2,
+      3
+    ]
+  ],
+  "instance_id_grid": [
+    [
+      5,
+      8,
+      8
+    ],
+    [
+      0,
+      8,
+      8
+    ],
+    [
+      10,
+      10,
+      8
+    ]
+  ],
+  "valid_output_shape": [
+    164,
+    164
+  ],
+  "coordinate_offset_to_original_patch": 46
+}
