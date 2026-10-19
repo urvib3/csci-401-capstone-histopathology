@@ -10,6 +10,9 @@ optimization techniques.
   treewidth) and solved with Toulbar2, plus notes on Local Search / A* alternatives.
 - `bcss/` - loader and WCSP-oriented primitives for the BCSS breast cancer
   segmentation benchmark (see below).
+- `wcsp/` - pixel-level WCSP shared by PanNuke and BCSS: one variable per pixel
+  over 5 cell labels, unary costs from a pixel classifier, the notes' cost table
+  over 5 neighbor types, and solvers (argmax, ICM, alternating 100/56/100 blocks).
 - `scripts/` - dataset download and inspection.
 - `tests/` - `python3 -m pytest tests` (runs without the dataset).
 - `benchmarks/` - Deliverable 3 baselines on PanNuke and BCSS; joint write-up in

@@ -1,0 +1,31 @@
+# BCSS_512, pretrained TIAToolbox U-Net as the pixel classifier.
+# The WCSP grid is the central 256 x 256 of each 512 px tile.
+name: bcss_unet
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev                 # fit | dev | val
+classifier:
+  name: tia_unet
+  temperature: auto          # fitted on dev by `python -m wcsp calibrate`
+problem:
+  alpha: 1.0
+  lam: 2.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: handwritten         # handwritten | potts | path to a CSV
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: blocks               # the notes' 100/56/100 alternating scheme
+  block: 100
+  max_rounds: 4
+  workers: 4                 # corner blocks in parallel
+  inner:
+    name: toulbar2
+    time_limit: 20
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs
