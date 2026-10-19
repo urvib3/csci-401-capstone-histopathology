@@ -68,16 +68,16 @@ Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neo
 
 Each tile becomes a WCSP with 65,536 variables (one per pixel) and 778,770 pairwise cost functions (all five neighbor types). Cost = −log p from the U-Net + λ × (handout table ÷ distance), with η = 1 and the attribute term f = 0. It is solved with the handout's alternating-block scheme (four 100 × 100 corners, then the 56-px cross, repeated), using a greedy pixel-by-pixel solver (ICM) inside each block; a change is kept only if it lowers the total cost.
 
-First test on **10 val tiles** (hospitals unseen in training), scored against pathologist labels:
+Scored against pathologist labels on **500 val tiles** (evenly spread over all 45 val ROIs; hospitals unseen in training):
 
-| λ | Method | Pixel accuracy | mIoU |
-| --- | --- | ---: | ---: |
-| 1 | U-Net alone | 0.798 | 0.482 |
-| 1 | U-Net + WCSP | 0.800 | 0.483 |
-| 4 | U-Net alone | 0.798 | 0.482 |
-| 4 | U-Net + WCSP | 0.800 | 0.483 |
+| Method | Pixel accuracy | mIoU | Tumor | Stroma | Inflamm. | Necrosis | Other |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| U-Net alone | 0.8397 | 0.6414 | 0.8088 | 0.7274 | 0.6017 | 0.6401 | 0.4291 |
+| U-Net + WCSP (λ = 4) | 0.8403 | 0.6428 | 0.8090 | 0.7277 | 0.6031 | 0.6405 | 0.4336 |
 
-The WCSP improves accuracy slightly (+0.2 points), mostly on tumor and stroma, and changes under 1% of pixels. The U-Net output is already smooth, so the rules only adjust region boundaries; they cannot fix a whole region the U-Net got wrong. Ten tiles are too few to call the gain real ("other" scores 0 for both methods on this set). A 500-tile run with a 95% ROI-bootstrap interval is in progress.
+Class columns are IoU. mIoU gain: **+0.0013**, 95% interval [+0.0003, +0.0023] from resampling the 45 val ROIs (gain ≤ 0 in 0.65% of resamples). The WCSP changed 0.9% of pixels and took ~8 s/tile on one CPU core.
+
+**Reading the result.** The WCSP is consistently, but only slightly, better than the U-Net: the gain is small yet its interval excludes zero. Every class improves a little, most for inflammatory and "other". The U-Net output is already smooth, so the rules only move pixels on region boundaries; they cannot fix a whole region the U-Net got wrong. (An earlier 10-tile check gave the same picture: 0.798 → 0.800 accuracy.)
 
 ## Task 6 — BCSS: Verify results and specify the next implementation step
 
@@ -85,7 +85,7 @@ The WCSP improves accuracy slightly (+0.2 points), mostly on tumor and stroma, a
 
 **Block strategy, as implemented.** Fixed pixels are not variables: their pairwise costs with free neighbors are added to those neighbors' unary costs, and fixed–fixed costs become a constant, so a block's cost plus the constant always equals the full image's cost. The four corners are independent because the cross (56 px) is wider than the longest interaction (2 px). A block's new labels are kept only if they lower the total cost, so the cost never increases; rounds stop when a full round brings no improvement (or after 4 rounds).
 
-**Open issue.** The gain is small because boundary-only refinement is all the rules can do on an already-smooth U-Net. The next test is the 500-tile run, then tuning λ on the dev split and trying a table derived from BCSS statistics.
+**Open issue.** The gain is small because boundary-only refinement is all the rules can do on an already-smooth U-Net. Next: tune λ on the dev split, try the table derived from BCSS statistics, and run all 2,768 val tiles.
 
 ## Next steps
 

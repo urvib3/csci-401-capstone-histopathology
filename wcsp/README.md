@@ -59,33 +59,30 @@ is never worse than the U-Net *by the cost's own measure*; whether it is more
 
 ## Results so far
 
-**First check: 10 val tiles** (hospitals the U-Net never saw; evenly spread
-over the val set). Pixel accuracy and mIoU (mean overlap between predicted
-and true regions over the 5 classes):
+**500 val tiles** (hospitals the U-Net never saw; evenly spread over all 45
+val tissue regions). mIoU = mean overlap between predicted and true regions
+over the 5 classes; class columns are IoU:
 
-| λ | Method | Pixel accuracy | mIoU |
-| --- | --- | ---: | ---: |
-| 1 | U-Net alone | 0.798 | 0.482 |
-| 1 | U-Net + WCSP | 0.800 | 0.483 |
-| 4 | U-Net alone | 0.798 | 0.482 |
-| 4 | U-Net + WCSP | 0.800 | 0.483 |
+| Method | Pixel accuracy | mIoU | Tumor | Stroma | Inflamm. | Necrosis | Other |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| U-Net alone | 0.8397 | 0.6414 | 0.8088 | 0.7274 | 0.6017 | 0.6401 | 0.4291 |
+| U-Net + WCSP (λ = 4) | 0.8403 | 0.6428 | 0.8090 | 0.7277 | 0.6031 | 0.6405 | 0.4336 |
+
+Class columns are IoU. mIoU gain: **+0.0013**, 95% interval [+0.0003, +0.0023] from resampling the 45 val ROIs (gain ≤ 0 in 0.65% of resamples). The WCSP changed 0.9% of pixels and took ~8 s/tile on one CPU core.
 
 **What this means:**
 
-- The WCSP helps, but only a little (+0.2 points accuracy). Gains come mostly
-  from tumor and stroma pixels.
+- The WCSP is **better, but only slightly**. +0.13 mIoU points is small, yet
+  the 95% interval stays above zero, so it is a real (tiny) improvement, not
+  luck. Every class gains a little; inflammatory and "other" gain most.
 - **Why so little:** the U-Net's output is already smooth, with big blobs of
-  one class. The WCSP can only move pixels near the edges between regions, so
-  it changes well under 1% of pixels. It cannot fix a whole region the U-Net
-  got wrong, because the U-Net is confident there and the rules only look 2–3
-  pixels away.
-- **Ten tiles is not enough to trust the difference.** "Other/healthy" scores 0
-  for both methods here, which drags mIoU down (the full-val U-Net mIoU is
-  0.649).
+  one class. The rules only look 2–3 pixels away, so the WCSP can only move
+  pixels near region edges (0.9% of pixels change). It cannot fix a whole
+  region the U-Net got wrong, because the U-Net is confident there.
+- An earlier 10-tile check showed the same thing (0.798 → 0.800 accuracy).
 
-**Running now:** λ ∈ {0.5, 1, 2, 4, 8} on 200 dev tiles (tuning set) to pick
-λ, then U-Net vs. U-Net + WCSP on all 2,768 val tiles, with a 95% confidence
-interval from resampling whole tissue regions (ROIs).
+**Next:** tune λ on the dev split (not val), try the table derived from BCSS
+statistics, and run all 2,768 val tiles.
 
 ## Caveats
 
