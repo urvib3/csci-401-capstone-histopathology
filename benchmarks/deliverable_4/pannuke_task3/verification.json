@@ -1,0 +1,28 @@
+{
+  "source_image": "image_00748",
+  "variable_count": 8,
+  "unique_edges": 28,
+  "assignments_checked_per_setting": 390625,
+  "method": "independent scalar exhaustive enumeration; absolute tolerance 1e-9",
+  "checks": [
+    {
+      "setting": "unary_only",
+      "verified_objective": 0,
+      "optimal_assignment_count": 1,
+      "passed": true
+    },
+    {
+      "setting": "strong_fidelity",
+      "verified_objective": 22.804398010211926,
+      "optimal_assignment_count": 1,
+      "passed": true
+    },
+    {
+      "setting": "weaker_fidelity",
+      "verified_objective": 3.0,
+      "optimal_assignment_count": 1,
+      "passed": true
+    }
+  ],
+  "all_checks_passed": true
+}

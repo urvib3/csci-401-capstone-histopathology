@@ -31,25 +31,30 @@ The full five-class WCSP domain remains Neoplastic, Inflammatory, Connective, De
 
 ## Task 2 — PanNuke: Construct and run the tiny WCSP
 
-_Section budget: 180–220 words._
+We used Task 1's real crop from `image_00748` without changing its initial labels. The eight nonzero pixels became variables, each with domain `{1, 2, 3, 4, 5}`. Background remained inactive. The five neighborhood types produced 28 unique undirected edges: 9, 6, 5, 6, and 2 edges at distances 1, √2, 2, √5, and 2√2, respectively. Interactions outside the crop were excluded.
 
-Use Task 1's crop to construct the pixel-level WCSP. Report the actual variable and unique edge counts, unary-cost choice, pairwise settings, and solver/method. State implementation choices without repeating the handout's full matrix or neighborhood definitions.
+Unary cost was `lambda` for changing a pixel's initial label and zero otherwise. Pairwise costs used the supplied base matrix divided by pixel distance. The unspecified attribute term was set to zero and the distance exponent to one for this preliminary check. Costs were evaluated without scaling or rounding.
 
-Run unary-only, strong-fidelity, and weaker-fidelity settings. Select a strong weight with a documented sufficient bound, rather than assuming it preserves predictions. Report any cost scaling, solver limit, or unresolved issue. Keep supporting code and arrays on GitHub; describe the implemented behavior here.
-
-If real-input or solver access is blocked, use a clearly labeled two-pixel synthetic example and identify the missing integration step.
-
-<!-- Replace these task instructions with your completed contribution. -->
+We enumerated all **390,625 assignments** per setting, obtaining exact global optima for this crop. Unary-only used `lambda = 1` with pairwise terms disabled. Strong fidelity used `lambda = 193`, exceeding the conservative maximum-pairwise-cost bound of **191.330290**; any changed pixel therefore costs more than all possible pairwise savings. Weaker fidelity used `lambda = 1` with pairwise terms enabled. No time limit or additional optimization rules were applied. Implementation, returned label arrays, and numerical outputs are stored in `pannuke_task2/`.
 
 ## Task 3 — PanNuke: Verify and interpret the results
 
-_Section budget: 180–220 words and one compact before/after label grid._
+An independent verifier loaded Task 1's initial labels, rebuilt edges using neighbor offsets, and recomputed unary and pairwise costs. It separately enumerated all assignments to verify optimality and count ties. All checks passed within absolute tolerance `1e-9`; each setting had exactly one optimum. Background stayed zero.
 
-Independently check the initial and returned assignments using Task 2's actual costs. Report whether strong fidelity preserved every initial label. For each setting, give the initial and returned objective values under that same setting, changed-pixel count, runtime, and solver status. These can be short bullets; a results table is optional.
+- **Unary-only:** initial and returned objectives were **0**; no pixels changed. Runtime: **0.133 s**.
+- **Strong fidelity:** initial and returned objectives were **22.804398**, comprising zero unary cost and 22.804398 pairwise cost; no pixels changed. Runtime: **0.183 s**.
+- **Weaker fidelity:** objective decreased from **22.804398 to 3.000000**, comprising unary cost 3 and pairwise cost 0. Three pixels changed. Runtime: **0.179 s**.
 
-Interpret weaker-fidelity changes and record any ties or numerical issues. Do not compare objective values across different fidelity weights as if they were the same objective. State what the experiment establishes and what still requires ground-truth evaluation.
+Each runtime includes assignment generation, cost evaluation, and optimum selection. Initial and returned objectives are compared within the same setting.
 
-<!-- Replace these task instructions with your completed contribution. -->
+```text
+Initial / unary-only / strong      Weaker fidelity
+5 3 3                             3 3 3
+0 3 3                             0 3 3
+2 2 3                             3 3 3
+```
+
+Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neoplastic epithelial pixel and both Inflammatory pixels to Connective, eliminating pairwise penalties. This demonstrates smoothing under the specified costs, not improved biological accuracy. No ground-truth evaluation was performed. The verifier and its recorded checks are stored in `pannuke_task3/`.
 
 ## Task 4 — BCSS: Prepare input and resolve label handling
 

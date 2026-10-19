@@ -1,0 +1,4 @@
+setting,lambda,binary_enabled,initial_objective,returned_unary,returned_pairwise,returned_objective,changed_pixels,runtime_seconds,status,assignments_evaluated,optimal_assignment_count
+unary_only,1,False,0.0,0,0.0,0.0,0,0.13272437500199885,exact optimum (exhaustive enumeration),390625,1
+strong_fidelity,193,True,22.80439801021193,0,22.80439801021193,22.80439801021193,0,0.18326133400114486,exact optimum (exhaustive enumeration),390625,1
+weaker_fidelity,1,True,22.80439801021193,3,0.0,3.0,3,0.17936604200076545,exact optimum (exhaustive enumeration),390625,1
