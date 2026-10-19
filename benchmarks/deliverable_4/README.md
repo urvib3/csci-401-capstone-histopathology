@@ -6,11 +6,28 @@ This deliverable advances our existing segmentation work toward WCSP refinement.
 
 From our previous findings, PanNuke inference and prediction inspection are available, and the BCSS U-Net baseline achieved approximately 0.649 mean IoU and 0.779 mean Dice. The contributions below build on those outputs through new integration work and numerical checks.
 
-## Task 1 — PanNuke: Prepare a real prediction crop
 
-_Section budget: 150–180 words and one small label grid._
+## Task 1 — PanNuke: Prepare a Real Prediction Crop [Aakanksha]
 
-We selected a real 3×3 crop from the existing hovernet_fast-pannuke inference results for PanNuke Fold 2. The crop comes from image_00748 at HoVer-Net output coordinates x=5–7, y=17–19, corresponding to x=51–53, y=63–65 in the original 256×256 image after applying the 46-pixel offset of the model’s valid 164×164 prediction region. HoVer-Net’s instance map contained three detected nucleus instances in this crop: instance 5, instance 8, and instance 10. Using the associated prediction metadata, these were converted to Non-neoplastic epithelial, Connective, and Inflammatory pixel labels, respectively. Each pixel belonging to an instance inherited that nucleus’s predicted class. Instance-map value 0 was treated as background and excluded rather than interpreted as healthy tissue. The resulting crop contains eight active pixels across three predicted biological classes and one inactive background pixel. This produces a compact, real model-derived input suitable for the preliminary pixel-level WCSP experiment.
+We selected a real 3×3 crop from the existing `hovernet_fast-pannuke` predictions for PanNuke Fold 2. The crop was taken from `image_00748` at HoVer-Net output coordinates `x = 5–7, y = 17–19`. Because the fast HoVer-Net output represents the central 164×164 region of the original 256×256 patch, a 46-pixel offset was applied in both directions, giving original-image coordinates `x = 51–53, y = 63–65`.
+
+The corresponding instance-ID crop contained three detected nuclei: instances 5, 8, and 10. Using the saved prediction metadata, these instances were mapped to Non-neoplastic epithelial, Connective, and Inflammatory, respectively. Each pixel belonging to a detected nucleus was assigned that nucleus's predicted class. Instance-map value `0` was treated as inactive background and excluded from the WCSP rather than being interpreted as healthy tissue. The resulting crop contains eight active pixels, three predicted biological classes, and one inactive background pixel, making it suitable as a small real-model input for the preliminary WCSP experiment.
+
+### Predicted 3×3 Label Grid
+
+|       | x=5 | x=6 | x=7 |
+|------:|:---:|:---:|:---:|
+| y=17  | 5 | 3 | 3 |
+| y=18  | 0 | 3 | 3 |
+| y=19  | 2 | 2 | 3 |
+
+**Label key:**  
+- `0` — Background / inactive  
+- `2` — Inflammatory  
+- `3` — Connective  
+- `5` — Non-neoplastic epithelial  
+
+The full five-class WCSP domain remains Neoplastic, Inflammatory, Connective, Dead, and Non-neoplastic epithelial; classes 1 and 4 simply do not appear in this selected crop.
 
 ## Task 2 — PanNuke: Construct and run the tiny WCSP
 
