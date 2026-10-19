@@ -56,3 +56,39 @@ Initial / unary-only / strong      Weaker fidelity
 
 Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neoplastic epithelial pixel and both Inflammatory pixels to Connective, eliminating pairwise penalties. This demonstrates smoothing under the specified costs, not improved biological accuracy. No ground-truth evaluation was performed. The verifier and its recorded checks are stored in `pannuke_task3/`.
 
+## Task 4 — BCSS: Prepare input and resolve label handling
+
+**Input.** The pretrained TIAToolbox U-Net (`fcn_resnet50_unet-bcss`), used as is (no training, no calibration), was run on BCSS_512 tiles on CPU (~0.4 s/tile on 4 cores). For each 512 × 512 tile it outputs five class probabilities for every pixel of the central 256 × 256, the same area the 0.649-mIoU baseline was scored on. These full softmax maps are saved, so unary costs are real probabilities, not hard labels.
+
+**Label handling.** BCSS classes are reordered into the handout's domain: tumor → Neoplastic, inflammatory → Inflammatory, stroma → Connective, necrosis → Dead, other → Non-neoplastic. The last mapping is **provisional**: BCSS "other" mixes normal ducts with fat, vessels and blood, so it is not truly healthy tissue. Outside-ROI and excluded pixels are never scored. Unlike the PanNuke crop, every pixel has a label, so there is no inactive background.
+
+**Code.** `wcsp/` (see `wcsp/README.md`) implements the full-size version; the tiny enumeration approach does not scale beyond ~9 pixels (5^n labelings).
+
+## Task 5 — BCSS: Run the WCSP experiment
+
+Each tile becomes a WCSP with 65,536 variables (one per pixel) and 778,770 pairwise cost functions (all five neighbor types). Cost = −log p from the U-Net + λ × (handout table ÷ distance), with η = 1 and the attribute term f = 0. It is solved with the handout's alternating-block scheme (four 100 × 100 corners, then the 56-px cross, repeated), using a greedy pixel-by-pixel solver (ICM) inside each block; a change is kept only if it lowers the total cost.
+
+First test on **10 val tiles** (hospitals unseen in training), scored against pathologist labels:
+
+| λ | Method | Pixel accuracy | mIoU |
+| --- | --- | ---: | ---: |
+| 1 | U-Net alone | 0.798 | 0.482 |
+| 1 | U-Net + WCSP | 0.800 | 0.483 |
+| 4 | U-Net alone | 0.798 | 0.482 |
+| 4 | U-Net + WCSP | 0.800 | 0.483 |
+
+The WCSP improves accuracy slightly (+0.2 points), mostly on tumor and stroma, and changes under 1% of pixels. The U-Net output is already smooth, so the rules only adjust region boundaries; they cannot fix a whole region the U-Net got wrong. Ten tiles are too few to call the gain real ("other" scores 0 for both methods on this set). A 500-tile run with a 95% ROI-bootstrap interval is in progress.
+
+## Task 6 — BCSS: Verify results and specify the next implementation step
+
+**Verification.** The cost function is checked against a slow pair-by-pair calculation of the handout's formula, toulbar2 against brute-force enumeration on small grids, and every solver returns exactly the U-Net's labels when fidelity is very large (44 automated tests, `tests/wcsp/`).
+
+**Block strategy, as implemented.** Fixed pixels are not variables: their pairwise costs with free neighbors are added to those neighbors' unary costs, and fixed–fixed costs become a constant, so a block's cost plus the constant always equals the full image's cost. The four corners are independent because the cross (56 px) is wider than the longest interaction (2 px). A block's new labels are kept only if they lower the total cost, so the cost never increases; rounds stop when a full round brings no improvement (or after 4 rounds).
+
+**Open issue.** The gain is small because boundary-only refinement is all the rules can do on an already-smooth U-Net. The next test is the 500-tile run, then tuning λ on the dev split and trying a table derived from BCSS statistics.
+
+## Next steps
+
+During the first week, we will resolve dataset-specific label and background handling, retain usable prediction probabilities where available, and verify real-input fidelity checks on both datasets. During the second week, we will evaluate refinement against aligned ground truth and test alternating-block optimization on larger patches. Parameter selection will use development data, with held-out data reserved for evaluation.
+
+<!-- Submission format: replace each task's instructions with its findings. Keep the complete report at or below 1,600 words, with no more than four small label-grid figures in total. Use readable 11–12 pt text, normal margins, and check the exported document is at most five pages. If it exceeds five pages, shorten prose or figures rather than shrinking text. Mark incomplete work explicitly; do not leave the task instructions in the submitted version. -->
