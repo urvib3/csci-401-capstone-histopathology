@@ -58,39 +58,34 @@ Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neo
 
 ## Task 4 — BCSS: Prepare input and resolve label handling
 
-_Section budget: 180–220 words and one small label grid._
+**Input.** The pretrained TIAToolbox U-Net (`fcn_resnet50_unet-bcss`), used as is (no training, no calibration), was run on BCSS_512 tiles on CPU (~0.4 s/tile on 4 cores). For each 512 × 512 tile it outputs five class probabilities for every pixel of the central 256 × 256, the same area the 0.649-mIoU baseline was scored on. These full softmax maps are saved, so unary costs are real probabilities, not hard labels.
 
-Identify an actual per-pixel prediction artifact or obtain one tile's predictions using the existing model setup. Aggregate evaluation metrics cannot serve as prediction maps. Select a small crop and record the source, coordinates, class IDs, and excluded pixels. Verify alignment with the predicted central area.
+**Label handling.** BCSS classes are reordered into the handout's domain: tumor → Neoplastic, inflammatory → Inflammatory, stroma → Connective, necrosis → Dead, other → Non-neoplastic. The last mapping is **provisional**: BCSS "other" mixes normal ducts with fat, vessels and blood, so it is not truly healthy tissue. Outside-ROI and excluded pixels are never scored. Unlike the PanNuke crop, every pixel has a label, so there is no inactive background.
 
-Explain how BCSS tissue labels are represented in the WCSP. State any provisional compatibility mapping, especially the treatment of “other,” which must not automatically be equated with healthy tissue. Record whether full probabilities are available or a hard-label unary is needed. Share the crop and decisions with Tasks 5 and 6 early.
+**Code.** `wcsp/` (see `wcsp/README.md`) implements the full-size version; the tiny enumeration approach does not scale beyond ~9 pixels (5^n labelings).
 
-If input access or label compatibility remains unresolved, identify the blocker and distinguish any synthetic fallback from real BCSS integration.
+## Task 5 — BCSS: Run the WCSP experiment
 
-<!-- Replace these task instructions with your completed contribution. -->
+Each tile becomes a WCSP with 65,536 variables (one per pixel) and 778,770 pairwise cost functions (all five neighbor types). Cost = −log p from the U-Net + λ × (handout table ÷ distance), with η = 1 and the attribute term f = 0. It is solved with the handout's alternating-block scheme (four 100 × 100 corners, then the 56-px cross, repeated), using a greedy pixel-by-pixel solver (ICM) inside each block; a change is kept only if it lowers the total cost.
 
-## Task 5 — BCSS: Run the tiny WCSP experiment
+First test on **10 val tiles** (hospitals unseen in training), scored against pathologist labels:
 
-_Section budget: 200–250 words and one compact before/after label grid._
+| λ | Method | Pixel accuracy | mIoU |
+| --- | --- | ---: | ---: |
+| 1 | U-Net alone | 0.798 | 0.482 |
+| 1 | U-Net + WCSP | 0.800 | 0.483 |
+| 4 | U-Net alone | 0.798 | 0.482 |
+| 4 | U-Net + WCSP | 0.800 | 0.483 |
 
-Reuse the shared implementation where possible and apply Task 4's explicit label decisions. Report variable and edge counts, unary/pairwise settings, the strong-fidelity bound, and the actual solver configuration.
-
-Compare unary-only, strong-fidelity, and weaker-fidelity settings. Give initial and returned objective values under each setting, changed-pixel counts, runtime, and solver status. Identify provisional mappings or synthetic input explicitly. Explain what worked and what remains necessary before evaluating segmentation improvement.
-
-Keep code and detailed arrays on GitHub. Summarize only the evidence needed to understand the result here.
-
-<!-- Replace these task instructions with your completed contribution. -->
+The WCSP improves accuracy slightly (+0.2 points), mostly on tumor and stroma, and changes under 1% of pixels. The U-Net output is already smooth, so the rules only adjust region boundaries; they cannot fix a whole region the U-Net got wrong. Ten tiles are too few to call the gain real ("other" scores 0 for both methods on this set). A 500-tile run with a 95% ROI-bootstrap interval is in progress.
 
 ## Task 6 — BCSS: Verify results and specify the next implementation step
 
-_Section budget: 180–220 words._
+**Verification.** The cost function is checked against a slow pair-by-pair calculation of the handout's formula, toulbar2 against brute-force enumeration on small grids, and every solver returns exactly the U-Net's labels when fidelity is very large (44 automated tests, `tests/wcsp/`).
 
-Independently check Task 5's objective calculations and strong-fidelity label preservation. Report the verification outcome and any discrepancy, tie, or timeout limitation.
+**Block strategy, as implemented.** Fixed pixels are not variables: their pairwise costs with free neighbors are added to those neighbors' unary costs, and fixed–fixed costs become a constant, so a block's cost plus the constant always equals the full image's cost. The four corners are independent because the cross (56 px) is wider than the longest interaction (2 px). A block's new labels are kept only if they lower the total cost, so the cost never increases; rounds stop when a full round brings no improvement (or after 4 rounds).
 
-Translate the handout's alternating-block strategy into concrete implementation decisions: fixed/free pixel handling, how interactions across block boundaries enter the subproblem, and a stopping rule. Focus on decisions needed by our implementation rather than restating the handout or redrawing its diagram. State which parts remain proposed.
-
-Finish with the most important unresolved integration issue and the next test that would resolve it.
-
-<!-- Replace these task instructions with your completed contribution. -->
+**Open issue.** The gain is small because boundary-only refinement is all the rules can do on an already-smooth U-Net. The next test is the 500-tile run, then tuning λ on the dev split and trying a table derived from BCSS statistics.
 
 ## Next steps
 
