@@ -1,0 +1,5 @@
+dev_lam0.5 --set problem.lam=0.5
+dev_lam1 --set problem.lam=1
+dev_lam2 --set problem.lam=2
+dev_lam4 --set problem.lam=4
+dev_lam8 --set problem.lam=8

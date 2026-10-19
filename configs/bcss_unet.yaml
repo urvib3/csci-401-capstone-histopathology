@@ -22,10 +22,8 @@ solver:
   name: blocks               # the notes' 100/56/100 alternating scheme
   block: 100
   max_rounds: 4
-  workers: 4                 # corner blocks in parallel
   inner:
-    name: toulbar2
-    time_limit: 20
+    name: icm                # fast; toulbar2 is also available (name: toulbar2, time_limit: 20)
 paths:
   cache: $WCSP_OUT/cache
   runs: $WCSP_OUT/runs

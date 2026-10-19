@@ -14,6 +14,7 @@ import pandas as pd
 
 from .classifiers.cache import ProbStore
 from .data import load_dataset, select
+from .evaluate.compare import paired_bootstrap
 from .evaluate.nuclei import instance_classes, nucleus_counts, nucleus_report
 from .evaluate.pixel import pixel_confusion, pixel_report
 from .evaluate.rules import pair_counts, rule_report
@@ -209,4 +210,9 @@ def summarize(run_dir):
     summary.loc[summary.method == "wcsp", "mean_changed"] = per_sample["changed"].mean()
     summary.to_csv(run_dir / "summary.csv", index=False)
     per_sample.to_csv(run_dir / "per_sample.csv", index=False)
+
+    if "roi" in per_sample:
+        stack = lambda key: np.concatenate([z[key] for z in loaded if key in z])  # noqa: E731
+        test = paired_bootstrap(stack("argmax_confusion"), stack("wcsp_confusion"), per_sample["roi"])
+        (run_dir / "bootstrap.json").write_text(json.dumps(test, indent=2))
     return summary
