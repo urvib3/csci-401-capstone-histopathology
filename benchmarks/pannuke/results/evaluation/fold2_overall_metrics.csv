@@ -1,0 +1,15 @@
+metric,value
+Ground-truth nuclei,28214.0
+Predicted nuclei,25301.0
+Detection precision (centroid),0.8809533220030829
+Detection recall (centroid),0.7899978733961863
+Detection F1 (centroid),0.8330000934317481
+Detection precision (IoU > 0.5),0.826093830283388
+Detection recall (IoU > 0.5),0.7408024385057064
+Detection F1 (IoU > 0.5),0.7811267868821825
+Mean IoU of mask matches,0.8295304906006612
+Class accuracy of centroid matches,0.8232760554533627
+Detection and classification F1 (centroid),0.6857890311127721
+Binary PQ,0.6451476860846276
+Multi-class PQ,0.43673502977314343
+Binary PQ (pooled nuclei),0.647968486743695

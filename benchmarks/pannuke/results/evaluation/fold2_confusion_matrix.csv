@@ -1,0 +1,7 @@
+ground_truth,Background (untyped),Neoplastic,Inflammatory,Connective,Dead,Non-neoplastic epithelial,Missed
+Neoplastic,30,8103,121,322,64,165,2132
+Inflammatory,13,348,2886,468,125,160,867
+Connective,34,715,464,4457,89,146,1999
+Dead,2,35,9,11,162,0,159
+Non-neoplastic epithelial,6,394,47,166,5,2742,768
+No ground truth (extra),102,1342,159,907,110,392,0
