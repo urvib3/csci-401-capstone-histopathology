@@ -1,0 +1,161 @@
+{
+  "source_image": "image_00748",
+  "inputs": [
+    "pannuke_aakanksha/hovernet_labels_164.npy",
+    "pannuke_aakanksha/active_mask_164.npy"
+  ],
+  "ground_truth_used": false,
+  "label_dictionary": {
+    "0": "Background / inactive",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "domain": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "variable_count": 10726,
+  "edge_count": 111755,
+  "edges_by_squared_distance": {
+    "1": 19990,
+    "2": 19353,
+    "4": 18589,
+    "5": 36417,
+    "8": 17406
+  },
+  "unary": "lambda if a pixel changes from its HoVer-Net label, else 0",
+  "pairwise": "HANDWRITTEN table (wcsp/model/tables.py, same as D4) / distance^eta",
+  "distance_exponent_eta": 1,
+  "neighbor_types": "all five (squared distances 1, 2, 4, 5, 8), each pair once",
+  "boundary_handling": "pairs touching an inactive pixel are omitted, as in D4",
+  "strong_fidelity_bound": {
+    "general": 138.2034945111895,
+    "on_this_mask": 138.2034945111895,
+    "argument": "changing one pixel lowers the pairwise cost by at most max(table) * sum of 1/d over its <= 24 neighbors; changing a set S lowers it by at most |S| times that, while costing lambda * |S|"
+  },
+  "solver": {
+    "method": "BlockCoordinateDescent(ICMSolver)",
+    "layout": "four 60x60 corners + 44 px cross",
+    "max_rounds": 20
+  },
+  "runs": [
+    {
+      "setting": "unary_only",
+      "lambda": 1,
+      "pairwise_enabled": false,
+      "initial_objective": 0.0,
+      "initial_unary": 0.0,
+      "initial_pairwise": 0.0,
+      "returned_objective": 0.0,
+      "returned_unary": 0.0,
+      "returned_pairwise": 0.0,
+      "changed_pixels": 0,
+      "changes_by_transition": {},
+      "runtime_seconds": 1.8009604910039343,
+      "status": "local optimum: block coordinate descent with ICM; no single-pixel improvement left = True",
+      "optimization_rounds": 1,
+      "energy_trace": [
+        {
+          "round": 0,
+          "phase": null,
+          "energy": 0.0
+        },
+        {
+          "round": 1,
+          "phase": 0,
+          "energy": 0.0
+        },
+        {
+          "round": 1,
+          "phase": 1,
+          "energy": 0.0
+        }
+      ]
+    },
+    {
+      "setting": "strong_fidelity",
+      "lambda": 139,
+      "pairwise_enabled": true,
+      "initial_objective": 772.8060837414641,
+      "initial_unary": 0.0,
+      "initial_pairwise": 772.8060837414641,
+      "returned_objective": 772.8060837414641,
+      "returned_unary": 0.0,
+      "returned_pairwise": 772.8060837414641,
+      "changed_pixels": 0,
+      "changes_by_transition": {},
+      "runtime_seconds": 1.8104082880017813,
+      "status": "local optimum: block coordinate descent with ICM; no single-pixel improvement left = True",
+      "optimization_rounds": 1,
+      "energy_trace": [
+        {
+          "round": 0,
+          "phase": null,
+          "energy": 772.8060837414641
+        },
+        {
+          "round": 1,
+          "phase": 0,
+          "energy": 772.8060837414641
+        },
+        {
+          "round": 1,
+          "phase": 1,
+          "energy": 772.8060837414641
+        }
+      ]
+    },
+    {
+      "setting": "weaker_fidelity",
+      "lambda": 1,
+      "pairwise_enabled": true,
+      "initial_objective": 772.8060837414641,
+      "initial_unary": 0.0,
+      "initial_pairwise": 772.8060837414641,
+      "returned_objective": 723.1453169419301,
+      "returned_unary": 13.0,
+      "returned_pairwise": 710.1453169419301,
+      "changed_pixels": 13,
+      "changes_by_transition": {
+        "2->3": 8,
+        "3->2": 5
+      },
+      "runtime_seconds": 3.349518421018729,
+      "status": "local optimum: block coordinate descent with ICM; no single-pixel improvement left = True",
+      "optimization_rounds": 2,
+      "energy_trace": [
+        {
+          "round": 0,
+          "phase": null,
+          "energy": 772.8060837414641
+        },
+        {
+          "round": 1,
+          "phase": 0,
+          "energy": 727.2743071464221
+        },
+        {
+          "round": 1,
+          "phase": 1,
+          "energy": 723.1453169419301
+        },
+        {
+          "round": 2,
+          "phase": 0,
+          "energy": 723.1453169419301
+        },
+        {
+          "round": 2,
+          "phase": 1,
+          "energy": 723.1453169419301
+        }
+      ]
+    }
+  ]
+}

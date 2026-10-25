@@ -1,0 +1,213 @@
+{
+  "source_image": "image_00748",
+  "gt_classes_present": {
+    "Inflammatory": 9250
+  },
+  "strong_fidelity_check": {
+    "identical_to_hovernet": true,
+    "changed_pixels": 0,
+    "lambda": 139,
+    "initial_objective": 772.8060837414641,
+    "returned_objective": 772.8060837414641,
+    "runtime_seconds": 1.8104082880017813,
+    "status": "local optimum: block coordinate descent with ICM; no single-pixel improvement left = True"
+  },
+  "weak_fidelity": {
+    "lambda": 1,
+    "changed_pixels": 13,
+    "changes": {
+      "wrong_to_correct": {
+        "count": 0,
+        "transitions": {}
+      },
+      "correct_to_wrong": {
+        "count": 6,
+        "transitions": {
+          "Inflammatory->Connective": 6
+        }
+      },
+      "wrong_to_different_wrong": {
+        "count": 0,
+        "transitions": {}
+      },
+      "gt_background": {
+        "count": 7,
+        "transitions": {
+          "Inflammatory->Connective": 2,
+          "Connective->Inflammatory": 5
+        }
+      }
+    }
+  },
+  "before_after": {
+    "class_agreement_on_overlap": {
+      "hovernet": 0.7737270628265889,
+      "wcsp_weak": 0.7729979341353749,
+      "difference": -0.0007291286912139983
+    },
+    "accuracy_on_active_region": {
+      "hovernet": 0.5936043259369755,
+      "wcsp_weak": 0.5930449375349618,
+      "difference": -0.0005593884020137496
+    },
+    "accuracy_on_gt_nucleus_region": {
+      "hovernet": 0.6883243243243243,
+      "wcsp_weak": 0.6876756756756757,
+      "difference": -0.0006486486486486642
+    },
+    "pixel_accuracy_full_patch": {
+      "hovernet": 0.7999702558001189,
+      "wcsp_weak": 0.7997471743010113,
+      "difference": -0.00022308149910765795
+    },
+    "miou_over_gt_classes": {
+      "hovernet": 0.6398994974874372,
+      "wcsp_weak": 0.6391037878026725,
+      "difference": -0.0007957096847647227
+    }
+  },
+  "hovernet_full": {
+    "class_agreement_on_overlap": 0.7737270628265889,
+    "accuracy_on_active_region": 0.5936043259369755,
+    "accuracy_on_gt_nucleus_region": 0.6883243243243243,
+    "pixel_accuracy_full_patch": 0.7999702558001189,
+    "class_iou": {
+      "Neoplastic": 0.0,
+      "Inflammatory": 0.6398994974874372,
+      "Connective": 0.0,
+      "Dead": null,
+      "Non-neoplastic epithelial": 0.0
+    },
+    "miou_over_gt_classes": 0.6398994974874372,
+    "confusion_matrix_rows_gt_cols_pred": [
+      [
+        15149,
+        3,
+        700,
+        1793,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1021,
+        275,
+        6367,
+        1438,
+        0,
+        149
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "wcsp_weak_full": {
+    "class_agreement_on_overlap": 0.7729979341353749,
+    "accuracy_on_active_region": 0.5930449375349618,
+    "accuracy_on_gt_nucleus_region": 0.6876756756756757,
+    "pixel_accuracy_full_patch": 0.7997471743010113,
+    "class_iou": {
+      "Neoplastic": 0.0,
+      "Inflammatory": 0.6391037878026725,
+      "Connective": 0.0,
+      "Dead": null,
+      "Non-neoplastic epithelial": 0.0
+    },
+    "miou_over_gt_classes": 0.6391037878026725,
+    "confusion_matrix_rows_gt_cols_pred": [
+      [
+        15149,
+        3,
+        703,
+        1790,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1021,
+        275,
+        6361,
+        1444,
+        0,
+        149
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "error_breakdown": {
+    "detection_missed_gt_nucleus_pixels": 1021,
+    "detection_false_positive_pixels": 2497,
+    "classification_errors_hovernet": 1862,
+    "classification_errors_wcsp": 1868,
+    "wcsp_corrections": 0,
+    "wcsp_new_errors": 6,
+    "overlap_pixels": 8229,
+    "note": "detection errors are outside the WCSP's reach: missed pixels are never variables and the WCSP cannot switch a pixel to background"
+  },
+  "scopes": {
+    "overlap": "pixels that are nucleus in both HoVer-Net and GT",
+    "active_region": "HoVer-Net active pixels; GT background counts as wrong",
+    "gt_nucleus_region": "GT nucleus pixels; missed pixels count as wrong",
+    "full_patch": "all 164x164 pixels, background included"
+  }
+}
