@@ -1,0 +1,41 @@
+{
+  "dataset": "PanNuke Fold 2",
+  "image": "image_00748",
+  "dataset_index": 748,
+  "model": "hovernet_fast-pannuke",
+  "valid_prediction_shape": [
+    164,
+    164
+  ],
+  "original_patch_shape": [
+    256,
+    256
+  ],
+  "offset": 46,
+  "original_region": {
+    "x_start": 46,
+    "x_end": 209,
+    "y_start": 46,
+    "y_end": 209
+  },
+  "label_dictionary": {
+    "0": "Background / inactive",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "active_pixel_policy": "Only pixels belonging to a HoVer-Net instance with one of the five biological classes are active WCSP variables.",
+  "background_policy": "HoVer-Net background/untyped pixels remain inactive and are not interpreted as healthy.",
+  "mapped_instances": 47,
+  "predicted_active_pixels": 10726,
+  "ground_truth_active_pixels": 9250,
+  "overlap_pixels": 8229,
+  "predicted_only_pixels": 2497,
+  "ground_truth_only_pixels": 1021,
+  "overlap_class_accuracy": 0.7737270628265889,
+  "prediction_csv": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/results/sample_predictions/fold2/hovernet_fold2_predictions.csv",
+  "instance_map_source": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/results/sample_predictions/fold2/hovernet_instance_maps_0500_0749.npz",
+  "ground_truth_source": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/data/masks/fold2/masks.npy"
+}
