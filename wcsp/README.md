@@ -75,8 +75,8 @@ output change the U-Net's accuracy, or how much the WCSP adds?
 the tile shifted by 0 or 1 px in each direction and interleave the four
 half-resolution outputs, so every pixel gets its own prediction (4× the
 U-Net compute; the WCSP solve is unchanged). Classifier `tia_unet_native`,
-config `configs/bcss_unet_native.yaml`; everything else is identical to
-`configs/bcss_unet.yaml`, so the two runs are paired on the same tiles.
+config `experiments/bcss_wcsp/configs/bcss_unet_native.yaml`; everything else is identical to
+`experiments/bcss_wcsp/configs/bcss_unet.yaml`, so the two runs are paired on the same tiles.
 
 **Expected size of the effect:** small for the U-Net alone. Rounding the
 ground truth itself through half resolution and back costs only 0.001 mIoU
@@ -94,16 +94,16 @@ mIoU, with 98% of pixels labeled the same.
 
 ```bash
 for c in bcss_unet bcss_unet_native; do
-  for s in dev val; do sbatch --array=0-19 slurm/wcsp.sbatch predict --config configs/$c.yaml --split $s --shards 20; done
+  for s in dev val; do sbatch --array=0-19 experiments/bcss_wcsp/slurm/wcsp.sbatch predict --config experiments/bcss_wcsp/configs/$c.yaml --split $s --shards 20; done
 done
-sbatch --array=0-4 slurm/sweep.sbatch configs/bcss_unet.yaml        configs/sweeps/bcss_dev.txt        --split dev --limit 200
-sbatch --array=0-4 slurm/sweep.sbatch configs/bcss_unet_native.yaml configs/sweeps/bcss_dev_native.txt --split dev --limit 200
+sbatch --array=0-4 experiments/bcss_wcsp/slurm/sweep.sbatch experiments/bcss_wcsp/configs/bcss_unet.yaml        experiments/bcss_wcsp/configs/sweeps/bcss_dev.txt        --split dev --limit 200
+sbatch --array=0-4 experiments/bcss_wcsp/slurm/sweep.sbatch experiments/bcss_wcsp/configs/bcss_unet_native.yaml experiments/bcss_wcsp/configs/sweeps/bcss_dev_native.txt --split dev --limit 200
 # then, with each config's best dev lambda (L, LN):
-sbatch --array=0-19 slurm/wcsp.sbatch solve --config configs/bcss_unet.yaml        --split val --shards 20 --run val_bilinear --set problem.lam=L
-sbatch --array=0-19 slurm/wcsp.sbatch solve --config configs/bcss_unet_native.yaml --split val --shards 20 --run val_native   --set problem.lam=LN
-python -m wcsp summarize --config configs/bcss_unet.yaml        --split val --run val_bilinear
-python -m wcsp summarize --config configs/bcss_unet_native.yaml --split val --run val_native
-python -m wcsp compare   --config configs/bcss_unet.yaml        --split val --run val_native --against val_bilinear
+sbatch --array=0-19 experiments/bcss_wcsp/slurm/wcsp.sbatch solve --config experiments/bcss_wcsp/configs/bcss_unet.yaml        --split val --shards 20 --run val_bilinear --set problem.lam=L
+sbatch --array=0-19 experiments/bcss_wcsp/slurm/wcsp.sbatch solve --config experiments/bcss_wcsp/configs/bcss_unet_native.yaml --split val --shards 20 --run val_native   --set problem.lam=LN
+python -m wcsp summarize --config experiments/bcss_wcsp/configs/bcss_unet.yaml        --split val --run val_bilinear
+python -m wcsp summarize --config experiments/bcss_wcsp/configs/bcss_unet_native.yaml --split val --run val_native
+python -m wcsp compare   --config experiments/bcss_wcsp/configs/bcss_unet.yaml        --split val --run val_native --against val_bilinear
 ```
 
 `compare` writes `compare_vs_<baseline>.json` into the compared run.
@@ -113,7 +113,7 @@ adds one encoder level (2 convs on the raw image) and one decoder level to the
 pretrained U-Net, predicting a correction to its upsampled logits. The new
 layers start at zero, so before training the model reproduces the pretrained
 U-Net. Train them on fit, picking the epoch on dev, then use
-`configs/bcss_unet_fullres.yaml` and `configs/sweeps/bcss_dev_fullres.txt`
+`experiments/bcss_wcsp/configs/bcss_unet_fullres.yaml` and `experiments/bcss_wcsp/configs/sweeps/bcss_dev_fullres.txt`
 exactly like the native arm:
 
 ```bash

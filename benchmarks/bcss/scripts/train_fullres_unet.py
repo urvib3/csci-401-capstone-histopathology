@@ -17,7 +17,7 @@
 #   - Augmentation: flips, 90-degree rotations, per-tile colour jitter.
 #
 # Outputs (in --out, default data/outputs/fullres_unet/):
-#   best.pt     best dev checkpoint, for configs/bcss_unet_fullres.yaml
+#   best.pt     best dev checkpoint, for experiments/bcss_wcsp/configs/bcss_unet_fullres.yaml
 #   last.pt     resume state (delete to retrain from scratch)
 #   log.csv     per-epoch loss and dev scores
 
@@ -35,8 +35,8 @@ from torch.utils.data import DataLoader, Dataset
 REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO))
 
-from bcss.classes import IGNORE_INDEX
-from bcss.metrics import confusion_matrix, iou_per_class
+from benchmarks.bcss.loader.classes import IGNORE_INDEX
+from benchmarks.bcss.loader.metrics import confusion_matrix, iou_per_class
 from wcsp.classifiers.fullres_unet import FullResUNet, MODEL_NAME
 from wcsp.data.bcss import BCSS, WINDOW
 
