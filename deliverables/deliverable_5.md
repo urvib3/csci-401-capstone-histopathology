@@ -63,7 +63,6 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
   - BCSS also compares **toulbar2**, an exact WCSP solver, on the same problem (§3).
 - **Intuition:** a pixel's label changes only if the rule savings beat its unary cost. Inside a region (or nucleus) every neighbor agrees, so there's nothing to gain. Only **boundary** pixels ever change.
 
-
 ### Hyperparameters
 
 | Knob | What it controls | PanNuke | BCSS |
@@ -86,20 +85,26 @@ All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcs
 
 ### Pipeline and experiments
 
-1. HoVer-Net runs on a 256 × 256 PanNuke image. Its valid output is the central 164 × 164.
-2. Each predicted nucleus's class is copied to all its pixels. Background pixels are inactive, not variables.
-3. WCSP on the nucleus pixels, then compared with the aligned PanNuke ground truth (used only for evaluation).
-4. **Sweeps:**
-   - **Single patch** (`image_00748`): λ = 1 (weak fidelity) and λ = 139 (strong fidelity; provably no changes).
-   - **20 diverse evaluation patches** at λ = 1.
-   - **λ sweep** on 15 separate dev patches: λ = 1, 0.5, 0.25, 0. This asks whether the fidelity penalty is what blocks useful changes.
+![PanNuke preparation and refinement](../experiments/pannuke_d5/figures/pipeline.png)
 
-**Metrics:** class agreement on overlapping nucleus pixels, pixel accuracy and IoU, and counts of wrong → correct vs. correct → wrong changes.
+*image_00748 label maps (164 × 164). Changes: red = correct → wrong; orange = changed on ground-truth background.*
+
+1. **Input:** a 256 × 256 RGB patch. **HoVer-Net:** returns nucleus instances and class metadata for the central 164 × 164 region.
+2. **Prepare pixel labels:** copy each nucleus's predicted class to all its instance pixels. Set `active_mask = predicted_labels > 0`; background pixels are inactive, not WCSP variables.
+3. **Align ground truth:** crop the PanNuke annotations to `[46:210, 46:210]`, matching the prediction region. Ground truth is used only for evaluation.
+4. **WCSP:** refine the active pixels with the handwritten pairwise table and a flat unary penalty λ for changing a HoVer-Net label. The active mask stays fixed; missed nuclei cannot be recovered and predicted nuclei cannot be removed as background.
+5. **Evaluation and development sets:** report the main result on **20 diverse Fold 2 patches**. Use **15 separate development patches** to diagnose lambda, without retuning on the evaluation set.
+6. **Experiments, each answering one question:**
+   - Single patch (`image_00748`): do unary-only and strong fidelity reproduce HoVer-Net, and can weak fidelity lower energy?
+   - Main evaluation, 20 patches at λ = 1: does refinement improve accuracy across patches?
+   - Development sweep, λ ∈ {1, 0.5, 0.25, 0}: is the change penalty preventing useful refinement?
+
+**Metrics:** full-crop pixel accuracy, class agreement on overlapping nucleus pixels, and mean patch mIoU (over biological classes present in each patch’s ground truth). Refinement: Δ mIoU = WCSP − HoVer-Net, plus wrong → correct and correct → wrong counts.
 
 #### Sweeps and details (click to expand)
 
 <details>
-<summary><b>PanNuke: single full patch (image_00748)</b></summary>
+<summary><b>Single-patch sanity checks (image_00748)</b></summary>
 
 HoVer-Net found 47 nuclei in the central 164 × 164 region, giving 10,726 active (nucleus) pixels. The ground truth is cropped to the same region and used only for evaluation.
 
@@ -134,7 +139,7 @@ ICM is greedy, so the results are local optima, not proven global ones. For ever
 
 ##### Ground-truth evaluation 
 
-The ground truth for this patch only has one class: all 9,250 nucleus pixels are Inflammatory. I checked this against the raw `masks.npy` channels, so it is not an alignment bug.
+The ground truth for this patch only has one class: all 9,250 nucleus pixels are Inflammatory. This was verified against the raw `masks.npy` channels.
 
 Strong fidelity output is identical to HoVer-Net on every pixel.
 
@@ -172,8 +177,8 @@ What we see:
 - Strong fidelity reproduces HoVer-Net exactly, as expected.
 - At λ = 1 the WCSP lowers the objective but makes accuracy slightly worse. It made 0 corrections and 6 new errors. A lower objective only means the labels fit the cost table better, not that they are more correct.
 - Almost all of HoVer-Net's class errors are whole nuclei labeled Connective (3,231 px) when they are Inflammatory. The WCSP can't fix a whole wrong nucleus because every pixel inside it agrees with its neighbors, so it only moves pixels on the edges where two nuclei touch.
-- Same thing we saw on BCSS: the pairwise terms only reach 2 pixels, so they only change boundaries.
-- This is one patch with one ground-truth class, so it doesn't say much about PanNuke in general. The next step is running more patches. Making the decision per nucleus (using the instance map) instead of per pixel would also probably fit PanNuke better.
+- Same thing we saw on BCSS: the pairwise terms only reach 2√2 pixels, so they only change boundaries.
+- This is one patch with one ground-truth class, so it doesn't say much about PanNuke in general. The 20-patch evaluation below tests whether this behavior repeats. Making the decision per nucleus (using the instance map) instead of per pixel would also probably fit PanNuke better.
 
 How it was evaluated:
 
@@ -185,46 +190,90 @@ How it was evaluated:
 </details>
 
 <details>
-<summary><b>PanNuke: 20-patch evaluation and λ sweep</b></summary>
+<summary><b>Main evaluation (20 patches, λ = 1)</b></summary>
 
-**20 diverse Fold 2 patches, λ = 1:**
-- 13/20 patches have zero initial pairwise cost.
-- 19/20 are unchanged; only 2 pixels change in total, both new errors (Non-neoplastic epithelial → Connective).
-- mIoU: 0 improved, 1 worsened, 19 unchanged.
-- The errors are almost all upstream:
-  - 12,623 ground-truth nucleus pixels missed;
-  - 16,574 predicted pixels where the ground truth is background;
-  - 22,249 classification errors before the WCSP and 22,251 after.
+The evaluation set covers diverse tissues and class combinations. λ = 1 is fixed for this evaluation.
 
-**λ sweep on 15 separate dev patches** (does the fidelity penalty block useful changes?):
+| Outcome | Result |
+|---|---:|
+| Patches with zero initial pairwise cost | 13 / 20 |
+| Patches improved / unchanged / worsened in mIoU | 0 / 19 / 1 |
+| Total changed pixels | 2 |
+| Wrong → correct | 0 |
+| Correct → wrong | 2 |
+| Classification errors before → after | 22,249 → 22,251 |
+| Ground-truth nucleus pixels missed by HoVer-Net | 12,623 |
+| Predicted nucleus pixels where GT is background | 16,574 |
 
-| λ | Changed px | Patches changed | Wrong → correct | Correct → wrong | Mean Δ mIoU |
-|---:|---:|---:|---:|---:|---:|
-| 1.00 | 83 | 4/15 | 1 | 28 | −0.00054 |
-| 0.50 | 85 | 4/15 | 1 | 27 | −0.00053 |
-| 0.25 | 94 | 5/15 | 2 | 27 | −0.00053 |
-| 0.00 | 145 | 5/15 | 2 | 61 | −0.00103 |
+- **No accuracy improvement:** 19 patches are unchanged and one is slightly worse.
+- **Detection errors remain fixed:** missed pixels are not variables, and active pixels cannot switch to background.
+- **Little pairwise conflict:** 13 patches already start with zero pairwise cost, leaving no incentive to pay a positive unary penalty for changes.
 
-- **Fidelity isn't the bottleneck.** Even with no unary penalty (λ = 0), 10/15 patches don't change at all, and the changes that do happen break far more than they fix.
-- **The limit is the representation and the pairwise table:** pixel variables, inactive background between nuclei, and hand-set b values.
-- Full write-up, patch selection, scripts: [deliverable_5_pannuke_multipatch.md](deliverable_5_pannuke_multipatch.md).
+</details>
+
+<details>
+<summary><b>λ sweep (development, 15 separate patches)</b></summary>
+
+These patches are separate from the 20-patch evaluation set. Lower λ makes changes cheaper; λ = 0 removes the unary penalty but still uses HoVer-Net's active mask and initial labels.
+
+| λ | Mean mIoU, HoVer-Net | Mean mIoU, + WCSP | Mean Δ mIoU | Changed px | Patches changed | Wrong → correct | Correct → wrong |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1.00 | 0.474933 | 0.474395 | -0.000539 | 83 | 4/15 | 1 | 28 |
+| 0.50 | 0.474933 | 0.474406 | -0.000528 | 85 | 4/15 | 1 | 27 |
+| 0.25 | 0.474933 | 0.474403 | -0.000530 | 94 | 5/15 | 2 | 27 |
+| 0.00 | 0.474933 | 0.473899 | -0.001034 | 145 | 5/15 | 2 | 61 |
+
+- **Lower lambda increases changes modestly, without improving mean mIoU.**
+- **Even at λ = 0, 10/15 patches remain unchanged.** Across the set, only 2 wrong pixels are corrected while 61 correct pixels become wrong.
+- **No development setting shows an average improvement.** Excessive unary fidelity alone does not explain the result; the pixel representation and pairwise preferences remain limitations to investigate.
 
 </details>
 
 ### Final results
 
-| Experiment | Setting | HoVer-Net | + WCSP | Verdict |
-|---|---|---|---|---|
-| 1 patch | λ = 1 | class agreement 0.7737 | 0.7730 | 13 px changed: 0 fixed, 6 new errors |
-| 1 patch | λ = 139 (strong fidelity) | — | identical | 0 changes, as the bound guarantees |
-| 20 patches | λ = 1 | — | — | 2 px changed in total, both new errors; 19/20 unchanged |
-| 15 dev patches | λ = 0 (no fidelity) | — | mean Δ mIoU −0.0010 | 2 fixed, 61 broken |
+| Method | Evaluated on | Mean pixel acc | Mean mIoU | Mean Δ mIoU vs. HoVer-Net |
+|---|---|---:|---:|---:|
+| HoVer-Net | evaluation, 20 patches | 0.904361 | 0.424023 | — |
+| HoVer-Net + WCSP, handwritten b (λ = 1) | evaluation, 20 patches | 0.904358 | 0.424000 | -0.000023 |
+| HoVer-Net | development, 15 patches | 0.889847 | 0.474933 | — |
+| HoVer-Net + WCSP, handwritten b (λ = 0) | development, 15 patches | 0.889701 | 0.473899 | -0.001034 |
+
+- **Evaluation:** 0/20 patches improve; 19 stay unchanged and 1 worsens. Both changed pixels are new errors.
 
 **Why the WCSP doesn't help on PanNuke:**
-- Nuclei are separated by inactive background, so neighboring nuclei barely interact.
-- Each nucleus already has one uniform label, so there's little pairwise conflict inside it.
-- The flat unary can't tell confident pixels from unsure ones.
-- The changes that do happen don't follow the true classes.
+
+- Nuclei are separated by inactive background, so neighboring nuclei often have no connecting edges.
+- Each nucleus starts with one uniform label, giving zero pairwise cost on same-label interior edges.
+- The flat unary cannot distinguish confident predictions from uncertain ones.
+- The few changes observed are mostly harmful, suggesting that the current representation and cost table do not provide useful refinement on these sets.
+
+<details>
+<summary><b>Example patch: lower energy, worse accuracy (image_001409)</b></summary>
+
+| Metric | HoVer-Net | WCSP (λ = 1) |
+|---|---:|---:|
+| Objective | 210.1984 | 207.5958 |
+| Class agreement on overlapping nucleus pixels | 0.8147 | 0.8143 |
+| mIoU | 0.618970 | 0.618508 |
+
+Both changed pixels switch from Non-neoplastic epithelial to Connective. Ground truth confirms that both were correct before and wrong afterward: 0 corrections and 2 new errors. The solver improves its objective, but the preferred labels are less accurate.
+
+</details>
+
+<details>
+<summary><b>Example patch: local changes that hurt (image_00748)</b></summary>
+
+Panels: ground truth | HoVer-Net | WCSP | changed pixels. Black boxes mark changed pixels.
+
+![PanNuke close-up of harmful refinement](../experiments/pannuke_d5/figures/example_hurts_zoom.png)
+
+- **Whole-patch class agreement on overlapping nucleus pixels:** 0.7737 → 0.7730.
+- **Whole-patch changes:** 13 pixels, with 0 corrections, 6 new errors (Inflammatory → Connective), and 7 changes on ground-truth background.
+- **Interpretation:** energy decreases, but some previously correct boundary pixels become wrong.
+
+</details>
+
+**Saved results:** [20-patch evaluation CSV](../experiments/pannuke_d5/pannuke_multi_patch_evaluation_summary.csv), [development sweep CSV](../experiments/pannuke_d5/pannuke_lambda_dev_evaluation_summary.csv). Full patch-selection and execution details: [PanNuke multi-patch write-up](deliverable_5_pannuke_multipatch.md).
 
 ---
 
