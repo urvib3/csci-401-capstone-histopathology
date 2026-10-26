@@ -300,9 +300,11 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
 </details>
 
 <details>
-<summary><b>Dev sweeps: λ × b table, image term f</b></summary>
+<summary><b>Choosing settings on dev (separate tiles; numbers differ from the val results above)</b></summary>
 
 #### Step 1. How strong should the rules be, and which b table? (dev, 185 tiles)
+
+> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. The val versions of these sweeps are in the next section, and they match the main table.
 
 U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 
@@ -335,7 +337,7 @@ U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 </details>
 
 <details>
-<summary><b>Val results, per class, ICM vs. toulbar2, examples</b></summary>
+<summary><b>Val results: λ sweep, per class, ICM vs. toulbar2, examples (same tiles as the main table)</b></summary>
 
 #### Step 3. Does it hold on unseen hospitals? (val, 2,124 tiles, ICM)
 
