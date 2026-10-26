@@ -78,12 +78,12 @@ def pipeline_figure(cfg, sample_id, out):
     small = image[::2, ::2]
     panels = [
         ("1. Input tile\n512 × 512", image, 512),
+        ("Ground truth, full tile\n512 × 512", overlay(image, sample.target), 512),
         ("2. U-Net output\n256 × 256 (half res, whole tile)", overlay(small, half.argmax(0)), 256),
         ("3. Upsample probabilities ×2\n512 × 512, class = argmax", overlay(image, full.argmax(0)), 512),
         (f"4. Keep central 256 × 256\nU-Net labels (acc {accuracy(init, target):.1%})", overlay(sample.grid_image, init), None),
         (f"5. WCSP on the crop\n256 × 256 (acc {accuracy(refined, target):.1%})", overlay(sample.grid_image, refined), None),
         ("Ground truth\n(central 256 × 256)", overlay(sample.grid_image, target), None),
-        ("Ground truth, full tile\n512 × 512", overlay(image, sample.target), 512),
     ]
     fig, axes = plt.subplots(1, len(panels), figsize=(3.1 * len(panels), 4.2))
     for ax, (title, img, size) in zip(axes, panels):
