@@ -7,9 +7,10 @@ import json
 from pathlib import Path
 
 import numpy as np
+import argparse
 
 HERE = Path(__file__).resolve().parent
-SOURCE = HERE.parent / "pannuke_aakanksha"
+
 CLASSES = {1: "Neoplastic", 2: "Inflammatory", 3: "Connective", 4: "Dead",
            5: "Non-neoplastic epithelial"}
 
@@ -62,12 +63,52 @@ def classify_changes(initial, refined, gt, active):
 
 
 def main():
-    initial = np.load(SOURCE / "hovernet_labels_164.npy")
-    active = np.load(SOURCE / "active_mask_164.npy").astype(bool)
-    gt = np.load(SOURCE / "pannuke_gt_labels_164.npy")
-    strong = np.load(HERE / "wcsp_strong_labels.npy")
-    weak = np.load(HERE / "wcsp_weak_labels.npy")
-    wcsp = json.loads((HERE / "results.json").read_text())
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--source",
+        type=Path,
+        required=True,
+        help="Prepared PanNuke patch directory",
+    )
+
+    parser.add_argument(
+        "--wcsp-dir",
+        type=Path,
+        required=True,
+        help="Directory containing WCSP outputs",
+    )
+
+    args = parser.parse_args()
+
+    SOURCE = args.source.resolve()
+    WCSP_DIR = args.wcsp_dir.resolve()
+
+    initial = np.load(
+        SOURCE / "hovernet_labels_164.npy"
+    )
+
+    active = np.load(
+        SOURCE / "active_mask_164.npy"
+    ).astype(bool)
+
+    gt = np.load(
+        SOURCE / "pannuke_gt_labels_164.npy"
+    )
+
+    strong = np.load(
+        WCSP_DIR / "wcsp_strong_labels.npy"
+    )
+
+    weak = np.load(
+        WCSP_DIR / "wcsp_weak_labels.npy"
+    )
+
+    wcsp = json.loads(
+        (WCSP_DIR / "results.json").read_text()
+    )
+  
     runs = {r["setting"]: r for r in wcsp["runs"]}
     if wcsp.get("ground_truth_used") is not False:
         raise ValueError("results.json does not certify a ground-truth-free run")
@@ -109,7 +150,7 @@ def main():
     }
 
     report = {
-        "source_image": "image_00748",
+        "source_image": SOURCE.name,
         "gt_classes_present": {CLASSES[int(k)]: int((gt == k).sum())
                                for k in np.unique(gt) if k > 0},
         "strong_fidelity_check": strong_check,
@@ -126,7 +167,9 @@ def main():
             "full_patch": "all 164x164 pixels, background included",
         },
     }
-    (HERE / "evaluation.json").write_text(json.dumps(report, indent=2) + "\n")
+    (WCSP_DIR / "evaluation.json").write_text(
+    json.dumps(report, indent=2) + "\n"
+)
 
     print(f"strong: identical={strong_check['identical_to_hovernet']}, "
           f"changed={strong_check['changed_pixels']}")

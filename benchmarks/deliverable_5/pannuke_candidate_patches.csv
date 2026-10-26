@@ -1,0 +1,1876 @@
+image_index,image,tissue_type,num_gt_classes,gt_classes,gt_nucleus_pixels,hovernet_predicted_nuclei,has_hovernet_predictions,gt_neoplastic_pixels,gt_inflammatory_pixels,gt_connective_pixels,gt_dead_pixels,gt_non_neoplastic_pixels
+1589,image_1589,Colon,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,25201,13,True,1423,1563,1182,0,21033
+2340,image_2340,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,21398,14,True,19537,419,632,810,0
+849,image_849,Colon,4,Neoplastic; Inflammatory; Connective; Dead,20468,15,True,19365,491,43,569,0
+2336,image_2336,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,20456,23,True,16850,2353,1170,83,0
+1659,image_1659,Colon,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,19911,16,True,290,1225,3657,0,14739
+787,image_787,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,18722,18,True,576,47,2456,0,15643
+2330,image_2330,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,17192,19,True,12441,929,3595,227,0
+2353,image_2353,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,17088,19,True,8308,3151,5517,112,0
+1604,image_1604,Colon,4,Inflammatory; Connective; Dead; Non-neoplastic epithelial,16766,11,True,0,1790,2993,1241,10742
+2321,image_2321,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,16518,21,True,11909,251,3082,1276,0
+931,image_931,Uterus,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,15806,45,True,10409,1993,2304,0,1100
+911,image_911,Lung,4,Neoplastic; Inflammatory; Connective; Dead,14352,29,True,11295,199,1554,1304,0
+1597,image_1597,Colon,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,14325,10,True,4065,7106,2468,0,686
+2084,image_2084,Liver,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,14286,16,True,7215,3643,2888,0,540
+1299,image_1299,Colon,4,Neoplastic; Inflammatory; Connective; Dead,14146,16,True,12017,788,1334,7,0
+2354,image_2354,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,13849,25,True,2226,9496,1359,768,0
+2352,image_2352,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,13719,23,True,987,6356,6246,130,0
+2326,image_2326,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,12797,14,True,9450,2283,490,574,0
+906,image_906,Lung,4,Neoplastic; Inflammatory; Connective; Dead,12288,34,True,5565,287,1505,4931,0
+2327,image_2327,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,12257,11,True,10070,1778,403,6,0
+298,image_298,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,11802,12,True,9272,262,1529,0,739
+908,image_908,Lung,4,Neoplastic; Inflammatory; Connective; Dead,11763,29,True,5179,540,3019,3025,0
+826,image_826,Bladder,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,11450,21,True,1004,8754,1572,0,120
+2320,image_2320,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,11315,8,True,8476,749,1851,239,0
+2324,image_2324,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,11214,18,True,7838,1682,1586,108,0
+2412,image_2412,Thyroid,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,10937,20,True,7214,80,3580,0,63
+2325,image_2325,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,10624,12,True,6369,2231,1860,164,0
+1183,image_1183,Cervix,4,Neoplastic; Inflammatory; Connective; Dead,10609,7,True,7554,1275,784,996,0
+895,image_895,Lung,4,Neoplastic; Inflammatory; Connective; Dead,10528,33,True,5584,1481,1603,1860,0
+72,image_72,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,10461,9,True,1494,809,6168,0,1990
+785,image_785,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,10188,11,True,5361,199,4292,0,336
+70,image_70,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,9525,12,True,1422,848,2132,0,5123
+73,image_73,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,9233,12,True,1416,442,3208,0,4167
+2334,image_2334,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,8314,10,True,4360,1713,2036,205,0
+910,image_910,Lung,4,Neoplastic; Inflammatory; Connective; Dead,7751,21,True,1720,1759,1377,2895,0
+1608,image_1608,Colon,4,Neoplastic; Inflammatory; Connective; Dead,6994,3,True,2471,1710,2112,701,0
+2067,image_2067,Liver,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,5728,12,True,570,241,741,0,4176
+1010,image_1010,Esophagus,3,Neoplastic; Connective; Dead,28033,15,True,27475,0,241,317,0
+772,image_772,Lung,3,Neoplastic; Inflammatory; Connective,27149,16,True,25272,467,1410,0,0
+1984,image_1984,HeadNeck,3,Neoplastic; Inflammatory; Connective,26961,24,True,25523,809,629,0,0
+1727,image_1727,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,26894,12,True,0,4390,1503,0,21001
+2519,image_2519,Colon,3,Neoplastic; Inflammatory; Connective,26302,39,True,10719,8672,6911,0,0
+959,image_959,Skin,3,Neoplastic; Inflammatory; Connective,26016,34,True,3761,21518,737,0,0
+867,image_867,Esophagus,3,Neoplastic; Inflammatory; Connective,25997,17,True,25703,274,20,0,0
+153,image_153,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,25205,35,True,0,530,613,0,24062
+1290,image_1290,Bile-duct,3,Neoplastic; Inflammatory; Connective,25144,20,True,22842,265,2037,0,0
+1578,image_1578,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,25132,14,True,0,5274,11116,0,8742
+218,image_218,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,25055,25,True,0,1079,383,0,23593
+2376,image_2376,Testis,3,Neoplastic; Inflammatory; Connective,24596,38,True,3636,17728,3232,0,0
+2008,image_2008,HeadNeck,3,Neoplastic; Inflammatory; Connective,24435,15,True,20623,615,3197,0,0
+2429,image_2429,Uterus,3,Neoplastic; Inflammatory; Connective,24310,34,True,22254,1341,715,0,0
+2305,image_2305,Skin,3,Neoplastic; Inflammatory; Connective,24185,20,True,22459,1454,272,0,0
+1516,image_1516,Breast,3,Neoplastic; Inflammatory; Connective,24172,19,True,23799,370,3,0,0
+1016,image_1016,Esophagus,3,Neoplastic; Inflammatory; Connective,23979,15,True,21581,309,2089,0,0
+1307,image_1307,Colon,3,Neoplastic; Inflammatory; Connective,23952,22,True,17539,160,6253,0,0
+851,image_851,Colon,3,Neoplastic; Inflammatory; Connective,23903,15,True,22718,218,967,0,0
+1580,image_1580,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,23885,12,True,0,6780,5435,0,11670
+1009,image_1009,Esophagus,3,Neoplastic; Connective; Dead,23625,13,True,23212,0,343,70,0
+2380,image_2380,Testis,3,Neoplastic; Inflammatory; Connective,23584,16,True,21665,745,1174,0,0
+1671,image_1671,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,23516,14,True,0,5323,3869,0,14324
+1645,image_1645,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,23397,17,True,0,3737,11298,0,8362
+2303,image_2303,Skin,3,Neoplastic; Inflammatory; Connective,22957,15,True,20691,1560,706,0,0
+1590,image_1590,Colon,3,Neoplastic; Inflammatory; Connective,22887,16,True,10811,7792,4284,0,0
+2446,image_2446,Colon,3,Neoplastic; Inflammatory; Connective,22867,38,True,22459,287,121,0,0
+1881,image_1881,HeadNeck,3,Neoplastic; Inflammatory; Connective,22862,24,True,12002,10043,817,0,0
+1823,image_1823,Esophagus,3,Neoplastic; Inflammatory; Connective,22848,17,True,20547,550,1751,0,0
+1703,image_1703,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,22679,13,True,0,13200,1196,0,8283
+477,image_477,Breast,3,Neoplastic; Inflammatory; Connective,22449,11,True,18895,663,2891,0,0
+961,image_961,Skin,3,Neoplastic; Inflammatory; Connective,22359,32,True,172,21254,933,0,0
+1587,image_1587,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,22268,12,True,0,5289,8945,0,8034
+621,image_621,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,22227,26,True,0,597,388,0,21242
+1729,image_1729,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,22207,14,True,0,3390,595,0,18222
+1184,image_1184,Cervix,3,Neoplastic; Inflammatory; Connective,22122,31,True,21467,419,236,0,0
+850,image_850,Colon,3,Neoplastic; Inflammatory; Connective,21946,15,True,18083,172,3691,0,0
+2149,image_2149,Ovarian,3,Neoplastic; Inflammatory; Connective,21916,22,True,20098,771,1047,0,0
+1291,image_1291,Bile-duct,3,Neoplastic; Inflammatory; Connective,21910,23,True,12880,6315,2715,0,0
+1308,image_1308,Colon,3,Neoplastic; Inflammatory; Connective,21809,20,True,13085,694,8030,0,0
+932,image_932,Uterus,3,Inflammatory; Connective; Non-neoplastic epithelial,21800,78,True,0,15285,5578,0,937
+1509,image_1509,Breast,3,Neoplastic; Inflammatory; Connective,21721,7,True,19987,872,862,0,0
+1724,image_1724,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,21695,11,True,0,14056,1696,0,5943
+1586,image_1586,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,21536,13,True,0,3697,9236,0,8603
+2432,image_2432,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,21437,24,True,0,5633,8077,0,7727
+1682,image_1682,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,21361,16,True,0,9185,2425,0,9751
+2456,image_2456,Colon,3,Neoplastic; Inflammatory; Connective,21342,35,True,20199,506,637,0,0
+178,image_178,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,21337,18,True,0,1273,7924,0,12140
+1438,image_1438,Bile-duct,3,Neoplastic; Inflammatory; Connective,21237,14,True,16572,1372,3293,0,0
+1655,image_1655,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20941,11,True,0,2666,16759,0,1516
+1188,image_1188,Cervix,3,Neoplastic; Inflammatory; Connective,20919,26,True,17654,2470,795,0,0
+1896,image_1896,HeadNeck,3,Neoplastic; Inflammatory; Connective,20919,37,True,2453,17036,1430,0,0
+316,image_316,Breast,3,Neoplastic; Inflammatory; Connective,20892,17,True,6427,5627,8838,0,0
+2442,image_2442,Colon,3,Neoplastic; Inflammatory; Connective,20877,36,True,20656,183,38,0,0
+221,image_221,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,20828,21,True,0,1244,793,0,18791
+2375,image_2375,Testis,3,Neoplastic; Inflammatory; Connective,20823,27,True,8328,11455,1040,0,0
+1648,image_1648,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20821,16,True,0,3638,16534,0,649
+970,image_970,Cervix,3,Inflammatory; Connective; Non-neoplastic epithelial,20812,19,True,0,1777,18368,0,667
+1179,image_1179,Cervix,3,Neoplastic; Inflammatory; Connective,20809,11,True,15202,1765,3842,0,0
+236,image_236,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,20806,23,True,0,1243,655,0,18908
+2374,image_2374,Testis,3,Neoplastic; Inflammatory; Connective,20664,31,True,2930,14866,2868,0,0
+2012,image_2012,HeadNeck,3,Neoplastic; Inflammatory; Connective,20629,11,True,15902,197,4530,0,0
+502,image_502,Breast,3,Neoplastic; Inflammatory; Connective,20588,15,True,19674,628,286,0,0
+1174,image_1174,Cervix,3,Neoplastic; Inflammatory; Connective,20551,12,True,18388,1414,749,0,0
+1779,image_1779,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20540,13,True,0,309,7381,0,12850
+1630,image_1630,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20506,11,True,0,3954,8597,0,7955
+1510,image_1510,Breast,3,Neoplastic; Inflammatory; Connective,20484,12,True,18258,1209,1017,0,0
+1713,image_1713,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20442,7,True,0,6417,773,0,13252
+893,image_893,Pancreatic,3,Neoplastic; Inflammatory; Connective,20413,26,True,3083,16267,1063,0,0
+1437,image_1437,Bile-duct,3,Neoplastic; Inflammatory; Connective,20407,17,True,13927,1623,4857,0,0
+2379,image_2379,Testis,3,Neoplastic; Inflammatory; Connective,20295,10,True,17587,1099,1609,0,0
+307,image_307,Breast,3,Neoplastic; Inflammatory; Connective,20289,17,True,15305,789,4195,0,0
+1675,image_1675,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20268,9,True,0,5711,4241,0,10316
+111,image_111,Breast,3,Neoplastic; Inflammatory; Connective,20203,21,True,4745,9407,6051,0,0
+112,image_112,Breast,3,Neoplastic; Inflammatory; Connective,20191,28,True,1330,12937,5924,0,0
+2455,image_2455,Colon,3,Neoplastic; Inflammatory; Connective,20144,25,True,19038,1013,93,0,0
+240,image_240,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,20132,22,True,0,1247,6452,0,12433
+1313,image_1313,Colon,3,Neoplastic; Inflammatory; Connective,20123,23,True,18280,522,1321,0,0
+1588,image_1588,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20093,9,True,0,3342,5149,0,11602
+2433,image_2433,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20051,34,True,0,5463,4289,0,10299
+1664,image_1664,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,20000,13,True,0,6254,3178,0,10568
+1585,image_1585,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,19933,9,True,0,5813,5407,0,8713
+820,image_820,Breast,3,Neoplastic; Inflammatory; Connective,19915,8,True,18752,120,1043,0,0
+2331,image_2331,Stomach,3,Neoplastic; Inflammatory; Connective,19905,20,True,16930,1934,1041,0,0
+1581,image_1581,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,19895,10,True,0,1653,5450,0,12792
+110,image_110,Breast,3,Neoplastic; Inflammatory; Connective,19858,23,True,1900,11070,6888,0,0
+2343,image_2343,Stomach,3,Neoplastic; Inflammatory; Connective,19797,18,True,18430,355,1012,0,0
+2011,image_2011,HeadNeck,3,Neoplastic; Inflammatory; Connective,19769,19,True,8814,2034,8921,0,0
+854,image_854,Colon,3,Neoplastic; Inflammatory; Connective,19707,13,True,16417,407,2883,0,0
+571,image_571,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,19651,28,True,0,713,506,0,18432
+2448,image_2448,Colon,3,Neoplastic; Inflammatory; Connective,19625,20,True,11116,199,8310,0,0
+2341,image_2341,Stomach,3,Neoplastic; Connective; Dead,19564,15,True,19202,0,259,103,0
+967,image_967,Skin,3,Inflammatory; Connective; Non-neoplastic epithelial,19552,20,True,0,240,448,0,18864
+894,image_894,Pancreatic,3,Neoplastic; Inflammatory; Connective,19532,26,True,7564,11409,559,0,0
+503,image_503,Breast,3,Neoplastic; Inflammatory; Connective,19470,15,True,15934,941,2595,0,0
+1126,image_1126,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,19418,22,True,0,3332,4126,0,11960
+1171,image_1171,Cervix,3,Neoplastic; Inflammatory; Connective,19397,12,True,17662,899,836,0,0
+1723,image_1723,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,19352,15,True,0,2650,95,0,16607
+779,image_779,Lung,3,Neoplastic; Inflammatory; Connective,19351,11,True,12085,478,6788,0,0
+1629,image_1629,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,19323,10,True,0,1679,13599,0,4045
+2390,image_2390,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,19150,11,True,0,128,286,0,18736
+1501,image_1501,Bladder,3,Neoplastic; Inflammatory; Connective,19130,15,True,13802,899,4429,0,0
+1733,image_1733,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,19118,7,True,0,875,9914,0,8329
+2212,image_2212,Pancreatic,3,Neoplastic; Inflammatory; Connective,19078,11,True,18867,202,9,0,0
+2339,image_2339,Stomach,3,Neoplastic; Inflammatory; Connective,19054,16,True,18598,157,299,0,0
+2373,image_2373,Testis,3,Neoplastic; Inflammatory; Connective,19027,31,True,2315,13259,3453,0,0
+2469,image_2469,Colon,3,Neoplastic; Inflammatory; Connective,18908,37,True,13767,1190,3951,0,0
+278,image_278,Breast,3,Neoplastic; Inflammatory; Connective,18881,18,True,8482,7096,3303,0,0
+484,image_484,Breast,3,Neoplastic; Inflammatory; Connective,18870,12,True,16210,1381,1279,0,0
+273,image_273,Breast,3,Neoplastic; Inflammatory; Connective,18777,17,True,6739,6596,5442,0,0
+776,image_776,Lung,3,Neoplastic; Inflammatory; Connective,18763,9,True,14756,1952,2055,0,0
+624,image_624,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18712,22,True,0,372,952,0,17388
+2031,image_2031,Kidney,3,Neoplastic; Inflammatory; Connective,18651,13,True,17627,481,543,0,0
+1995,image_1995,HeadNeck,3,Neoplastic; Inflammatory; Dead,18633,18,True,18228,293,0,112,0
+1627,image_1627,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,18630,9,True,0,931,2072,0,15627
+2458,image_2458,Colon,3,Neoplastic; Inflammatory; Connective,18628,26,True,17639,187,802,0,0
+377,image_377,Breast,3,Neoplastic; Inflammatory; Connective,18617,7,True,17975,379,263,0,0
+1718,image_1718,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,18553,13,True,0,5531,167,0,12855
+233,image_233,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18527,24,True,0,890,1159,0,16478
+2142,image_2142,Ovarian,3,Neoplastic; Inflammatory; Connective,18522,16,True,15192,834,2496,0,0
+1553,image_1553,Breast,3,Neoplastic; Inflammatory; Connective,18365,40,True,17115,154,1096,0,0
+242,image_242,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18355,20,True,0,1519,1520,0,15316
+2345,image_2345,Stomach,3,Neoplastic; Inflammatory; Connective,18345,13,True,16924,107,1314,0,0
+2381,image_2381,Testis,3,Neoplastic; Inflammatory; Connective,18345,19,True,13111,1181,4053,0,0
+302,image_302,Breast,3,Neoplastic; Inflammatory; Connective,18303,10,True,16117,1245,941,0,0
+1577,image_1577,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,18286,11,True,0,1549,5729,0,11008
+130,image_130,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18263,19,True,0,137,814,0,17312
+1633,image_1633,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,18239,12,True,0,16,1463,0,16760
+266,image_266,Breast,3,Neoplastic; Inflammatory; Connective,18230,9,True,15080,463,2687,0,0
+1448,image_1448,Bile-duct,3,Neoplastic; Inflammatory; Connective,18225,20,True,2019,9581,6625,0,0
+2480,image_2480,Colon,3,Neoplastic; Inflammatory; Connective,18199,13,True,15757,205,2237,0,0
+132,image_132,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18156,15,True,0,288,199,0,17669
+2370,image_2370,Testis,3,Neoplastic; Inflammatory; Connective,18146,12,True,16239,1013,894,0,0
+1647,image_1647,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,18137,12,True,0,782,6615,0,10740
+294,image_294,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,18073,15,True,0,825,12,0,17236
+2307,image_2307,Skin,3,Neoplastic; Inflammatory; Connective,17994,12,True,14481,2973,540,0,0
+243,image_243,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,17985,18,True,0,712,1138,0,16135
+131,image_131,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,17979,20,True,0,305,2199,0,15475
+844,image_844,Kidney,3,Neoplastic; Inflammatory; Connective,17888,62,True,1604,6365,9919,0,0
+1550,image_1550,Breast,3,Neoplastic; Inflammatory; Connective,17876,41,True,16729,193,954,0,0
+1989,image_1989,HeadNeck,3,Neoplastic; Inflammatory; Connective,17873,8,True,9592,156,8125,0,0
+1706,image_1706,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17840,7,True,0,7234,1380,0,9226
+313,image_313,Breast,3,Neoplastic; Inflammatory; Connective,17786,11,True,17214,233,339,0,0
+1632,image_1632,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17783,9,True,0,6671,7855,0,3257
+480,image_480,Breast,3,Neoplastic; Inflammatory; Connective,17774,11,True,13614,410,3750,0,0
+2470,image_2470,Colon,3,Neoplastic; Inflammatory; Connective,17769,13,True,15805,443,1521,0,0
+2425,image_2425,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,17761,16,True,0,1371,373,0,16017
+3,image_3,Breast,3,Neoplastic; Inflammatory; Connective,17747,6,True,16976,309,462,0,0
+603,image_603,Breast,3,Neoplastic; Inflammatory; Connective,17734,14,True,12730,1112,3892,0,0
+1637,image_1637,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17688,13,True,0,4788,11096,0,1804
+2033,image_2033,Kidney,3,Neoplastic; Inflammatory; Connective,17677,15,True,15046,438,2193,0,0
+416,image_416,Breast,3,Neoplastic; Inflammatory; Connective,17671,17,True,17095,38,538,0,0
+2514,image_2514,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17654,35,True,0,6175,6518,0,4961
+1977,image_1977,HeadNeck,3,Neoplastic; Inflammatory; Connective,17641,15,True,14798,1537,1306,0,0
+853,image_853,Colon,3,Neoplastic; Connective; Dead,17518,11,True,17364,0,16,138,0
+369,image_369,Breast,3,Neoplastic; Inflammatory; Connective,17499,19,True,2600,5652,9247,0,0
+930,image_930,Uterus,3,Neoplastic; Inflammatory; Connective,17498,22,True,12710,1184,3604,0,0
+1319,image_1319,Colon,3,Neoplastic; Inflammatory; Connective,17468,18,True,3980,2250,11238,0,0
+1568,image_1568,Cervix,3,Neoplastic; Inflammatory; Connective,17425,15,True,16801,8,616,0,0
+2400,image_2400,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,17332,12,True,0,146,1897,0,15289
+113,image_113,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,17325,8,True,0,279,2985,0,14061
+1433,image_1433,Bile-duct,3,Neoplastic; Inflammatory; Connective,17316,15,True,13220,602,3494,0,0
+2407,image_2407,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,17302,18,True,0,871,2406,0,14025
+371,image_371,Breast,3,Neoplastic; Inflammatory; Connective,17262,19,True,3217,6093,7952,0,0
+1882,image_1882,HeadNeck,3,Neoplastic; Inflammatory; Connective,17255,30,True,7676,9091,488,0,0
+1636,image_1636,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17249,11,True,0,397,867,0,15985
+2414,image_2414,Thyroid,3,Neoplastic; Connective; Non-neoplastic epithelial,17224,20,True,14108,0,2625,0,491
+1739,image_1739,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17208,10,True,0,5205,2981,0,9022
+1785,image_1785,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17200,11,True,0,45,8045,0,9110
+1591,image_1591,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17187,9,True,0,8180,3827,0,5180
+1201,image_1201,Bile-duct,3,Neoplastic; Inflammatory; Connective,17152,20,True,16051,598,503,0,0
+280,image_280,Breast,3,Neoplastic; Inflammatory; Connective,17135,18,True,15236,117,1782,0,0
+1261,image_1261,Testis,3,Neoplastic; Inflammatory; Connective,17135,13,True,5838,5879,5418,0,0
+1594,image_1594,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,17107,14,True,0,6087,2317,0,8703
+263,image_263,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,17036,16,True,0,349,5335,0,11352
+574,image_574,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,17033,30,True,0,11,3272,0,13750
+2009,image_2009,HeadNeck,3,Neoplastic; Inflammatory; Connective,17024,22,True,460,5258,11306,0,0
+1454,image_1454,Bladder,3,Neoplastic; Inflammatory; Connective,16988,9,True,14693,488,1807,0,0
+1295,image_1295,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16967,20,True,0,869,2936,0,13162
+927,image_927,Lung,3,Neoplastic; Inflammatory; Connective,16931,15,True,10830,171,5930,0,0
+982,image_982,Thyroid,3,Neoplastic; Inflammatory; Connective,16927,16,True,9969,1114,5844,0,0
+2371,image_2371,Testis,3,Neoplastic; Inflammatory; Connective,16921,13,True,13500,924,2497,0,0
+2507,image_2507,Colon,3,Neoplastic; Inflammatory; Connective,16904,22,True,16250,275,379,0,0
+1870,image_1870,HeadNeck,3,Neoplastic; Inflammatory; Connective,16895,18,True,9722,2155,5018,0,0
+1828,image_1828,Esophagus,3,Neoplastic; Inflammatory; Connective,16824,21,True,12325,229,4270,0,0
+226,image_226,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16800,19,True,0,1515,3743,0,11542
+770,image_770,Colon,3,Neoplastic; Inflammatory; Connective,16784,11,True,7755,1528,7501,0,0
+198,image_198,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16783,23,True,0,413,100,0,16270
+1502,image_1502,Bladder,3,Neoplastic; Inflammatory; Connective,16696,11,True,15087,385,1224,0,0
+200,image_200,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16652,17,True,0,243,2431,0,13978
+1719,image_1719,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16644,17,True,0,5956,6430,0,4258
+2169,image_2169,Pancreatic,3,Neoplastic; Inflammatory; Connective,16611,19,True,10507,1368,4736,0,0
+1736,image_1736,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16604,11,True,0,3951,9223,0,3430
+193,image_193,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16500,18,True,0,322,1342,0,14836
+2125,image_2125,Ovarian,3,Inflammatory; Connective; Non-neoplastic epithelial,16443,22,True,0,285,5653,0,10505
+1296,image_1296,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16350,34,True,0,3573,1691,0,11086
+2489,image_2489,Colon,3,Neoplastic; Inflammatory; Connective,16320,14,True,15316,126,878,0,0
+48,image_48,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16233,13,True,0,200,902,0,15131
+1683,image_1683,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16189,7,True,0,1313,6805,0,8071
+2464,image_2464,Colon,3,Neoplastic; Connective; Dead,16183,12,True,14594,0,8,1581,0
+1584,image_1584,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,16151,8,True,0,1674,3456,0,11021
+239,image_239,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16144,15,True,0,5790,644,0,9710
+1456,image_1456,Bladder,3,Neoplastic; Inflammatory; Connective,16139,14,True,14264,613,1262,0,0
+628,image_628,Breast,3,Neoplastic; Inflammatory; Connective,16124,12,True,13799,2021,304,0,0
+103,image_103,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,16107,18,True,0,359,1032,0,14716
+677,image_677,Colon,3,Neoplastic; Inflammatory; Connective,16082,13,True,15840,28,214,0,0
+270,image_270,Breast,3,Neoplastic; Inflammatory; Connective,16075,17,True,126,12666,3283,0,0
+2401,image_2401,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,16041,16,True,0,292,1825,0,13924
+1490,image_1490,Bladder,3,Neoplastic; Inflammatory; Connective,16019,10,True,153,402,15464,0,0
+2141,image_2141,Ovarian,3,Neoplastic; Inflammatory; Connective,16001,16,True,5771,1970,8260,0,0
+1609,image_1609,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15985,10,True,0,279,6806,0,8900
+619,image_619,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15977,21,True,0,303,2371,0,13303
+2127,image_2127,Ovarian,3,Inflammatory; Connective; Non-neoplastic epithelial,15974,22,True,0,521,6838,0,8615
+983,image_983,Thyroid,3,Neoplastic; Inflammatory; Connective,15931,19,True,12403,1571,1957,0,0
+2114,image_2114,Lung,3,Neoplastic; Inflammatory; Connective,15924,10,True,15409,434,81,0,0
+1549,image_1549,Breast,3,Neoplastic; Inflammatory; Connective,15913,34,True,15123,182,608,0,0
+1680,image_1680,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15905,8,True,0,4889,1094,0,9922
+122,image_122,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15898,15,True,0,713,1260,0,13925
+1646,image_1646,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15878,11,True,0,1049,1773,0,13056
+1282,image_1282,Bile-duct,3,Neoplastic; Inflammatory; Connective,15859,15,True,6461,2222,7176,0,0
+495,image_495,Breast,3,Neoplastic; Inflammatory; Connective,15846,15,True,12815,2304,727,0,0
+2042,image_2042,Liver,3,Neoplastic; Inflammatory; Connective,15825,14,True,6846,387,8592,0,0
+403,image_403,Breast,3,Neoplastic; Inflammatory; Connective,15781,8,True,13731,808,1242,0,0
+2467,image_2467,Colon,3,Neoplastic; Connective; Dead,15756,16,True,14527,0,375,854,0
+1599,image_1599,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15699,11,True,0,485,2367,0,12847
+76,image_76,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15677,22,True,0,281,2846,0,12550
+1783,image_1783,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15669,9,True,0,20,4157,0,11492
+241,image_241,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15663,19,True,0,3367,2405,0,9891
+161,image_161,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15651,15,True,0,1821,5442,0,8388
+314,image_314,Breast,3,Neoplastic; Inflammatory; Connective,15589,11,True,13306,1068,1215,0,0
+2332,image_2332,Stomach,3,Neoplastic; Inflammatory; Connective,15589,13,True,13342,1859,388,0,0
+1602,image_1602,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15562,10,True,0,6213,9143,0,206
+957,image_957,Skin,3,Neoplastic; Inflammatory; Connective,15534,10,True,13743,343,1448,0,0
+796,image_796,Colon,3,Neoplastic; Inflammatory; Connective,15507,20,True,14399,31,1077,0,0
+234,image_234,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15505,14,True,0,698,7000,0,7807
+1988,image_1988,HeadNeck,3,Neoplastic; Inflammatory; Connective,15468,15,True,12344,766,2358,0,0
+1432,image_1432,Bile-duct,3,Neoplastic; Inflammatory; Connective,15456,16,True,9857,305,5294,0,0
+777,image_777,Lung,3,Neoplastic; Inflammatory; Connective,15445,9,True,10979,1679,2787,0,0
+2035,image_2035,Kidney,3,Neoplastic; Inflammatory; Connective,15442,12,True,14014,675,753,0,0
+1431,image_1431,Bile-duct,3,Neoplastic; Inflammatory; Connective,15360,15,True,9530,375,5455,0,0
+2333,image_2333,Stomach,3,Neoplastic; Inflammatory; Connective,15358,21,True,5500,5890,3968,0,0
+238,image_238,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15354,24,True,0,1301,2061,0,11992
+2344,image_2344,Stomach,3,Neoplastic; Inflammatory; Connective,15326,16,True,14570,284,472,0,0
+1840,image_1840,Esophagus,3,Neoplastic; Inflammatory; Connective,15268,17,True,8306,1922,5040,0,0
+1301,image_1301,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15245,20,True,0,573,2928,0,11744
+401,image_401,Breast,3,Neoplastic; Inflammatory; Connective,15240,9,True,13981,921,338,0,0
+372,image_372,Breast,3,Neoplastic; Inflammatory; Connective,15167,18,True,12564,11,2592,0,0
+1283,image_1283,Bile-duct,3,Neoplastic; Inflammatory; Connective,15166,13,True,8107,1227,5832,0,0
+1512,image_1512,Breast,3,Neoplastic; Inflammatory; Connective,15160,15,True,13031,410,1719,0,0
+1673,image_1673,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15160,9,True,0,9979,3976,0,1205
+340,image_340,Breast,3,Neoplastic; Inflammatory; Connective,15142,9,True,13786,649,707,0,0
+1676,image_1676,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15122,14,True,0,7551,127,0,7444
+2111,image_2111,Lung,3,Neoplastic; Inflammatory; Connective,15087,11,True,13796,747,544,0,0
+52,image_52,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,15072,15,True,0,750,886,0,13436
+1716,image_1716,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,15067,12,True,0,6682,479,0,7906
+2335,image_2335,Stomach,3,Neoplastic; Inflammatory; Connective,15043,18,True,14102,190,751,0,0
+1124,image_1124,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,15042,22,True,0,1271,1614,0,12157
+449,image_449,Breast,3,Neoplastic; Inflammatory; Connective,15024,8,True,12809,628,1587,0,0
+944,image_944,Thyroid,3,Neoplastic; Inflammatory; Connective,15018,15,True,9967,1240,3811,0,0
+1181,image_1181,Cervix,3,Neoplastic; Inflammatory; Connective,15014,7,True,13960,928,126,0,0
+2515,image_2515,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,14999,24,True,0,2933,3777,0,8289
+7,image_7,Breast,3,Neoplastic; Inflammatory; Connective,14983,8,True,11749,334,2900,0,0
+971,image_971,Cervix,3,Inflammatory; Connective; Non-neoplastic epithelial,14950,12,True,0,686,5128,0,9136
+13,image_13,Breast,3,Neoplastic; Inflammatory; Connective,14947,8,True,13536,1406,5,0,0
+2262,image_2262,Skin,3,Neoplastic; Inflammatory; Connective,14946,26,True,14211,235,500,0,0
+219,image_219,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,14943,19,True,0,1636,672,0,12635
+1459,image_1459,Bladder,3,Neoplastic; Inflammatory; Connective,14922,10,True,13774,279,869,0,0
+1251,image_1251,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,14912,17,True,0,992,9227,0,4693
+2074,image_2074,Liver,3,Neoplastic; Inflammatory; Connective,14893,19,True,13347,310,1236,0,0
+928,image_928,Lung,3,Neoplastic; Inflammatory; Connective,14881,17,True,9350,246,5285,0,0
+1571,image_1571,Cervix,3,Neoplastic; Inflammatory; Connective,14850,21,True,2671,7702,4477,0,0
+1085,image_1085,Esophagus,3,Neoplastic; Inflammatory; Connective,14806,8,True,8751,271,5784,0,0
+368,image_368,Breast,3,Neoplastic; Inflammatory; Connective,14793,12,True,14082,286,425,0,0
+506,image_506,Breast,3,Neoplastic; Inflammatory; Connective,14780,11,True,12071,613,2096,0,0
+230,image_230,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,14726,14,True,0,693,3824,0,10209
+370,image_370,Breast,3,Neoplastic; Inflammatory; Connective,14720,13,True,12017,78,2625,0,0
+1835,image_1835,Esophagus,3,Neoplastic; Inflammatory; Connective,14719,11,True,12874,554,1291,0,0
+358,image_358,Breast,3,Neoplastic; Inflammatory; Connective,14704,10,True,12790,950,964,0,0
+707,image_707,Colon,3,Neoplastic; Inflammatory; Dead,14671,10,True,13664,180,0,827,0
+1409,image_1409,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,14656,16,True,0,5015,5392,0,4249
+100,image_100,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,14615,16,True,0,183,1267,0,13165
+594,image_594,Breast,3,Neoplastic; Inflammatory; Connective,14573,7,True,13078,410,1085,0,0
+460,image_460,Breast,3,Neoplastic; Inflammatory; Connective,14562,6,True,9913,804,3845,0,0
+2406,image_2406,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,14540,12,True,0,1829,2834,0,9877
+552,image_552,Breast,3,Neoplastic; Inflammatory; Connective,14524,15,True,10885,173,3466,0,0
+2258,image_2258,Skin,3,Neoplastic; Inflammatory; Connective,14514,24,True,13635,83,796,0,0
+1180,image_1180,Cervix,3,Neoplastic; Inflammatory; Connective,14497,7,True,12129,1631,737,0,0
+1744,image_1744,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,14496,9,True,0,9383,4089,0,1024
+2110,image_2110,Lung,3,Neoplastic; Inflammatory; Connective,14451,13,True,13575,350,526,0,0
+1654,image_1654,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,14429,11,True,0,5,2992,0,11432
+2490,image_2490,Colon,3,Neoplastic; Inflammatory; Connective,14410,20,True,13342,333,735,0,0
+1593,image_1593,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,14380,8,True,0,2053,1954,0,10373
+987,image_987,Thyroid,3,Neoplastic; Inflammatory; Connective,14376,13,True,7910,1349,5117,0,0
+2389,image_2389,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,14287,10,True,0,335,1528,0,12424
+2300,image_2300,Skin,3,Neoplastic; Inflammatory; Connective,14286,15,True,5541,1660,7085,0,0
+2264,image_2264,Skin,3,Neoplastic; Inflammatory; Connective,14269,32,True,12451,198,1620,0,0
+1820,image_1820,Esophagus,3,Neoplastic; Inflammatory; Connective,14251,12,True,13165,215,871,0,0
+1458,image_1458,Bladder,3,Neoplastic; Inflammatory; Connective,14230,14,True,5273,463,8494,0,0
+507,image_507,Breast,3,Neoplastic; Inflammatory; Connective,14225,13,True,9277,2088,2860,0,0
+2405,image_2405,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,14192,13,True,0,443,3403,0,10346
+902,image_902,Lung,3,Neoplastic; Connective; Dead,14171,30,True,8834,0,824,4513,0
+639,image_639,Breast,3,Neoplastic; Inflammatory; Connective,14166,9,True,9295,1461,3410,0,0
+671,image_671,Breast,3,Neoplastic; Inflammatory; Connective,14146,7,True,13723,367,56,0,0
+2306,image_2306,Skin,3,Neoplastic; Inflammatory; Connective,14141,7,True,12432,1290,419,0,0
+2129,image_2129,Ovarian,3,Inflammatory; Connective; Non-neoplastic epithelial,14129,14,True,0,384,1558,0,12187
+1962,image_1962,HeadNeck,3,Neoplastic; Inflammatory; Connective,14109,21,True,12775,230,1104,0,0
+1084,image_1084,Esophagus,3,Neoplastic; Inflammatory; Connective,14071,5,True,11166,562,2343,0,0
+1615,image_1615,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,14053,11,True,0,600,4036,0,9417
+1489,image_1489,Bladder,3,Neoplastic; Inflammatory; Connective,14040,11,True,6304,625,7111,0,0
+2377,image_2377,Testis,3,Neoplastic; Inflammatory; Connective,14032,12,True,4886,8269,877,0,0
+504,image_504,Breast,3,Neoplastic; Inflammatory; Connective,14010,17,True,11720,319,1971,0,0
+2420,image_2420,Thyroid,3,Neoplastic; Inflammatory; Connective,14005,13,True,7994,4345,1666,0,0
+1462,image_1462,Bladder,3,Neoplastic; Inflammatory; Connective,13992,16,True,3521,1327,9144,0,0
+121,image_121,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13988,14,True,0,594,5897,0,7497
+2103,image_2103,Liver,3,Neoplastic; Inflammatory; Connective,13981,15,True,12598,100,1283,0,0
+96,image_96,Breast,3,Neoplastic; Inflammatory; Connective,13853,11,True,11274,1205,1374,0,0
+1252,image_1252,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,13818,12,True,0,2162,5729,0,5927
+2408,image_2408,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,13718,19,True,0,6511,4639,0,2568
+2261,image_2261,Skin,3,Neoplastic; Inflammatory; Connective,13716,27,True,13461,17,238,0,0
+620,image_620,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13686,13,True,0,901,1930,0,10855
+1284,image_1284,Bile-duct,3,Neoplastic; Inflammatory; Connective,13674,15,True,2930,5089,5655,0,0
+2299,image_2299,Skin,3,Neoplastic; Inflammatory; Connective,13653,12,True,10756,878,2019,0,0
+601,image_601,Breast,3,Neoplastic; Inflammatory; Connective,13641,9,True,13161,13,467,0,0
+2102,image_2102,Liver,3,Neoplastic; Inflammatory; Connective,13627,13,True,12617,241,769,0,0
+2513,image_2513,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,13578,20,True,0,2208,2499,0,8871
+2128,image_2128,Ovarian,3,Inflammatory; Connective; Non-neoplastic epithelial,13572,16,True,0,308,3143,0,10121
+2211,image_2211,Pancreatic,3,Neoplastic; Inflammatory; Connective,13570,13,True,4517,143,8910,0,0
+822,image_822,Breast,3,Neoplastic; Connective; Non-neoplastic epithelial,13539,13,True,1617,0,2483,0,9439
+2417,image_2417,Thyroid,3,Neoplastic; Inflammatory; Connective,13536,12,True,7845,1997,3694,0,0
+2166,image_2166,Pancreatic,3,Neoplastic; Inflammatory; Connective,13533,17,True,6491,1410,5632,0,0
+1793,image_1793,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,13522,7,True,0,1187,3554,0,8781
+2416,image_2416,Thyroid,3,Neoplastic; Inflammatory; Connective,13520,13,True,6106,4009,3405,0,0
+1980,image_1980,HeadNeck,3,Neoplastic; Inflammatory; Connective,13515,13,True,6217,3095,4203,0,0
+956,image_956,Skin,3,Neoplastic; Inflammatory; Connective,13510,10,True,10275,1705,1530,0,0
+2112,image_2112,Lung,3,Neoplastic; Inflammatory; Connective,13503,12,True,12940,274,289,0,0
+2423,image_2423,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,13501,15,True,0,648,5136,0,7717
+788,image_788,Breast,3,Neoplastic; Inflammatory; Connective,13488,14,True,9526,1212,2750,0,0
+1827,image_1827,Esophagus,3,Neoplastic; Inflammatory; Connective,13488,15,True,9243,1018,3227,0,0
+1963,image_1963,HeadNeck,3,Neoplastic; Inflammatory; Connective,13481,19,True,9704,194,3583,0,0
+134,image_134,Breast,3,Neoplastic; Inflammatory; Connective,13471,9,True,11312,1184,975,0,0
+1230,image_1230,Testis,3,Neoplastic; Inflammatory; Connective,13462,12,True,8961,1572,2929,0,0
+969,image_969,Cervix,3,Inflammatory; Connective; Non-neoplastic epithelial,13447,11,True,0,649,284,0,12514
+431,image_431,Breast,3,Neoplastic; Inflammatory; Connective,13430,12,True,462,1990,10978,0,0
+2170,image_2170,Pancreatic,3,Neoplastic; Inflammatory; Connective,13427,14,True,5529,724,7174,0,0
+2415,image_2415,Thyroid,3,Neoplastic; Inflammatory; Connective,13380,14,True,7517,1482,4381,0,0
+297,image_297,Breast,3,Neoplastic; Inflammatory; Connective,13362,9,True,10279,850,2233,0,0
+315,image_315,Breast,3,Neoplastic; Inflammatory; Connective,13330,8,True,5893,2927,4510,0,0
+592,image_592,Breast,3,Neoplastic; Inflammatory; Connective,13305,9,True,9933,2169,1203,0,0
+1156,image_1156,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,13302,9,True,8735,115,4452,0,0
+117,image_117,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13300,17,True,0,224,531,0,12545
+510,image_510,Breast,3,Neoplastic; Inflammatory; Connective,13291,10,True,10184,1631,1476,0,0
+265,image_265,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13269,13,True,0,3167,6127,0,3975
+1287,image_1287,Bile-duct,3,Neoplastic; Inflammatory; Connective,13261,25,True,992,8888,3381,0,0
+35,image_35,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13243,12,True,0,716,1065,0,11462
+632,image_632,Breast,3,Neoplastic; Inflammatory; Connective,13243,12,True,4614,4919,3710,0,0
+478,image_478,Breast,3,Neoplastic; Inflammatory; Connective,13238,8,True,9420,437,3381,0,0
+921,image_921,Lung,3,Neoplastic; Inflammatory; Connective,13218,7,True,9476,296,3446,0,0
+2107,image_2107,Liver,3,Neoplastic; Inflammatory; Connective,13200,12,True,12542,310,348,0,0
+408,image_408,Breast,3,Neoplastic; Inflammatory; Connective,13139,9,True,11682,115,1342,0,0
+129,image_129,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13131,15,True,0,227,2615,0,10289
+1120,image_1120,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,13112,18,True,0,521,1214,0,11377
+461,image_461,Breast,3,Neoplastic; Inflammatory; Connective,13079,9,True,12481,343,255,0,0
+572,image_572,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,13004,12,True,0,652,1253,0,11099
+364,image_364,Breast,3,Neoplastic; Inflammatory; Connective,12984,8,True,6195,2418,4371,0,0
+2298,image_2298,Skin,3,Neoplastic; Inflammatory; Connective,12974,11,True,9980,753,2241,0,0
+1237,image_1237,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,12973,15,True,0,539,1780,0,10654
+188,image_188,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12966,8,True,0,255,5780,0,6931
+2138,image_2138,Ovarian,3,Neoplastic; Inflammatory; Connective,12954,9,True,6377,708,5869,0,0
+509,image_509,Breast,3,Neoplastic; Inflammatory; Connective,12940,10,True,10282,412,2246,0,0
+2346,image_2346,Stomach,3,Neoplastic; Inflammatory; Connective,12934,13,True,10129,1479,1326,0,0
+938,image_938,Thyroid,3,Neoplastic; Inflammatory; Connective,12909,7,True,11622,330,957,0,0
+272,image_272,Breast,3,Neoplastic; Inflammatory; Connective,12899,10,True,5295,3451,4153,0,0
+2032,image_2032,Kidney,3,Neoplastic; Inflammatory; Connective,12866,11,True,10229,634,2003,0,0
+227,image_227,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12855,21,True,0,1002,795,0,11058
+500,image_500,Breast,3,Neoplastic; Inflammatory; Connective,12835,14,True,6252,1110,5473,0,0
+829,image_829,Prostate,3,Neoplastic; Inflammatory; Connective,12828,20,True,9395,857,2576,0,0
+74,image_74,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12818,11,True,0,388,7206,0,5224
+1670,image_1670,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,12818,9,True,0,3632,712,0,8474
+609,image_609,Breast,3,Neoplastic; Inflammatory; Connective,12801,9,True,6728,688,5385,0,0
+1038,image_1038,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,12773,14,True,10103,221,2449,0,0
+1964,image_1964,HeadNeck,3,Neoplastic; Inflammatory; Connective,12751,18,True,9328,271,3152,0,0
+279,image_279,Breast,3,Neoplastic; Inflammatory; Connective,12735,11,True,6081,591,6063,0,0
+2259,image_2259,Skin,3,Neoplastic; Inflammatory; Connective,12732,29,True,12106,122,504,0,0
+934,image_934,Thyroid,3,Neoplastic; Inflammatory; Connective,12723,10,True,10863,461,1399,0,0
+943,image_943,Thyroid,3,Neoplastic; Inflammatory; Connective,12722,13,True,1803,1037,9882,0,0
+1221,image_1221,Testis,3,Neoplastic; Inflammatory; Connective,12708,12,True,9272,678,2758,0,0
+827,image_827,Bladder,3,Neoplastic; Connective; Non-neoplastic epithelial,12705,12,True,6431,0,4977,0,1297
+1406,image_1406,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,12704,13,True,0,1340,7559,0,3805
+532,image_532,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12665,18,True,0,772,1203,0,10690
+1035,image_1035,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,12630,19,True,11385,273,972,0,0
+413,image_413,Breast,3,Neoplastic; Inflammatory; Connective,12609,17,True,10107,1086,1416,0,0
+1979,image_1979,HeadNeck,3,Neoplastic; Inflammatory; Connective,12601,20,True,2459,5099,5043,0,0
+421,image_421,Breast,3,Neoplastic; Inflammatory; Connective,12581,5,True,5676,597,6308,0,0
+269,image_269,Breast,3,Neoplastic; Inflammatory; Connective,12557,6,True,12170,113,274,0,0
+958,image_958,Skin,3,Neoplastic; Inflammatory; Connective,12549,11,True,11141,1338,70,0,0
+376,image_376,Breast,3,Neoplastic; Inflammatory; Connective,12542,15,True,751,7700,4091,0,0
+159,image_159,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12538,14,True,0,338,7484,0,4716
+630,image_630,Breast,3,Neoplastic; Inflammatory; Connective,12515,11,True,7860,3162,1493,0,0
+511,image_511,Breast,3,Neoplastic; Inflammatory; Connective,12449,10,True,6429,651,5369,0,0
+1878,image_1878,HeadNeck,3,Neoplastic; Inflammatory; Connective,12407,22,True,782,10219,1406,0,0
+2419,image_2419,Thyroid,3,Neoplastic; Inflammatory; Connective,12366,11,True,4515,3513,4338,0,0
+414,image_414,Breast,3,Neoplastic; Inflammatory; Connective,12348,6,True,11420,712,216,0,0
+1908,image_1908,HeadNeck,3,Neoplastic; Inflammatory; Connective,12330,17,True,7113,234,4983,0,0
+1818,image_1818,Esophagus,3,Neoplastic; Inflammatory; Connective,12302,9,True,11436,39,827,0,0
+1372,image_1372,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,12270,11,True,11392,678,200,0,0
+375,image_375,Breast,3,Neoplastic; Inflammatory; Connective,12267,8,True,5396,2615,4256,0,0
+1165,image_1165,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,12259,13,True,11087,743,429,0,0
+274,image_274,Breast,3,Neoplastic; Inflammatory; Connective,12231,9,True,4254,5777,2200,0,0
+2210,image_2210,Pancreatic,3,Neoplastic; Inflammatory; Connective,12218,11,True,4543,640,7035,0,0
+1898,image_1898,HeadNeck,3,Neoplastic; Inflammatory; Connective,12207,12,True,11593,147,467,0,0
+429,image_429,Breast,3,Neoplastic; Inflammatory; Connective,12201,9,True,645,835,10721,0,0
+1265,image_1265,Bile-duct,3,Neoplastic; Connective; Dead,12160,17,True,10979,0,443,738,0
+641,image_641,Breast,3,Neoplastic; Inflammatory; Connective,12149,14,True,624,4158,7367,0,0
+1494,image_1494,Bladder,3,Neoplastic; Inflammatory; Connective,12122,12,True,3797,774,7551,0,0
+195,image_195,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12120,19,True,0,256,3382,0,8482
+1668,image_1668,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,12100,4,True,0,4286,3243,0,4571
+177,image_177,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12097,11,True,0,1879,1638,0,8580
+2422,image_2422,Thyroid,3,Neoplastic; Inflammatory; Connective,12092,16,True,7197,1046,3849,0,0
+1017,image_1017,Esophagus,3,Neoplastic; Inflammatory; Connective,12082,22,True,1023,274,10785,0,0
+909,image_909,Lung,3,Neoplastic; Connective; Dead,12081,32,True,8046,0,855,3180,0
+286,image_286,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12080,14,True,0,635,1603,0,9842
+706,image_706,Colon,3,Neoplastic; Inflammatory; Connective,12071,12,True,9116,460,2495,0,0
+1037,image_1037,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,12051,11,True,11254,151,646,0,0
+1625,image_1625,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,12042,5,True,0,1389,957,0,9696
+900,image_900,Lung,3,Neoplastic; Connective; Dead,12029,21,True,9181,0,546,2302,0
+1813,image_1813,Esophagus,3,Neoplastic; Inflammatory; Connective,12021,13,True,10900,524,597,0,0
+410,image_410,Breast,3,Neoplastic; Inflammatory; Connective,12015,9,True,9055,863,2097,0,0
+89,image_89,Breast,3,Neoplastic; Inflammatory; Connective,12007,5,True,10396,708,903,0,0
+434,image_434,Breast,3,Neoplastic; Inflammatory; Connective,12001,5,True,9734,313,1954,0,0
+2030,image_2030,Kidney,3,Neoplastic; Inflammatory; Connective,11973,16,True,8699,1602,1672,0,0
+49,image_49,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11963,14,True,0,512,2483,0,8968
+1167,image_1167,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,11963,9,True,11270,148,545,0,0
+1119,image_1119,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,11918,21,True,0,301,4010,0,7607
+1266,image_1266,Bile-duct,3,Neoplastic; Connective; Dead,11890,16,True,10078,0,1552,260,0
+2010,image_2010,HeadNeck,3,Neoplastic; Inflammatory; Connective,11876,11,True,4576,1297,6003,0,0
+400,image_400,Breast,3,Neoplastic; Inflammatory; Connective,11847,11,True,5093,535,6219,0,0
+232,image_232,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11844,13,True,0,586,296,0,10962
+2075,image_2075,Liver,3,Neoplastic; Inflammatory; Connective,11840,7,True,10557,435,848,0,0
+955,image_955,Skin,3,Neoplastic; Inflammatory; Connective,11828,10,True,10119,346,1363,0,0
+228,image_228,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11824,14,True,0,1805,3779,0,6240
+1446,image_1446,Bile-duct,3,Neoplastic; Inflammatory; Connective,11805,19,True,2563,6563,2679,0,0
+694,image_694,Colon,3,Neoplastic; Inflammatory; Connective,11796,16,True,10133,62,1601,0,0
+1598,image_1598,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,11771,11,True,0,862,731,0,10178
+1826,image_1826,Esophagus,3,Neoplastic; Inflammatory; Connective,11747,12,True,9915,351,1481,0,0
+2337,image_2337,Stomach,3,Neoplastic; Inflammatory; Connective,11746,7,True,9507,145,2094,0,0
+441,image_441,Breast,3,Neoplastic; Inflammatory; Connective,11727,7,True,10489,1011,227,0,0
+119,image_119,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11704,15,True,0,951,3894,0,6859
+501,image_501,Breast,3,Neoplastic; Inflammatory; Connective,11692,12,True,9281,1154,1257,0,0
+929,image_929,Lung,3,Neoplastic; Inflammatory; Connective,11671,6,True,9564,160,1947,0,0
+354,image_354,Breast,3,Neoplastic; Inflammatory; Connective,11659,8,True,6321,406,4932,0,0
+1257,image_1257,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,11639,15,True,0,139,2132,0,9368
+2426,image_2426,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,11612,14,True,0,494,1865,0,9253
+169,image_169,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11610,12,True,0,799,3319,0,7492
+606,image_606,Breast,3,Neoplastic; Inflammatory; Connective,11609,10,True,7766,1791,2052,0,0
+2296,image_2296,Skin,3,Neoplastic; Inflammatory; Connective,11555,11,True,6899,1758,2898,0,0
+1626,image_1626,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,11521,7,True,0,7811,3648,0,62
+2387,image_2387,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,11494,12,True,0,1628,683,0,9183
+88,image_88,Breast,3,Neoplastic; Inflammatory; Connective,11492,4,True,10998,485,9,0,0
+1247,image_1247,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,11467,14,True,0,43,1879,0,9545
+2342,image_2342,Stomach,3,Neoplastic; Inflammatory; Connective,11455,11,True,6454,569,4432,0,0
+10,image_10,Breast,3,Neoplastic; Inflammatory; Connective,11441,4,True,8896,183,2362,0,0
+264,image_264,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11422,14,True,0,376,1846,0,9200
+2418,image_2418,Thyroid,3,Neoplastic; Inflammatory; Connective,11421,15,True,1074,6454,3893,0,0
+1100,image_1100,Esophagus,3,Neoplastic; Inflammatory; Connective,11396,9,True,9862,451,1083,0,0
+362,image_362,Breast,3,Neoplastic; Inflammatory; Connective,11372,6,True,8674,447,2251,0,0
+290,image_290,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11353,11,True,0,384,3488,0,7481
+1567,image_1567,Cervix,3,Neoplastic; Inflammatory; Connective,11342,10,True,3189,1506,6647,0,0
+1583,image_1583,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,11341,4,True,0,2256,4317,0,4768
+514,image_514,Breast,3,Neoplastic; Inflammatory; Connective,11338,6,True,8915,1577,846,0,0
+1874,image_1874,HeadNeck,3,Neoplastic; Inflammatory; Connective,11297,16,True,8197,158,2942,0,0
+2366,image_2366,Testis,3,Neoplastic; Inflammatory; Connective,11289,11,True,603,712,9974,0,0
+789,image_789,Breast,3,Neoplastic; Inflammatory; Connective,11277,6,True,8645,661,1971,0,0
+1838,image_1838,Esophagus,3,Neoplastic; Inflammatory; Connective,11267,8,True,3503,773,6991,0,0
+901,image_901,Lung,3,Neoplastic; Connective; Dead,11262,26,True,4329,0,868,6065,0
+1452,image_1452,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,11252,12,True,0,431,2800,0,8021
+946,image_946,Thyroid,3,Neoplastic; Inflammatory; Connective,11187,10,True,338,4323,6526,0,0
+1386,image_1386,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,11109,8,True,5925,288,4896,0,0
+1288,image_1288,Bile-duct,3,Neoplastic; Inflammatory; Connective,11103,10,True,2261,516,8326,0,0
+834,image_834,Kidney,3,Neoplastic; Inflammatory; Connective,11075,35,True,6840,3166,1069,0,0
+181,image_181,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11073,14,True,0,431,5797,0,4845
+423,image_423,Breast,3,Neoplastic; Inflammatory; Connective,11038,7,True,6811,1062,3165,0,0
+197,image_197,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,11030,8,True,0,233,4052,0,6745
+1091,image_1091,Esophagus,3,Inflammatory; Connective; Non-neoplastic epithelial,11007,9,True,0,3044,2128,0,5835
+253,image_253,Breast,3,Neoplastic; Inflammatory; Connective,10984,4,True,7577,1466,1941,0,0
+575,image_575,Breast,3,Neoplastic; Inflammatory; Connective,10982,9,True,5243,1691,4048,0,0
+1294,image_1294,Bile-duct,3,Neoplastic; Inflammatory; Connective,10979,15,True,4141,5495,1343,0,0
+1088,image_1088,Esophagus,3,Inflammatory; Connective; Non-neoplastic epithelial,10926,16,True,0,1410,2904,0,6612
+291,image_291,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10922,5,True,0,1049,1445,0,8428
+1318,image_1318,Colon,3,Neoplastic; Inflammatory; Connective,10903,8,True,9885,110,908,0,0
+835,image_835,Kidney,3,Neoplastic; Inflammatory; Connective,10902,29,True,9176,1484,242,0,0
+183,image_183,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10883,11,True,0,765,4816,0,5302
+1610,image_1610,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,10870,8,True,0,241,3761,0,6868
+832,image_832,Kidney,3,Neoplastic; Inflammatory; Connective,10850,33,True,8691,2042,117,0,0
+782,image_782,Breast,3,Neoplastic; Inflammatory; Connective,10847,12,True,6577,2277,1993,0,0
+425,image_425,Breast,3,Neoplastic; Inflammatory; Connective,10804,8,True,5448,286,5070,0,0
+220,image_220,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10796,9,True,0,944,4209,0,5643
+942,image_942,Thyroid,3,Neoplastic; Inflammatory; Connective,10792,13,True,296,1599,8897,0,0
+1018,image_1018,Esophagus,3,Neoplastic; Inflammatory; Connective,10780,17,True,1299,204,9277,0,0
+1387,image_1387,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,10780,8,True,7920,448,2412,0,0
+1086,image_1086,Esophagus,3,Neoplastic; Inflammatory; Connective,10750,8,True,1068,98,9584,0,0
+440,image_440,Breast,3,Neoplastic; Inflammatory; Connective,10749,5,True,7604,746,2399,0,0
+275,image_275,Breast,3,Neoplastic; Inflammatory; Connective,10740,9,True,5209,912,4619,0,0
+419,image_419,Breast,3,Neoplastic; Inflammatory; Connective,10660,9,True,3859,1397,5404,0,0
+1407,image_1407,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,10620,16,True,0,3842,3261,0,3517
+1681,image_1681,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,10568,6,True,0,5121,3650,0,1797
+833,image_833,Kidney,3,Neoplastic; Inflammatory; Connective,10534,24,True,8717,1444,373,0,0
+633,image_633,Breast,3,Neoplastic; Inflammatory; Connective,10510,13,True,1245,8104,1161,0,0
+133,image_133,Breast,3,Neoplastic; Inflammatory; Connective,10489,9,True,8260,915,1314,0,0
+420,image_420,Breast,3,Neoplastic; Inflammatory; Connective,10488,5,True,4223,1134,5131,0,0
+2434,image_2434,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,10480,12,True,0,2577,2920,0,4983
+935,image_935,Thyroid,3,Neoplastic; Inflammatory; Connective,10476,7,True,5994,351,4131,0,0
+608,image_608,Breast,3,Neoplastic; Inflammatory; Connective,10462,10,True,8180,1398,884,0,0
+2362,image_2362,Testis,3,Neoplastic; Inflammatory; Connective,10400,9,True,682,776,8942,0,0
+97,image_97,Breast,3,Neoplastic; Inflammatory; Connective,10394,11,True,4027,516,5851,0,0
+2105,image_2105,Liver,3,Neoplastic; Inflammatory; Connective,10377,13,True,5982,734,3661,0,0
+528,image_528,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10370,17,True,0,172,148,0,10050
+672,image_672,Breast,3,Neoplastic; Inflammatory; Connective,10339,7,True,7690,741,1908,0,0
+693,image_693,Colon,3,Neoplastic; Inflammatory; Dead,10325,22,True,7930,825,0,1570,0
+191,image_191,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10303,10,True,0,819,2598,0,6886
+513,image_513,Breast,3,Neoplastic; Inflammatory; Connective,10279,10,True,4803,2800,2676,0,0
+123,image_123,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10258,12,True,0,528,1322,0,8408
+463,image_463,Breast,3,Neoplastic; Inflammatory; Connective,10249,7,True,7771,289,2189,0,0
+2044,image_2044,Liver,3,Neoplastic; Inflammatory; Connective,10202,8,True,8962,402,838,0,0
+1981,image_1981,HeadNeck,3,Neoplastic; Inflammatory; Connective,10173,11,True,407,4786,4980,0,0
+1259,image_1259,Testis,3,Neoplastic; Inflammatory; Connective,10165,19,True,5,6787,3373,0,0
+19,image_19,Breast,3,Neoplastic; Inflammatory; Connective,10156,6,True,8813,243,1100,0,0
+1508,image_1508,Breast,3,Neoplastic; Inflammatory; Connective,10154,10,True,7968,1210,976,0,0
+462,image_462,Breast,3,Neoplastic; Inflammatory; Connective,10129,6,True,6943,501,2685,0,0
+182,image_182,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10100,9,True,0,755,5872,0,3473
+1239,image_1239,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,10100,16,True,0,369,3654,0,6077
+229,image_229,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,10098,16,True,0,1795,4059,0,4244
+1110,image_1110,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,10098,8,True,0,662,1309,0,8127
+1897,image_1897,HeadNeck,3,Neoplastic; Inflammatory; Connective,10086,10,True,6905,144,3037,0,0
+1628,image_1628,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,10077,4,True,0,5306,4054,0,717
+1199,image_1199,Bile-duct,3,Neoplastic; Inflammatory; Connective,10067,10,True,7647,129,2291,0,0
+610,image_610,Breast,3,Neoplastic; Inflammatory; Connective,10048,14,True,560,5426,4062,0,0
+1090,image_1090,Esophagus,3,Inflammatory; Connective; Non-neoplastic epithelial,10027,14,True,0,1095,3939,0,4993
+1223,image_1223,Testis,3,Neoplastic; Inflammatory; Connective,10008,8,True,8374,196,1438,0,0
+674,image_674,Breast,3,Neoplastic; Inflammatory; Connective,9997,4,True,7098,304,2595,0,0
+1453,image_1453,Bladder,3,Neoplastic; Inflammatory; Connective,9966,16,True,4834,1585,3547,0,0
+1240,image_1240,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,9963,13,True,0,1204,2686,0,6073
+1229,image_1229,Testis,3,Neoplastic; Inflammatory; Connective,9957,10,True,6317,1042,2598,0,0
+205,image_205,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,9947,8,True,0,521,4399,0,5027
+1225,image_1225,Testis,3,Neoplastic; Inflammatory; Connective,9857,7,True,7819,643,1395,0,0
+2171,image_2171,Pancreatic,3,Neoplastic; Inflammatory; Connective,9833,10,True,2107,487,7239,0,0
+427,image_427,Breast,3,Neoplastic; Inflammatory; Connective,9831,9,True,529,454,8848,0,0
+244,image_244,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,9829,8,True,0,280,664,0,8885
+150,image_150,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,9803,9,True,0,1496,3234,0,5073
+1122,image_1122,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,9801,15,True,0,764,1454,0,7583
+2491,image_2491,Colon,3,Neoplastic; Inflammatory; Connective,9781,5,True,7863,827,1091,0,0
+1166,image_1166,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,9778,12,True,5469,396,3913,0,0
+1666,image_1666,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9755,6,True,0,6914,2130,0,711
+2168,image_2168,Pancreatic,3,Neoplastic; Inflammatory; Connective,9743,16,True,3926,422,5395,0,0
+793,image_793,Breast,3,Neoplastic; Inflammatory; Connective,9686,8,True,6192,350,3144,0,0
+784,image_784,Breast,3,Neoplastic; Inflammatory; Connective,9672,7,True,7392,678,1602,0,0
+984,image_984,Thyroid,3,Neoplastic; Inflammatory; Connective,9672,8,True,8541,286,845,0,0
+905,image_905,Lung,3,Neoplastic; Connective; Dead,9652,23,True,4579,0,299,4774,0
+1812,image_1812,Esophagus,3,Neoplastic; Inflammatory; Connective,9634,5,True,6407,764,2463,0,0
+467,image_467,Breast,3,Neoplastic; Inflammatory; Connective,9586,5,True,4427,624,4535,0,0
+2163,image_2163,Pancreatic,3,Neoplastic; Inflammatory; Connective,9577,6,True,142,589,8846,0,0
+1113,image_1113,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,9572,9,True,0,206,1441,0,7925
+1873,image_1873,HeadNeck,3,Neoplastic; Inflammatory; Connective,9558,20,True,5158,1713,2687,0,0
+1408,image_1408,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,9551,13,True,0,272,5149,0,4130
+2384,image_2384,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,9442,9,True,0,782,806,0,7854
+98,image_98,Breast,3,Neoplastic; Inflammatory; Connective,9425,12,True,3314,545,5566,0,0
+12,image_12,Breast,3,Neoplastic; Inflammatory; Connective,9406,7,True,6755,681,1970,0,0
+565,image_565,Breast,3,Neoplastic; Inflammatory; Connective,9400,6,True,7394,540,1466,0,0
+1837,image_1837,Esophagus,3,Neoplastic; Inflammatory; Connective,9343,10,True,4379,1442,3522,0,0
+397,image_397,Breast,3,Neoplastic; Inflammatory; Connective,9340,7,True,5777,1501,2062,0,0
+605,image_605,Breast,3,Neoplastic; Inflammatory; Connective,9340,6,True,6958,697,1685,0,0
+365,image_365,Breast,3,Neoplastic; Inflammatory; Connective,9338,3,True,6987,513,1838,0,0
+2424,image_2424,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,9305,14,True,0,247,2298,0,6760
+305,image_305,Breast,3,Neoplastic; Inflammatory; Connective,9286,11,True,2114,2273,4899,0,0
+1804,image_1804,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9276,6,True,0,427,5986,0,2863
+447,image_447,Breast,3,Neoplastic; Inflammatory; Connective,9246,13,True,1975,5511,1760,0,0
+1805,image_1805,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9242,5,True,0,395,4959,0,3888
+139,image_139,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,9235,7,True,0,730,3593,0,4912
+2360,image_2360,Testis,3,Neoplastic; Inflammatory; Connective,9218,6,True,3264,767,5187,0,0
+1511,image_1511,Breast,3,Neoplastic; Inflammatory; Connective,9216,5,True,4344,183,4689,0,0
+175,image_175,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,9212,12,True,0,1348,1784,0,6080
+2323,image_2323,Stomach,3,Neoplastic; Inflammatory; Connective,9209,11,True,5313,550,3346,0,0
+388,image_388,Breast,3,Neoplastic; Inflammatory; Connective,9203,6,True,6299,2609,295,0,0
+344,image_344,Breast,3,Neoplastic; Inflammatory; Connective,9182,6,True,2997,1568,4617,0,0
+101,image_101,Breast,3,Neoplastic; Connective; Non-neoplastic epithelial,9175,12,True,232,0,3310,0,5633
+1246,image_1246,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,9160,8,True,0,120,119,0,8921
+329,image_329,Breast,3,Neoplastic; Inflammatory; Connective,9148,7,True,6048,1033,2067,0,0
+1748,image_1748,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9130,4,True,0,1714,5941,0,1475
+1117,image_1117,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,9125,9,True,0,94,2348,0,6683
+2043,image_2043,Liver,3,Neoplastic; Inflammatory; Connective,9121,8,True,7369,328,1424,0,0
+2447,image_2447,Colon,3,Neoplastic; Inflammatory; Connective,9102,10,True,1620,827,6655,0,0
+1722,image_1722,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9090,6,True,0,2942,3998,0,2150
+487,image_487,Breast,3,Neoplastic; Inflammatory; Connective,9065,11,True,3936,1341,3788,0,0
+1161,image_1161,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,9063,8,True,5384,406,3273,0,0
+2386,image_2386,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,9060,11,True,0,1688,1092,0,6280
+505,image_505,Breast,3,Neoplastic; Inflammatory; Connective,9059,10,True,4357,1516,3186,0,0
+786,image_786,Breast,3,Neoplastic; Inflammatory; Connective,9057,13,True,1667,796,6594,0,0
+919,image_919,Lung,3,Neoplastic; Inflammatory; Connective,9057,9,True,6606,800,1651,0,0
+1725,image_1725,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,9041,5,True,0,3233,4873,0,935
+898,image_898,Lung,3,Neoplastic; Connective; Dead,9014,23,True,5030,0,1265,2719,0
+1855,image_1855,HeadNeck,3,Neoplastic; Inflammatory; Connective,9008,6,True,8408,308,292,0,0
+899,image_899,Lung,3,Neoplastic; Connective; Dead,9006,28,True,2777,0,2846,3383,0
+1022,image_1022,Esophagus,3,Neoplastic; Inflammatory; Connective,8999,9,True,1619,244,7136,0,0
+33,image_33,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8954,8,True,0,236,1588,0,7130
+448,image_448,Breast,3,Neoplastic; Inflammatory; Connective,8951,7,True,6993,632,1326,0,0
+1152,image_1152,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,8910,8,True,2,383,8525,0,0
+1825,image_1825,Esophagus,3,Neoplastic; Inflammatory; Connective,8862,10,True,4405,1141,3316,0,0
+1228,image_1228,Testis,3,Neoplastic; Inflammatory; Connective,8846,6,True,2147,924,5775,0,0
+1118,image_1118,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,8824,10,True,0,210,964,0,7650
+864,image_864,Ovarian,3,Neoplastic; Inflammatory; Connective,8823,12,True,4346,184,4293,0,0
+634,image_634,Breast,3,Neoplastic; Inflammatory; Connective,8820,12,True,1727,2928,4165,0,0
+165,image_165,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8804,8,True,0,857,4324,0,3623
+394,image_394,Breast,3,Neoplastic; Inflammatory; Connective,8792,9,True,8065,139,588,0,0
+350,image_350,Breast,3,Neoplastic; Inflammatory; Connective,8782,5,True,4510,161,4111,0,0
+2060,image_2060,Liver,3,Neoplastic; Inflammatory; Connective,8735,10,True,262,1403,7070,0,0
+207,image_207,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8727,9,True,0,289,2036,0,6402
+924,image_924,Lung,3,Neoplastic; Inflammatory; Connective,8717,15,True,1388,527,6802,0,0
+1641,image_1641,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,8703,7,True,0,773,3413,0,4517
+31,image_31,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8695,9,True,0,361,3270,0,5064
+488,image_488,Breast,3,Neoplastic; Inflammatory; Connective,8692,5,True,4784,2770,1138,0,0
+1224,image_1224,Testis,3,Neoplastic; Inflammatory; Connective,8667,9,True,4929,2505,1233,0,0
+607,image_607,Breast,3,Neoplastic; Inflammatory; Connective,8645,4,True,3771,1137,3737,0,0
+210,image_210,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8644,10,True,0,671,2781,0,5192
+1114,image_1114,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,8631,9,True,0,254,476,0,7901
+214,image_214,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8624,7,True,0,1506,1890,0,5228
+2064,image_2064,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,8621,28,True,0,225,256,0,8140
+668,image_668,Breast,3,Neoplastic; Inflammatory; Connective,8617,6,True,5664,654,2299,0,0
+1445,image_1445,Bile-duct,3,Neoplastic; Inflammatory; Connective,8601,8,True,5162,2205,1234,0,0
+2063,image_2063,Liver,3,Neoplastic; Inflammatory; Connective,8565,10,True,3083,2818,2664,0,0
+293,image_293,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8555,9,True,0,218,585,0,7752
+1198,image_1198,Bile-duct,3,Neoplastic; Inflammatory; Connective,8547,7,True,6687,778,1082,0,0
+1213,image_1213,Testis,3,Neoplastic; Inflammatory; Connective,8490,10,True,6932,240,1318,0,0
+2065,image_2065,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,8482,22,True,0,321,1683,0,6478
+38,image_38,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8480,9,True,0,788,846,0,6846
+1517,image_1517,Breast,3,Neoplastic; Inflammatory; Connective,8479,7,True,3455,1968,3056,0,0
+2091,image_2091,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,8428,8,True,0,588,610,0,7230
+1095,image_1095,Esophagus,3,Neoplastic; Inflammatory; Connective,8427,3,True,3022,1100,4305,0,0
+299,image_299,Breast,3,Neoplastic; Inflammatory; Connective,8409,7,True,2229,1850,4330,0,0
+762,image_762,Colon,3,Neoplastic; Inflammatory; Connective,8395,12,True,1487,3042,3866,0,0
+939,image_939,Thyroid,3,Neoplastic; Inflammatory; Connective,8381,8,True,281,2391,5709,0,0
+2189,image_2189,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,8320,20,True,0,3478,4646,0,196
+581,image_581,Breast,3,Neoplastic; Inflammatory; Connective,8277,10,True,5137,2057,1083,0,0
+1050,image_1050,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,8276,6,True,3814,298,4164,0,0
+1513,image_1513,Breast,3,Neoplastic; Inflammatory; Connective,8262,7,True,6221,533,1508,0,0
+903,image_903,Lung,3,Neoplastic; Connective; Dead,8240,28,True,1298,0,491,6451,0
+1047,image_1047,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,8216,5,True,6352,447,1417,0,0
+46,image_46,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8213,7,True,0,452,1683,0,6078
+295,image_295,Breast,3,Neoplastic; Inflammatory; Connective,8206,9,True,6583,403,1220,0,0
+395,image_395,Breast,3,Neoplastic; Inflammatory; Connective,8201,6,True,6474,199,1528,0,0
+162,image_162,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8185,7,True,0,218,6597,0,1370
+50,image_50,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,8184,5,True,0,1251,3864,0,3069
+811,image_811,Kidney,3,Neoplastic; Inflammatory; Connective,8150,5,True,6728,140,1282,0,0
+1737,image_1737,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,8109,7,True,0,1923,6008,0,178
+1994,image_1994,HeadNeck,3,Neoplastic; Inflammatory; Dead,8093,12,True,447,5551,0,2095,0
+2140,image_2140,Ovarian,3,Neoplastic; Inflammatory; Connective,8070,9,True,3140,931,3999,0,0
+599,image_599,Breast,3,Neoplastic; Inflammatory; Connective,8064,7,True,700,1545,5819,0,0
+68,image_68,Breast,3,Neoplastic; Inflammatory; Connective,8063,6,True,4914,223,2926,0,0
+406,image_406,Breast,3,Neoplastic; Inflammatory; Connective,8046,6,True,5680,227,2139,0,0
+896,image_896,Lung,3,Neoplastic; Connective; Dead,8025,22,True,1097,0,2425,4503,0
+577,image_577,Breast,3,Neoplastic; Inflammatory; Connective,8013,2,True,5143,560,2310,0,0
+1423,image_1423,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,7984,10,True,0,222,1777,0,5985
+469,image_469,Breast,3,Neoplastic; Inflammatory; Connective,7983,3,True,6180,760,1043,0,0
+2322,image_2322,Stomach,3,Neoplastic; Inflammatory; Connective,7958,12,True,4106,665,3187,0,0
+409,image_409,Breast,3,Neoplastic; Inflammatory; Connective,7929,12,True,4116,1695,2118,0,0
+1447,image_1447,Bile-duct,3,Neoplastic; Inflammatory; Connective,7928,10,True,3072,165,4691,0,0
+444,image_444,Breast,3,Neoplastic; Inflammatory; Connective,7919,5,True,5466,146,2307,0,0
+1839,image_1839,Esophagus,3,Inflammatory; Connective; Dead,7917,6,True,0,1349,5961,607,0
+966,image_966,Skin,3,Inflammatory; Connective; Non-neoplastic epithelial,7875,8,True,0,22,2383,0,5470
+391,image_391,Breast,3,Neoplastic; Inflammatory; Connective,7836,4,True,7294,445,97,0,0
+2411,image_2411,Thyroid,3,Neoplastic; Connective; Non-neoplastic epithelial,7754,1,True,1275,0,377,0,6102
+1663,image_1663,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,7735,6,True,0,722,1219,0,5794
+1121,image_1121,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,7728,8,True,0,250,4179,0,3299
+1151,image_1151,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,7568,5,True,950,134,6484,0,0
+2363,image_2363,Testis,3,Neoplastic; Inflammatory; Connective,7555,5,True,4252,594,2709,0,0
+1382,image_1382,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,7526,8,True,6678,525,323,0,0
+1866,image_1866,HeadNeck,3,Neoplastic; Inflammatory; Connective,7524,9,True,6658,166,700,0,0
+2167,image_2167,Pancreatic,3,Neoplastic; Inflammatory; Connective,7506,11,True,1915,837,4754,0,0
+2427,image_2427,Thyroid,3,Inflammatory; Connective; Non-neoplastic epithelial,7402,6,True,0,413,2394,0,4595
+1138,image_1138,Pancreatic,3,Neoplastic; Inflammatory; Connective,7373,9,True,1840,423,5110,0,0
+32,image_32,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,7368,10,True,0,1056,2443,0,3869
+456,image_456,Breast,3,Neoplastic; Inflammatory; Connective,7367,7,True,2163,103,5101,0,0
+588,image_588,Breast,3,Neoplastic; Inflammatory; Connective,7322,10,True,960,4290,2072,0,0
+2113,image_2113,Lung,3,Neoplastic; Inflammatory; Connective,7309,5,True,3529,850,2930,0,0
+164,image_164,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,7291,14,True,0,209,3456,0,3626
+11,image_11,Breast,3,Neoplastic; Inflammatory; Connective,7255,2,True,4455,231,2569,0,0
+1450,image_1450,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,7247,6,True,0,256,1930,0,5061
+213,image_213,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,7244,6,True,0,719,3252,0,3273
+2066,image_2066,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,7241,27,True,0,453,1354,0,5434
+637,image_637,Breast,3,Neoplastic; Inflammatory; Connective,7212,9,True,15,4646,2551,0,0
+1168,image_1168,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,7195,11,True,3114,588,3493,0,0
+442,image_442,Breast,3,Neoplastic; Inflammatory; Connective,7179,8,True,5230,909,1040,0,0
+330,image_330,Breast,3,Neoplastic; Inflammatory; Connective,7138,6,True,4922,203,2013,0,0
+981,image_981,Thyroid,3,Neoplastic; Inflammatory; Connective,7138,8,True,959,1253,4926,0,0
+1378,image_1378,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,7083,6,True,5140,554,1389,0,0
+349,image_349,Breast,3,Neoplastic; Inflammatory; Connective,6954,5,True,3133,338,3483,0,0
+1640,image_1640,Colon,3,Inflammatory; Connective; Non-neoplastic epithelial,6939,5,True,0,329,3183,0,3427
+450,image_450,Breast,3,Neoplastic; Inflammatory; Connective,6888,6,True,2395,353,4140,0,0
+85,image_85,Breast,3,Neoplastic; Inflammatory; Connective,6840,6,True,1824,704,4312,0,0
+518,image_518,Breast,3,Neoplastic; Inflammatory; Connective,6817,3,True,2104,623,4090,0,0
+508,image_508,Breast,3,Neoplastic; Inflammatory; Connective,6816,6,True,142,2710,3964,0,0
+86,image_86,Breast,3,Neoplastic; Inflammatory; Connective,6791,8,True,2381,227,4183,0,0
+907,image_907,Lung,3,Neoplastic; Connective; Dead,6780,10,True,101,0,193,6486,0
+1422,image_1422,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,6780,6,True,0,903,76,0,5801
+1421,image_1421,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,6773,5,True,0,630,1361,0,4782
+1235,image_1235,Testis,3,Neoplastic; Inflammatory; Connective,6758,8,True,518,2374,3866,0,0
+1993,image_1993,HeadNeck,3,Neoplastic; Inflammatory; Dead,6750,8,True,4196,1868,0,686,0
+1232,image_1232,Testis,3,Neoplastic; Inflammatory; Connective,6746,7,True,986,1009,4751,0,0
+523,image_523,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,6722,4,True,0,810,1870,0,4042
+43,image_43,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,6706,4,True,0,401,2692,0,3613
+650,image_650,Breast,3,Neoplastic; Inflammatory; Connective,6706,2,True,6398,276,32,0,0
+923,image_923,Lung,3,Neoplastic; Inflammatory; Connective,6644,8,True,108,763,5773,0,0
+2098,image_2098,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,6622,7,True,0,444,146,0,6032
+567,image_567,Breast,3,Neoplastic; Inflammatory; Connective,6595,7,True,96,2936,3563,0,0
+331,image_331,Breast,3,Neoplastic; Inflammatory; Connective,6550,4,True,4512,303,1735,0,0
+2137,image_2137,Ovarian,3,Neoplastic; Inflammatory; Connective,6512,5,True,817,1018,4677,0,0
+515,image_515,Breast,3,Neoplastic; Inflammatory; Connective,6488,4,True,2974,687,2827,0,0
+1394,image_1394,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,6449,8,True,2159,201,4089,0,0
+1218,image_1218,Testis,3,Neoplastic; Inflammatory; Connective,6428,8,True,858,184,5386,0,0
+1856,image_1856,HeadNeck,3,Neoplastic; Inflammatory; Connective,6388,8,True,4673,25,1690,0,0
+1068,image_1068,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,6368,4,True,5420,160,788,0,0
+405,image_405,Breast,3,Neoplastic; Inflammatory; Connective,6366,9,True,3952,254,2160,0,0
+47,image_47,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,6332,8,True,0,135,2783,0,3414
+1163,image_1163,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,6331,5,True,2473,846,3012,0,0
+897,image_897,Lung,3,Neoplastic; Connective; Dead,6311,18,True,2508,0,934,2869,0
+194,image_194,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,6300,6,True,0,411,5235,0,654
+904,image_904,Lung,3,Neoplastic; Connective; Dead,6297,13,True,867,0,224,5206,0
+576,image_576,Breast,3,Neoplastic; Inflammatory; Connective,6242,3,True,1250,987,4005,0,0
+2157,image_2157,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,6208,7,True,0,187,2966,0,3055
+373,image_373,Breast,3,Neoplastic; Inflammatory; Connective,6136,3,True,3295,619,2222,0,0
+578,image_578,Breast,3,Neoplastic; Inflammatory; Connective,6136,3,True,3131,332,2673,0,0
+1829,image_1829,Esophagus,3,Neoplastic; Inflammatory; Connective,6126,15,True,1248,178,4700,0,0
+16,image_16,Breast,3,Neoplastic; Inflammatory; Connective,6084,8,True,2335,1120,2629,0,0
+455,image_455,Breast,3,Neoplastic; Inflammatory; Connective,6084,3,True,1390,1705,2989,0,0
+642,image_642,Breast,3,Neoplastic; Inflammatory; Connective,6065,10,True,541,1820,3704,0,0
+71,image_71,Breast,3,Neoplastic; Inflammatory; Connective,5952,6,True,1527,783,3642,0,0
+1115,image_1115,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,5932,9,True,0,259,1298,0,4375
+464,image_464,Breast,3,Neoplastic; Inflammatory; Connective,5882,5,True,2926,1607,1349,0,0
+568,image_568,Breast,3,Neoplastic; Inflammatory; Connective,5863,5,True,2001,2898,964,0,0
+41,image_41,Breast,3,Neoplastic; Inflammatory; Connective,5815,7,True,671,1113,4031,0,0
+2153,image_2153,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,5766,7,True,0,868,2727,0,2171
+585,image_585,Breast,3,Neoplastic; Inflammatory; Connective,5646,3,True,1905,782,2959,0,0
+23,image_23,Breast,3,Neoplastic; Inflammatory; Connective,5518,7,True,208,1125,4185,0,0
+102,image_102,Breast,3,Neoplastic; Inflammatory; Connective,5453,7,True,2145,566,2742,0,0
+1416,image_1416,Bile-duct,3,Neoplastic; Inflammatory; Connective,5423,10,True,3797,372,1254,0,0
+821,image_821,Breast,3,Neoplastic; Connective; Non-neoplastic epithelial,5395,4,True,1218,0,3995,0,182
+1811,image_1811,Esophagus,3,Neoplastic; Inflammatory; Connective,5350,6,True,1359,891,3100,0,0
+823,image_823,Breast,3,Neoplastic; Connective; Non-neoplastic epithelial,5333,4,True,961,0,3226,0,1146
+398,image_398,Breast,3,Neoplastic; Inflammatory; Connective,5331,8,True,2816,326,2189,0,0
+2094,image_2094,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,5281,4,True,0,494,459,0,4328
+2076,image_2076,Liver,3,Neoplastic; Inflammatory; Connective,5253,4,True,793,1113,3347,0,0
+2068,image_2068,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,5215,17,True,0,90,1879,0,3246
+1147,image_1147,Pancreatic,3,Neoplastic; Inflammatory; Connective,5178,6,True,216,725,4237,0,0
+332,image_332,Breast,3,Neoplastic; Inflammatory; Connective,5160,3,True,3404,484,1272,0,0
+600,image_600,Breast,3,Neoplastic; Inflammatory; Connective,5122,3,True,2048,493,2581,0,0
+347,image_347,Breast,3,Neoplastic; Inflammatory; Connective,5104,9,True,19,381,4704,0,0
+471,image_471,Breast,3,Neoplastic; Inflammatory; Connective,5067,4,True,1912,687,2468,0,0
+2154,image_2154,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,5067,2,True,0,85,1227,0,3755
+1379,image_1379,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,5061,4,True,4810,247,4,0,0
+196,image_196,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,5038,3,True,0,263,431,0,4344
+1415,image_1415,Bile-duct,3,Neoplastic; Inflammatory; Connective,4982,8,True,1235,927,2820,0,0
+1108,image_1108,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,4975,4,True,0,495,679,0,3801
+438,image_438,Breast,3,Neoplastic; Inflammatory; Connective,4952,5,True,2117,919,1916,0,0
+736,image_736,Colon,3,Neoplastic; Inflammatory; Connective,4892,4,True,2831,204,1857,0,0
+2096,image_2096,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,4890,3,True,0,257,186,0,4447
+1879,image_1879,HeadNeck,3,Neoplastic; Inflammatory; Connective,4852,7,True,1439,3041,372,0,0
+1197,image_1197,Bile-duct,3,Neoplastic; Inflammatory; Connective,4787,5,True,3164,245,1378,0,0
+446,image_446,Breast,3,Neoplastic; Inflammatory; Connective,4741,4,True,2420,657,1664,0,0
+1155,image_1155,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,4737,7,True,2537,327,1873,0,0
+411,image_411,Breast,3,Neoplastic; Inflammatory; Connective,4595,3,True,3386,92,1117,0,0
+346,image_346,Breast,3,Neoplastic; Inflammatory; Connective,4588,6,True,1522,698,2368,0,0
+519,image_519,Breast,3,Neoplastic; Inflammatory; Connective,4570,3,True,1417,627,2526,0,0
+1375,image_1375,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,4539,5,True,4010,421,108,0,0
+1056,image_1056,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,4530,4,True,3670,268,592,0,0
+573,image_573,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,4479,3,True,0,224,2901,0,1354
+1566,image_1566,Cervix,3,Neoplastic; Inflammatory; Connective,4443,5,True,257,320,3866,0,0
+1909,image_1909,HeadNeck,3,Neoplastic; Inflammatory; Connective,4433,7,True,85,266,4082,0,0
+457,image_457,Breast,3,Neoplastic; Inflammatory; Connective,4432,4,True,339,981,3112,0,0
+466,image_466,Breast,3,Neoplastic; Inflammatory; Connective,4426,4,True,1726,317,2383,0,0
+1060,image_1060,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,4326,2,True,3616,89,621,0,0
+598,image_598,Breast,3,Neoplastic; Inflammatory; Connective,4274,3,True,1198,1434,1642,0,0
+737,image_737,Colon,3,Neoplastic; Inflammatory; Connective,4247,6,True,2168,396,1683,0,0
+432,image_432,Breast,3,Neoplastic; Inflammatory; Connective,4235,5,True,1098,1623,1514,0,0
+124,image_124,Breast,3,Neoplastic; Inflammatory; Connective,4159,2,True,292,124,3743,0,0
+2069,image_2069,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,4090,3,True,0,67,1753,0,2270
+2160,image_2160,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,4041,5,True,0,305,2260,0,1476
+520,image_520,Breast,3,Neoplastic; Inflammatory; Connective,4020,2,True,1531,611,1878,0,0
+396,image_396,Breast,3,Neoplastic; Inflammatory; Connective,4018,4,True,1897,1306,815,0,0
+2041,image_2041,Kidney,3,Inflammatory; Connective; Non-neoplastic epithelial,3970,7,True,0,316,565,0,3089
+1606,image_1606,Colon,3,Inflammatory; Dead; Non-neoplastic epithelial,3936,2,True,0,816,0,381,2739
+1992,image_1992,HeadNeck,3,Neoplastic; Inflammatory; Dead,3775,11,True,1598,1349,0,828,0
+530,image_530,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,3764,8,True,0,1512,1727,0,525
+138,image_138,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,3732,6,True,0,174,3554,0,4
+517,image_517,Breast,3,Neoplastic; Inflammatory; Connective,3704,3,True,1054,672,1978,0,0
+155,image_155,Breast,3,Inflammatory; Connective; Dead,3678,4,True,0,832,1907,939,0
+529,image_529,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,3609,4,True,0,925,2172,0,512
+2155,image_2155,Pancreatic,3,Inflammatory; Connective; Non-neoplastic epithelial,3609,5,True,0,414,561,0,2634
+1997,image_1997,HeadNeck,3,Neoplastic; Inflammatory; Dead,3591,6,True,1601,1737,0,253,0
+39,image_39,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,3560,8,True,0,23,390,0,3147
+145,image_145,Breast,3,Neoplastic; Inflammatory; Connective,3431,2,True,1059,492,1880,0,0
+768,image_768,Colon,3,Neoplastic; Inflammatory; Connective,3410,1,True,3197,154,59,0,0
+1413,image_1413,Bile-duct,3,Neoplastic; Inflammatory; Connective,3374,11,True,705,359,2310,0,0
+526,image_526,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,3311,4,True,0,451,2046,0,814
+1605,image_1605,Colon,3,Inflammatory; Connective; Dead,3308,2,True,0,1942,1266,100,0
+582,image_582,Breast,3,Neoplastic; Inflammatory; Connective,3302,4,True,859,410,2033,0,0
+341,image_341,Breast,3,Neoplastic; Inflammatory; Connective,3278,3,True,1138,231,1909,0,0
+2070,image_2070,Liver,3,Inflammatory; Connective; Non-neoplastic epithelial,3011,3,True,0,110,2621,0,280
+1157,image_1157,Adrenal_gland,3,Neoplastic; Inflammatory; Connective,2943,2,True,1279,239,1425,0,0
+744,image_744,Colon,3,Neoplastic; Inflammatory; Connective,2934,4,True,624,999,1311,0,0
+550,image_550,Breast,3,Neoplastic; Inflammatory; Connective,2792,2,True,18,644,2130,0,0
+700,image_700,Colon,3,Neoplastic; Inflammatory; Connective,2748,1,True,1057,565,1126,0,0
+136,image_136,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,2724,2,True,0,419,2109,0,196
+1958,image_1958,HeadNeck,3,Inflammatory; Connective; Non-neoplastic epithelial,2625,2,True,0,348,1829,0,448
+157,image_157,Breast,3,Neoplastic; Inflammatory; Connective,2558,1,True,2012,540,6,0,0
+2266,image_2266,Skin,3,Inflammatory; Connective; Non-neoplastic epithelial,2454,2,True,0,109,1787,0,558
+1414,image_1414,Bile-duct,3,Neoplastic; Inflammatory; Connective,2408,3,True,661,1,1746,0,0
+701,image_701,Colon,3,Inflammatory; Connective; Dead,2335,6,True,0,832,1334,169,0
+156,image_156,Breast,3,Neoplastic; Inflammatory; Connective,1787,1,True,30,273,1484,0,0
+143,image_143,Breast,3,Neoplastic; Inflammatory; Connective,1691,2,True,742,320,629,0,0
+699,image_699,Colon,3,Neoplastic; Inflammatory; Connective,1261,3,True,101,218,942,0,0
+392,image_392,Breast,3,Neoplastic; Inflammatory; Connective,862,1,True,197,325,340,0,0
+2273,image_2273,Skin,2,Inflammatory; Connective,34278,48,True,0,23873,10405,0,0
+2276,image_2276,Skin,2,Inflammatory; Connective,33594,41,True,0,25782,7812,0,0
+2272,image_2272,Skin,2,Inflammatory; Connective,30138,39,True,0,20922,9216,0,0
+2013,image_2013,HeadNeck,2,Neoplastic; Inflammatory,29910,15,True,29625,285,0,0,0
+2443,image_2443,Colon,2,Neoplastic; Connective,29900,26,True,29820,0,80,0,0
+2275,image_2275,Skin,2,Inflammatory; Connective,29739,34,True,0,15167,14572,0,0
+747,image_747,Colon,2,Inflammatory; Connective,29718,49,True,0,28639,1079,0,0
+2245,image_2245,Skin,2,Neoplastic; Inflammatory,29386,36,True,9600,19786,0,0,0
+1286,image_1286,Bile-duct,2,Neoplastic; Inflammatory,29318,15,True,29022,296,0,0,0
+2246,image_2246,Skin,2,Neoplastic; Inflammatory,29132,34,True,19725,9407,0,0,0
+2249,image_2249,Skin,2,Neoplastic; Inflammatory,29064,34,True,13642,15422,0,0,0
+843,image_843,Kidney,2,Neoplastic; Inflammatory,29030,46,True,28672,358,0,0,0
+2517,image_2517,Colon,2,Neoplastic; Inflammatory,28951,18,True,28232,719,0,0,0
+1019,image_1019,Esophagus,2,Neoplastic; Connective,28830,19,True,28565,0,265,0,0
+726,image_726,Colon,2,Inflammatory; Connective,28305,53,True,0,28120,185,0,0
+2277,image_2277,Skin,2,Inflammatory; Connective,28132,29,True,0,18355,9777,0,0
+870,image_870,Esophagus,2,Neoplastic; Inflammatory,27704,18,True,27645,59,0,0,0
+107,image_107,Breast,2,Neoplastic; Connective,27366,18,True,26966,0,400,0,0
+866,image_866,Esophagus,2,Neoplastic; Connective,27353,19,True,27066,0,287,0,0
+728,image_728,Colon,2,Inflammatory; Connective,27235,55,True,0,26107,1128,0,0
+725,image_725,Colon,2,Inflammatory; Connective,27049,44,True,0,25978,1071,0,0
+2460,image_2460,Colon,2,Inflammatory; Connective,26851,57,True,0,25058,1793,0,0
+846,image_846,Stomach,2,Inflammatory; Connective,26791,43,True,0,25764,1027,0,0
+109,image_109,Breast,2,Inflammatory; Connective,26781,34,True,0,25488,1293,0,0
+746,image_746,Colon,2,Inflammatory; Connective,26670,43,True,0,23458,3212,0,0
+379,image_379,Breast,2,Neoplastic; Inflammatory,26609,10,True,26074,535,0,0,0
+1013,image_1013,Esophagus,2,Neoplastic; Connective,26323,15,True,24439,0,1884,0,0
+1008,image_1008,Esophagus,2,Neoplastic; Connective,26236,20,True,24223,0,2013,0,0
+261,image_261,Breast,2,Neoplastic; Connective,26186,17,True,22609,0,3577,0,0
+962,image_962,Skin,2,Inflammatory; Connective,25917,36,True,0,24708,1209,0,0
+559,image_559,Breast,2,Neoplastic; Inflammatory,25879,27,True,25323,556,0,0,0
+2441,image_2441,Colon,2,Neoplastic; Connective,25782,26,True,21607,0,4175,0,0
+1986,image_1986,HeadNeck,2,Neoplastic; Inflammatory,25694,13,True,24755,939,0,0,0
+1297,image_1297,Colon,2,Neoplastic; Inflammatory,25688,21,True,25569,119,0,0,0
+258,image_258,Breast,2,Neoplastic; Connective,25564,12,True,25017,0,547,0,0
+306,image_306,Breast,2,Neoplastic; Connective,25419,14,True,24959,0,460,0,0
+1554,image_1554,Breast,2,Neoplastic; Connective,25410,18,True,24542,0,868,0,0
+2250,image_2250,Skin,2,Neoplastic; Inflammatory,25096,24,True,12942,12154,0,0,0
+960,image_960,Skin,2,Inflammatory; Connective,24997,39,True,0,23716,1281,0,0
+1895,image_1895,HeadNeck,2,Inflammatory; Connective,24892,47,True,0,21936,2956,0,0
+727,image_727,Colon,2,Inflammatory; Connective,24881,35,True,0,22091,2790,0,0
+763,image_763,Colon,2,Inflammatory; Connective,24807,47,True,0,24392,415,0,0
+1011,image_1011,Esophagus,2,Neoplastic; Connective,24802,12,True,24547,0,255,0,0
+1717,image_1717,Colon,2,Inflammatory; Non-neoplastic epithelial,24666,16,True,0,13006,0,0,11660
+1495,image_1495,Bladder,2,Neoplastic; Inflammatory,24665,15,True,24054,611,0,0,0
+2274,image_2274,Skin,2,Inflammatory; Connective,24628,26,True,0,14465,10163,0,0
+1173,image_1173,Cervix,2,Neoplastic; Inflammatory,24591,11,True,23690,901,0,0,0
+1782,image_1782,Colon,2,Connective; Non-neoplastic epithelial,24579,14,True,0,0,15683,0,8896
+842,image_842,Kidney,2,Neoplastic; Connective,24526,35,True,24253,0,273,0,0
+859,image_859,Stomach,2,Inflammatory; Connective,24520,38,True,0,22794,1726,0,0
+252,image_252,Breast,2,Neoplastic; Connective,24307,12,True,22943,0,1364,0,0
+1971,image_1971,HeadNeck,2,Neoplastic; Connective,24305,18,True,23174,0,1131,0,0
+848,image_848,Stomach,2,Inflammatory; Connective,24203,38,True,0,21339,2864,0,0
+1711,image_1711,Colon,2,Inflammatory; Non-neoplastic epithelial,24062,16,True,0,15323,0,0,8739
+863,image_863,Ovarian,2,Neoplastic; Inflammatory,24036,18,True,23988,48,0,0,0
+2487,image_2487,Colon,2,Inflammatory; Connective,24024,49,True,0,12080,11944,0,0
+1572,image_1572,Cervix,2,Neoplastic; Inflammatory,23943,16,True,23540,403,0,0,0
+847,image_847,Stomach,2,Inflammatory; Connective,23930,36,True,0,23328,602,0,0
+2237,image_2237,Prostate,2,Neoplastic; Connective,23409,13,True,22083,0,1326,0,0
+160,image_160,Breast,2,Connective; Non-neoplastic epithelial,23389,25,True,0,0,1978,0,21411
+2459,image_2459,Colon,2,Inflammatory; Connective,23380,45,True,0,18340,5040,0,0
+2518,image_2518,Colon,2,Neoplastic; Dead,23357,22,True,22739,0,0,618,0
+1012,image_1012,Esophagus,2,Neoplastic; Connective,23322,13,True,23071,0,251,0,0
+858,image_858,Stomach,2,Inflammatory; Connective,23127,37,True,0,21500,1627,0,0
+1439,image_1439,Bile-duct,2,Neoplastic; Inflammatory,23013,15,True,22898,115,0,0,0
+1304,image_1304,Colon,2,Inflammatory; Connective,23000,32,True,0,11508,11492,0,0
+1007,image_1007,Esophagus,2,Neoplastic; Connective,22977,16,True,20577,0,2400,0,0
+1185,image_1185,Cervix,2,Neoplastic; Connective,22929,28,True,22772,0,157,0,0
+2007,image_2007,HeadNeck,2,Neoplastic; Connective,22902,18,True,20291,0,2611,0,0
+1991,image_1991,HeadNeck,2,Neoplastic; Inflammatory,22809,27,True,21983,826,0,0,0
+2135,image_2135,Ovarian,2,Neoplastic; Connective,22750,13,True,21787,0,963,0,0
+490,image_490,Breast,2,Neoplastic; Inflammatory,22713,13,True,21997,716,0,0,0
+625,image_625,Breast,2,Connective; Non-neoplastic epithelial,22706,26,True,0,0,1349,0,21357
+1306,image_1306,Colon,2,Neoplastic; Inflammatory,22650,45,True,22424,226,0,0,0
+1316,image_1316,Colon,2,Neoplastic; Dead,22538,20,True,21986,0,0,552,0
+351,image_351,Breast,2,Neoplastic; Connective,22530,13,True,22063,0,467,0,0
+748,image_748,Colon,2,Inflammatory; Connective,22508,47,True,0,21898,610,0,0
+108,image_108,Breast,2,Neoplastic; Inflammatory,22293,20,True,21523,770,0,0,0
+2465,image_2465,Colon,2,Neoplastic; Connective,22272,36,True,17420,0,4852,0,0
+1515,image_1515,Breast,2,Neoplastic; Connective,22223,21,True,20073,0,2150,0,0
+1705,image_1705,Colon,2,Inflammatory; Non-neoplastic epithelial,22072,14,True,0,21356,0,0,716
+745,image_745,Colon,2,Inflammatory; Connective,22063,31,True,0,18201,3862,0,0
+310,image_310,Breast,2,Neoplastic; Connective,21943,15,True,21928,0,15,0,0
+1983,image_1983,HeadNeck,2,Neoplastic; Inflammatory,21811,11,True,21276,535,0,0,0
+1795,image_1795,Colon,2,Connective; Non-neoplastic epithelial,21780,14,True,0,0,7236,0,14544
+1302,image_1302,Colon,2,Inflammatory; Connective,21662,29,True,0,9304,12358,0,0
+2304,image_2304,Skin,2,Neoplastic; Inflammatory,21644,11,True,19632,2012,0,0,0
+1176,image_1176,Cervix,2,Neoplastic; Inflammatory,21642,16,True,16491,5151,0,0,0
+2286,image_2286,Skin,2,Neoplastic; Inflammatory,21624,20,True,21162,462,0,0,0
+875,image_875,Esophagus,2,Neoplastic; Inflammatory,21619,14,True,21282,337,0,0,0
+1317,image_1317,Colon,2,Neoplastic; Inflammatory,21616,16,True,21302,314,0,0,0
+1182,image_1182,Cervix,2,Neoplastic; Inflammatory,21360,9,True,21112,248,0,0,0
+1755,image_1755,Colon,2,Inflammatory; Connective,21202,19,True,0,1151,20051,0,0
+856,image_856,Stomach,2,Inflammatory; Connective,21103,37,True,0,19938,1165,0,0
+2293,image_2293,Skin,2,Neoplastic; Connective,20799,12,True,20050,0,749,0,0
+152,image_152,Breast,2,Connective; Non-neoplastic epithelial,20791,23,True,0,0,863,0,19928
+105,image_105,Breast,2,Neoplastic; Connective,20754,19,True,20201,0,553,0,0
+1712,image_1712,Colon,2,Inflammatory; Non-neoplastic epithelial,20613,14,True,0,1103,0,0,19510
+206,image_206,Breast,2,Connective; Non-neoplastic epithelial,20589,31,True,0,0,168,0,20421
+1457,image_1457,Bladder,2,Neoplastic; Connective,20587,14,True,19010,0,1577,0,0
+489,image_489,Breast,2,Neoplastic; Inflammatory,20474,16,True,19154,1320,0,0,0
+361,image_361,Breast,2,Neoplastic; Connective,20473,5,True,17555,0,2918,0,0
+764,image_764,Colon,2,Inflammatory; Connective,20436,40,True,0,19668,768,0,0
+1094,image_1094,Esophagus,2,Neoplastic; Connective,20415,11,True,19748,0,667,0,0
+1822,image_1822,Esophagus,2,Neoplastic; Inflammatory,20299,15,True,19937,362,0,0,0
+428,image_428,Breast,2,Neoplastic; Connective,20295,12,True,18029,0,2266,0,0
+2288,image_2288,Skin,2,Neoplastic; Connective,20262,12,True,19501,0,761,0,0
+2430,image_2430,Uterus,2,Neoplastic; Inflammatory,20252,16,True,19816,436,0,0,0
+2230,image_2230,Prostate,2,Neoplastic; Connective,20191,19,True,18965,0,1226,0,0
+1177,image_1177,Cervix,2,Neoplastic; Inflammatory,20150,15,True,15735,4415,0,0,0
+2292,image_2292,Skin,2,Neoplastic; Connective,20093,17,True,18717,0,1376,0,0
+1721,image_1721,Colon,2,Inflammatory; Non-neoplastic epithelial,20090,10,True,0,7553,0,0,12537
+989,image_989,Thyroid,2,Neoplastic; Connective,19959,18,True,17435,0,2524,0,0
+1570,image_1570,Cervix,2,Inflammatory; Connective,19917,18,True,0,7769,12148,0,0
+1576,image_1576,Colon,2,Connective; Non-neoplastic epithelial,19908,11,True,0,0,1601,0,18307
+963,image_963,Skin,2,Inflammatory; Connective,19811,27,True,0,18920,891,0,0
+1573,image_1573,Cervix,2,Neoplastic; Inflammatory,19751,15,True,19404,347,0,0,0
+173,image_173,Breast,2,Neoplastic; Connective,19649,22,True,19381,0,268,0,0
+1704,image_1704,Colon,2,Inflammatory; Non-neoplastic epithelial,19608,13,True,0,18554,0,0,1054
+367,image_367,Breast,2,Neoplastic; Connective,19564,9,True,18963,0,601,0,0
+1014,image_1014,Esophagus,2,Neoplastic; Connective,19559,8,True,17963,0,1596,0,0
+2378,image_2378,Testis,2,Neoplastic; Inflammatory,19548,15,True,17485,2063,0,0,0
+783,image_783,Breast,2,Neoplastic; Connective,19530,9,True,19494,0,36,0,0
+1656,image_1656,Colon,2,Inflammatory; Connective,19460,14,True,0,5165,14295,0,0
+830,image_830,Prostate,2,Neoplastic; Connective,19398,20,True,17320,0,2078,0,0
+1754,image_1754,Colon,2,Inflammatory; Connective,19398,13,True,0,772,18626,0,0
+1786,image_1786,Colon,2,Connective; Non-neoplastic epithelial,19287,11,True,0,0,13236,0,6051
+1099,image_1099,Esophagus,2,Neoplastic; Connective,19260,12,True,15531,0,3729,0,0
+483,image_483,Breast,2,Neoplastic; Connective,19217,12,True,18249,0,968,0,0
+303,image_303,Breast,2,Neoplastic; Connective,19161,10,True,16842,0,2319,0,0
+778,image_778,Lung,2,Neoplastic; Connective,19137,18,True,16486,0,2651,0,0
+2486,image_2486,Colon,2,Inflammatory; Connective,19135,32,True,0,6727,12408,0,0
+1263,image_1263,Testis,2,Connective; Non-neoplastic epithelial,19068,17,True,0,0,9461,0,9607
+2291,image_2291,Skin,2,Neoplastic; Connective,18972,14,True,17410,0,1562,0,0
+1732,image_1732,Colon,2,Connective; Non-neoplastic epithelial,18935,12,True,0,0,1353,0,17582
+774,image_774,Lung,2,Neoplastic; Connective,18894,13,True,15982,0,2912,0,0
+179,image_179,Breast,2,Connective; Non-neoplastic epithelial,18769,17,True,0,0,206,0,18563
+703,image_703,Colon,2,Neoplastic; Connective,18728,23,True,18134,0,594,0,0
+2372,image_2372,Testis,2,Neoplastic; Connective,18704,12,True,18031,0,673,0,0
+249,image_249,Breast,2,Neoplastic; Connective,18687,7,True,18531,0,156,0,0
+874,image_874,Esophagus,2,Neoplastic; Inflammatory,18614,12,True,18193,421,0,0,0
+1778,image_1778,Colon,2,Connective; Non-neoplastic epithelial,18609,6,True,0,0,3333,0,15276
+1784,image_1784,Colon,2,Connective; Non-neoplastic epithelial,18589,8,True,0,0,847,0,17742
+2073,image_2073,Liver,2,Neoplastic; Connective,18582,14,True,17223,0,1359,0,0
+1708,image_1708,Colon,2,Inflammatory; Non-neoplastic epithelial,18568,9,True,0,13,0,0,18555
+1731,image_1731,Colon,2,Inflammatory; Connective,18562,12,True,0,8685,9877,0,0
+1745,image_1745,Colon,2,Inflammatory; Connective,18559,10,True,0,13980,4579,0,0
+2132,image_2132,Ovarian,2,Neoplastic; Connective,18539,9,True,18431,0,108,0,0
+953,image_953,Skin,2,Neoplastic; Connective,18496,13,True,16917,0,1579,0,0
+862,image_862,Ovarian,2,Neoplastic; Connective,18492,15,True,18003,0,489,0,0
+2410,image_2410,Thyroid,2,Neoplastic; Connective,18454,21,True,17614,0,840,0,0
+380,image_380,Breast,2,Neoplastic; Connective,18451,7,True,18364,0,87,0,0
+168,image_168,Breast,2,Connective; Non-neoplastic epithelial,18440,15,True,0,0,1115,0,17325
+2421,image_2421,Thyroid,2,Neoplastic; Connective,18424,12,True,16156,0,2268,0,0
+1178,image_1178,Cervix,2,Neoplastic; Inflammatory,18408,8,True,17992,416,0,0,0
+704,image_704,Colon,2,Neoplastic; Connective,18331,27,True,17023,0,1308,0,0
+1815,image_1815,Esophagus,2,Neoplastic; Connective,18320,18,True,18211,0,109,0,0
+2329,image_2329,Stomach,2,Neoplastic; Inflammatory,18311,16,True,18196,115,0,0,0
+385,image_385,Breast,2,Neoplastic; Connective,18249,9,True,17038,0,1211,0,0
+1987,image_1987,HeadNeck,2,Neoplastic; Inflammatory,18224,10,True,16145,2079,0,0,0
+1910,image_1910,HeadNeck,2,Neoplastic; Connective,18043,24,True,15991,0,2052,0,0
+59,image_59,Breast,2,Connective; Non-neoplastic epithelial,17999,18,True,0,0,2566,0,15433
+1552,image_1552,Breast,2,Neoplastic; Connective,17914,40,True,16816,0,1098,0,0
+496,image_496,Breast,2,Neoplastic; Connective,17837,11,True,17052,0,785,0,0
+584,image_584,Breast,2,Neoplastic; Inflammatory,17824,11,True,16210,1614,0,0,0
+684,image_684,Colon,2,Neoplastic; Inflammatory,17803,22,True,17204,599,0,0,0
+692,image_692,Colon,2,Neoplastic; Inflammatory,17759,18,True,17289,470,0,0,0
+1792,image_1792,Colon,2,Connective; Non-neoplastic epithelial,17757,10,True,0,0,16736,0,1021
+2131,image_2131,Ovarian,2,Neoplastic; Connective,17694,10,True,16499,0,1195,0,0
+296,image_296,Breast,2,Neoplastic; Inflammatory,17665,10,True,17376,289,0,0,0
+75,image_75,Breast,2,Connective; Non-neoplastic epithelial,17651,20,True,0,0,4403,0,13248
+78,image_78,Breast,2,Connective; Non-neoplastic epithelial,17631,20,True,0,0,3395,0,14236
+2248,image_2248,Skin,2,Neoplastic; Inflammatory,17631,8,True,8356,9275,0,0,0
+2085,image_2085,Liver,2,Neoplastic; Inflammatory,17494,13,True,16864,630,0,0,0
+381,image_381,Breast,2,Neoplastic; Inflammatory,17489,7,True,17309,180,0,0,0
+1635,image_1635,Colon,2,Connective; Non-neoplastic epithelial,17445,14,True,0,0,795,0,16650
+1500,image_1500,Bladder,2,Neoplastic; Connective,17410,10,True,14851,0,2559,0,0
+2124,image_2124,Ovarian,2,Inflammatory; Connective,17394,18,True,0,226,17168,0,0
+1312,image_1312,Colon,2,Neoplastic; Dead,17378,15,True,16980,0,0,398,0
+151,image_151,Breast,2,Connective; Non-neoplastic epithelial,17328,21,True,0,0,1885,0,15443
+2123,image_2123,Ovarian,2,Inflammatory; Connective,17282,16,True,0,1229,16053,0,0
+45,image_45,Breast,2,Connective; Non-neoplastic epithelial,17251,13,True,0,0,2119,0,15132
+87,image_87,Breast,2,Neoplastic; Inflammatory,17222,7,True,17069,153,0,0,0
+259,image_259,Breast,2,Neoplastic; Connective,17195,9,True,16439,0,756,0,0
+2289,image_2289,Skin,2,Neoplastic; Connective,17192,14,True,16637,0,555,0,0
+2409,image_2409,Thyroid,2,Neoplastic; Connective,17114,17,True,15113,0,2001,0,0
+631,image_631,Breast,2,Inflammatory; Connective,17055,20,True,0,13866,3189,0,0
+481,image_481,Breast,2,Neoplastic; Connective,17047,13,True,12737,0,4310,0,0
+1146,image_1146,Pancreatic,2,Neoplastic; Connective,17026,16,True,15461,0,1565,0,0
+79,image_79,Breast,2,Connective; Non-neoplastic epithelial,17009,19,True,0,0,1970,0,15039
+742,image_742,Colon,2,Neoplastic; Connective,16987,15,True,15851,0,1136,0,0
+1797,image_1797,Colon,2,Connective; Non-neoplastic epithelial,16953,11,True,0,0,6338,0,10615
+988,image_988,Thyroid,2,Neoplastic; Connective,16935,13,True,16884,0,51,0,0
+2290,image_2290,Skin,2,Neoplastic; Connective,16928,12,True,11017,0,5911,0,0
+1015,image_1015,Esophagus,2,Neoplastic; Connective,16922,16,True,8182,0,8740,0,0
+357,image_357,Breast,2,Neoplastic; Connective,16904,6,True,16590,0,314,0,0
+1789,image_1789,Colon,2,Connective; Non-neoplastic epithelial,16904,10,True,0,0,3785,0,13119
+1799,image_1799,Colon,2,Connective; Non-neoplastic epithelial,16899,21,True,0,0,2384,0,14515
+814,image_814,Prostate,2,Neoplastic; Connective,16886,11,True,14342,0,2544,0,0
+2146,image_2146,Ovarian,2,Neoplastic; Inflammatory,16883,8,True,16583,300,0,0,0
+267,image_267,Breast,2,Neoplastic; Connective,16882,12,True,16472,0,410,0,0
+2231,image_2231,Prostate,2,Neoplastic; Connective,16880,18,True,16798,0,82,0,0
+583,image_583,Breast,2,Neoplastic; Inflammatory,16852,11,True,15592,1260,0,0,0
+792,image_792,Breast,2,Neoplastic; Connective,16835,19,True,15393,0,1442,0,0
+852,image_852,Colon,2,Neoplastic; Connective,16814,9,True,12869,0,3945,0,0
+1143,image_1143,Pancreatic,2,Neoplastic; Connective,16766,13,True,15638,0,1128,0,0
+247,image_247,Breast,2,Neoplastic; Connective,16764,11,True,12504,0,4260,0,0
+254,image_254,Breast,2,Inflammatory; Connective,16745,18,True,0,12979,3766,0,0
+1990,image_1990,HeadNeck,2,Neoplastic; Connective,16723,12,True,11323,0,5400,0,0
+1714,image_1714,Colon,2,Inflammatory; Non-neoplastic epithelial,16668,6,True,0,9175,0,0,7493
+1333,image_1333,Adrenal_gland,2,Neoplastic; Connective,16604,13,True,16550,0,54,0,0
+355,image_355,Breast,2,Neoplastic; Connective,16598,7,True,16077,0,521,0,0
+697,image_697,Colon,2,Neoplastic; Connective,16584,18,True,16103,0,481,0,0
+2034,image_2034,Kidney,2,Neoplastic; Connective,16572,15,True,15617,0,955,0,0
+570,image_570,Breast,2,Inflammatory; Non-neoplastic epithelial,16531,27,True,0,1163,0,0,15368
+555,image_555,Breast,2,Neoplastic; Connective,16507,20,True,15348,0,1159,0,0
+795,image_795,Colon,2,Neoplastic; Connective,16501,18,True,12895,0,3606,0,0
+2280,image_2280,Skin,2,Neoplastic; Inflammatory,16486,8,True,16323,163,0,0,0
+276,image_276,Breast,2,Inflammatory; Connective,16477,22,True,0,8953,7524,0,0
+536,image_536,Breast,2,Neoplastic; Inflammatory,16473,17,True,16141,332,0,0,0
+1547,image_1547,Breast,2,Neoplastic; Connective,16467,32,True,16324,0,143,0,0
+857,image_857,Stomach,2,Inflammatory; Connective,16462,16,True,0,9302,7160,0,0
+6,image_6,Breast,2,Neoplastic; Connective,16423,8,True,15981,0,442,0,0
+2122,image_2122,Ovarian,2,Inflammatory; Connective,16398,21,True,0,535,15863,0,0
+2403,image_2403,Thyroid,2,Connective; Non-neoplastic epithelial,16364,20,True,0,0,409,0,15955
+1175,image_1175,Cervix,2,Neoplastic; Inflammatory,16336,5,True,14723,1613,0,0,0
+1747,image_1747,Colon,2,Inflammatory; Connective,16322,10,True,0,11000,5322,0,0
+2240,image_2240,Prostate,2,Neoplastic; Connective,16311,13,True,14050,0,2261,0,0
+618,image_618,Breast,2,Connective; Non-neoplastic epithelial,16206,20,True,0,0,953,0,15253
+308,image_308,Breast,2,Neoplastic; Connective,16195,11,True,15539,0,656,0,0
+304,image_304,Breast,2,Neoplastic; Inflammatory,16169,10,True,14211,1958,0,0,0
+1269,image_1269,Bile-duct,2,Neoplastic; Connective,16159,12,True,13930,0,2229,0,0
+366,image_366,Breast,2,Neoplastic; Connective,16152,5,True,15271,0,881,0,0
+1787,image_1787,Colon,2,Connective; Non-neoplastic epithelial,16132,9,True,0,0,2204,0,13928
+2115,image_2115,Lung,2,Neoplastic; Inflammatory,16112,13,True,15418,694,0,0,0
+1116,image_1116,Adrenal_gland,2,Connective; Non-neoplastic epithelial,16096,15,True,0,0,66,0,16030
+816,image_816,Bladder,2,Neoplastic; Connective,16087,9,True,16006,0,81,0,0
+2271,image_2271,Skin,2,Connective; Non-neoplastic epithelial,16086,17,True,0,0,524,0,15562
+2404,image_2404,Thyroid,2,Connective; Non-neoplastic epithelial,16079,15,True,0,0,1282,0,14797
+1497,image_1497,Bladder,2,Neoplastic; Connective,16064,12,True,15438,0,626,0,0
+312,image_312,Breast,2,Neoplastic; Connective,16053,12,True,15449,0,604,0,0
+277,image_277,Breast,2,Inflammatory; Connective,16014,17,True,0,12356,3658,0,0
+2078,image_2078,Liver,2,Neoplastic; Inflammatory,16012,13,True,15738,274,0,0,0
+985,image_985,Thyroid,2,Neoplastic; Connective,15983,13,True,12119,0,3864,0,0
+1298,image_1298,Colon,2,Neoplastic; Dead,15940,20,True,14201,0,0,1739,0
+359,image_359,Breast,2,Neoplastic; Connective,15903,8,True,15120,0,783,0,0
+525,image_525,Breast,2,Inflammatory; Non-neoplastic epithelial,15903,23,True,0,431,0,0,15472
+1332,image_1332,Adrenal_gland,2,Neoplastic; Connective,15899,13,True,14337,0,1562,0,0
+289,image_289,Breast,2,Connective; Non-neoplastic epithelial,15832,25,True,0,0,1439,0,14393
+691,image_691,Colon,2,Neoplastic; Inflammatory,15813,10,True,15433,380,0,0,0
+237,image_237,Breast,2,Connective; Non-neoplastic epithelial,15796,16,True,0,0,2701,0,13095
+211,image_211,Breast,2,Connective; Non-neoplastic epithelial,15726,21,True,0,0,2148,0,13578
+1985,image_1985,HeadNeck,2,Neoplastic; Connective,15712,11,True,10943,0,4769,0,0
+2260,image_2260,Skin,2,Neoplastic; Connective,15699,26,True,15122,0,577,0,0
+1974,image_1974,HeadNeck,2,Neoplastic; Connective,15621,11,True,15290,0,331,0,0
+260,image_260,Breast,2,Neoplastic; Connective,15549,8,True,11908,0,3641,0,0
+147,image_147,Breast,2,Connective; Non-neoplastic epithelial,15547,22,True,0,0,3179,0,12368
+8,image_8,Breast,2,Neoplastic; Connective,15542,8,True,13502,0,2040,0,0
+819,image_819,Bladder,2,Neoplastic; Connective,15481,6,True,15012,0,469,0,0
+1289,image_1289,Bile-duct,2,Neoplastic; Connective,15479,8,True,14272,0,1207,0,0
+2182,image_2182,Pancreatic,2,Inflammatory; Connective,15461,22,True,0,3586,11875,0,0
+1548,image_1548,Breast,2,Neoplastic; Connective,15425,34,True,14498,0,927,0,0
+1667,image_1667,Colon,2,Inflammatory; Non-neoplastic epithelial,15421,15,True,0,3980,0,0,11441
+106,image_106,Breast,2,Neoplastic; Connective,15398,11,True,12496,0,2902,0,0
+1430,image_1430,Bile-duct,2,Neoplastic; Connective,15359,8,True,11208,0,4151,0,0
+17,image_17,Breast,2,Neoplastic; Inflammatory,15296,8,True,14843,453,0,0,0
+18,image_18,Breast,2,Neoplastic; Connective,15264,6,True,14999,0,265,0,0
+2172,image_2172,Pancreatic,2,Neoplastic; Connective,15255,18,True,12260,0,2995,0,0
+2485,image_2485,Colon,2,Inflammatory; Connective,15192,22,True,0,2750,12442,0,0
+479,image_479,Breast,2,Neoplastic; Connective,15185,8,True,9606,0,5579,0,0
+708,image_708,Colon,2,Inflammatory; Connective,15173,19,True,0,518,14655,0,0
+1370,image_1370,Adrenal_gland,2,Neoplastic; Connective,15146,11,True,13097,0,2049,0,0
+268,image_268,Breast,2,Neoplastic; Connective,15110,13,True,13796,0,1314,0,0
+616,image_616,Breast,2,Neoplastic; Connective,15104,10,True,13572,0,1532,0,0
+1735,image_1735,Colon,2,Inflammatory; Connective,15043,10,True,0,9812,5231,0,0
+116,image_116,Breast,2,Connective; Non-neoplastic epithelial,15008,17,True,0,0,1036,0,13972
+1710,image_1710,Colon,2,Inflammatory; Non-neoplastic epithelial,14992,9,True,0,41,0,0,14951
+569,image_569,Breast,2,Connective; Non-neoplastic epithelial,14972,17,True,0,0,1631,0,13341
+1172,image_1172,Cervix,2,Neoplastic; Inflammatory,14965,7,True,14455,510,0,0,0
+301,image_301,Breast,2,Neoplastic; Connective,14963,8,True,13928,0,1035,0,0
+402,image_402,Breast,2,Neoplastic; Connective,14884,12,True,12601,0,2283,0,0
+1498,image_1498,Bladder,2,Neoplastic; Connective,14878,18,True,11905,0,2973,0,0
+44,image_44,Breast,2,Connective; Non-neoplastic epithelial,14861,19,True,0,0,480,0,14381
+9,image_9,Breast,2,Neoplastic; Connective,14821,9,True,13077,0,1744,0,0
+1877,image_1877,HeadNeck,2,Inflammatory; Connective,14783,26,True,0,10329,4454,0,0
+926,image_926,Lung,2,Neoplastic; Connective,14753,18,True,9439,0,5314,0,0
+1886,image_1886,HeadNeck,2,Neoplastic; Connective,14745,11,True,14566,0,179,0,0
+417,image_417,Breast,2,Neoplastic; Connective,14733,13,True,14199,0,534,0,0
+1569,image_1569,Cervix,2,Neoplastic; Inflammatory,14689,13,True,12152,2537,0,0,0
+458,image_458,Breast,2,Neoplastic; Connective,14671,9,True,10589,0,4082,0,0
+622,image_622,Breast,2,Connective; Non-neoplastic epithelial,14630,11,True,0,0,1837,0,12793
+353,image_353,Breast,2,Neoplastic; Connective,14627,4,True,11547,0,3080,0,0
+2367,image_2367,Testis,2,Neoplastic; Inflammatory,14595,11,True,13768,827,0,0,0
+1791,image_1791,Colon,2,Connective; Non-neoplastic epithelial,14591,6,True,0,0,2211,0,12380
+1217,image_1217,Testis,2,Neoplastic; Inflammatory,14589,12,True,14273,316,0,0,0
+2328,image_2328,Stomach,2,Neoplastic; Dead,14565,16,True,14288,0,0,277,0
+1336,image_1336,Adrenal_gland,2,Neoplastic; Connective,14564,19,True,13506,0,1058,0,0
+2516,image_2516,Colon,2,Neoplastic; Connective,14560,17,True,9264,0,5296,0,0
+612,image_612,Breast,2,Neoplastic; Connective,14551,10,True,13235,0,1316,0,0
+1492,image_1492,Bladder,2,Inflammatory; Connective,14535,16,True,0,919,13616,0,0
+1169,image_1169,Adrenal_gland,2,Neoplastic; Connective,14507,15,True,11854,0,2653,0,0
+1293,image_1293,Bile-duct,2,Inflammatory; Connective,14453,20,True,0,6947,7506,0,0
+454,image_454,Breast,2,Neoplastic; Inflammatory,14418,10,True,13597,821,0,0,0
+1551,image_1551,Breast,2,Neoplastic; Connective,14394,28,True,11725,0,2669,0,0
+1292,image_1292,Bile-duct,2,Inflammatory; Connective,14385,20,True,0,10283,4102,0,0
+586,image_586,Breast,2,Neoplastic; Inflammatory,14320,5,True,13091,1229,0,0,0
+1557,image_1557,Breast,2,Neoplastic; Connective,14263,13,True,13174,0,1089,0,0
+654,image_654,Breast,2,Neoplastic; Inflammatory,14255,11,True,13695,560,0,0,0
+1258,image_1258,Testis,2,Inflammatory; Connective,14252,14,True,0,4596,9656,0,0
+2087,image_2087,Liver,2,Neoplastic; Connective,14220,12,True,11915,0,2305,0,0
+2484,image_2484,Colon,2,Inflammatory; Connective,14215,33,True,0,2989,11226,0,0
+498,image_498,Breast,2,Inflammatory; Connective,14206,16,True,0,7639,6567,0,0
+223,image_223,Breast,2,Neoplastic; Connective,14192,12,True,12629,0,1563,0,0
+2247,image_2247,Skin,2,Neoplastic; Inflammatory,14160,4,True,5864,8296,0,0,0
+1125,image_1125,Pancreatic,2,Inflammatory; Connective,14156,14,True,0,1947,12209,0,0
+1455,image_1455,Bladder,2,Neoplastic; Connective,14145,18,True,10448,0,3697,0,0
+1809,image_1809,Colon,2,Neoplastic; Inflammatory,14084,12,True,14012,72,0,0,0
+1638,image_1638,Colon,2,Inflammatory; Non-neoplastic epithelial,14072,12,True,0,532,0,0,13540
+541,image_541,Breast,2,Neoplastic; Inflammatory,14048,32,True,13635,413,0,0,0
+426,image_426,Breast,2,Neoplastic; Connective,13961,8,True,5099,0,8862,0,0
+271,image_271,Breast,2,Inflammatory; Connective,13947,16,True,0,6456,7491,0,0
+135,image_135,Breast,2,Connective; Non-neoplastic epithelial,13941,21,True,0,0,5387,0,8554
+80,image_80,Breast,2,Connective; Non-neoplastic epithelial,13922,15,True,0,0,1144,0,12778
+1186,image_1186,Cervix,2,Neoplastic; Dead,13921,15,True,13351,0,0,570,0
+831,image_831,Prostate,2,Neoplastic; Connective,13881,15,True,10322,0,3559,0,0
+1781,image_1781,Colon,2,Connective; Non-neoplastic epithelial,13875,11,True,0,0,6507,0,7368
+855,image_855,Stomach,2,Inflammatory; Connective,13869,21,True,0,8961,4908,0,0
+192,image_192,Breast,2,Connective; Non-neoplastic epithelial,13796,13,True,0,0,199,0,13597
+1561,image_1561,Cervix,2,Neoplastic; Inflammatory,13742,12,True,12607,1135,0,0,0
+2391,image_2391,Thyroid,2,Connective; Non-neoplastic epithelial,13714,7,True,0,0,1268,0,12446
+1634,image_1634,Colon,2,Connective; Non-neoplastic epithelial,13695,5,True,0,0,535,0,13160
+2479,image_2479,Colon,2,Inflammatory; Connective,13682,13,True,0,4674,9008,0,0
+15,image_15,Breast,2,Neoplastic; Connective,13646,8,True,13615,0,31,0,0
+638,image_638,Breast,2,Inflammatory; Connective,13639,18,True,0,9485,4154,0,0
+2136,image_2136,Ovarian,2,Neoplastic; Connective,13636,12,True,13251,0,385,0,0
+535,image_535,Breast,2,Neoplastic; Connective,13635,8,True,12369,0,1266,0,0
+937,image_937,Thyroid,2,Inflammatory; Connective,13624,17,True,0,395,13229,0,0
+635,image_635,Breast,2,Inflammatory; Connective,13622,24,True,0,10802,2820,0,0
+208,image_208,Breast,2,Connective; Non-neoplastic epithelial,13613,16,True,0,0,1156,0,12457
+201,image_201,Breast,2,Connective; Non-neoplastic epithelial,13596,18,True,0,0,4401,0,9195
+217,image_217,Breast,2,Connective; Non-neoplastic epithelial,13590,18,True,0,0,1664,0,11926
+58,image_58,Breast,2,Connective; Non-neoplastic epithelial,13548,11,True,0,0,1371,0,12177
+2219,image_2219,Prostate,2,Neoplastic; Connective,13534,9,True,6613,0,6921,0,0
+2521,image_2521,Colon,2,Inflammatory; Connective,13534,16,True,0,2747,10787,0,0
+1975,image_1975,HeadNeck,2,Neoplastic; Connective,13529,11,True,13353,0,176,0,0
+2482,image_2482,Colon,2,Inflammatory; Connective,13526,16,True,0,2831,10695,0,0
+1720,image_1720,Colon,2,Inflammatory; Non-neoplastic epithelial,13524,5,True,0,2354,0,0,11170
+2279,image_2279,Skin,2,Neoplastic; Inflammatory,13502,8,True,13039,463,0,0,0
+209,image_209,Breast,2,Connective; Non-neoplastic epithelial,13453,9,True,0,0,2155,0,11298
+34,image_34,Breast,2,Connective; Non-neoplastic epithelial,13450,15,True,0,0,1790,0,11660
+954,image_954,Skin,2,Neoplastic; Connective,13449,11,True,12709,0,740,0,0
+2130,image_2130,Ovarian,2,Inflammatory; Connective,13442,15,True,0,622,12820,0,0
+2413,image_2413,Thyroid,2,Neoplastic; Connective,13440,14,True,11000,0,2440,0,0
+288,image_288,Breast,2,Connective; Non-neoplastic epithelial,13437,12,True,0,0,2136,0,11301
+933,image_933,Thyroid,2,Inflammatory; Connective,13366,12,True,0,5777,7589,0,0
+591,image_591,Breast,2,Inflammatory; Connective,13354,16,True,0,8962,4392,0,0
+459,image_459,Breast,2,Neoplastic; Connective,13323,8,True,13137,0,186,0,0
+563,image_563,Breast,2,Neoplastic; Connective,13240,11,True,12383,0,857,0,0
+1728,image_1728,Colon,2,Inflammatory; Non-neoplastic epithelial,13238,7,True,0,12059,0,0,1179
+743,image_743,Colon,2,Neoplastic; Connective,13203,35,True,12799,0,404,0,0
+399,image_399,Breast,2,Neoplastic; Connective,13200,9,True,13009,0,191,0,0
+187,image_187,Breast,2,Connective; Non-neoplastic epithelial,13160,10,True,0,0,959,0,12201
+1763,image_1763,Colon,2,Inflammatory; Connective,13155,12,True,0,2357,10798,0,0
+554,image_554,Breast,2,Neoplastic; Connective,13154,10,True,11541,0,1613,0,0
+2402,image_2402,Thyroid,2,Connective; Non-neoplastic epithelial,13070,10,True,0,0,398,0,12672
+1411,image_1411,Bile-duct,2,Inflammatory; Connective,13054,15,True,0,2817,10237,0,0
+1041,image_1041,Adrenal_gland,2,Neoplastic; Connective,13044,10,True,12230,0,814,0,0
+1139,image_1139,Pancreatic,2,Neoplastic; Connective,13040,14,True,9582,0,3458,0,0
+204,image_204,Breast,2,Connective; Non-neoplastic epithelial,13035,9,True,0,0,1264,0,11771
+222,image_222,Breast,2,Connective; Non-neoplastic epithelial,13025,12,True,0,0,4648,0,8377
+1076,image_1076,Esophagus,2,Neoplastic; Connective,13002,6,True,11985,0,1017,0,0
+120,image_120,Breast,2,Connective; Non-neoplastic epithelial,12908,19,True,0,0,1242,0,11666
+1170,image_1170,Adrenal_gland,2,Neoplastic; Connective,12889,6,True,11914,0,975,0,0
+485,image_485,Breast,2,Neoplastic; Connective,12884,9,True,12509,0,375,0,0
+2265,image_2265,Skin,2,Neoplastic; Connective,12870,33,True,11780,0,1090,0,0
+925,image_925,Lung,2,Neoplastic; Connective,12838,11,True,12717,0,121,0,0
+1238,image_1238,Testis,2,Connective; Non-neoplastic epithelial,12787,17,True,0,0,939,0,11848
+2398,image_2398,Thyroid,2,Connective; Non-neoplastic epithelial,12782,9,True,0,0,875,0,11907
+30,image_30,Breast,2,Neoplastic; Connective,12752,8,True,12105,0,647,0,0
+126,image_126,Breast,2,Neoplastic; Connective,12674,7,True,12292,0,382,0,0
+309,image_309,Breast,2,Neoplastic; Connective,12658,6,True,11267,0,1391,0,0
+465,image_465,Breast,2,Neoplastic; Connective,12653,7,True,11381,0,1272,0,0
+740,image_740,Colon,2,Neoplastic; Dead,12632,7,True,11429,0,0,1203,0
+1677,image_1677,Colon,2,Inflammatory; Non-neoplastic epithelial,12622,8,True,0,2375,0,0,10247
+1033,image_1033,Adrenal_gland,2,Neoplastic; Connective,12619,11,True,11794,0,825,0,0
+287,image_287,Breast,2,Connective; Non-neoplastic epithelial,12590,15,True,0,0,1168,0,11422
+404,image_404,Breast,2,Neoplastic; Connective,12583,9,True,10993,0,1590,0,0
+2174,image_2174,Pancreatic,2,Neoplastic; Connective,12580,13,True,8672,0,3908,0,0
+667,image_667,Breast,2,Neoplastic; Connective,12574,7,True,11417,0,1157,0,0
+99,image_99,Breast,2,Connective; Non-neoplastic epithelial,12568,12,True,0,0,5103,0,7465
+790,image_790,Breast,2,Neoplastic; Connective,12551,13,True,6305,0,6246,0,0
+1285,image_1285,Bile-duct,2,Inflammatory; Connective,12546,11,True,0,8310,4236,0,0
+1036,image_1036,Adrenal_gland,2,Neoplastic; Connective,12539,11,True,9643,0,2896,0,0
+629,image_629,Breast,2,Neoplastic; Inflammatory,12538,7,True,10205,2333,0,0,0
+940,image_940,Thyroid,2,Inflammatory; Connective,12521,16,True,0,3303,9218,0,0
+1491,image_1491,Bladder,2,Inflammatory; Connective,12521,14,True,0,1549,10972,0,0
+104,image_104,Breast,2,Connective; Non-neoplastic epithelial,12517,7,True,0,0,2438,0,10079
+1507,image_1507,Breast,2,Inflammatory; Connective,12513,12,True,0,2749,9764,0,0
+1043,image_1043,Adrenal_gland,2,Neoplastic; Connective,12503,10,True,12159,0,344,0,0
+593,image_593,Breast,2,Inflammatory; Connective,12497,14,True,0,5543,6954,0,0
+1334,image_1334,Adrenal_gland,2,Neoplastic; Inflammatory,12485,10,True,12062,423,0,0,0
+1310,image_1310,Colon,2,Inflammatory; Connective,12450,8,True,0,335,12115,0,0
+2165,image_2165,Pancreatic,2,Inflammatory; Connective,12450,11,True,0,881,11569,0,0
+1790,image_1790,Colon,2,Connective; Non-neoplastic epithelial,12437,8,True,0,0,3253,0,9184
+115,image_115,Breast,2,Connective; Non-neoplastic epithelial,12402,15,True,0,0,2119,0,10283
+590,image_590,Breast,2,Inflammatory; Connective,12394,12,True,0,11462,932,0,0
+2283,image_2283,Skin,2,Neoplastic; Inflammatory,12373,7,True,11755,618,0,0,0
+1195,image_1195,Bile-duct,2,Neoplastic; Connective,12349,10,True,6188,0,6161,0,0
+1751,image_1751,Colon,2,Connective; Non-neoplastic epithelial,12342,10,True,0,0,1641,0,10701
+920,image_920,Lung,2,Neoplastic; Connective,12270,5,True,9987,0,2283,0,0
+651,image_651,Breast,2,Neoplastic; Connective,12246,5,True,11417,0,829,0,0
+77,image_77,Breast,2,Connective; Non-neoplastic epithelial,12179,15,True,0,0,1739,0,10440
+1222,image_1222,Testis,2,Neoplastic; Connective,12139,9,True,12044,0,95,0,0
+363,image_363,Breast,2,Neoplastic; Connective,12122,8,True,8594,0,3528,0,0
+1268,image_1268,Bile-duct,2,Neoplastic; Connective,12081,5,True,6519,0,5562,0,0
+949,image_949,Thyroid,2,Neoplastic; Connective,12080,11,True,8922,0,3158,0,0
+952,image_952,Skin,2,Neoplastic; Inflammatory,12054,8,True,11350,704,0,0,0
+2428,image_2428,Thyroid,2,Connective; Non-neoplastic epithelial,12025,10,True,0,0,2165,0,9860
+812,image_812,Kidney,2,Neoplastic; Connective,12022,9,True,8544,0,3478,0,0
+1051,image_1051,Adrenal_gland,2,Neoplastic; Connective,12008,4,True,8102,0,3906,0,0
+2361,image_2361,Testis,2,Neoplastic; Connective,11999,8,True,10797,0,1202,0,0
+560,image_560,Breast,2,Neoplastic; Connective,11989,4,True,11125,0,864,0,0
+2079,image_2079,Liver,2,Neoplastic; Inflammatory,11984,17,True,11536,448,0,0,0
+1097,image_1097,Esophagus,2,Neoplastic; Connective,11979,7,True,9195,0,2784,0,0
+1260,image_1260,Testis,2,Inflammatory; Connective,11969,15,True,0,3623,8346,0,0
+780,image_780,Breast,2,Inflammatory; Connective,11957,20,True,0,4786,7171,0,0
+2239,image_2239,Prostate,2,Neoplastic; Connective,11952,8,True,9127,0,2825,0,0
+936,image_936,Thyroid,2,Inflammatory; Connective,11941,14,True,0,2944,8997,0,0
+1798,image_1798,Colon,2,Connective; Non-neoplastic epithelial,11917,7,True,0,0,6349,0,5568
+1726,image_1726,Colon,2,Inflammatory; Non-neoplastic epithelial,11900,6,True,0,199,0,0,11701
+2221,image_2221,Prostate,2,Neoplastic; Connective,11858,11,True,613,0,11245,0,0
+82,image_82,Breast,2,Connective; Non-neoplastic epithelial,11797,22,True,0,0,1065,0,10732
+1206,image_1206,Bile-duct,2,Neoplastic; Connective,11770,8,True,11454,0,316,0,0
+54,image_54,Breast,2,Inflammatory; Non-neoplastic epithelial,11737,7,True,0,313,0,0,11424
+453,image_453,Breast,2,Neoplastic; Connective,11712,10,True,8331,0,3381,0,0
+1123,image_1123,Adrenal_gland,2,Inflammatory; Non-neoplastic epithelial,11709,18,True,0,788,0,0,10921
+1373,image_1373,Adrenal_gland,2,Neoplastic; Connective,11699,10,True,9092,0,2607,0,0
+1740,image_1740,Colon,2,Connective; Non-neoplastic epithelial,11694,5,True,0,0,375,0,11319
+1461,image_1461,Bladder,2,Inflammatory; Connective,11680,11,True,0,567,11113,0,0
+185,image_185,Breast,2,Connective; Non-neoplastic epithelial,11679,10,True,0,0,6897,0,4782
+1639,image_1639,Colon,2,Connective; Non-neoplastic epithelial,11594,10,True,0,0,647,0,10947
+657,image_657,Breast,2,Neoplastic; Connective,11577,6,True,10187,0,1390,0,0
+186,image_186,Breast,2,Connective; Non-neoplastic epithelial,11566,11,True,0,0,693,0,10873
+93,image_93,Breast,2,Neoplastic; Connective,11534,8,True,9522,0,2012,0,0
+656,image_656,Breast,2,Neoplastic; Connective,11534,9,True,10654,0,880,0,0
+90,image_90,Breast,2,Neoplastic; Connective,11455,10,True,9239,0,2216,0,0
+1096,image_1096,Esophagus,2,Neoplastic; Connective,11417,5,True,8419,0,2998,0,0
+2302,image_2302,Skin,2,Neoplastic; Connective,11401,8,True,8655,0,2746,0,0
+1098,image_1098,Esophagus,2,Neoplastic; Connective,11376,5,True,7384,0,3992,0,0
+499,image_499,Breast,2,Inflammatory; Connective,11358,13,True,0,7863,3495,0,0
+245,image_245,Breast,2,Connective; Non-neoplastic epithelial,11346,12,True,0,0,995,0,10351
+964,image_964,Skin,2,Connective; Non-neoplastic epithelial,11340,9,True,0,0,1257,0,10083
+1613,image_1613,Colon,2,Connective; Non-neoplastic epithelial,11304,8,True,0,0,3133,0,8171
+1762,image_1762,Colon,2,Inflammatory; Connective,11253,11,True,0,340,10913,0,0
+1242,image_1242,Testis,2,Connective; Non-neoplastic epithelial,11247,14,True,0,0,1952,0,9295
+636,image_636,Breast,2,Inflammatory; Connective,11208,11,True,0,5459,5749,0,0
+190,image_190,Breast,2,Connective; Non-neoplastic epithelial,11173,15,True,0,0,3053,0,8120
+345,image_345,Breast,2,Neoplastic; Connective,11164,7,True,10317,0,847,0,0
+1555,image_1555,Breast,2,Neoplastic; Connective,11121,7,True,6581,0,4540,0,0
+328,image_328,Breast,2,Inflammatory; Connective,11104,8,True,0,1910,9194,0,0
+640,image_640,Breast,2,Inflammatory; Connective,11099,10,True,0,7405,3694,0,0
+494,image_494,Breast,2,Inflammatory; Connective,11036,12,True,0,1306,9730,0,0
+189,image_189,Breast,2,Connective; Non-neoplastic epithelial,11016,9,True,0,0,1209,0,9807
+262,image_262,Breast,2,Connective; Non-neoplastic epithelial,11010,8,True,0,0,7204,0,3806
+696,image_696,Colon,2,Neoplastic; Connective,11006,16,True,10730,0,276,0,0
+1464,image_1464,Bladder,2,Inflammatory; Connective,10999,10,True,0,670,10329,0,0
+2263,image_2263,Skin,2,Neoplastic; Connective,10950,21,True,10761,0,189,0,0
+2468,image_2468,Colon,2,Neoplastic; Inflammatory,10946,4,True,10786,160,0,0,0
+655,image_655,Breast,2,Neoplastic; Inflammatory,10944,6,True,10267,677,0,0,0
+1031,image_1031,Adrenal_gland,2,Neoplastic; Connective,10943,7,True,10262,0,681,0,0
+941,image_941,Thyroid,2,Inflammatory; Connective,10879,12,True,0,5579,5300,0,0
+348,image_348,Breast,2,Neoplastic; Connective,10878,4,True,9225,0,1653,0,0
+1083,image_1083,Esophagus,2,Neoplastic; Connective,10858,7,True,8344,0,2514,0,0
+1623,image_1623,Colon,2,Neoplastic; Connective,10839,8,True,6421,0,4418,0,0
+1111,image_1111,Adrenal_gland,2,Connective; Non-neoplastic epithelial,10834,8,True,0,0,1094,0,9740
+1556,image_1556,Breast,2,Neoplastic; Connective,10742,8,True,5929,0,4813,0,0
+1973,image_1973,HeadNeck,2,Neoplastic; Connective,10704,5,True,4258,0,6446,0,0
+1345,image_1345,Adrenal_gland,2,Neoplastic; Connective,10684,7,True,10028,0,656,0,0
+382,image_382,Breast,2,Inflammatory; Connective,10644,8,True,0,1211,9433,0,0
+1385,image_1385,Adrenal_gland,2,Neoplastic; Connective,10635,7,True,5349,0,5286,0,0
+918,image_918,Lung,2,Neoplastic; Connective,10627,6,True,9677,0,950,0,0
+163,image_163,Breast,2,Connective; Non-neoplastic epithelial,10625,12,True,0,0,4773,0,5852
+1869,image_1869,HeadNeck,2,Inflammatory; Connective,10624,19,True,0,3149,7475,0,0
+1871,image_1871,HeadNeck,2,Inflammatory; Connective,10609,15,True,0,4772,5837,0,0
+2100,image_2100,Liver,2,Neoplastic; Connective,10597,7,True,9334,0,1263,0,0
+986,image_986,Thyroid,2,Neoplastic; Connective,10572,10,True,8968,0,1604,0,0
+2461,image_2461,Colon,2,Neoplastic; Connective,10515,13,True,8547,0,1968,0,0
+2232,image_2232,Prostate,2,Neoplastic; Connective,10489,12,True,8019,0,2470,0,0
+1868,image_1868,HeadNeck,2,Inflammatory; Connective,10480,14,True,0,2720,7760,0,0
+64,image_64,Breast,2,Neoplastic; Connective,10444,5,True,10228,0,216,0,0
+1619,image_1619,Colon,2,Connective; Non-neoplastic epithelial,10442,4,True,0,0,4191,0,6251
+21,image_21,Breast,2,Neoplastic; Connective,10437,5,True,9760,0,677,0,0
+561,image_561,Breast,2,Neoplastic; Connective,10421,7,True,7605,0,2816,0,0
+1057,image_1057,Adrenal_gland,2,Neoplastic; Connective,10403,9,True,9950,0,453,0,0
+1061,image_1061,Adrenal_gland,2,Neoplastic; Connective,10389,7,True,10230,0,159,0,0
+1227,image_1227,Testis,2,Neoplastic; Connective,10387,15,True,2900,0,7487,0,0
+1841,image_1841,Esophagus,2,Inflammatory; Connective,10363,9,True,0,1166,9197,0,0
+2214,image_2214,Prostate,2,Connective; Non-neoplastic epithelial,10356,12,True,0,0,1003,0,9353
+595,image_595,Breast,2,Inflammatory; Connective,10274,17,True,0,8594,1680,0,0
+1052,image_1052,Adrenal_gland,2,Neoplastic; Connective,10268,6,True,9443,0,825,0,0
+2388,image_2388,Thyroid,2,Connective; Non-neoplastic epithelial,10239,8,True,0,0,400,0,9839
+125,image_125,Breast,2,Neoplastic; Connective,10232,4,True,9784,0,448,0,0
+1032,image_1032,Adrenal_gland,2,Neoplastic; Connective,10223,11,True,8341,0,1882,0,0
+1141,image_1141,Pancreatic,2,Neoplastic; Connective,10145,9,True,379,0,9766,0,0
+1087,image_1087,Esophagus,2,Neoplastic; Connective,10092,5,True,5724,0,4368,0,0
+813,image_813,Prostate,2,Neoplastic; Connective,10068,8,True,9342,0,726,0,0
+2483,image_2483,Colon,2,Inflammatory; Connective,10067,20,True,0,2878,7189,0,0
+2281,image_2281,Skin,2,Neoplastic; Inflammatory,10031,7,True,9484,547,0,0,0
+2109,image_2109,Lung,2,Neoplastic; Connective,10023,7,True,9369,0,654,0,0
+1226,image_1226,Testis,2,Neoplastic; Connective,10016,9,True,7035,0,2981,0,0
+2188,image_2188,Pancreatic,2,Inflammatory; Connective,9993,11,True,0,4480,5513,0,0
+1200,image_1200,Bile-duct,2,Neoplastic; Connective,9953,7,True,6248,0,3705,0,0
+1468,image_1468,Bladder,2,Inflammatory; Connective,9915,10,True,0,2043,7872,0,0
+2046,image_2046,Liver,2,Neoplastic; Connective,9904,7,True,9129,0,775,0,0
+1112,image_1112,Adrenal_gland,2,Connective; Non-neoplastic epithelial,9899,9,True,0,0,1656,0,8243
+1527,image_1527,Breast,2,Neoplastic; Inflammatory,9879,8,True,9637,242,0,0,0
+1616,image_1616,Colon,2,Connective; Non-neoplastic epithelial,9836,4,True,0,0,588,0,9248
+2089,image_2089,Liver,2,Neoplastic; Connective,9830,14,True,6515,0,3315,0,0
+2048,image_2048,Liver,2,Neoplastic; Connective,9802,5,True,9624,0,178,0,0
+324,image_324,Breast,2,Inflammatory; Connective,9780,5,True,0,2362,7418,0,0
+2242,image_2242,Prostate,2,Neoplastic; Connective,9775,10,True,8581,0,1194,0,0
+202,image_202,Breast,2,Connective; Non-neoplastic epithelial,9773,7,True,0,0,548,0,9225
+791,image_791,Breast,2,Neoplastic; Connective,9759,7,True,8909,0,850,0,0
+1140,image_1140,Pancreatic,2,Neoplastic; Connective,9685,11,True,5426,0,4259,0,0
+1821,image_1821,Esophagus,2,Neoplastic; Dead,9679,15,True,5617,0,0,4062,0
+1054,image_1054,Adrenal_gland,2,Neoplastic; Connective,9653,6,True,7749,0,1904,0,0
+1254,image_1254,Testis,2,Connective; Non-neoplastic epithelial,9650,15,True,0,0,3180,0,6470
+443,image_443,Breast,2,Neoplastic; Connective,9646,6,True,7134,0,2512,0,0
+2047,image_2047,Liver,2,Neoplastic; Connective,9645,5,True,9526,0,119,0,0
+1872,image_1872,HeadNeck,2,Inflammatory; Connective,9631,21,True,0,3016,6615,0,0
+2473,image_2473,Colon,2,Connective; Non-neoplastic epithelial,9630,14,True,0,0,542,0,9088
+1276,image_1276,Bile-duct,2,Neoplastic; Connective,9617,4,True,6313,0,3304,0,0
+1899,image_1899,HeadNeck,2,Neoplastic; Connective,9617,9,True,8260,0,1357,0,0
+912,image_912,Lung,2,Neoplastic; Connective,9612,11,True,7744,0,1868,0,0
+422,image_422,Breast,2,Inflammatory; Connective,9599,4,True,0,478,9121,0,0
+1040,image_1040,Adrenal_gland,2,Neoplastic; Connective,9566,10,True,8473,0,1093,0,0
+1309,image_1309,Colon,2,Inflammatory; Connective,9552,16,True,0,409,9143,0,0
+1063,image_1063,Adrenal_gland,2,Neoplastic; Connective,9546,3,True,7700,0,1846,0,0
+470,image_470,Breast,2,Neoplastic; Connective,9541,8,True,9059,0,482,0,0
+1836,image_1836,Esophagus,2,Inflammatory; Connective,9534,11,True,0,1382,8152,0,0
+781,image_781,Breast,2,Inflammatory; Connective,9527,14,True,0,4766,4761,0,0
+1465,image_1465,Bladder,2,Inflammatory; Connective,9508,9,True,0,2478,7030,0,0
+1371,image_1371,Adrenal_gland,2,Neoplastic; Inflammatory,9507,8,True,8804,703,0,0,0
+765,image_765,Colon,2,Inflammatory; Connective,9470,17,True,0,1915,7555,0,0
+1617,image_1617,Colon,2,Connective; Non-neoplastic epithelial,9467,7,True,0,0,346,0,9121
+2101,image_2101,Liver,2,Neoplastic; Connective,9436,7,True,3864,0,5572,0,0
+2223,image_2223,Prostate,2,Inflammatory; Connective,9413,14,True,0,605,8808,0,0
+1528,image_1528,Breast,2,Neoplastic; Connective,9411,7,True,9305,0,106,0,0
+808,image_808,Kidney,2,Neoplastic; Connective,9406,8,True,7924,0,1482,0,0
+690,image_690,Colon,2,Neoplastic; Inflammatory,9385,6,True,8878,507,0,0,0
+53,image_53,Breast,2,Connective; Non-neoplastic epithelial,9379,7,True,0,0,559,0,8820
+2205,image_2205,Pancreatic,2,Inflammatory; Connective,9370,11,True,0,626,8744,0,0
+1196,image_1196,Bile-duct,2,Neoplastic; Inflammatory,9362,5,True,8151,1211,0,0,0
+352,image_352,Breast,2,Neoplastic; Connective,9360,8,True,7178,0,2182,0,0
+1102,image_1102,Esophagus,2,Neoplastic; Connective,9351,5,True,2033,0,7318,0,0
+1131,image_1131,Pancreatic,2,Inflammatory; Connective,9344,8,True,0,592,8752,0,0
+2196,image_2196,Pancreatic,2,Inflammatory; Connective,9341,11,True,0,810,8531,0,0
+2187,image_2187,Pancreatic,2,Inflammatory; Connective,9314,13,True,0,1214,8100,0,0
+676,image_676,Breast,2,Neoplastic; Connective,9295,5,True,6950,0,2345,0,0
+2176,image_2176,Pancreatic,2,Inflammatory; Connective,9286,12,True,0,751,8535,0,0
+1978,image_1978,HeadNeck,2,Inflammatory; Connective,9273,16,True,0,5161,4112,0,0
+1194,image_1194,Bile-duct,2,Neoplastic; Connective,9248,7,True,2707,0,6541,0,0
+2338,image_2338,Stomach,2,Neoplastic; Connective,9245,5,True,5429,0,3816,0,0
+1092,image_1092,Esophagus,2,Connective; Non-neoplastic epithelial,9236,4,True,0,0,914,0,8322
+922,image_922,Lung,2,Neoplastic; Connective,9235,11,True,39,0,9196,0,0
+1101,image_1101,Esophagus,2,Neoplastic; Connective,9235,5,True,3494,0,5741,0,0
+2383,image_2383,Thyroid,2,Connective; Non-neoplastic epithelial,9204,9,True,0,0,877,0,8327
+716,image_716,Colon,2,Inflammatory; Connective,9187,24,True,0,5001,4186,0,0
+482,image_482,Breast,2,Neoplastic; Connective,9160,8,True,3630,0,5530,0,0
+1212,image_1212,Bile-duct,2,Neoplastic; Connective,9141,10,True,9013,0,128,0,0
+2297,image_2297,Skin,2,Neoplastic; Inflammatory,9117,10,True,8409,708,0,0,0
+1034,image_1034,Adrenal_gland,2,Neoplastic; Connective,9115,6,True,7665,0,1450,0,0
+83,image_83,Breast,2,Connective; Non-neoplastic epithelial,9102,8,True,0,0,636,0,8466
+1611,image_1611,Colon,2,Connective; Non-neoplastic epithelial,9079,4,True,0,0,7816,0,1263
+1281,image_1281,Bile-duct,2,Inflammatory; Connective,9062,9,True,0,2325,6737,0,0
+327,image_327,Breast,2,Inflammatory; Connective,9031,4,True,0,423,8608,0,0
+1707,image_1707,Colon,2,Inflammatory; Non-neoplastic epithelial,9019,4,True,0,736,0,0,8283
+1049,image_1049,Adrenal_gland,2,Neoplastic; Connective,8967,6,True,8673,0,294,0,0
+2364,image_2364,Testis,2,Neoplastic; Connective,8946,7,True,8436,0,510,0,0
+1412,image_1412,Bile-duct,2,Inflammatory; Connective,8925,7,True,0,1629,7296,0,0
+1864,image_1864,HeadNeck,2,Neoplastic; Inflammatory,8919,9,True,8675,244,0,0,0
+773,image_773,Lung,2,Neoplastic; Dead,8917,6,True,8595,0,0,322,0
+1830,image_1830,Esophagus,2,Inflammatory; Connective,8895,4,True,0,785,8110,0,0
+246,image_246,Breast,2,Connective; Non-neoplastic epithelial,8887,11,True,0,0,2661,0,6226
+1888,image_1888,HeadNeck,2,Neoplastic; Connective,8886,6,True,7347,0,1539,0,0
+65,image_65,Breast,2,Neoplastic; Connective,8867,7,True,2139,0,6728,0,0
+2213,image_2213,Prostate,2,Connective; Non-neoplastic epithelial,8853,13,True,0,0,1769,0,7084
+2156,image_2156,Pancreatic,2,Connective; Non-neoplastic epithelial,8850,11,True,0,0,4538,0,4312
+199,image_199,Breast,2,Connective; Non-neoplastic epithelial,8843,9,True,0,0,1825,0,7018
+710,image_710,Colon,2,Inflammatory; Connective,8795,9,True,0,1039,7756,0,0
+55,image_55,Breast,2,Connective; Non-neoplastic epithelial,8785,8,True,0,0,442,0,8343
+1383,image_1383,Adrenal_gland,2,Neoplastic; Connective,8741,9,True,6747,0,1994,0,0
+326,image_326,Breast,2,Inflammatory; Connective,8724,7,True,0,1589,7135,0,0
+1900,image_1900,HeadNeck,2,Neoplastic; Inflammatory,8723,13,True,7286,1437,0,0,0
+356,image_356,Breast,2,Neoplastic; Connective,8676,7,True,2930,0,5746,0,0
+1055,image_1055,Adrenal_gland,2,Neoplastic; Connective,8655,4,True,7929,0,726,0,0
+2164,image_2164,Pancreatic,2,Inflammatory; Connective,8611,14,True,0,373,8238,0,0
+1059,image_1059,Adrenal_gland,2,Neoplastic; Connective,8600,3,True,8107,0,493,0,0
+553,image_553,Breast,2,Neoplastic; Connective,8538,11,True,7553,0,985,0,0
+1875,image_1875,HeadNeck,2,Inflammatory; Connective,8512,12,True,0,4330,4182,0,0
+1463,image_1463,Bladder,2,Inflammatory; Connective,8505,16,True,0,707,7798,0,0
+2014,image_2014,Kidney,2,Neoplastic; Connective,8494,13,True,6715,0,1779,0,0
+60,image_60,Breast,2,Neoplastic; Connective,8488,5,True,5752,0,2736,0,0
+170,image_170,Breast,2,Connective; Non-neoplastic epithelial,8488,9,True,0,0,2687,0,5801
+1271,image_1271,Bile-duct,2,Neoplastic; Connective,8458,8,True,943,0,7515,0,0
+1618,image_1618,Colon,2,Connective; Non-neoplastic epithelial,8449,4,True,0,0,5233,0,3216
+1153,image_1153,Adrenal_gland,2,Neoplastic; Connective,8445,12,True,172,0,8273,0,0
+2295,image_2295,Skin,2,Neoplastic; Inflammatory,8441,7,True,7350,1091,0,0,0
+760,image_760,Colon,2,Inflammatory; Connective,8440,9,True,0,837,7603,0,0
+1776,image_1776,Colon,2,Inflammatory; Connective,8437,6,True,0,120,8317,0,0
+1150,image_1150,Adrenal_gland,2,Neoplastic; Connective,8429,7,True,7604,0,825,0,0
+1777,image_1777,Colon,2,Connective; Non-neoplastic epithelial,8425,2,True,0,0,368,0,8057
+801,image_801,Kidney,2,Neoplastic; Connective,8411,11,True,8188,0,223,0,0
+1887,image_1887,HeadNeck,2,Neoplastic; Connective,8408,10,True,7939,0,469,0,0
+1867,image_1867,HeadNeck,2,Inflammatory; Connective,8389,7,True,0,1566,6823,0,0
+2177,image_2177,Pancreatic,2,Inflammatory; Connective,8358,5,True,0,1042,7316,0,0
+1264,image_1264,Testis,2,Connective; Non-neoplastic epithelial,8321,7,True,0,0,7692,0,629
+1311,image_1311,Colon,2,Inflammatory; Connective,8302,11,True,0,653,7649,0,0
+2092,image_2092,Liver,2,Connective; Non-neoplastic epithelial,8300,10,True,0,0,335,0,7965
+521,image_521,Breast,2,Inflammatory; Connective,8297,10,True,0,4824,3473,0,0
+1972,image_1972,HeadNeck,2,Neoplastic; Connective,8267,9,True,2461,0,5806,0,0
+2194,image_2194,Pancreatic,2,Inflammatory; Connective,8261,3,True,0,779,7482,0,0
+798,image_798,Kidney,2,Neoplastic; Connective,8256,10,True,6825,0,1431,0,0
+5,image_5,Breast,2,Neoplastic; Connective,8252,1,True,6134,0,2118,0,0
+325,image_325,Breast,2,Inflammatory; Connective,8236,4,True,0,2432,5804,0,0
+386,image_386,Breast,2,Inflammatory; Connective,8228,8,True,0,5281,2947,0,0
+1133,image_1133,Pancreatic,2,Inflammatory; Connective,8211,11,True,0,962,7249,0,0
+1,image_1,Breast,2,Neoplastic; Connective,8189,6,True,1262,0,6927,0,0
+1351,image_1351,Adrenal_gland,2,Neoplastic; Connective,8161,5,True,7602,0,559,0,0
+2038,image_2038,Kidney,2,Connective; Non-neoplastic epithelial,8143,17,True,0,0,2376,0,5767
+1384,image_1384,Adrenal_gland,2,Neoplastic; Connective,8141,7,True,5238,0,2903,0,0
+1274,image_1274,Bile-duct,2,Neoplastic; Connective,8133,3,True,5,0,8128,0,0
+1211,image_1211,Bile-duct,2,Neoplastic; Connective,8126,6,True,7376,0,750,0,0
+2178,image_2178,Pancreatic,2,Inflammatory; Connective,8115,8,True,0,412,7703,0,0
+807,image_807,Kidney,2,Neoplastic; Connective,8109,15,True,6411,0,1698,0,0
+2184,image_2184,Pancreatic,2,Inflammatory; Connective,8088,14,True,0,1667,6421,0,0
+1107,image_1107,Esophagus,2,Neoplastic; Connective,8077,4,True,4659,0,3418,0,0
+1816,image_1816,Esophagus,2,Neoplastic; Connective,8072,15,True,1068,0,7004,0,0
+2241,image_2241,Prostate,2,Neoplastic; Connective,8065,3,True,109,0,7956,0,0
+1796,image_1796,Colon,2,Connective; Non-neoplastic epithelial,8048,3,True,0,0,1540,0,6508
+2186,image_2186,Pancreatic,2,Inflammatory; Connective,8043,11,True,0,1792,6251,0,0
+374,image_374,Breast,2,Inflammatory; Connective,8032,6,True,0,5174,2858,0,0
+1405,image_1405,Bile-duct,2,Inflammatory; Connective,8029,9,True,0,2019,6010,0,0
+451,image_451,Breast,2,Neoplastic; Connective,8001,5,True,2321,0,5680,0,0
+682,image_682,Colon,2,Inflammatory; Connective,7999,11,True,0,5860,2139,0,0
+225,image_225,Breast,2,Neoplastic; Connective,7994,7,True,6774,0,1220,0,0
+1322,image_1322,Colon,2,Inflammatory; Connective,7955,13,True,0,1833,6122,0,0
+1854,image_1854,HeadNeck,2,Neoplastic; Connective,7946,9,True,6341,0,1605,0,0
+540,image_540,Breast,2,Neoplastic; Connective,7917,9,True,6588,0,1329,0,0
+2481,image_2481,Colon,2,Inflammatory; Connective,7899,5,True,0,901,6998,0,0
+0,image_0,Breast,2,Neoplastic; Connective,7893,3,True,5018,0,2875,0,0
+2119,image_2119,Ovarian,2,Inflammatory; Connective,7892,12,True,0,1592,6300,0,0
+407,image_407,Breast,2,Neoplastic; Connective,7881,5,True,7226,0,655,0,0
+1803,image_1803,Colon,2,Connective; Non-neoplastic epithelial,7879,5,True,0,0,5048,0,2831
+1080,image_1080,Esophagus,2,Neoplastic; Connective,7878,4,True,7037,0,841,0,0
+384,image_384,Breast,2,Inflammatory; Connective,7869,12,True,0,4051,3818,0,0
+1330,image_1330,Colon,2,Inflammatory; Connective,7866,11,True,0,586,7280,0,0
+2522,image_2522,Colon,2,Inflammatory; Connective,7845,18,True,0,2561,5284,0,0
+2049,image_2049,Liver,2,Neoplastic; Connective,7784,4,True,7620,0,164,0,0
+486,image_486,Breast,2,Inflammatory; Connective,7750,8,True,0,4552,3198,0,0
+799,image_799,Kidney,2,Neoplastic; Connective,7748,9,True,7264,0,484,0,0
+2071,image_2071,Liver,2,Inflammatory; Non-neoplastic epithelial,7743,7,True,0,398,0,0,7345
+2072,image_2072,Liver,2,Connective; Non-neoplastic epithelial,7725,2,True,0,0,534,0,7191
+1832,image_1832,Esophagus,2,Inflammatory; Connective,7718,8,True,0,448,7270,0,0
+663,image_663,Breast,2,Neoplastic; Connective,7716,6,True,6701,0,1015,0,0
+1428,image_1428,Bile-duct,2,Inflammatory; Connective,7707,9,True,0,791,6916,0,0
+430,image_430,Breast,2,Neoplastic; Connective,7690,4,True,2671,0,5019,0,0
+647,image_647,Breast,2,Neoplastic; Connective,7685,4,True,6203,0,1482,0,0
+1819,image_1819,Esophagus,2,Neoplastic; Connective,7649,6,True,6378,0,1271,0,0
+51,image_51,Breast,2,Connective; Non-neoplastic epithelial,7634,6,True,0,0,6537,0,1097
+2238,image_2238,Prostate,2,Neoplastic; Connective,7613,4,True,2806,0,4807,0,0
+2017,image_2017,Kidney,2,Neoplastic; Connective,7601,10,True,7205,0,396,0,0
+648,image_648,Breast,2,Neoplastic; Connective,7588,2,True,4565,0,3023,0,0
+755,image_755,Colon,2,Inflammatory; Connective,7581,6,True,0,722,6859,0,0
+649,image_649,Breast,2,Neoplastic; Connective,7572,4,True,6235,0,1337,0,0
+1210,image_1210,Bile-duct,2,Neoplastic; Connective,7572,8,True,6768,0,804,0,0
+378,image_378,Breast,2,Neoplastic; Connective,7570,3,True,6472,0,1098,0,0
+2209,image_2209,Pancreatic,2,Inflammatory; Connective,7516,6,True,0,1969,5547,0,0
+669,image_669,Breast,2,Inflammatory; Connective,7513,5,True,0,687,6826,0,0
+2158,image_2158,Pancreatic,2,Connective; Non-neoplastic epithelial,7507,4,True,0,0,2922,0,4585
+321,image_321,Breast,2,Neoplastic; Connective,7467,7,True,7136,0,331,0,0
+804,image_804,Kidney,2,Neoplastic; Connective,7452,8,True,6810,0,642,0,0
+2,image_2,Breast,2,Neoplastic; Connective,7427,2,True,6202,0,1225,0,0
+1149,image_1149,Pancreatic,2,Inflammatory; Connective,7415,7,True,0,477,6938,0,0
+1834,image_1834,Esophagus,2,Inflammatory; Connective,7412,6,True,0,221,7191,0,0
+564,image_564,Breast,2,Neoplastic; Connective,7396,2,True,6887,0,509,0,0
+1592,image_1592,Colon,2,Inflammatory; Non-neoplastic epithelial,7390,3,True,0,768,0,0,6622
+1857,image_1857,HeadNeck,2,Neoplastic; Connective,7364,4,True,7090,0,274,0,0
+2399,image_2399,Thyroid,2,Connective; Non-neoplastic epithelial,7364,13,True,0,0,2682,0,4682
+1142,image_1142,Pancreatic,2,Inflammatory; Connective,7345,14,True,0,364,6981,0,0
+1071,image_1071,Adrenal_gland,2,Neoplastic; Connective,7332,2,True,6653,0,679,0,0
+468,image_468,Breast,2,Inflammatory; Connective,7320,8,True,0,3001,4319,0,0
+1381,image_1381,Adrenal_gland,2,Neoplastic; Connective,7314,8,True,5255,0,2059,0,0
+645,image_645,Breast,2,Neoplastic; Connective,7306,2,True,6606,0,700,0,0
+623,image_623,Breast,2,Connective; Non-neoplastic epithelial,7258,7,True,0,0,5418,0,1840
+1429,image_1429,Bile-duct,2,Inflammatory; Connective,7217,7,True,0,1587,5630,0,0
+1109,image_1109,Adrenal_gland,2,Connective; Non-neoplastic epithelial,7205,5,True,0,0,479,0,6726
+2159,image_2159,Pancreatic,2,Connective; Non-neoplastic epithelial,7200,5,True,0,0,3067,0,4133
+516,image_516,Breast,2,Inflammatory; Connective,7180,8,True,0,2682,4498,0,0
+1253,image_1253,Testis,2,Inflammatory; Connective,7160,9,True,0,2301,4859,0,0
+1916,image_1916,HeadNeck,2,Inflammatory; Connective,7159,20,True,0,855,6304,0,0
+1410,image_1410,Bile-duct,2,Inflammatory; Connective,7158,10,True,0,1324,5834,0,0
+2472,image_2472,Colon,2,Connective; Non-neoplastic epithelial,7153,7,True,0,0,383,0,6770
+1070,image_1070,Adrenal_gland,2,Neoplastic; Connective,7151,4,True,6735,0,416,0,0
+1320,image_1320,Colon,2,Inflammatory; Connective,7151,7,True,0,682,6469,0,0
+127,image_127,Breast,2,Neoplastic; Connective,7145,5,True,5155,0,1990,0,0
+1388,image_1388,Adrenal_gland,2,Neoplastic; Connective,7127,9,True,6949,0,178,0,0
+711,image_711,Colon,2,Inflammatory; Connective,7122,11,True,0,899,6223,0,0
+673,image_673,Breast,2,Neoplastic; Connective,7115,2,True,5472,0,1643,0,0
+2077,image_2077,Liver,2,Inflammatory; Connective,7107,6,True,0,1527,5580,0,0
+806,image_806,Kidney,2,Neoplastic; Connective,7103,8,True,5850,0,1253,0,0
+2453,image_2453,Colon,2,Inflammatory; Connective,7097,6,True,0,875,6222,0,0
+1863,image_1863,HeadNeck,2,Inflammatory; Connective,7077,11,True,0,197,6880,0,0
+2199,image_2199,Pancreatic,2,Inflammatory; Connective,7077,7,True,0,900,6177,0,0
+611,image_611,Breast,2,Inflammatory; Connective,7073,10,True,0,2745,4328,0,0
+343,image_343,Breast,2,Neoplastic; Connective,7044,5,True,3688,0,3356,0,0
+2254,image_2254,Skin,2,Inflammatory; Connective,7038,27,True,0,1460,5578,0,0
+1159,image_1159,Adrenal_gland,2,Inflammatory; Connective,7031,5,True,0,367,6664,0,0
+62,image_62,Breast,2,Neoplastic; Connective,7006,4,True,5501,0,1505,0,0
+231,image_231,Breast,2,Inflammatory; Connective,7006,10,True,0,2147,4859,0,0
+1160,image_1160,Adrenal_gland,2,Neoplastic; Connective,6989,7,True,4574,0,2415,0,0
+40,image_40,Breast,2,Connective; Non-neoplastic epithelial,6959,8,True,0,0,1003,0,5956
+2095,image_2095,Liver,2,Inflammatory; Non-neoplastic epithelial,6959,6,True,0,394,0,0,6565
+1427,image_1427,Bile-duct,2,Inflammatory; Connective,6916,12,True,0,2786,4130,0,0
+596,image_596,Breast,2,Inflammatory; Connective,6910,8,True,0,4419,2491,0,0
+2018,image_2018,Kidney,2,Neoplastic; Connective,6893,8,True,6068,0,825,0,0
+1323,image_1323,Colon,2,Inflammatory; Connective,6885,13,True,0,1200,5685,0,0
+412,image_412,Breast,2,Neoplastic; Connective,6873,4,True,5954,0,919,0,0
+915,image_915,Lung,2,Neoplastic; Connective,6863,10,True,1136,0,5727,0,0
+2462,image_2462,Colon,2,Neoplastic; Connective,6830,6,True,2392,0,4438,0,0
+1331,image_1331,Colon,2,Inflammatory; Connective,6803,8,True,0,395,6408,0,0
+174,image_174,Breast,2,Neoplastic; Inflammatory,6802,6,True,6367,435,0,0,0
+393,image_393,Breast,2,Neoplastic; Connective,6786,9,True,5896,0,890,0,0
+2284,image_2284,Skin,2,Neoplastic; Inflammatory,6784,4,True,6089,695,0,0,0
+2207,image_2207,Pancreatic,2,Inflammatory; Connective,6757,11,True,0,2261,4496,0,0
+1775,image_1775,Colon,2,Inflammatory; Connective,6744,4,True,0,207,6537,0,0
+1715,image_1715,Colon,2,Inflammatory; Non-neoplastic epithelial,6734,3,True,0,380,0,0,6354
+2016,image_2016,Kidney,2,Neoplastic; Connective,6734,11,True,6578,0,156,0,0
+758,image_758,Colon,2,Inflammatory; Connective,6723,13,True,0,4199,2524,0,0
+1039,image_1039,Adrenal_gland,2,Neoplastic; Connective,6708,7,True,5037,0,1671,0,0
+433,image_433,Breast,2,Neoplastic; Connective,6706,3,True,2683,0,4023,0,0
+1366,image_1366,Adrenal_gland,2,Neoplastic; Connective,6687,8,True,1606,0,5081,0,0
+452,image_452,Breast,2,Inflammatory; Connective,6635,5,True,0,565,6070,0,0
+1337,image_1337,Adrenal_gland,2,Inflammatory; Connective,6629,12,True,0,607,6022,0,0
+1103,image_1103,Esophagus,2,Neoplastic; Connective,6582,5,True,1690,0,4892,0,0
+1376,image_1376,Adrenal_gland,2,Neoplastic; Connective,6555,7,True,6212,0,343,0,0
+2183,image_2183,Pancreatic,2,Inflammatory; Connective,6543,11,True,0,351,6192,0,0
+717,image_717,Colon,2,Inflammatory; Connective,6497,11,True,0,1512,4985,0,0
+84,image_84,Breast,2,Connective; Non-neoplastic epithelial,6465,2,True,0,0,2537,0,3928
+26,image_26,Breast,2,Neoplastic; Connective,6431,8,True,4425,0,2006,0,0
+1154,image_1154,Adrenal_gland,2,Neoplastic; Inflammatory,6423,10,True,4509,1914,0,0,0
+2197,image_2197,Pancreatic,2,Inflammatory; Connective,6411,5,True,0,548,5863,0,0
+1064,image_1064,Adrenal_gland,2,Neoplastic; Connective,6371,4,True,5260,0,1111,0,0
+802,image_802,Kidney,2,Neoplastic; Connective,6357,10,True,5941,0,416,0,0
+342,image_342,Breast,2,Neoplastic; Connective,6310,4,True,5442,0,868,0,0
+1391,image_1391,Adrenal_gland,2,Inflammatory; Connective,6293,10,True,0,1389,4904,0,0
+24,image_24,Breast,2,Neoplastic; Connective,6290,3,True,4366,0,1924,0,0
+1449,image_1449,Bile-duct,2,Inflammatory; Connective,6288,9,True,0,431,5857,0,0
+2520,image_2520,Colon,2,Inflammatory; Connective,6280,12,True,0,2040,4240,0,0
+731,image_731,Colon,2,Inflammatory; Connective,6278,8,True,0,1083,5195,0,0
+2359,image_2359,Testis,2,Inflammatory; Connective,6231,3,True,0,179,6052,0,0
+445,image_445,Breast,2,Inflammatory; Connective,6223,4,True,0,593,5630,0,0
+1831,image_1831,Esophagus,2,Inflammatory; Connective,6181,4,True,0,699,5482,0,0
+2217,image_2217,Prostate,2,Connective; Non-neoplastic epithelial,6178,7,True,0,0,1862,0,4316
+1417,image_1417,Bile-duct,2,Neoplastic; Connective,6148,9,True,2077,0,4071,0,0
+1808,image_1808,Colon,2,Neoplastic; Dead,6145,3,True,5423,0,0,722,0
+1902,image_1902,HeadNeck,2,Inflammatory; Connective,6136,6,True,0,462,5674,0,0
+1134,image_1134,Pancreatic,2,Neoplastic; Connective,6127,6,True,3249,0,2878,0,0
+1233,image_1233,Testis,2,Inflammatory; Connective,6118,8,True,0,2328,3790,0,0
+537,image_537,Breast,2,Neoplastic; Inflammatory,6108,2,True,5759,349,0,0,0
+652,image_652,Breast,2,Neoplastic; Connective,6097,3,True,5302,0,795,0,0
+1904,image_1904,HeadNeck,2,Inflammatory; Connective,6089,11,True,0,422,5667,0,0
+284,image_284,Breast,2,Neoplastic; Connective,6088,5,True,4108,0,1980,0,0
+1072,image_1072,Adrenal_gland,2,Neoplastic; Connective,6052,5,True,5621,0,431,0,0
+809,image_809,Kidney,2,Neoplastic; Connective,6044,9,True,4462,0,1582,0,0
+945,image_945,Thyroid,2,Inflammatory; Connective,6041,7,True,0,384,5657,0,0
+2097,image_2097,Liver,2,Connective; Non-neoplastic epithelial,6039,4,True,0,0,342,0,5697
+497,image_497,Breast,2,Inflammatory; Connective,6033,5,True,0,1897,4136,0,0
+2015,image_2015,Kidney,2,Neoplastic; Connective,6031,5,True,3841,0,2190,0,0
+1595,image_1595,Colon,2,Connective; Non-neoplastic epithelial,6003,1,True,0,0,543,0,5460
+1236,image_1236,Testis,2,Inflammatory; Connective,5999,10,True,0,2821,3178,0,0
+1862,image_1862,HeadNeck,2,Neoplastic; Connective,5982,14,True,634,0,5348,0,0
+2282,image_2282,Skin,2,Neoplastic; Inflammatory,5978,3,True,5685,293,0,0,0
+1148,image_1148,Pancreatic,2,Inflammatory; Connective,5948,8,True,0,356,5592,0,0
+1418,image_1418,Bile-duct,2,Inflammatory; Connective,5947,12,True,0,256,5691,0,0
+148,image_148,Breast,2,Connective; Non-neoplastic epithelial,5941,7,True,0,0,5264,0,677
+705,image_705,Colon,2,Neoplastic; Dead,5905,1,True,5223,0,0,682,0
+1907,image_1907,HeadNeck,2,Inflammatory; Connective,5877,7,True,0,1079,4798,0,0
+63,image_63,Breast,2,Neoplastic; Connective,5815,3,True,5357,0,458,0,0
+2506,image_2506,Colon,2,Inflammatory; Connective,5791,9,True,0,453,5338,0,0
+1058,image_1058,Adrenal_gland,2,Neoplastic; Connective,5788,4,True,3816,0,1972,0,0
+2093,image_2093,Liver,2,Inflammatory; Non-neoplastic epithelial,5759,7,True,0,239,0,0,5520
+2206,image_2206,Pancreatic,2,Inflammatory; Connective,5727,7,True,0,2297,3430,0,0
+947,image_947,Thyroid,2,Neoplastic; Connective,5724,4,True,5363,0,361,0,0
+1234,image_1234,Testis,2,Inflammatory; Connective,5715,9,True,0,905,4810,0,0
+2216,image_2216,Prostate,2,Connective; Non-neoplastic epithelial,5709,10,True,0,0,2284,0,3425
+1270,image_1270,Bile-duct,2,Neoplastic; Connective,5638,1,True,3035,0,2603,0,0
+810,image_810,Kidney,2,Neoplastic; Connective,5629,8,True,3957,0,1672,0,0
+1192,image_1192,Cervix,2,Inflammatory; Connective,5627,8,True,0,4138,1489,0,0
+37,image_37,Breast,2,Connective; Non-neoplastic epithelial,5623,4,True,0,0,1348,0,4275
+769,image_769,Colon,2,Neoplastic; Connective,5555,2,True,5372,0,183,0,0
+1367,image_1367,Adrenal_gland,2,Neoplastic; Connective,5550,7,True,4707,0,843,0,0
+283,image_283,Breast,2,Inflammatory; Connective,5505,8,True,0,83,5422,0,0
+2208,image_2208,Pancreatic,2,Inflammatory; Connective,5476,6,True,0,2642,2834,0,0
+2393,image_2393,Thyroid,2,Inflammatory; Non-neoplastic epithelial,5466,13,True,0,152,0,0,5314
+800,image_800,Kidney,2,Neoplastic; Connective,5453,9,True,5157,0,296,0,0
+644,image_644,Breast,2,Neoplastic; Connective,5440,6,True,2268,0,3172,0,0
+1486,image_1486,Bladder,2,Inflammatory; Connective,5432,7,True,0,125,5307,0,0
+712,image_712,Colon,2,Inflammatory; Connective,5427,9,True,0,747,4680,0,0
+2062,image_2062,Liver,2,Inflammatory; Connective,5418,8,True,0,113,5305,0,0
+1354,image_1354,Adrenal_gland,2,Connective; Non-neoplastic epithelial,5410,4,True,0,0,520,0,4890
+1469,image_1469,Bladder,2,Inflammatory; Connective,5405,4,True,0,1365,4040,0,0
+1890,image_1890,HeadNeck,2,Neoplastic; Connective,5403,4,True,4441,0,962,0,0
+2088,image_2088,Liver,2,Inflammatory; Connective,5402,8,True,0,252,5150,0,0
+281,image_281,Breast,2,Inflammatory; Connective,5373,6,True,0,2066,3307,0,0
+1321,image_1321,Colon,2,Inflammatory; Connective,5354,8,True,0,792,4562,0,0
+149,image_149,Breast,2,Connective; Non-neoplastic epithelial,5336,7,True,0,0,4131,0,1205
+2195,image_2195,Pancreatic,2,Inflammatory; Connective,5336,3,True,0,183,5153,0,0
+1193,image_1193,Cervix,2,Inflammatory; Connective,5333,10,True,0,3662,1671,0,0
+681,image_681,Colon,2,Inflammatory; Connective,5323,2,True,0,4301,1022,0,0
+1467,image_1467,Bladder,2,Inflammatory; Connective,5315,9,True,0,391,4924,0,0
+472,image_472,Breast,2,Neoplastic; Inflammatory,5306,2,True,4864,442,0,0,0
+4,image_4,Breast,2,Neoplastic; Connective,5305,4,True,4440,0,865,0,0
+439,image_439,Breast,2,Inflammatory; Connective,5154,3,True,0,333,4821,0,0
+678,image_678,Colon,2,Inflammatory; Connective,5144,7,True,0,2990,2154,0,0
+1065,image_1065,Adrenal_gland,2,Neoplastic; Connective,5129,1,True,4486,0,643,0,0
+1136,image_1136,Pancreatic,2,Neoplastic; Connective,5105,3,True,2275,0,2830,0,0
+643,image_643,Breast,2,Inflammatory; Connective,5100,8,True,0,2647,2453,0,0
+1833,image_1833,Esophagus,2,Inflammatory; Connective,5092,4,True,0,95,4997,0,0
+1066,image_1066,Adrenal_gland,2,Neoplastic; Connective,5082,6,True,4269,0,813,0,0
+2118,image_2118,Ovarian,2,Inflammatory; Connective,5059,3,True,0,656,4403,0,0
+216,image_216,Breast,2,Connective; Non-neoplastic epithelial,5043,5,True,0,0,4039,0,1004
+389,image_389,Breast,2,Neoplastic; Connective,5021,6,True,4007,0,1014,0,0
+1603,image_1603,Colon,2,Inflammatory; Non-neoplastic epithelial,5019,2,True,0,986,0,0,4033
+1532,image_1532,Breast,2,Inflammatory; Connective,4994,4,True,0,494,4500,0,0
+2099,image_2099,Liver,2,Inflammatory; Connective,4985,4,True,0,287,4698,0,0
+1892,image_1892,HeadNeck,2,Neoplastic; Connective,4973,1,True,4793,0,180,0,0
+203,image_203,Breast,2,Connective; Non-neoplastic epithelial,4964,6,True,0,0,1835,0,3129
+757,image_757,Colon,2,Inflammatory; Connective,4956,8,True,0,2376,2580,0,0
+1865,image_1865,HeadNeck,2,Inflammatory; Connective,4930,5,True,0,784,4146,0,0
+1393,image_1393,Adrenal_gland,2,Neoplastic; Connective,4908,3,True,1437,0,3471,0,0
+917,image_917,Lung,2,Neoplastic; Connective,4900,5,True,1063,0,3837,0,0
+69,image_69,Breast,2,Neoplastic; Connective,4832,6,True,1365,0,3467,0,0
+1482,image_1482,Bladder,2,Inflammatory; Connective,4829,6,True,0,58,4771,0,0
+1451,image_1451,Bile-duct,2,Inflammatory; Connective,4784,6,True,0,972,3812,0,0
+718,image_718,Colon,2,Inflammatory; Connective,4778,9,True,0,410,4368,0,0
+686,image_686,Colon,2,Inflammatory; Connective,4743,3,True,0,1131,3612,0,0
+2504,image_2504,Colon,2,Inflammatory; Connective,4734,2,True,0,302,4432,0,0
+2358,image_2358,Testis,2,Neoplastic; Connective,4700,2,True,2767,0,1933,0,0
+2121,image_2121,Ovarian,2,Inflammatory; Connective,4684,3,True,0,20,4664,0,0
+1045,image_1045,Adrenal_gland,2,Neoplastic; Connective,4639,6,True,3287,0,1352,0,0
+22,image_22,Breast,2,Inflammatory; Connective,4583,7,True,0,826,3757,0,0
+2204,image_2204,Pancreatic,2,Inflammatory; Connective,4573,5,True,0,228,4345,0,0
+1273,image_1273,Bile-duct,2,Neoplastic; Connective,4570,3,True,178,0,4392,0,0
+1380,image_1380,Adrenal_gland,2,Neoplastic; Connective,4540,5,True,4285,0,255,0,0
+285,image_285,Breast,2,Neoplastic; Connective,4521,6,True,600,0,3921,0,0
+94,image_94,Breast,2,Neoplastic; Connective,4505,2,True,2821,0,1684,0,0
+28,image_28,Breast,2,Neoplastic; Connective,4479,2,True,841,0,3638,0,0
+1426,image_1426,Bile-duct,2,Inflammatory; Connective,4403,5,True,0,353,4050,0,0
+1824,image_1824,Esophagus,2,Inflammatory; Connective,4396,7,True,0,1471,2925,0,0
+2040,image_2040,Kidney,2,Connective; Non-neoplastic epithelial,4383,3,True,0,0,971,0,3412
+1914,image_1914,HeadNeck,2,Inflammatory; Connective,4377,3,True,0,1050,3327,0,0
+2451,image_2451,Colon,2,Inflammatory; Connective,4369,2,True,0,1036,3333,0,0
+180,image_180,Breast,2,Connective; Non-neoplastic epithelial,4363,3,True,0,0,3122,0,1241
+522,image_522,Breast,2,Inflammatory; Connective,4354,4,True,0,430,3924,0,0
+1966,image_1966,HeadNeck,2,Inflammatory; Connective,4325,2,True,0,232,4093,0,0
+2152,image_2152,Pancreatic,2,Connective; Non-neoplastic epithelial,4318,3,True,0,0,1299,0,3019
+2476,image_2476,Colon,2,Inflammatory; Connective,4302,4,True,0,212,4090,0,0
+1256,image_1256,Testis,2,Connective; Non-neoplastic epithelial,4256,2,True,0,0,1467,0,2789
+1305,image_1305,Colon,2,Inflammatory; Connective,4219,1,True,0,996,3223,0,0
+602,image_602,Breast,2,Inflammatory; Connective,4174,6,True,0,2421,1753,0,0
+687,image_687,Colon,2,Inflammatory; Connective,4160,6,True,0,2234,1926,0,0
+1483,image_1483,Bladder,2,Inflammatory; Connective,4154,9,True,0,125,4029,0,0
+1365,image_1365,Adrenal_gland,2,Neoplastic; Connective,4137,3,True,4030,0,107,0,0
+2082,image_2082,Liver,2,Inflammatory; Connective,4099,4,True,0,180,3919,0,0
+713,image_713,Colon,2,Inflammatory; Connective,4045,7,True,0,362,3683,0,0
+589,image_589,Breast,2,Inflammatory; Connective,4002,5,True,0,3816,186,0,0
+972,image_972,Thyroid,2,Inflammatory; Connective,3992,6,True,0,471,3521,0,0
+436,image_436,Breast,2,Inflammatory; Connective,3989,4,True,0,1359,2630,0,0
+2045,image_2045,Liver,2,Neoplastic; Connective,3989,4,True,2527,0,1462,0,0
+1190,image_1190,Cervix,2,Inflammatory; Connective,3972,8,True,0,2900,1072,0,0
+2058,image_2058,Liver,2,Inflammatory; Connective,3963,3,True,0,305,3658,0,0
+184,image_184,Breast,2,Connective; Non-neoplastic epithelial,3954,1,True,0,0,850,0,3104
+435,image_435,Breast,2,Inflammatory; Connective,3935,5,True,0,1377,2558,0,0
+142,image_142,Breast,2,Neoplastic; Connective,3933,2,True,2774,0,1159,0,0
+1536,image_1536,Breast,2,Inflammatory; Connective,3930,3,True,0,470,3460,0,0
+2348,image_2348,Stomach,2,Neoplastic; Connective,3903,3,True,427,0,3476,0,0
+137,image_137,Breast,2,Connective; Non-neoplastic epithelial,3900,2,True,0,0,2238,0,1662
+1802,image_1802,Colon,2,Connective; Non-neoplastic epithelial,3859,2,True,0,0,2963,0,896
+2054,image_2054,Liver,2,Inflammatory; Connective,3841,7,True,0,664,3177,0,0
+1487,image_1487,Bladder,2,Inflammatory; Connective,3839,9,True,0,342,3497,0,0
+36,image_36,Breast,2,Connective; Non-neoplastic epithelial,3829,5,True,0,0,758,0,3071
+604,image_604,Breast,2,Inflammatory; Connective,3822,5,True,0,2712,1110,0,0
+1392,image_1392,Adrenal_gland,2,Inflammatory; Connective,3815,5,True,0,1727,2088,0,0
+1144,image_1144,Pancreatic,2,Neoplastic; Connective,3814,1,True,9,0,3805,0,0
+973,image_973,Thyroid,2,Inflammatory; Connective,3759,5,True,0,2,3757,0,0
+1780,image_1780,Colon,2,Inflammatory; Non-neoplastic epithelial,3731,2,True,0,1906,0,0,1825
+566,image_566,Breast,2,Inflammatory; Connective,3712,4,True,0,1450,2262,0,0
+57,image_57,Breast,2,Connective; Non-neoplastic epithelial,3695,3,True,0,0,3429,0,266
+1612,image_1612,Colon,2,Connective; Non-neoplastic epithelial,3677,2,True,0,0,3441,0,236
+1565,image_1565,Cervix,2,Inflammatory; Connective,3672,2,True,0,551,3121,0,0
+1466,image_1466,Bladder,2,Inflammatory; Connective,3617,3,True,0,980,2637,0,0
+2505,image_2505,Colon,2,Inflammatory; Connective,3607,5,True,0,151,3456,0,0
+2139,image_2139,Ovarian,2,Inflammatory; Connective,3603,1,True,0,234,3369,0,0
+2365,image_2365,Testis,2,Inflammatory; Connective,3603,3,True,0,1528,2075,0,0
+2202,image_2202,Pancreatic,2,Inflammatory; Connective,3597,5,True,0,615,2982,0,0
+587,image_587,Breast,2,Inflammatory; Connective,3545,2,True,0,560,2985,0,0
+1967,image_1967,HeadNeck,2,Inflammatory; Connective,3482,4,True,0,288,3194,0,0
+2037,image_2037,Kidney,2,Connective; Non-neoplastic epithelial,3482,5,True,0,0,1089,0,2393
+658,image_658,Breast,2,Neoplastic; Connective,3473,2,True,651,0,2822,0,0
+1262,image_1262,Testis,2,Inflammatory; Connective,3460,4,True,0,979,2481,0,0
+766,image_766,Colon,2,Inflammatory; Connective,3455,5,True,0,998,2457,0,0
+2059,image_2059,Liver,2,Inflammatory; Connective,3408,6,True,0,221,3187,0,0
+1398,image_1398,Adrenal_gland,2,Neoplastic; Connective,3382,2,True,1774,0,1608,0,0
+1395,image_1395,Adrenal_gland,2,Neoplastic; Connective,3316,5,True,1145,0,2171,0,0
+2394,image_2394,Thyroid,2,Connective; Non-neoplastic epithelial,3293,2,True,0,0,222,0,3071
+292,image_292,Breast,2,Inflammatory; Non-neoplastic epithelial,3286,2,True,0,1335,0,0,1951
+1485,image_1485,Bladder,2,Inflammatory; Connective,3273,8,True,0,134,3139,0,0
+1338,image_1338,Adrenal_gland,2,Inflammatory; Connective,3229,2,True,0,130,3099,0,0
+825,image_825,Bladder,2,Inflammatory; Connective,3223,8,True,0,1989,1234,0,0
+1817,image_1817,Esophagus,2,Inflammatory; Dead,3220,8,True,0,215,0,3005,0
+2117,image_2117,Ovarian,2,Inflammatory; Connective,3202,2,True,0,816,2386,0,0
+824,image_824,Bladder,2,Inflammatory; Connective,3188,3,True,0,3044,144,0,0
+754,image_754,Colon,2,Inflammatory; Connective,3142,7,True,0,1511,1631,0,0
+1915,image_1915,HeadNeck,2,Inflammatory; Connective,3134,7,True,0,369,2765,0,0
+2053,image_2053,Liver,2,Inflammatory; Connective,3120,5,True,0,471,2649,0,0
+759,image_759,Colon,2,Inflammatory; Connective,3114,4,True,0,480,2634,0,0
+2253,image_2253,Skin,2,Inflammatory; Connective,3089,11,True,0,1031,2058,0,0
+761,image_761,Colon,2,Inflammatory; Connective,3078,4,True,0,1041,2037,0,0
+527,image_527,Breast,2,Connective; Non-neoplastic epithelial,3016,3,True,0,0,2005,0,1011
+282,image_282,Breast,2,Inflammatory; Connective,3005,6,True,0,1236,1769,0,0
+733,image_733,Colon,2,Inflammatory; Connective,2973,4,True,0,215,2758,0,0
+300,image_300,Breast,2,Neoplastic; Connective,2904,2,True,1089,0,1815,0,0
+2173,image_2173,Pancreatic,2,Inflammatory; Connective,2890,2,True,0,254,2636,0,0
+1968,image_1968,HeadNeck,2,Inflammatory; Connective,2877,5,True,0,176,2701,0,0
+2134,image_2134,Ovarian,2,Neoplastic; Connective,2854,1,True,2594,0,260,0,0
+2226,image_2226,Prostate,2,Inflammatory; Connective,2846,2,True,0,467,2379,0,0
+1479,image_1479,Bladder,2,Inflammatory; Connective,2842,5,True,0,272,2570,0,0
+2039,image_2039,Kidney,2,Connective; Non-neoplastic epithelial,2836,3,True,0,0,1020,0,1816
+597,image_597,Breast,2,Inflammatory; Connective,2824,4,True,0,1206,1618,0,0
+1944,image_1944,HeadNeck,2,Inflammatory; Connective,2815,5,True,0,90,2725,0,0
+1905,image_1905,HeadNeck,2,Inflammatory; Connective,2780,2,True,0,998,1782,0,0
+1913,image_1913,HeadNeck,2,Inflammatory; Connective,2762,7,True,0,383,2379,0,0
+2355,image_2355,Testis,2,Inflammatory; Connective,2721,2,True,0,436,2285,0,0
+2285,image_2285,Skin,2,Neoplastic; Inflammatory,2686,3,True,2141,545,0,0,0
+141,image_141,Breast,2,Neoplastic; Connective,2683,4,True,1539,0,1144,0,0
+2051,image_2051,Liver,2,Inflammatory; Connective,2643,3,True,0,300,2343,0,0
+1425,image_1425,Bile-duct,2,Inflammatory; Connective,2641,6,True,0,877,1764,0,0
+974,image_974,Thyroid,2,Inflammatory; Connective,2632,3,True,0,769,1863,0,0
+473,image_473,Breast,2,Neoplastic; Connective,2612,2,True,537,0,2075,0,0
+1443,image_1443,Bile-duct,2,Inflammatory; Connective,2587,1,True,0,292,2295,0,0
+154,image_154,Breast,2,Inflammatory; Connective,2575,4,True,0,951,1624,0,0
+1514,image_1514,Breast,2,Neoplastic; Connective,2575,1,True,245,0,2330,0,0
+1911,image_1911,HeadNeck,2,Inflammatory; Connective,2561,7,True,0,316,2245,0,0
+756,image_756,Colon,2,Inflammatory; Connective,2545,4,True,0,805,1740,0,0
+1191,image_1191,Cervix,2,Inflammatory; Connective,2544,6,True,0,2255,289,0,0
+1903,image_1903,HeadNeck,2,Inflammatory; Connective,2530,4,True,0,56,2474,0,0
+714,image_714,Colon,2,Inflammatory; Connective,2445,5,True,0,190,2255,0,0
+732,image_732,Colon,2,Inflammatory; Connective,2421,2,True,0,865,1556,0,0
+1919,image_1919,HeadNeck,2,Inflammatory; Connective,2404,2,True,0,217,2187,0,0
+1996,image_1996,HeadNeck,2,Inflammatory; Dead,2265,6,True,0,1196,0,1069,0
+2055,image_2055,Liver,2,Inflammatory; Connective,2262,1,True,0,244,2018,0,0
+1329,image_1329,Colon,2,Inflammatory; Connective,2196,1,True,0,999,1197,0,0
+688,image_688,Colon,2,Inflammatory; Connective,2192,3,True,0,737,1455,0,0
+1918,image_1918,HeadNeck,2,Inflammatory; Connective,2139,9,True,0,541,1598,0,0
+144,image_144,Breast,2,Neoplastic; Connective,2136,3,True,1829,0,307,0,0
+1912,image_1912,HeadNeck,2,Inflammatory; Connective,2133,2,True,0,256,1877,0,0
+81,image_81,Breast,2,Connective; Non-neoplastic epithelial,2118,3,True,0,0,1887,0,231
+437,image_437,Breast,2,Inflammatory; Connective,2109,4,True,0,369,1740,0,0
+2057,image_2057,Liver,2,Inflammatory; Connective,2108,4,True,0,353,1755,0,0
+715,image_715,Colon,2,Inflammatory; Connective,2063,4,True,0,431,1632,0,0
+1901,image_1901,HeadNeck,2,Inflammatory; Connective,1921,4,True,0,481,1440,0,0
+2449,image_2449,Colon,2,Inflammatory; Connective,1920,4,True,0,258,1662,0,0
+719,image_719,Colon,2,Inflammatory; Connective,1903,2,True,0,152,1751,0,0
+2252,image_2252,Skin,2,Inflammatory; Connective,1846,4,True,0,199,1647,0,0
+2251,image_2251,Skin,2,Inflammatory; Connective,1831,6,True,0,199,1632,0,0
+579,image_579,Breast,2,Inflammatory; Connective,1826,2,True,0,256,1570,0,0
+1957,image_1957,HeadNeck,2,Inflammatory; Connective,1809,2,True,0,188,1621,0,0
+1953,image_1953,HeadNeck,2,Connective; Non-neoplastic epithelial,1780,1,True,0,0,729,0,1051
+1389,image_1389,Adrenal_gland,2,Inflammatory; Connective,1764,1,True,0,1096,668,0,0
+2466,image_2466,Colon,2,Neoplastic; Dead,1706,1,True,344,0,0,1362,0
+2256,image_2256,Skin,2,Inflammatory; Connective,1699,4,True,0,318,1381,0,0
+2452,image_2452,Colon,2,Inflammatory; Connective,1678,1,True,0,434,1244,0,0
+2356,image_2356,Testis,2,Inflammatory; Connective,1640,1,True,0,1256,384,0,0
+2454,image_2454,Colon,2,Inflammatory; Connective,1621,2,True,0,120,1501,0,0
+2440,image_2440,Colon,2,Inflammatory; Connective,1599,1,True,0,160,1439,0,0
+146,image_146,Breast,2,Neoplastic; Inflammatory,1554,2,True,1326,228,0,0,0
+1906,image_1906,HeadNeck,2,Inflammatory; Connective,1532,2,True,0,19,1513,0,0
+2056,image_2056,Liver,2,Inflammatory; Connective,1531,1,True,0,764,767,0,0
+2257,image_2257,Skin,2,Inflammatory; Connective,1521,3,True,0,47,1474,0,0
+2052,image_2052,Liver,2,Inflammatory; Connective,1511,1,True,0,559,952,0,0
+720,image_720,Colon,2,Inflammatory; Connective,1466,3,True,0,121,1345,0,0
+1891,image_1891,HeadNeck,2,Neoplastic; Connective,1463,2,True,426,0,1037,0,0
+415,image_415,Breast,2,Inflammatory; Connective,1444,2,True,0,319,1125,0,0
+1355,image_1355,Adrenal_gland,2,Connective; Non-neoplastic epithelial,1439,1,True,0,0,219,0,1220
+702,image_702,Colon,2,Inflammatory; Connective,1420,3,True,0,162,1258,0,0
+2255,image_2255,Skin,2,Inflammatory; Connective,1382,1,True,0,331,1051,0,0
+1030,image_1030,Cervix,2,Inflammatory; Connective,1368,2,True,0,959,409,0,0
+975,image_975,Thyroid,2,Inflammatory; Connective,1350,2,True,0,267,1083,0,0
+2036,image_2036,Kidney,2,Connective; Non-neoplastic epithelial,1337,2,True,0,0,733,0,604
+1025,image_1025,Cervix,2,Inflammatory; Connective,1228,3,True,0,569,659,0,0
+2228,image_2228,Prostate,2,Inflammatory; Connective,1196,2,True,0,331,865,0,0
+2116,image_2116,Lung,2,Neoplastic; Inflammatory,1136,3,True,307,829,0,0,0
+390,image_390,Breast,2,Inflammatory; Connective,1116,1,True,0,627,489,0,0
+1523,image_1523,Breast,2,Inflammatory; Connective,1109,2,True,0,330,779,0,0
+2439,image_2439,Colon,2,Inflammatory; Connective,1105,1,True,0,196,909,0,0
+538,image_538,Breast,2,Inflammatory; Connective,1101,4,True,0,618,483,0,0
+1959,image_1959,HeadNeck,2,Connective; Non-neoplastic epithelial,1071,1,True,0,0,546,0,525
+722,image_722,Colon,2,Inflammatory; Connective,1028,1,True,0,183,845,0,0
+660,image_660,Breast,2,Inflammatory; Connective,959,1,True,0,723,236,0,0
+1525,image_1525,Breast,2,Inflammatory; Connective,950,3,True,0,194,756,0,0
+1954,image_1954,HeadNeck,2,Inflammatory; Connective,924,2,True,0,95,829,0,0
+689,image_689,Colon,2,Inflammatory; Connective,918,2,True,0,128,790,0,0
+556,image_556,Breast,2,Neoplastic; Connective,907,1,True,373,0,534,0,0
+2161,image_2161,Pancreatic,2,Neoplastic; Connective,866,2,True,253,0,613,0,0
+2435,image_2435,Colon,2,Inflammatory; Connective,678,2,True,0,321,357,0,0
+2492,image_2492,Colon,2,Inflammatory; Connective,597,1,True,0,432,165,0,0
+2493,image_2493,Colon,2,Inflammatory; Connective,593,1,True,0,241,352,0,0
+2002,image_2002,HeadNeck,2,Inflammatory; Connective,270,1,True,0,224,46,0,0
