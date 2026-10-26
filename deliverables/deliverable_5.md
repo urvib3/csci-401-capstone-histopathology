@@ -28,27 +28,23 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 
 **PanNuke (handwritten)**
 
-| | Neo | Inf | Con | Dead | Epi |
+| | Neoplastic | Inflammatory | Connective | Dead | Non-neoplastic epithelial |
 |---|---|---|---|---|---|
-| **Neo** | 0 | 2 | 1 | 1 | 9 |
-| **Inf** | | 0 | 2 | 1 | 8 |
-| **Con** | | | 0 | 5 | 1 |
+| **Neoplastic** | 0 | 2 | 1 | 1 | 9 |
+| **Inflammatory** | | 0 | 2 | 1 | 8 |
+| **Connective** | | | 0 | 5 | 1 |
 | **Dead** | | | | 0 | 10 |
-| **Epi** | | | | | 0 |
-
-Neo neoplastic · Inf inflammatory · Con connective · Epi non-neoplastic epithelial
+| **Non-neoplastic epithelial** | | | | | 0 |
 
 **BCSS (handwritten / data-derived)**
 
-| | Tum | Inf | Str | Nec | Oth |
+| | Tumor | Inflammatory | Stroma | Necrosis | Other |
 |---|---|---|---|---|---|
-| **Tum** | 0 | 2 / 5.2 | 1 / 3.0 | 1 / 4.1 | 9 / 4.5 |
-| **Inf** | | 0 | 2 / 2.2 | 1 / 6.9 | 8 / 3.2 |
-| **Str** | | | 0 | 5 / 3.6 | 1 / 2.3 |
-| **Nec** | | | | 0 | 10 / 4.9 |
-| **Oth** | | | | | 0 |
-
-Tum tumor · Inf inflammatory · Str stroma · Nec necrosis · Oth other
+| **Tumor** | 0 | 2 / 5.2 | 1 / 3.0 | 1 / 4.1 | 9 / 4.5 |
+| **Inflammatory** | | 0 | 2 / 2.2 | 1 / 6.9 | 8 / 3.2 |
+| **Stroma** | | | 0 | 5 / 3.6 | 1 / 2.3 |
+| **Necrosis** | | | | 0 | 10 / 4.9 |
+| **Other** | | | | | 0 |
 
   Symmetric, so only the upper triangle is shown; same label (diagonal) is free.
 
