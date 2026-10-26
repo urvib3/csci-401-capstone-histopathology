@@ -116,59 +116,9 @@ All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcs
 <details>
 <summary><b>PanNuke: single full patch (image_00748)</b></summary>
 
-Ground truth is used only for evaluation; the WCSP solver never reads it. The prepared inputs are committed, so the WCSP and evaluation steps run without the PanNuke data:
+HoVer-Net found 47 nuclei in the central 164 × 164 region, giving 10,726 active (nucleus) pixels. The ground truth is cropped to the same region and used only for evaluation.
 
-```bash
-conda activate pannuke
-python experiments/pannuke_d5/pannuke_preparation/prepare_full_patch.py   # needs the Fold 2 data
-python experiments/pannuke_d5/pannuke_refinement/run_wcsp.py
-python experiments/pannuke_d5/pannuke_refinement/evaluate.py
-```
-
-#### Input preparation 
-
-##### Source prediction
-
-The input comes from the existing `hovernet_fast-pannuke` inference performed on PanNuke Fold 2.
-
-For `image_00748`, HoVer-Net produced:
-
-- **47 predicted nuclei**
-- a **164×164 instance segmentation map**
-- predicted nucleus classes stored in the Fold 2 prediction CSV
-- centroids used to associate each predicted nucleus with its corresponding instance ID
-
-All 47 predicted nuclei were successfully mapped from the prediction metadata to their instance-map regions.
-
-##### Conversion to pixel labels
-
-HoVer-Net's instance map stores a unique integer ID for each detected nucleus. The corresponding nucleus class from the prediction CSV was assigned to every pixel belonging to that instance.
-
-The WCSP label mapping is:
-
-|  ID | Biological class          |
-| --: | ------------------------- |
-|   0 | Background / inactive     |
-|   1 | Neoplastic                |
-|   2 | Inflammatory              |
-|   3 | Connective                |
-|   4 | Dead                      |
-|   5 | Non-neoplastic epithelial |
-
-A pixel with label `0` is **not interpreted as healthy tissue**. It means that the pixel is not part of a usable HoVer-Net nucleus prediction and is therefore excluded from the active WCSP variables.
-
-##### Alignment with PanNuke ground truth
-
-The original PanNuke patch is **256×256**, while the saved fast HoVer-Net prediction corresponds to the central **164×164** region:
-
-```text
-x = 46 ... 209
-y = 46 ... 209
-```
-
-The corresponding PanNuke ground-truth mask was cropped to exactly this same 164×164 region before evaluation.
-
-##### Diagnostics
+##### HoVer-Net vs. ground truth (before the WCSP)
 
 | Quantity                                          |  Value |
 | ------------------------------------------------- | -----: |
@@ -185,53 +135,7 @@ The **0.7737 class agreement is not overall pixel accuracy**. It is the fraction
 
 The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mask represent an important upstream limitation: these pixels do not become WCSP variables and therefore cannot be recovered through label refinement alone.
 
-##### Files in [`experiments/pannuke_d5/pannuke_preparation/`](../experiments/pannuke_d5/pannuke_preparation/)
-
-| File | Contents |
-| --- | --- |
-| `hovernet_labels_164.npy` | (164, 164) main WCSP input. Active pixels carry labels 1–5, inactive pixels are 0. |
-| `active_mask_164.npy` | (164, 164) bool. `active_mask[y, x] == True` means the pixel is a WCSP variable (10,726 pixels). |
-| `hovernet_instance_map_164.npy` | Original HoVer-Net instance map; each positive integer is one nucleus. Kept for nucleus-level analysis. |
-| `pannuke_gt_labels_164.npy` | Aligned PanNuke ground-truth class labels. **Evaluation only.** |
-| `pannuke_d5_patch_package.npz` | Bundle of `predicted_labels`, `active_mask`, `ground_truth_labels`, `instance_map`. |
-| `metadata.json` | Dataset/image ID, coordinates, label dictionary, active/background policy, counts, overlap statistics, source paths. |
-| `prepare_full_patch.py` | Reproduces the files above from the saved HoVer-Net instance map + prediction CSV and the Fold 2 `masks.npy`. |
-
-HoVer-Net instance map
-        +
-HoVer-Net nucleus class predictions
-        ->
-hovernet_labels_164.npy
-        ->
-active_mask_164.npy = hovernet_labels > 0
-        ->
-WCSP gets:
-  1. label map
-  2. active mask
-
-```python
-import numpy as np
-
-data = np.load("experiments/pannuke_d5/pannuke_preparation/pannuke_d5_patch_package.npz")
-
-initial_labels = data["predicted_labels"]
-active_mask = data["active_mask"]
-ground_truth = data["ground_truth_labels"]   # ignore during optimization
-instance_map = data["instance_map"]
-```
-
----
-
-#### WCSP run 
-
-`run_wcsp.py` only reads `hovernet_labels_164.npy` and `active_mask_164.npy`.
-
-Same setup as D4 so the results are comparable:
-
-- Variables: the 10,726 active pixels, each with domain {1, ..., 5}. Inactive pixels stay 0.
-- Unary: λ if a pixel changes from its HoVer-Net label, 0 if it keeps it.
-- Pairwise: the handout cost table divided by distance, over all five neighbor types (up to 2√2 away). Pairs touching an inactive pixel are left out. That gives 111,755 unique edges.
-- Solver: the shared `wcsp/` block scheme with ICM inside each block. The default 100x100 blocks don't fit a 164x164 image, so it uses 60x60 corners and a 44 px cross. No assignments are enumerated.
+##### WCSP runs
 
 | Run | λ | Initial objective | Returned objective | Changed pixels | Rounds | Runtime |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -243,11 +147,7 @@ Why λ = 139 is strong enough: a pixel has at most 24 neighbors, and the sum of 
 
 ICM is greedy, so the results are local optima, not proven global ones. For every run, no single pixel can lower the objective by changing its label, and solving the whole image as one block gives the same weak result (723.1453).
 
----
-
-#### Ground-truth evaluation 
-
-`evaluate.py` is the only script that opens `pannuke_gt_labels_164.npy`, and it runs after the WCSP labels are saved.
+##### Ground-truth evaluation 
 
 The ground truth for this patch only has one class: all 9,250 nucleus pixels are Inflammatory. I checked this against the raw `masks.npy` channels, so it is not an alignment bug.
 
@@ -296,14 +196,6 @@ How it was evaluated:
 - Active region accuracy counts ground-truth background as wrong. Ground-truth nucleus accuracy counts missed pixels as wrong.
 - IoU is only reported for Inflammatory since it is the only class in the ground truth. The other predicted classes have IoU 0 both before and after, and Dead is never predicted.
 - λ = 1 was taken from D4 and not tuned on this patch, since tuning it here would use the ground truth.
-
-##### Files in [`experiments/pannuke_d5/pannuke_refinement/`](../experiments/pannuke_d5/pannuke_refinement/)
-
-| File | Contents |
-| --- | --- |
-| `run_wcsp.py`, `results.json` | WCSP runs, settings, objectives, energy trace per round |
-| `wcsp_strong_labels.npy`, `wcsp_weak_labels.npy` | Returned 164x164 label maps (0 = inactive) |
-| `evaluate.py`, `evaluation.json` | All metrics above plus confusion matrices |
 
 </details>
 
@@ -520,17 +412,3 @@ Panels: image | ground truth | U-Net | WCSP | changed pixels.
   - use region- or nucleus-level variables (superpixels, HoVer-Net instances) so the rules can act on whole objects;
   - save HoVer-Net class probabilities so PanNuke can use −log p unaries;
   - for toulbar2, start from the ICM solution and use its local search (VNS).
-
-<details>
-<summary><b>Reproduce (BCSS)</b></summary>
-
-```bash
-python -m wcsp predict   --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split val            # U-Net once, cached
-python -m wcsp solve     --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split val --run NAME --set problem.lam=8
-python -m wcsp summarize --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split val --run NAME
-python experiments/bcss_wcsp/make_figures.py --id <val tile id>
-```
-
-On SLURM, `experiments/bcss_wcsp/slurm/wcsp_multi.sbatch` splits a run into array tasks × 16 CPUs.
-
-</details>
