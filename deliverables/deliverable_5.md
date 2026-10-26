@@ -73,7 +73,6 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 | **unary** | how the classifier's opinion is scored | λ · [label changed] | −log p, raw softmax (temperature 1) |
 | **neighborhood** | which pixel pairs interact | 5 distance types, up to 2√2 px (24 neighbors) | same |
 | **η** | distance falloff, b / dᵑ | 1 | 1 |
-| **weight normalization** | neighbor weights sum to 1, so λ doesn't depend on η or neighborhood | no | yes |
 | **f: β, σ** | image term: extra cost for a label change between similar colors | off | off (β = 1, 2, 4 tested; hurt) |
 | **solver** | search inside each block | ICM | ICM (toulbar2 compared) |
 | **blocks** | corner size / cross width | 60 / 44 px | 100 / 56 px |
