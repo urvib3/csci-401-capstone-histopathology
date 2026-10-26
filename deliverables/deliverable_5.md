@@ -82,8 +82,6 @@ All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcs
 
 ---
 
----
-
 ## 2. PanNuke
 
 ### Pipeline and experiments
@@ -98,20 +96,7 @@ All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcs
 
 **Metrics:** class agreement on overlapping nucleus pixels, pixel accuracy and IoU, and counts of wrong → correct vs. correct → wrong changes.
 
-### Results
-
-| Experiment | Setting | HoVer-Net | + WCSP | Verdict |
-|---|---|---|---|---|
-| 1 patch | λ = 1 | class agreement 0.7737 | 0.7730 | 13 px changed: 0 fixed, 6 new errors |
-| 1 patch | λ = 139 (strong fidelity) | — | identical | 0 changes, as the bound guarantees |
-| 20 patches | λ = 1 | — | — | 2 px changed in total, both new errors; 19/20 unchanged |
-| 15 dev patches | λ = 0 (no fidelity) | — | mean Δ mIoU −0.0010 | 2 fixed, 61 broken |
-
-**Why the WCSP doesn't help on PanNuke:**
-- Nuclei are separated by inactive background, so neighboring nuclei barely interact.
-- Each nucleus already has one uniform label, so there's little pairwise conflict inside it.
-- The flat unary can't tell confident pixels from unsure ones.
-- The changes that do happen don't follow the true classes.
+#### Sweeps and details (click to expand)
 
 <details>
 <summary><b>PanNuke: single full patch (image_00748)</b></summary>
@@ -226,6 +211,21 @@ How it was evaluated:
 
 </details>
 
+### Final results
+
+| Experiment | Setting | HoVer-Net | + WCSP | Verdict |
+|---|---|---|---|---|
+| 1 patch | λ = 1 | class agreement 0.7737 | 0.7730 | 13 px changed: 0 fixed, 6 new errors |
+| 1 patch | λ = 139 (strong fidelity) | — | identical | 0 changes, as the bound guarantees |
+| 20 patches | λ = 1 | — | — | 2 px changed in total, both new errors; 19/20 unchanged |
+| 15 dev patches | λ = 0 (no fidelity) | — | mean Δ mIoU −0.0010 | 2 fixed, 61 broken |
+
+**Why the WCSP doesn't help on PanNuke:**
+- Nuclei are separated by inactive background, so neighboring nuclei barely interact.
+- Each nucleus already has one uniform label, so there's little pairwise conflict inside it.
+- The flat unary can't tell confident pixels from unsure ones.
+- The changes that do happen don't follow the true classes.
+
 ---
 
 ## 3. BCSS
@@ -247,26 +247,7 @@ How it was evaluated:
 
 **Metrics:** pixel accuracy and mIoU (per-class IoU averaged over the 5 classes), with a 95% CI from resampling whole tissue regions.
 
-### Results
-
-| Method | Evaluated on | Pixel acc | mIoU | Δ mIoU vs. U-Net [95% CI] |
-|---|---|---:|---:|---|
-| U-Net | val, 2,124 tiles | 0.8414 | 0.6489 | — |
-| U-Net + WCSP, handwritten b (λ = 8) | val, 2,124 tiles | 0.8419 | **0.6507** | +0.0019 [+0.0010, +0.0027] |
-| U-Net + WCSP, data-derived b (λ = 8) | val, 2,124 tiles | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
-| U-Net + WCSP, toulbar2 instead of ICM (λ = 4) | val, 2,124 tiles | 0.8416 | 0.6492 | +0.0003 [−0.0000, +0.0006] (ICM at λ = 4: +0.0018) |
-| U-Net + WCSP + image term f (β = 1, λ = 8) | dev, 185 tiles (val running) | 0.8560 | 0.7092 | +0.0025 (no f on dev: +0.0030) |
-
-- **val:** 2,124 labeled tiles from hospitals the U-Net never saw.
-- **dev:** 185 tiles from every 8th training region, used only to choose settings. U-Net mIoU on dev is 0.7067.
-- toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
-
-**Why it helps a little on BCSS:**
-- Every pixel is a variable, and the unary carries the U-Net's certainty.
-- So the rules relabel the *unsure* boundary pixels and stray specks, which is where the U-Net makes edge mistakes.
-- Most of the gain is in the "other" class (precision 0.604 → 0.622).
-
-Click a section to expand it.
+#### Sweeps and details (click to expand)
 
 <details>
 <summary><b>How the data-derived b table is computed, and how it differs</b></summary>
@@ -300,11 +281,11 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
 </details>
 
 <details>
-<summary><b>Choosing settings on dev (separate tiles; numbers differ from the val results above)</b></summary>
+<summary><b>Choosing settings on dev (separate tiles; numbers differ from the final val results)</b></summary>
 
 #### Step 1. How strong should the rules be, and which b table? (dev, 185 tiles)
 
-> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. The val versions of these sweeps are in the next section, and they match the main table.
+> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. The val versions of these sweeps are in the next sections and match the final results table.
 
 U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 
@@ -339,7 +320,7 @@ U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 <details>
 <summary><b>Val: λ sweep for both b tables</b></summary>
 
-Same 2,124 val tiles as the main table. U-Net alone: mIoU **0.6489**, pixel acc 0.8414.
+Same 2,124 val tiles as the final results table. U-Net alone: mIoU **0.6489**, pixel acc 0.8414.
 
 | λ | Handwritten b: mIoU | Δ mIoU | Data-derived b: mIoU | Δ mIoU |
 |---:|---:|---:|---:|---:|
@@ -411,6 +392,25 @@ Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pix
   ![hurts](../experiments/bcss_wcsp/figures/val_example_hurts.png)
 
 </details>
+
+### Final results
+
+| Method | Evaluated on | Pixel acc | mIoU | Δ mIoU vs. U-Net [95% CI] |
+|---|---|---:|---:|---|
+| U-Net | val, 2,124 tiles | 0.8414 | 0.6489 | — |
+| U-Net + WCSP, handwritten b (λ = 8) | val, 2,124 tiles | 0.8419 | **0.6507** | +0.0019 [+0.0010, +0.0027] |
+| U-Net + WCSP, data-derived b (λ = 8) | val, 2,124 tiles | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
+| U-Net + WCSP, toulbar2 instead of ICM (λ = 4) | val, 2,124 tiles | 0.8416 | 0.6492 | +0.0003 [−0.0000, +0.0006] (ICM at λ = 4: +0.0018) |
+| U-Net + WCSP + image term f (β = 1, λ = 8) | dev, 185 tiles (val running) | 0.8560 | 0.7092 | +0.0025 (no f on dev: +0.0030) |
+
+- **val:** 2,124 labeled tiles from hospitals the U-Net never saw.
+- **dev:** 185 tiles from every 8th training region, used only to choose settings. U-Net mIoU on dev is 0.7067.
+- toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
+
+**Why it helps a little on BCSS:**
+- Every pixel is a variable, and the unary carries the U-Net's certainty.
+- So the rules relabel the *unsure* boundary pixels and stray specks, which is where the U-Net makes edge mistakes.
+- Most of the gain is in the "other" class (precision 0.604 → 0.622).
 
 ---
 
