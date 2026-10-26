@@ -1,0 +1,31 @@
+# BCSS_512, pretrained TIAToolbox U-Net at native resolution (shift-and-stitch,
+# see wcsp/classifiers/tia_unet.py) instead of x2 bilinear upsampling.
+# Everything else matches bcss_unet.yaml, so the two are a paired comparison.
+# The WCSP grid is the central 256 x 256 of each 512 px tile.
+name: bcss_unet_native
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev                 # fit | dev | val
+classifier:
+  name: tia_unet_native
+  temperature: 1.0           # raw U-Net softmax
+problem:
+  alpha: 1.0
+  lam: 2.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: handwritten         # handwritten | potts | path to a CSV
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: blocks               # the notes' 100/56/100 alternating scheme
+  block: 100
+  max_rounds: 4
+  inner:
+    name: icm                # fast; toulbar2 is also available (name: toulbar2, time_limit: 20)
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

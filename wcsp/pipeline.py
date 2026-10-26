@@ -14,7 +14,7 @@ import pandas as pd
 
 from .classifiers.cache import ProbStore
 from .data import load_dataset, select
-from .evaluate.compare import paired_bootstrap
+from .evaluate.compare import contrast_bootstrap, paired_bootstrap
 from .evaluate.nuclei import instance_classes, nucleus_counts, nucleus_report
 from .evaluate.pixel import pixel_confusion, pixel_report
 from .evaluate.rules import pair_counts, rule_report
@@ -40,10 +40,14 @@ def classifier_for(cfg):
     spec = dict(cfg.classifier)
     name = spec.pop("name")
     spec.pop("temperature", None)
-    if name == "tia_unet":
+    if name in ("tia_unet", "tia_unet_native"):   # separate names keep separate caches
         from .classifiers.tia_unet import TiaUNet
 
-        return TiaUNet(**spec)
+        return TiaUNet(native=name == "tia_unet_native", **spec)
+    if name == "tia_unet_fullres":
+        from .classifiers.tia_unet import FullResTiaUNet
+
+        return FullResTiaUNet(**spec)
     raise ValueError(f"unknown classifier {name!r}.")
 
 
@@ -226,3 +230,41 @@ def summarize(run_dir):
         test = paired_bootstrap(stack("argmax_confusion"), stack("wcsp_confusion"), per_sample["roi"])
         (run_dir / "bootstrap.json").write_text(json.dumps(test, indent=2))
     return summary
+
+
+def _run_confusions(run_dir):
+    """{sample id: {"argmax": (K, K), "wcsp": (K, K)}} and {sample id: roi} of one run."""
+    run_dir = Path(run_dir)
+    shards = sorted(run_dir.glob("shard_*_of_*.npz"))
+    if not shards:
+        raise FileNotFoundError(f"no shard results in {run_dir}")
+    out = {}
+    for path in shards:
+        z = np.load(path)
+        for row, sample_id in enumerate(z["ids"].tolist()):
+            out[sample_id] = {m: z[f"{m}_confusion"][row] for m in ("argmax", "wcsp")}
+    rois = pd.concat([pd.read_csv(p.with_suffix(".csv")) for p in shards]).set_index("id")["roi"]
+    return out, rois.to_dict()
+
+
+def compare(run_a, run_b):
+    """
+    Run b against run a on their shared samples, resampling ROIs:
+    argmax b - argmax a, wcsp b - wcsp a, and the difference in WCSP gain
+    (wcsp b - argmax b) - (wcsp a - argmax a).
+    """
+    conf_a, rois = _run_confusions(run_a)
+    conf_b, _ = _run_confusions(run_b)
+    ids = sorted(set(conf_a) & set(conf_b))
+    if not ids:
+        raise ValueError(f"{run_a} and {run_b} share no samples.")
+    confs = {f"{m}_{tag}": np.stack([conf[i][m] for i in ids])
+             for tag, conf in (("a", conf_a), ("b", conf_b)) for m in ("argmax", "wcsp")}
+    groups = [rois[i] for i in ids]
+    contrasts = {
+        "argmax": {"argmax_b": 1, "argmax_a": -1},
+        "wcsp": {"wcsp_b": 1, "wcsp_a": -1},
+        "wcsp_gain": {"wcsp_b": 1, "argmax_b": -1, "wcsp_a": -1, "argmax_a": 1},
+    }
+    return {"run_a": str(run_a), "run_b": str(run_b), "samples": len(ids),
+            **{name: contrast_bootstrap(confs, groups, w) for name, w in contrasts.items()}}
