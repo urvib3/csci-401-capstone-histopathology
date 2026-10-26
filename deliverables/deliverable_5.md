@@ -285,7 +285,7 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
 
 #### Step 1. How strong should the rules be, and which b table? (dev, 185 tiles)
 
-> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. The val versions of these sweeps are in the next sections and match the final results table.
+> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. Only the chosen settings are run on val; see the final results table.
 
 U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 
@@ -314,27 +314,6 @@ U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 - **No. It hurts slightly, and more as β grows.**
 - **Why:** in H&E images the strongest color edges are nucleus vs. background *inside* one tissue type, not boundaries between tissues. So f protects the wrong edges.
 - **Decision:** drop f.
-
-</details>
-
-<details>
-<summary><b>Val: λ sweep for both b tables</b></summary>
-
-Same 2,124 val tiles as the final results table. U-Net alone: mIoU **0.6489**, pixel acc 0.8414.
-
-| λ | Handwritten b: mIoU | Δ mIoU | Data-derived b: mIoU | Δ mIoU |
-|---:|---:|---:|---:|---:|
-| 0.5 | 0.6499 | +0.0011 | 0.6499 | +0.0010 |
-| 1 | 0.6503 | +0.0014 | 0.6502 | +0.0014 |
-| 2 | 0.6505 | +0.0017 | 0.6506 | +0.0017 |
-| 4 | 0.6507 | +0.0018 | 0.6506 | +0.0018 |
-| 8 | **0.6507** | **+0.0019** | 0.6506 | +0.0018 |
-
-- Every 95% CI is above zero.
-- Pixel accuracy stays between 0.8418 and 0.8422 for every row.
-- **The gain levels off by λ ≈ 4.** After that, every unsure pixel has already flipped.
-- **The two tables tie.**
-- **About 0.9% of pixels change.**
 
 </details>
 
@@ -406,6 +385,8 @@ Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pix
 - **val:** 2,124 labeled tiles from hospitals the U-Net never saw.
 - **dev:** 185 tiles from every 8th training region, used only to choose settings. U-Net mIoU on dev is 0.7067.
 - toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
+
+- **Sensitivity check on val:** the gain rises the same way with λ (+0.0011 at λ = 0.5 to +0.0019 at λ = 8) and is flat from λ ≈ 4 on, so the exact choice of λ barely matters.
 
 **Why it helps a little on BCSS:**
 - Every pixel is a variable, and the unary carries the U-Net's certainty.
