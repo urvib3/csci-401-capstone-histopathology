@@ -1,0 +1,5 @@
+native_dev_lam0.5 --set problem.lam=0.5
+native_dev_lam1 --set problem.lam=1
+native_dev_lam2 --set problem.lam=2
+native_dev_lam4 --set problem.lam=4
+native_dev_lam8 --set problem.lam=8

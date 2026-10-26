@@ -6,7 +6,7 @@ from wcsp.classifiers.cache import ProbStore
 from wcsp.classifiers.calibration import fit_temperature
 from wcsp.config import ProblemConfig, apply_overrides
 from wcsp.data import select
-from wcsp.evaluate.compare import paired_bootstrap
+from wcsp.evaluate.compare import contrast_bootstrap, paired_bootstrap
 from wcsp.evaluate.elicit import counts_by_type, fill_background, pmi_table
 from wcsp.evaluate.rules import pair_counts, rule_report
 from wcsp.labels import DEAD, HEALTHY, IGNORE, NEOPLASTIC, NUM_LABELS
@@ -89,6 +89,31 @@ def test_paired_bootstrap_detects_a_clear_gain():
     assert result["delta_mIoU"] > 0 and result["ci_low"] > 0 and result["groups"] == 10
 
 
+def test_contrast_bootstrap_matches_paired_bootstrap():
+    rng = np.random.default_rng(1)
+    a = rng.integers(50, 100, size=(30, NUM_LABELS, NUM_LABELS))
+    b = a + rng.integers(0, 30, size=a.shape)
+    groups = np.repeat(np.arange(10), 3)
+    paired = paired_bootstrap(a, b, groups, n_boot=200)
+    contrast = contrast_bootstrap({"a": a, "b": b}, groups, {"b": 1, "a": -1}, n_boot=200)
+    assert contrast == pytest.approx(paired)
+
+
+def test_shift_stitch_recovers_the_stride_one_output():
+    torch = pytest.importorskip("torch")
+    from wcsp.classifiers.tia_unet import shift_stitch
+
+    torch.manual_seed(0)
+    weight = torch.randn(2, 3, 3, 3)
+    x = torch.randn(1, 3, 16, 16)
+    stitched = shift_stitch(lambda v: torch.nn.functional.conv2d(v, weight, stride=2, padding=1), x)
+    dense = torch.nn.functional.conv2d(x, weight, stride=1, padding=1)
+    # Shifted copies move the zero padding by a pixel and reflect their last
+    # row / column, so only the interior must agree.
+    inner = (..., slice(2, -2), slice(2, -2))
+    assert torch.allclose(stitched[inner], dense[inner], atol=1e-5)
+
+
 def test_toulbar2_matches_brute_force():
     pytest.importorskip("pytoulbar2")
     import itertools
@@ -104,3 +129,38 @@ def test_toulbar2_matches_brute_force():
                for a in itertools.product(range(NUM_LABELS), repeat=8))
     result = Toulbar2Solver(time_limit=10).solve(problem, probs.argmax(0))
     assert result.energy == pytest.approx(best, abs=1e-2)
+
+
+def _tiny_fullres_unet():
+    torch = pytest.importorskip("torch")
+    unet = pytest.importorskip("tiatoolbox.models.architecture.unet")
+    from wcsp.classifiers.fullres_unet import FullResUNet
+
+    torch.manual_seed(0)
+    base = unet.UNetModel(num_input_channels=3, num_output_channels=NUM_LABELS, encoder="unet",
+                          encoder_levels=[8, 16, 32], decoder_block=[3]).eval()
+    return torch, base, FullResUNet(base, width=4)
+
+
+def test_untrained_fullres_head_reproduces_the_base():
+    torch, base, model = _tiny_fullres_unet()
+    x = torch.rand(2, 3, 64, 64) * 255
+    with torch.no_grad():
+        expected = torch.nn.functional.interpolate(base(x), size=(64, 64), mode="bilinear",
+                                                   align_corners=False)
+        assert torch.allclose(model.eval()(x), expected, atol=1e-5)
+
+
+def test_frozen_base_is_not_trained():
+    torch, base, model = _tiny_fullres_unet()
+    before = {k: v.clone() for k, v in base.state_dict().items()}
+    opt = torch.optim.SGD([p for p in model.parameters() if p.requires_grad], lr=0.1)
+    model.train()
+    for _ in range(2):
+        loss = model(torch.rand(2, 3, 64, 64) * 255).square().mean()
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+    assert all(torch.equal(before[k], v) for k, v in base.state_dict().items())   # incl. batch-norm stats
+    assert model.clf.weight.abs().sum() > 0
+    assert not any(k.startswith("base.") for k in model.head_state_dict())

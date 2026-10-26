@@ -182,3 +182,41 @@ Findings:
 ```
 
 Every step caches its progress under `data/outputs/` and resumes if interrupted. Run heavy steps one at a time on a 16 GB machine.
+
+## Addendum: changing the U-Net's output resolution
+
+**Why:** the pretrained U-Net (section 3) predicts at half resolution, and its output is upsampled ×2 with bilinear interpolation. Neighboring pixels therefore share blended predictions at the same 1–2 px scale the WCSP rules work on (`wcsp/README.md`). We tested whether real per-pixel U-Net output changes the U-Net's accuracy, or how much the WCSP adds.
+
+Resolution alone can't make the U-Net much more accurate: rounding the val ground truth through half resolution and back costs only 0.001 mIoU.
+
+**Two changes to the U-Net** (`wcsp/classifiers/`):
+
+- **Native output (shift-and-stitch, `tia_unet_native`).** Run the same network on the tile shifted by 0 or 1 px in each direction, then interleave the four half-resolution outputs. Every pixel gets its own prediction. This needs no retraining and costs 4× the U-Net compute.
+- **Trained full-resolution level (`tia_unet_fullres`).** Add one new encoder level and one new decoder level on top of the frozen pretrained U-Net, predicting a correction to its upsampled output. This is **not trained yet** (`scripts/train_fullres_unet.py`).
+
+**Dev results, native vs bilinear.** Both versions ran on the same 200 dev tiles (14 ROIs), with raw softmax (T = 1). Confidence intervals are 95%, from resampling ROIs.
+
+The U-Net alone scores the same either way: mIoU 0.7067 bilinear vs 0.7071 native (Δ +0.0004 [−0.0014, +0.0028]).
+
+| λ | U-Net + WCSP, bilinear (gain) | U-Net + WCSP, native (gain) | Δ WCSP gain, native − bilinear | Pixels changed (bilinear / native) |
+| --- | ---: | ---: | ---: | ---: |
+| 0.5 | 0.7082 (+0.0015) | 0.7108 (+0.0037) | +0.0022 [+0.0011, +0.0031] | 0.45% / 1.29% |
+| 1 | 0.7086 (+0.0019) | 0.7119 (+0.0047) | +0.0028 [+0.0014, +0.0041] | 0.61% / 1.48% |
+| 2 | 0.7094 (+0.0027) | 0.7123 (+0.0052) | +0.0025 [+0.0015, +0.0032] | 0.76% / 1.61% |
+| 4 | 0.7096 (+0.0029) | 0.7132 (+0.0061) | +0.0032 [+0.0019, +0.0042] | 0.87% / 1.72% |
+| **8** | **0.7097 (+0.0030)** | **0.7139 (+0.0067)** | +0.0037 [+0.0019, +0.0052] | 0.94% / 1.82% |
+
+Per-class IoU at λ = 8 (U-Net → U-Net + WCSP):
+
+| | Tumor | Inflammatory | Stroma | Necrosis | Other |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Bilinear | 0.813 → 0.813 | 0.756 → 0.758 | 0.712 → 0.712 | 0.649 → 0.654 | 0.603 → 0.611 |
+| Native | 0.813 → 0.814 | 0.758 → 0.762 | 0.713 → 0.715 | 0.644 → 0.655 | 0.608 → 0.625 |
+
+Findings:
+
+- **The U-Net itself doesn't change.** Native output gives the same mIoU as bilinear.
+- **The WCSP helps about 2–2.5× more on native output**, at every λ, and the interval stays above zero each time. With per-pixel predictions, the WCSP changes about twice as many pixels. The largest gains are in "other" and necrosis.
+- **The effect is still small.** The best result is +0.0067 mIoU over the U-Net (native, λ = 8).
+- **The best λ is the largest one tested (8) for both versions.** Native is still improving there, so λ = 16 should be tried before picking λ for val.
+- These are dev numbers. The val comparison follows the protocol in `wcsp/README.md` ("Experiment: native-resolution U-Net"), and those commands reproduce this sweep.
