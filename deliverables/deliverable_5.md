@@ -24,10 +24,10 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 - **Pairwise cost (the biology rules):**
   - Applies to every pixel pair up to 2√2 px apart: 24 neighbors, 5 distance types (left panel).
   - Cost = b[label, label′] / distance. Closer neighbors count more; same label is free.
-  - **b** is the class-compatibility table from the project notes. Both datasets use the same numbers; only the class names differ:
+  - **b** is the class-compatibility table. PanNuke uses the handwritten table from the project notes. BCSS tests both the handwritten table and one **derived from the BCSS training labels** (each cell: handwritten / data-derived; details in §3):
 
 <table>
-<tr><th>PanNuke</th><th>BCSS</th></tr>
+<tr><th>PanNuke (handwritten)</th><th>BCSS (handwritten / data-derived)</th></tr>
 <tr><td>
 
 | | Neo | Inf | Con | Dead | Epi |
@@ -38,22 +38,24 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 | **Dead** | | | | 0 | 10 |
 | **Epi** | | | | | 0 |
 
-Neo = neoplastic, Inf = inflammatory, Con = connective, Epi = non-neoplastic epithelial
+Neo neoplastic · Inf inflammatory · Con connective · Epi non-neoplastic epithelial
 
 </td><td>
 
 | | Tum | Inf | Str | Nec | Oth |
 |---|---|---|---|---|---|
-| **Tum** | 0 | 2 | 1 | 1 | 9 |
-| **Inf** | | 0 | 2 | 1 | 8 |
-| **Str** | | | 0 | 5 | 1 |
-| **Nec** | | | | 0 | 10 |
+| **Tum** | 0 | 2 / 5.2 | 1 / 3.0 | 1 / 4.1 | 9 / 4.5 |
+| **Inf** | | 0 | 2 / 2.2 | 1 / 6.9 | 8 / 3.2 |
+| **Str** | | | 0 | 5 / 3.6 | 1 / 2.3 |
+| **Nec** | | | | 0 | 10 / 4.9 |
 | **Oth** | | | | | 0 |
 
-Tum = tumor, Inf = inflammatory, Str = stroma, Nec = necrosis, Oth = other. BCSS also tests a data-derived b (§3).
+Tum tumor · Inf inflammatory · Str stroma · Nec necrosis · Oth other
 
 </td></tr>
 </table>
+
+  Symmetric, so only the upper triangle is shown; same label (diagonal) is free.
 
 - **Unary cost (trust the classifier).** This is where the two datasets differ:
 
@@ -72,9 +74,11 @@ Tum = tumor, Inf = inflammatory, Str = stroma, Nec = necrosis, Oth = other. BCSS
 
 ---
 
-## 2. Pipelines and experiments
+---
 
-### PanNuke
+## 2. PanNuke
+
+### Pipeline and experiments
 
 1. HoVer-Net runs on a 256 × 256 PanNuke image. Its valid output is the central 164 × 164.
 2. Each predicted nucleus's class is copied to all its pixels. Background pixels are inactive, not variables.
@@ -84,50 +88,22 @@ Tum = tumor, Inf = inflammatory, Str = stroma, Nec = necrosis, Oth = other. BCSS
    - **20 diverse evaluation patches** at λ = 1.
    - **λ sweep** on 15 separate dev patches: λ = 1, 0.5, 0.25, 0. This asks whether the fidelity penalty is what blocks useful changes.
 
-### BCSS
+**Metrics:** class agreement on overlapping nucleus pixels, pixel accuracy and IoU, and counts of wrong → correct vs. correct → wrong changes.
 
-![pipeline](../experiments/bcss_wcsp/figures/pipeline.png)
+### Results
 
-1. **Input:** a 512 × 512 tile. **U-Net:** outputs 5 class probabilities per pixel at half resolution (256 × 256), covering the whole tile.
-2. **Upsample ×2 to 512 × 512:** each class probability map is upsampled bilinearly, and a pixel's class is the **argmax** of its 5 probabilities. We upsample probabilities, not labels, so the WCSP knows how confident the U-Net is at every pixel.
-3. **Keep the central 256 × 256:** the outer ring is context only, since predictions near the edge see less tissue.
-4. **WCSP** on all 65,536 crop pixels, giving 256 × 256 refined labels, scored against the ground truth for the same crop.
-5. **Splits:** settings are chosen on **dev** (every 8th training region, 185 tiles). Results are reported on **val** (held-out hospitals, 2,124 labeled tiles).
-6. **Sweeps, each step answering one question:**
-   1. Rule strength λ ∈ {0.5 … 32} × b table (handwritten vs. data-derived), on dev.
-   2. Image-edge term f (β = 1, 2, 4), on dev.
-   3. Chosen settings on val.
-   4. ICM vs. toulbar2 on val.
-
-**Metrics.**
-- PanNuke: class agreement on overlapping nucleus pixels, pixel accuracy and IoU, and counts of wrong→correct vs. correct→wrong changes.
-- BCSS: pixel accuracy and mIoU (per-class IoU averaged over the 5 classes), with a 95% CI from resampling whole tissue regions.
-
----
-
-## 3. Results
-
-### Summary
-
-| Dataset | Setting | Baseline | + WCSP | Verdict |
+| Experiment | Setting | HoVer-Net | + WCSP | Verdict |
 |---|---|---|---|---|
-| PanNuke, 1 patch | λ = 1 | class agreement 0.7737 | 0.7730 | 13 px changed: 0 fixed, 6 new errors |
-| PanNuke, 20 patches | λ = 1 | — | — | 2 px changed in total, both new errors; 19/20 unchanged |
-| PanNuke, 15 dev patches | λ = 0 (no fidelity) | — | mean Δ mIoU −0.0010 | 2 fixed, 61 broken |
-| BCSS val, 2,124 tiles | handwritten b, λ = 8 | mIoU 0.6489, acc 0.8414 | mIoU **0.6507**, acc 0.8419 | +0.0019 [+0.0010, +0.0027] |
-| BCSS val, 2,124 tiles | data-derived b, λ = 8 | mIoU 0.6489, acc 0.8414 | mIoU 0.6506, acc **0.8422** | +0.0018 [+0.0011, +0.0024] |
-| BCSS val, 2,066 tiles | toulbar2 instead of ICM, λ = 4 | mIoU 0.6461 | 0.6464 (ICM: 0.6479) | toulbar2 times out (20 s/block); worse than ICM |
-| BCSS dev | + image term f | mIoU 0.7097 (no f) | 0.7087–0.7092 | slightly worse; dropped |
+| 1 patch | λ = 1 | class agreement 0.7737 | 0.7730 | 13 px changed: 0 fixed, 6 new errors |
+| 1 patch | λ = 139 (strong fidelity) | — | identical | 0 changes, as the bound guarantees |
+| 20 patches | λ = 1 | — | — | 2 px changed in total, both new errors; 19/20 unchanged |
+| 15 dev patches | λ = 0 (no fidelity) | — | mean Δ mIoU −0.0010 | 2 fixed, 61 broken |
 
-**Why the two datasets differ.**
-- **BCSS:** every pixel is a variable and the unary carries the U-Net's certainty. So the rules can relabel the *unsure* boundary pixels, which are exactly where the U-Net makes edge mistakes.
-- **PanNuke:**
-  - Nuclei are separated by inactive background, so neighboring nuclei barely interact.
-  - Each nucleus already has one uniform label.
-  - The flat unary can't tell confident pixels from unsure ones.
-  - The result is little pairwise conflict to resolve, and the changes that do happen don't follow the true classes.
-
-Click a section to expand it.
+**Why the WCSP doesn't help on PanNuke:**
+- Nuclei are separated by inactive background, so neighboring nuclei barely interact.
+- Each nucleus already has one uniform label, so there's little pairwise conflict inside it.
+- The flat unary can't tell confident pixels from unsure ones.
+- The changes that do happen don't follow the true classes.
 
 <details>
 <summary><b>PanNuke: single full patch (image_00748)</b></summary>
@@ -350,8 +326,45 @@ How it was evaluated:
 
 </details>
 
+---
+
+## 3. BCSS
+
+### Pipeline and experiments
+
+![pipeline](../experiments/bcss_wcsp/figures/pipeline.png)
+
+1. **Input:** a 512 × 512 tile. **U-Net:** outputs 5 class probabilities per pixel at half resolution (256 × 256), covering the whole tile.
+2. **Upsample ×2 to 512 × 512:** each class probability map is upsampled bilinearly, and a pixel's class is the **argmax** of its 5 probabilities. We upsample probabilities, not labels, so the WCSP knows how confident the U-Net is at every pixel.
+3. **Keep the central 256 × 256:** the outer ring is context only, since predictions near the edge see less tissue.
+4. **WCSP** on all 65,536 crop pixels, giving 256 × 256 refined labels, scored against the ground truth for the same crop.
+5. **Splits:** settings are chosen on **dev** (every 8th training region, 185 tiles). Results are reported on **val** (held-out hospitals, 2,124 labeled tiles).
+6. **Sweeps, each step answering one question:**
+   1. Rule strength λ ∈ {0.5 … 32} × b table (handwritten vs. data-derived), on dev.
+   2. Image-edge term f (β = 1, 2, 4), on dev.
+   3. Chosen settings on val.
+   4. ICM vs. toulbar2 on val.
+
+**Metrics:** pixel accuracy and mIoU (per-class IoU averaged over the 5 classes), with a 95% CI from resampling whole tissue regions.
+
+### Results
+
+| Experiment | Setting | U-Net | + WCSP | Δ mIoU [95% CI] / verdict |
+|---|---|---|---|---|
+| val, 2,124 tiles | handwritten b, λ = 8 | mIoU 0.6489, acc 0.8414 | mIoU **0.6507**, acc 0.8419 | +0.0019 [+0.0010, +0.0027] |
+| val, 2,124 tiles | data-derived b, λ = 8 | mIoU 0.6489, acc 0.8414 | mIoU 0.6506, acc **0.8422** | +0.0018 [+0.0011, +0.0024] |
+| val, 2,066 tiles | toulbar2 instead of ICM, λ = 4 | mIoU 0.6461 | 0.6464 (ICM: 0.6479) | toulbar2 times out (20 s/block); worse than ICM |
+| dev, 185 tiles | + image term f | mIoU 0.7097 (no f) | 0.7087–0.7092 | slightly worse; dropped |
+
+**Why it helps a little on BCSS:**
+- Every pixel is a variable, and the unary carries the U-Net's certainty.
+- So the rules relabel the *unsure* boundary pixels and stray specks, which is where the U-Net makes edge mistakes.
+- Most of the gain is in the "other" class (precision 0.604 → 0.622).
+
+Click a section to expand it.
+
 <details>
-<summary><b>BCSS: b table, handwritten vs. data-derived</b></summary>
+<summary><b>How the data-derived b table is computed, and how it differs</b></summary>
 
 #### The b table: handwritten vs. data-derived
 
@@ -378,7 +391,7 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
 </details>
 
 <details>
-<summary><b>BCSS: dev sweeps (λ × b table, image term f)</b></summary>
+<summary><b>Dev sweeps: λ × b table, image term f</b></summary>
 
 #### Step 1. How strong should the rules be, and which b table? (dev, 185 tiles)
 
@@ -413,7 +426,7 @@ U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 </details>
 
 <details>
-<summary><b>BCSS: val results, ICM vs. toulbar2, examples</b></summary>
+<summary><b>Val results, per class, ICM vs. toulbar2, examples</b></summary>
 
 #### Step 3. Does it hold on unseen hospitals? (val, 2,124 tiles, ICM)
 
