@@ -1,5 +1,5 @@
 # Settings for building a WCSP from classifier probabilities, and the
-# experiment files (configs/*.yaml) that tie a dataset, a classifier, the
+# experiment files (experiments/bcss_wcsp/configs/*.yaml) that tie a dataset, a classifier, the
 # problem settings and a solver together.
 
 import copy
@@ -51,7 +51,7 @@ class ProblemConfig:
 @dataclass
 class ExperimentConfig:
     """
-    One configs/*.yaml file:
+    One experiments/bcss_wcsp/configs/*.yaml file:
 
         name: bcss_unet
         dataset:    {name: bcss, root: ..., split: dev}

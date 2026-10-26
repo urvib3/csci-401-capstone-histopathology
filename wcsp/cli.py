@@ -1,4 +1,4 @@
-# python -m wcsp <command> --config configs/<name>.yaml [options]
+# python -m wcsp <command> --config experiments/bcss_wcsp/configs/<name>.yaml [options]
 #
 #   predict    --split dev --shard 3/20     classifier -> probability cache
 #   calibrate  --split dev                  fit temperature on cached dev predictions
@@ -85,7 +85,7 @@ def main(argv=None):
 
         counts = counts_by_type(masks())
         table = pmi_table(sum(counts.values()))
-        out = Path(args.out or f"configs/tables/{cfg.dataset['name']}_elicited.csv")
+        out = Path(args.out or f"experiments/bcss_wcsp/configs/tables/{cfg.dataset['name']}_elicited.csv")
         out.parent.mkdir(parents=True, exist_ok=True)
         save_table(table, out)
         stats = {

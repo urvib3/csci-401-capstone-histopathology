@@ -404,8 +404,8 @@ print(
 
 out_dir = (
     repo
-    / "benchmarks"
-    / "deliverable_5"
+    / "experiments"
+    / "pannuke_d5"
     / "pannuke_aakanksha"
 )
 

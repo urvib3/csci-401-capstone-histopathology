@@ -6,17 +6,17 @@ optimization techniques.
 
 ## Layout
 
-- `sample_problems/` - warm-up problems cast as WCSPs (domain sizes, arities,
-  treewidth) and solved with Toulbar2, plus notes on Local Search / A* alternatives.
-- `bcss/` - loader and WCSP-oriented primitives for the BCSS breast cancer
-  segmentation benchmark (see below).
-- `wcsp/` - pixel-level WCSP shared by PanNuke and BCSS: one variable per pixel
-  over 5 cell labels, unary costs from a pixel classifier, the notes' cost table
-  over 5 neighbor types, and solvers (argmax, ICM, alternating 100/56/100 blocks).
+- `deliverables/` - deliverable write-ups only (`deliverable_3.md`, `deliverable_4.md`, `deliverable_5.md`).
+- `wcsp/` - the pixel-level WCSP package: problem building (unary, pairwise b table, neighbors),
+  solvers (argmax, ICM, 100/56/100 blocks, toulbar2), BCSS data/U-Net wrappers, evaluation, CLI.
+- `experiments/` - code, configs and results behind the deliverables:
+  - `bcss_wcsp/` - BCSS U-Net + WCSP experiments (configs, b tables, sweeps, SLURM scripts, figures).
+  - `pannuke_d4/`, `pannuke_d5/` - PanNuke WCSP crops and full patch (Deliverables 4 and 5).
+- `benchmarks/` - classifier baselines on PanNuke and BCSS (Deliverable 3), plus the BCSS
+  loader package `benchmarks/bcss/loader` (dataset, classes, grid, stats, metrics).
+- `sample_problems/` - warm-up problems cast as WCSPs and solved with Toulbar2.
 - `scripts/` - dataset download and inspection.
 - `tests/` - `python3 -m pytest tests` (runs without the dataset).
-- `benchmarks/` - Deliverable 3 baselines on PanNuke and BCSS; joint write-up in
-  [benchmarks/DELIVERABLE3_REPORT.md](benchmarks/DELIVERABLE3_REPORT.md).
 - `docs/design/` - design docs: [segmentation + WCSP pipeline](docs/design/segmentation-wcsp-pipeline.md)
   (proposed) and [segmentation algorithm reference](docs/design/segmentation-algorithms.md).
 
@@ -57,7 +57,7 @@ the tile's `(row, col)` offset in that ROI, so `stitch_roi` can rebuild ROIs
 up to ~9200 x 9200 px for region-level WCSPs.
 
 ```python
-from bcss import BCSSDataset, CellGrid, coarse_lut
+from benchmarks.bcss.loader import BCSSDataset, CellGrid, coarse_lut
 
 lut, names = coarse_lut()        # 22 codes -> tumor/stroma/inflammatory/necrosis/other
 data = BCSSDataset(variant="512", split="train", lut=lut)
@@ -72,13 +72,13 @@ image, mask = data.stitch_roi(sample.info.roi_id)  # reassemble a whole ROI
 
 Primitives for building a WCSP:
 
-- `bcss.grid.CellGrid` - cells as variables, lattice edges, per-cell label
+- `benchmarks.bcss.loader.grid.CellGrid` - cells as variables, lattice edges, per-cell label
   histograms / majority labels, pooling of per-pixel class probabilities,
   and upsampling a cell labeling back to pixels.
-- `bcss.grid.unary_costs_from_probabilities`, `to_integer_costs` - `-log p`
+- `benchmarks.bcss.loader.grid.unary_costs_from_probabilities`, `to_integer_costs` - `-log p`
   unary tables and integer scaling for Toulbar2.
-- `bcss.stats` - class pixel counts and neighbor class co-occurrence, with
+- `benchmarks.bcss.loader.stats` - class pixel counts and neighbor class co-occurrence, with
   `negative_log_costs` to turn either into cost tables.
-- `bcss.metrics` - confusion matrix, pixel accuracy, per-class IoU / Dice,
+- `benchmarks.bcss.loader.metrics` - confusion matrix, pixel accuracy, per-class IoU / Dice,
   ignoring don't-care pixels.
-- `bcss.torch_data` - optional PyTorch `Dataset`/`DataLoader` adapter.
+- `benchmarks.bcss.loader.torch_data` - optional PyTorch `Dataset`/`DataLoader` adapter.

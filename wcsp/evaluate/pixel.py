@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from bcss.metrics import confusion_matrix, dice_per_class, iou_per_class
+from benchmarks.bcss.loader.metrics import confusion_matrix, dice_per_class, iou_per_class
 
 from ..labels import IGNORE, LABELS, NUM_LABELS
 

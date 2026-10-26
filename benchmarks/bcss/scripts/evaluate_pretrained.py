@@ -19,8 +19,8 @@ BASE = Path(__file__).resolve().parents[1]
 REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO))
 
-from bcss import BCSSDataset, IGNORE_INDEX, coarse_lut  # noqa: E402
-from bcss.metrics import (  # noqa: E402
+from benchmarks.bcss.loader import BCSSDataset, IGNORE_INDEX, coarse_lut  # noqa: E402
+from benchmarks.bcss.loader.metrics import (  # noqa: E402
     confusion_matrix, dice_per_class, iou_per_class, mean_iou, pixel_accuracy,
 )
 

@@ -1,6 +1,6 @@
 # Deliverable 3: baselines and WCSP-ready representations
 
-*Joint report for the PanNuke and BCSS benchmarks. Last updated 2026-10-04. Details, commands and per-person write-ups live in [`pannuke/README.md`](pannuke/README.md) and [`bcss/README.md`](bcss/README.md).*
+*Joint report for the PanNuke and BCSS benchmarks. Last updated 2026-10-04. Details, commands and per-person write-ups live in [`pannuke/README.md`](../benchmarks/pannuke/README.md) and [`bcss/README.md`](../benchmarks/bcss/README.md).*
 
 ## Summary
 
@@ -67,7 +67,7 @@ DBSCAN is the initial pick: same result as Ward with simpler settings, and isola
 | Phikon-v2 linear probe on frozen patch tokens | train tiles | 0.652 | 0.836 |
 | ResNet-50 U-Net, pretrained BCSS checkpoint (TIAToolbox, no training by us) | fully supervised (by TIA) | 0.649 | 0.841 |
 
-Phikon-v2 rows use 16 × 16 patch tokens per tile and score whole tiles at 256 px. The U-Net predicts only the central 256 px of each 512 px tile and is scored there at full resolution, so the comparison is close but not exact. We could not confirm which ROIs the U-Net checkpoint was trained on. Details in [`bcss/README.md`](bcss/README.md#3-pretrained-u-net-baseline-tiatoolbox).
+Phikon-v2 rows use 16 × 16 patch tokens per tile and score whole tiles at 256 px. The U-Net predicts only the central 256 px of each 512 px tile and is scored there at full resolution, so the comparison is close but not exact. We could not confirm which ROIs the U-Net checkpoint was trained on. Details in [`bcss/README.md`](../benchmarks/bcss/README.md#3-pretrained-u-net-baseline-tiatoolbox).
 
 Findings:
 
@@ -83,7 +83,7 @@ Findings:
 | Variable | a nucleus or a group of nearby nuclei | a region (superpixel / feature cluster) or a 16 px grid cell |
 | Domain | 5 cell classes | 5 tissue classes |
 | Unary cost | −log p from HoVer-Net (needs full class probabilities) | −log p from the Phikon-v2 probe (saved per 32 px cell) |
-| Binary cost | spatial neighbours within a radius | adjacent regions; class co-occurrence from `bcss.stats` |
+| Binary cost | spatial neighbours within a radius | adjacent regions; class co-occurrence from `benchmarks.bcss.loader.stats` |
 | What a WCSP can fix | wrong classes of detected nuclei | wrong or noisy region labels, region boundaries |
 | What it cannot fix | nuclei HoVer-Net never detected (21%) | errors inside a region if regions are too coarse |
 
@@ -92,7 +92,7 @@ Findings:
 - [ ] Build and solve the first WCSP on each dataset and compare against these baselines
 - [ ] PanNuke: commit the `results/evaluation/` CSVs the README links to (overall, per-class, confusion matrix, per-tissue)
 - [ ] PanNuke: re-run HoVer-Net keeping full class probabilities for unary costs; consider CellViT as a second baseline
-- [ ] BCSS: unsupervised pixel classification on stain colour ([handoff](bcss/HANDOFF_unsupervised_pixel_classification.md))
+- [ ] BCSS: unsupervised pixel classification on stain colour ([handoff](../benchmarks/bcss/HANDOFF_unsupervised_pixel_classification.md))
 - [x] BCSS: pretrained supervised U-Net baseline (TIAToolbox), val mIoU 0.649
 - [ ] BCSS: rescore the U-Net on whole tiles at 256 px so it is directly comparable with the probe
 - [ ] BCSS: DINOv2 (natural-image) comparison and a U-Net trained from scratch (deferred; scripts ready)

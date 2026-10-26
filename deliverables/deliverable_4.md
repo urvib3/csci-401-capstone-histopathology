@@ -35,7 +35,7 @@ We used Task 1's real crop from `image_00748` without changing its initial label
 
 Unary cost was `lambda` for changing a pixel's initial label and zero otherwise. Pairwise costs used the supplied base matrix divided by pixel distance. The unspecified attribute term was set to zero and the distance exponent to one for this preliminary check. Costs were evaluated without scaling or rounding.
 
-We enumerated all **390,625 assignments** per setting, obtaining exact global optima for this crop. Unary-only used `lambda = 1` with pairwise terms disabled. Strong fidelity used `lambda = 193`, exceeding the conservative maximum-pairwise-cost bound of **191.330290**; any changed pixel therefore costs more than all possible pairwise savings. Weaker fidelity used `lambda = 1` with pairwise terms enabled. No time limit or additional optimization rules were applied. Implementation, returned label arrays, and numerical outputs are stored in `pannuke_task2/`.
+We enumerated all **390,625 assignments** per setting, obtaining exact global optima for this crop. Unary-only used `lambda = 1` with pairwise terms disabled. Strong fidelity used `lambda = 193`, exceeding the conservative maximum-pairwise-cost bound of **191.330290**; any changed pixel therefore costs more than all possible pairwise savings. Weaker fidelity used `lambda = 1` with pairwise terms enabled. No time limit or additional optimization rules were applied. Implementation, returned label arrays, and numerical outputs are stored in [`experiments/pannuke_d4/pannuke_task2/`](../experiments/pannuke_d4/pannuke_task2/).
 
 ## Task 3 — PanNuke: Verify and interpret the results
 
@@ -54,7 +54,7 @@ Initial / unary-only / strong      Weaker fidelity
 2 2 3                             3 3 3
 ```
 
-Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neoplastic epithelial pixel and both Inflammatory pixels to Connective, eliminating pairwise penalties. This demonstrates smoothing under the specified costs, not improved biological accuracy. No ground-truth evaluation was performed. The verifier and its recorded checks are stored in `pannuke_task3/`.
+Strong fidelity reproduced the model labels. Weaker fidelity changed the Non-neoplastic epithelial pixel and both Inflammatory pixels to Connective, eliminating pairwise penalties. This demonstrates smoothing under the specified costs, not improved biological accuracy. No ground-truth evaluation was performed. The verifier and its recorded checks are stored in [`experiments/pannuke_d4/pannuke_task3/`](../experiments/pannuke_d4/pannuke_task3/).
 
 ## Task 4 — BCSS: Prepare input and resolve label handling
 

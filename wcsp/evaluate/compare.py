@@ -6,7 +6,7 @@
 
 import numpy as np
 
-from bcss.metrics import iou_per_class
+from benchmarks.bcss.loader.metrics import iou_per_class
 
 
 def _miou(confusion):

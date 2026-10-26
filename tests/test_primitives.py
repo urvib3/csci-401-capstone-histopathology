@@ -1,10 +1,10 @@
 import numpy as np
 import pytest
 
-from bcss.classes import IGNORE_INDEX, coarse_lut, full_lut
-from bcss.grid import CellGrid, to_integer_costs, unary_costs_from_probabilities
-from bcss.metrics import confusion_matrix, iou_per_class, mean_iou, pixel_accuracy
-from bcss.stats import adjacency_counts, class_counts, negative_log_costs
+from benchmarks.bcss.loader.classes import IGNORE_INDEX, coarse_lut, full_lut
+from benchmarks.bcss.loader.grid import CellGrid, to_integer_costs, unary_costs_from_probabilities
+from benchmarks.bcss.loader.metrics import confusion_matrix, iou_per_class, mean_iou, pixel_accuracy
+from benchmarks.bcss.loader.stats import adjacency_counts, class_counts, negative_log_costs
 
 
 def test_coarse_lut_maps_codes_and_ignores_dont_care():

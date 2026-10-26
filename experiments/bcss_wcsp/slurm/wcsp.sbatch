@@ -2,8 +2,8 @@
 # Run any `python -m wcsp` command as a CPU job; with --array, each task
 # takes shard $SLURM_ARRAY_TASK_ID of --shards.
 #
-#   sbatch --array=0-19 slurm/wcsp.sbatch predict --config configs/bcss_unet.yaml --split dev --shards 20
-#   sbatch --array=0-19 slurm/wcsp.sbatch solve   --config configs/bcss_unet.yaml --split dev --shards 20
+#   sbatch --array=0-19 experiments/bcss_wcsp/slurm/wcsp.sbatch predict --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split dev --shards 20
+#   sbatch --array=0-19 experiments/bcss_wcsp/slurm/wcsp.sbatch solve   --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split dev --shards 20
 #
 # Override resources on the command line, e.g. sbatch --partition=debug --time=0:30:00 ...
 #SBATCH --account=biyik_1165

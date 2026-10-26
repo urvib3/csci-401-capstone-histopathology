@@ -16,8 +16,8 @@ from PIL import Image
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 sys.path.insert(0, REPO)
 
-from bcss import IGNORE_INDEX, BCSSDataset, coarse_lut  # noqa: E402
-from bcss.metrics import confusion_matrix  # noqa: E402
+from benchmarks.bcss.loader import IGNORE_INDEX, BCSSDataset, coarse_lut  # noqa: E402
+from benchmarks.bcss.loader.metrics import confusion_matrix  # noqa: E402
 
 CACHE_DIR = os.path.join(REPO, "data", "cache")
 OUTPUT_DIR = os.path.join(REPO, "data", "outputs")
@@ -205,7 +205,7 @@ def segment_scores(segments, mask, tolerance=2):
 
 def class_report(cm):
     """Per-class IoU / Dice plus pixel accuracy and mIoU from a confusion matrix."""
-    from bcss.metrics import dice_per_class, iou_per_class, mean_iou, pixel_accuracy
+    from benchmarks.bcss.loader.metrics import dice_per_class, iou_per_class, mean_iou, pixel_accuracy
 
     iou, dice = iou_per_class(cm), dice_per_class(cm)
     row = {"pixel_acc": pixel_accuracy(cm), "mIoU": mean_iou(cm),

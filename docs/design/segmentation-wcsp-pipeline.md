@@ -55,7 +55,7 @@ receive one label, so an under-segmentation error is unrecoverable.
   `to_integer_costs`. Probabilities come from a cluster -> class mapping or a
   small classifier on segment features (see "Naming clusters").
 - Binary (adjacent segments): label-compatibility cost from
-  `bcss.stats.adjacency_counts` -> `negative_log_costs` (or Potts), scaled by
+  `benchmarks.bcss.loader.stats.adjacency_counts` -> `negative_log_costs` (or Potts), scaled by
   shared boundary length and down-weighted by boundary colour contrast.
 - Graph is planar and irregular; size is ~1/2-1/5 of the 1024-cell lattice.
 
@@ -97,7 +97,7 @@ Never fit this mapping on val.
 ## Evaluation
 
 - Data: `BCSS_512` train/val (split by hospital; no ROI leakage).
-- Metrics: per-class IoU / Dice and mIoU from `bcss.metrics`, ignoring
+- Metrics: per-class IoU / Dice and mIoU from `benchmarks.bcss.loader.metrics`, ignoring
   don't-care pixels.
 - Baselines:
   1. unary-only (argmax per segment / per cell),

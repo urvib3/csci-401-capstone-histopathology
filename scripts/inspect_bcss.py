@@ -16,9 +16,9 @@ from PIL import Image
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from bcss import BCSSDataset, coarse_lut  # noqa: E402
-from bcss.dataset import load_mask  # noqa: E402
-from bcss.stats import adjacency_counts, class_counts  # noqa: E402
+from benchmarks.bcss.loader import BCSSDataset, coarse_lut  # noqa: E402
+from benchmarks.bcss.loader.dataset import load_mask  # noqa: E402
+from benchmarks.bcss.loader.stats import adjacency_counts, class_counts  # noqa: E402
 
 
 def main():

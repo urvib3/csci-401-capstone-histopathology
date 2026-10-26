@@ -332,8 +332,8 @@ if best_candidate is None:
 
 out_dir = (
     repo
-    / "benchmarks"
-    / "deliverable_4"
+    / "experiments"
+    / "pannuke_d4"
     / "pannuke_task1"
 )
 

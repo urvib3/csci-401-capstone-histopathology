@@ -5,8 +5,8 @@ import numpy as np
 import pytest
 from PIL import Image
 
-from bcss import IGNORE_INDEX, BCSSDataset, coarse_lut
-from bcss.dataset import parse_tile_name
+from benchmarks.bcss.loader import IGNORE_INDEX, BCSSDataset, coarse_lut
+from benchmarks.bcss.loader.dataset import parse_tile_name
 
 ROI = "TCGA-A1-A0SK-DX1_xmin45749_ymin25055"
 
@@ -104,7 +104,7 @@ def test_lut_applied_to_512_masks(root):
 
 def test_torch_adapter(root):
     torch = pytest.importorskip("torch")
-    from bcss.torch_data import make_loader
+    from benchmarks.bcss.loader.torch_data import make_loader
 
     loader = make_loader(BCSSDataset(root, "224", ["train", "test"]),
                          batch_size=3, shuffle=False)

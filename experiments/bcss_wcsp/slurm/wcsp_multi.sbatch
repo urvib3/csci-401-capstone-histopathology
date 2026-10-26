@@ -3,7 +3,7 @@
 # process per CPU, so a run is split into (array size x cpus) shards. Use this
 # to get past the per-user running-job limit.
 #
-#   sbatch --array=0-7 slurm/wcsp_multi.sbatch solve --config configs/bcss_unet.yaml --split val --run NAME
+#   sbatch --array=0-7 experiments/bcss_wcsp/slurm/wcsp_multi.sbatch solve --config experiments/bcss_wcsp/configs/bcss_unet.yaml --split val --run NAME
 #     -> 8 tasks x 16 processes = shards 0..127 of 128
 #
 # Do not pass --shard/--shards; they are set here.

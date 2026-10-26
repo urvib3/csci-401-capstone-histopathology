@@ -2,8 +2,8 @@
 # One `python -m wcsp solve` per line of a sweep file; array task i runs line i+1.
 # Each line is "<run name> <extra solve arguments>".
 #
-#   n=$(wc -l < configs/sweeps/bcss_dev.txt)
-#   sbatch --array=0-$((n-1)) slurm/sweep.sbatch configs/bcss_unet.yaml configs/sweeps/bcss_dev.txt --split dev --limit 200
+#   n=$(wc -l < experiments/bcss_wcsp/configs/sweeps/bcss_dev.txt)
+#   sbatch --array=0-$((n-1)) experiments/bcss_wcsp/slurm/sweep.sbatch experiments/bcss_wcsp/configs/bcss_unet.yaml experiments/bcss_wcsp/configs/sweeps/bcss_dev.txt --split dev --limit 200
 #SBATCH --account=biyik_1165
 #SBATCH --partition=main
 #SBATCH --cpus-per-task=1

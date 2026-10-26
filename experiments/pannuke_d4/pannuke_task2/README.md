@@ -3,7 +3,7 @@
 Run from the repository root with Python and NumPy:
 
 ```bash
-python3 benchmarks/deliverable_4/pannuke_task2/run_wcsp.py
+python3 experiments/pannuke_d4/pannuke_task2/run_wcsp.py
 ```
 
 The script reads Task 1's CSV, checks it against the metadata and NPY, and uses only its eight nonzero pixels as variables. Every variable has all five cell classes available. It enumerates all 390,625 assignments per setting; no external solver is required.

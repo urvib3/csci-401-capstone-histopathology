@@ -3,7 +3,7 @@
 After Task 2, run from the repository root:
 
 ```bash
-python3 benchmarks/deliverable_4/pannuke_task3/verify_results.py
+python3 experiments/pannuke_d4/pannuke_task3/verify_results.py
 ```
 
 The verifier uses only the Python standard library and does not import Task 2's implementation. It independently builds neighbors using offsets, transcribes the supplied cost matrix, and enumerates all 390,625 assignments for each of the three settings.

@@ -9,7 +9,7 @@
 # The grid is the central 256 x 256 of each 512 tile, which is the part the
 # pretrained TIAToolbox U-Net predicts (benchmarks/bcss/scripts/evaluate_pretrained.py).
 
-from bcss import BCSSDataset, coarse_lut
+from benchmarks.bcss.loader import BCSSDataset, coarse_lut
 
 from ..labels import BCSS_TO_WCSP, remap_labels
 from .base import Sample, SampleList
