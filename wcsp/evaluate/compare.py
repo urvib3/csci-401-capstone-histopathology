@@ -46,3 +46,40 @@ def paired_bootstrap(conf_a, conf_b, groups, n_boot=2000, seed=0):
         "p_not_better": float(np.mean(diffs <= 0)),
         "groups": len(names),
     }
+
+
+def contrast_bootstrap(confs, groups, weights, n_boot=2000, seed=0):
+    """
+    The same ROI bootstrap for any weighted sum of mIoUs, e.g. the
+    difference in WCSP gain between two classifiers:
+    {"wcsp_b": 1, "argmax_b": -1, "wcsp_a": -1, "argmax_a": 1}.
+
+    confs:
+        {name: (N, K, K)} per-tile confusion matrices, all on the same tiles.
+    weights:
+        {name: weight}; the statistic is sum(weight * mIoU(name)).
+
+    returns:
+        dict like paired_bootstrap, with "delta_mIoU" the observed statistic.
+    """
+    groups = np.asarray(groups)
+    names, index = np.unique(groups, return_inverse=True)
+    sums = {}
+    for key in weights:
+        conf = np.asarray(confs[key])
+        sums[key] = np.zeros((len(names),) + conf.shape[1:])
+        np.add.at(sums[key], index, conf)
+
+    def statistic(pick):
+        return sum(w * _miou(sums[k][pick].sum(0)) for k, w in weights.items())
+
+    rng = np.random.default_rng(seed)
+    stats = np.array([statistic(rng.integers(0, len(names), len(names))) for _ in range(n_boot)])
+    low, high = np.percentile(stats, [2.5, 97.5])
+    return {
+        "delta_mIoU": statistic(np.arange(len(names))),
+        "ci_low": float(low),
+        "ci_high": float(high),
+        "p_not_better": float(np.mean(stats <= 0)),
+        "groups": len(names),
+    }

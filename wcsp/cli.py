@@ -4,6 +4,7 @@
 #   calibrate  --split dev                  fit temperature on cached dev predictions
 #   solve      --split dev --shard 3/20 --run NAME [--set problem.lam=2 ...]
 #   summarize  --run NAME                   merge shards -> summary.csv
+#   compare    --run B --against A          ROI bootstrap of run B vs run A (same split)
 #   elicit     --split fit                  ground-truth pair statistics -> cost table CSV
 #   show       --run NAME --id SAMPLE       comparison figure for one sample
 
@@ -22,12 +23,13 @@ from .data import parse_shard, select
 
 def _args(argv):
     parser = argparse.ArgumentParser(prog="python -m wcsp")
-    parser.add_argument("command", choices=["predict", "calibrate", "solve", "summarize", "elicit", "show"])
+    parser.add_argument("command", choices=["predict", "calibrate", "solve", "summarize", "compare", "elicit", "show"])
     parser.add_argument("--config", required=True)
     parser.add_argument("--split")
     parser.add_argument("--shard", help="i/n, 0-based; defaults to $SLURM_ARRAY_TASK_ID/--shards")
     parser.add_argument("--shards", type=int, default=1)
     parser.add_argument("--run", help="run name under paths.runs (default: config name)")
+    parser.add_argument("--against", help="baseline run name for `compare`")
     parser.add_argument("--set", action="append", default=[], metavar="KEY=VALUE",
                         help="override a config value, e.g. problem.lam=2")
     parser.add_argument("--limit", type=int, default=0,
@@ -66,6 +68,14 @@ def main(argv=None):
         summary = pipeline.summarize(run_dir)
         with_cols = [c for c in summary.columns if not c.startswith("Dice_")]
         print(summary[with_cols].round(4).to_string(index=False))
+
+    elif args.command == "compare":
+        if not args.run or not args.against:
+            raise SystemExit("compare needs --run and --against.")
+        result = pipeline.compare(cfg.runs_root / args.against / split, run_dir)
+        out = run_dir / f"compare_vs_{args.against}.json"
+        out.write_text(json.dumps(result, indent=2))
+        print(json.dumps(result, indent=2))
 
     elif args.command == "elicit":
         from .evaluate.elicit import counts_by_type, fill_background, pmi_table, unlike_rate_by_type
