@@ -288,6 +288,10 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
   - **Inflammatory–necrosis:** the rarest pair in the data (6.9), but it costs only 1 in the notes.
   - **Triangle inequality:** the handwritten table breaks it. Tumor → stroma → other costs 1 + 1 < 9, so the cheapest "fix" is often a **fake 1 px stroma strip** between tumor and other (see the "hurts" example). The data-derived table almost removes this incentive (3.0 + 2.3 vs. 4.5).
 
+    ![stroma strip](../experiments/bcss_wcsp/figures/stroma_strip_zoom.png)
+
+    *Zoom on a val tile (handwritten b, λ = 4). Where the U-Net puts tumor next to other, the WCSP draws a 1 px stroma line between them, because two cheap borders (1 + 1) cost less than one expensive border (9). Right panel: the pixels it changed to stroma.*
+
 </details>
 
 <details>
