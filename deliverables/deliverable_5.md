@@ -72,6 +72,24 @@ Tum tumor · Inf inflammatory · Str stroma · Nec necrosis · Oth other
   - BCSS also compares **toulbar2**, an exact WCSP solver, on the same problem (§3).
 - **Intuition:** a pixel's label changes only if the rule savings beat its unary cost. Inside a region (or nucleus) every neighbor agrees, so there's nothing to gain. Only **boundary** pixels ever change.
 
+
+### Hyperparameters
+
+| Knob | What it controls | PanNuke | BCSS |
+|---|---|---|---|
+| **λ** | classifier vs. rules trade-off | 1 (also 0–0.5, and 139 as the strong-fidelity check) | 0.5–32 swept on dev; **8** reported |
+| **b** | pairwise cost for each pair of classes | handwritten | handwritten **or** data-derived (PMI) |
+| **unary** | how the classifier's opinion is scored | λ · [label changed] | −log p, raw softmax (temperature 1) |
+| **neighborhood** | which pixel pairs interact | 5 distance types, up to 2√2 px (24 neighbors) | same |
+| **η** | distance falloff, b / dᵑ | 1 | 1 |
+| **weight normalization** | neighbor weights sum to 1, so λ doesn't depend on η or neighborhood | no | yes |
+| **f: β, σ** | image term: extra cost for a label change between similar colors | off | off (β = 1, 2, 4 tested; hurt) |
+| **solver** | search inside each block | ICM | ICM (toulbar2 compared) |
+| **blocks** | corner size / cross width | 60 / 44 px | 100 / 56 px |
+| **rounds, time limit** | how long to iterate | until no change | ≤ 4 rounds; toulbar2 20 s per block |
+
+All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcss_unet.yaml`, or per run with `--set problem.lam=8`.
+
 ---
 
 ---
