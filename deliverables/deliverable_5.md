@@ -281,94 +281,40 @@ Each cell is **handwritten / data-derived**. The table is symmetric, so only the
 </details>
 
 <details>
-<summary><b>Choosing settings on dev (separate tiles; numbers differ from the final val results)</b></summary>
+<summary><b>λ sweep (dev, 185 tiles)</b></summary>
 
-#### Step 1. How strong should the rules be, and which b table? (dev, 185 tiles)
+Dev is used only to choose settings, and the U-Net scores higher there (mIoU 0.7067) than on val.
 
-> **These are dev numbers, not val.** Dev is 185 tiles from the training hospitals, where the U-Net is stronger (mIoU 0.7067, vs. 0.6489 on val). Dev is used only to *choose* λ, the b table and f. Only the chosen settings are run on val; see the final results table.
+| λ | Handwritten b: mIoU (Δ) | Data-derived b: mIoU (Δ) |
+|---:|---:|---:|
+| 0.5 | 0.7082 (+0.0015) | 0.7082 (+0.0015) |
+| 1 | 0.7086 (+0.0019) | 0.7085 (+0.0018) |
+| 2 | 0.7094 (+0.0027) | 0.7089 (+0.0022) |
+| 4 | 0.7096 (+0.0029) | 0.7090 (+0.0023) |
+| 8 | 0.7097 (+0.0030) | 0.7090 (+0.0023) |
+| 16 | **0.7100 (+0.0032)** | 0.7090 (+0.0023) |
+| 32 | 0.7098 (+0.0031) | 0.7090 (+0.0023) |
 
-U-Net alone: pixel acc 0.8555, mIoU 0.7067.
+- Every setting helps, and every 95% CI is above zero.
+- Pixel accuracy stays between 0.8560 and 0.8565.
+- **The gain levels off by λ ≈ 4.** After that, every pixel the U-Net is unsure about has already flipped, and confident pixels never do.
+- **The two tables are effectively tied:** the gap is far smaller than the CIs (about ±0.0013).
+- **Chosen:** λ = 8 for both tables. λ = 16 is best for handwritten by +0.0003, and its val run is in progress.
 
-| λ | Handwritten: acc | mIoU | Δ mIoU [95% CI] | Data-derived: acc | mIoU | Δ mIoU [95% CI] |
-|---:|---:|---:|---|---:|---:|---|
-| 0.5 | 0.8560 | 0.7082 | +0.0015 [+0.0007, +0.0020] | 0.8562 | 0.7082 | +0.0015 [+0.0008, +0.0021] |
-| 1 | 0.8561 | 0.7086 | +0.0019 [+0.0009, +0.0026] | 0.8563 | 0.7085 | +0.0018 [+0.0008, +0.0027] |
-| 2 | 0.8563 | 0.7094 | +0.0027 [+0.0014, +0.0035] | 0.8564 | 0.7089 | +0.0022 [+0.0011, +0.0032] |
-| 4 | 0.8562 | 0.7096 | +0.0029 [+0.0013, +0.0038] | **0.8565** | 0.7090 | +0.0023 [+0.0012, +0.0033] |
-| 8 | 0.8562 | 0.7097 | +0.0030 [+0.0013, +0.0040] | 0.8564 | 0.7090 | +0.0023 [+0.0012, +0.0033] |
-| 16 | 0.8562 | **0.7100** | **+0.0032** [+0.0015, +0.0041] | 0.8565 | 0.7090 | +0.0023 [+0.0012, +0.0034] |
-| 32 | 0.8561 | 0.7098 | +0.0031 [+0.0013, +0.0042] | 0.8565 | 0.7090 | +0.0023 [+0.0012, +0.0034] |
+</details>
 
-- **Every setting helps, and every CI is above 0.**
-- **The gain levels off by λ ≈ 4–8.** Beyond that, the rules have already fixed every pixel the U-Net is unsure about. Confident pixels never flip, so a larger λ does nothing more.
-- **Handwritten wins on mIoU and data-derived on pixel accuracy, by tiny margins inside the CIs.** Effectively a tie.
-- **Decision:** use λ = 8 for both tables on val.
+<details>
+<summary><b>Image term f (dev, handwritten b)</b></summary>
 
-#### Step 2. Does the image term f help? (dev, handwritten b)
-
-| λ | β = 0 (no f) | β = 1 | β = 2 | β = 4 |
+| λ | no f | β = 1 | β = 2 | β = 4 |
 |---:|---:|---:|---:|---:|
-| 4: mIoU (Δ) | 0.7096 (+0.0029) | 0.7095 (+0.0027) | 0.7089 (+0.0022) | 0.7085 (+0.0018) |
-| 8: mIoU (Δ) | 0.7097 (+0.0030) | 0.7092 (+0.0025) | 0.7091 (+0.0024) | 0.7087 (+0.0020) |
+| 4 | 0.7096 | 0.7095 | 0.7089 | 0.7085 |
+| 8 | 0.7097 | 0.7092 | 0.7091 | 0.7087 |
 
-- **No. It hurts slightly, and more as β grows.**
+- Entries are mIoU.
+- **f hurts slightly, and more as β grows.**
 - **Why:** in H&E images the strongest color edges are nucleus vs. background *inside* one tissue type, not boundaries between tissues. So f protects the wrong edges.
-- **Decision:** drop f.
-
-</details>
-
-<details>
-<summary><b>Val: per class (λ = 8)</b></summary>
-
-IoU per class:
-
-| Method | Tumor | Stroma | Inflammatory | Necrosis | Other |
-|---|---:|---:|---:|---:|---:|
-| U-Net | 0.813 | 0.721 | 0.617 | 0.669 | 0.424 |
-| + WCSP, handwritten b | 0.813 | 0.722 | 0.618 | 0.670 | **0.431** |
-| + WCSP, data-derived b | 0.814 | 0.722 | 0.618 | 0.671 | 0.427 |
-
-- **Almost all of the gain is the "other" class.**
-- **It comes from precision, not recall:** precision 0.604 → 0.622, recall 0.586 → 0.584 (handwritten b).
-- **Why:**
-  - The handwritten table makes "other" very expensive next to tumor, inflammatory and necrosis (8–10).
-  - So stray "other" specks inside those regions get relabeled.
-  - The data-derived table penalizes "other" less, so it cleans fewer specks.
-
-</details>
-
-<details>
-<summary><b>Val: ICM vs. toulbar2</b></summary>
-
-Same 2,124 val tiles, handwritten b, λ = 4. The problem and blocks are identical; only the search inside each block differs.
-
-| Solver | Total cost (U-Net start = 100%) | Pixel acc | mIoU | Pixels changed | s/tile |
-|---|---:|---:|---:|---:|---:|
-| none (U-Net) | 100% | 0.8414 | 0.6489 | — | — |
-| ICM (greedy) | **52.6%** | **0.8419** | **0.6507** | 0.92% | 12 |
-| toulbar2 (exact search, 20 s per block) | 98.5% | 0.8416 | 0.6492 | 0.11% | 87 |
-
-- **toulbar2 runs out of time.**
-  - Blocks have 10,000–25,000 variables, and its exact search barely moves from the start in 20 s.
-  - It has a higher cost than ICM on 78% of tiles.
-- **Lower cost went with higher mIoU**, so a better solver could still help a little.
-- **To make toulbar2 competitive:** start it from ICM's answer, use its local search (VNS), or give it small blocks. A test with small blocks on dev is running.
-
-</details>
-
-<details>
-<summary><b>Val: example tiles</b></summary>
-
-Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pixels.
-
-- **Mixed tile:** U-Net 77.9% → WCSP 78.2%. Ragged edges are smoothed and specks removed.
-  ![mixed](../experiments/bcss_wcsp/figures/val_example_mixed.png)
-- **Helps:** U-Net 65.2% → WCSP 66.4%.
-  ![helps](../experiments/bcss_wcsp/figures/val_example_helps.png)
-- **Hurts:** U-Net 24.2% → WCSP 22.7%.
-  - The U-Net calls this tumor "other", and confident regions can't be fixed.
-  - The WCSP also adds 1 px stroma strips (see the b table).
-  ![hurts](../experiments/bcss_wcsp/figures/val_example_hurts.png)
+- **Chosen:** no f.
 
 </details>
 
@@ -388,10 +334,48 @@ Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pix
 
 - **Sensitivity check on val:** the gain rises the same way with λ (+0.0011 at λ = 0.5 to +0.0019 at λ = 8) and is flat from λ ≈ 4 on, so the exact choice of λ barely matters.
 
+**Per class (val, IoU, λ = 8)**
+
+| Method | Tumor | Stroma | Inflammatory | Necrosis | Other |
+|---|---:|---:|---:|---:|---:|
+| U-Net | 0.813 | 0.721 | 0.617 | 0.669 | 0.424 |
+| + WCSP, handwritten b | 0.813 | 0.722 | 0.618 | 0.670 | **0.431** |
+| + WCSP, data-derived b | 0.814 | 0.722 | 0.618 | 0.671 | 0.427 |
+
+- Almost all of the gain is the "other" class.
+- It comes from precision (0.604 → 0.622), not recall (0.586 → 0.584).
+- The handwritten table makes "other" very expensive next to tumor, inflammatory and necrosis, so stray "other" specks inside those regions get relabeled.
+
+**Solver (val, handwritten b, λ = 4): same problem, different search inside each block**
+
+| Solver | Total cost (U-Net = 100%) | mIoU | s/tile |
+|---|---:|---:|---:|
+| ICM (greedy) | **52.6%** | **0.6507** | 12 |
+| toulbar2 (exact search, 20 s per block) | 98.5% | 0.6492 | 87 |
+
+- toulbar2 barely moves from its start on 10k–25k-variable blocks in 20 s, so it ends with a higher cost than ICM on 78% of tiles.
+- Lower cost went with higher mIoU, so a better solver could still help a little.
+
 **Why it helps a little on BCSS:**
 - Every pixel is a variable, and the unary carries the U-Net's certainty.
 - So the rules relabel the *unsure* boundary pixels and stray specks, which is where the U-Net makes edge mistakes.
 - Most of the gain is in the "other" class (precision 0.604 → 0.622).
+
+<details>
+<summary><b>Example tiles (val)</b></summary>
+
+Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pixels.
+
+- **Mixed tile:** U-Net 77.9% → WCSP 78.2%. Ragged edges are smoothed and specks removed.
+  ![mixed](../experiments/bcss_wcsp/figures/val_example_mixed.png)
+- **Helps:** U-Net 65.2% → WCSP 66.4%.
+  ![helps](../experiments/bcss_wcsp/figures/val_example_helps.png)
+- **Hurts:** U-Net 24.2% → WCSP 22.7%.
+  - The U-Net calls this tumor "other", and confident regions can't be fixed.
+  - The WCSP also adds 1 px stroma strips (see the b table).
+  ![hurts](../experiments/bcss_wcsp/figures/val_example_hurts.png)
+
+</details>
 
 ---
 
