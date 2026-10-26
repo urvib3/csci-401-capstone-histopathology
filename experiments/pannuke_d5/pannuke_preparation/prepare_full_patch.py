@@ -409,16 +409,10 @@ print(
 
 out_dir = (
     repo
-<<<<<<<< HEAD:experiments/pannuke_d5/pannuke_aakanksha/prepare_full_patch.py
-    / "experiments"
-    / "pannuke_d5"
-    / "pannuke_aakanksha"
-========
     / "experiments"
     / "pannuke_d5"
     / "pannuke_multi_patch"
     / TARGET_IMAGE
->>>>>>>> origin/main:experiments/pannuke_d5/pannuke_preparation/prepare_full_patch.py
 )
 
 out_dir.mkdir(
