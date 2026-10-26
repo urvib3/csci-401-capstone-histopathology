@@ -337,71 +337,77 @@ U-Net alone: pixel acc 0.8555, mIoU 0.7067.
 </details>
 
 <details>
-<summary><b>Val results: λ sweep, per class, ICM vs. toulbar2, examples (same tiles as the main table)</b></summary>
+<summary><b>Val: λ sweep for both b tables</b></summary>
 
-#### Step 3. Does it hold on unseen hospitals? (val, 2,124 tiles, ICM)
+Same 2,124 val tiles as the main table. U-Net alone: mIoU **0.6489**, pixel acc 0.8414.
 
-U-Net alone: pixel acc **0.8414**, mIoU **0.6489**. This matches the repo's earlier U-Net benchmark (0.649).
+| λ | Handwritten b: mIoU | Δ mIoU | Data-derived b: mIoU | Δ mIoU |
+|---:|---:|---:|---:|---:|
+| 0.5 | 0.6499 | +0.0011 | 0.6499 | +0.0010 |
+| 1 | 0.6503 | +0.0014 | 0.6502 | +0.0014 |
+| 2 | 0.6505 | +0.0017 | 0.6506 | +0.0017 |
+| 4 | 0.6507 | +0.0018 | 0.6506 | +0.0018 |
+| 8 | **0.6507** | **+0.0019** | 0.6506 | +0.0018 |
 
-| λ | Handwritten: acc | mIoU | Δ mIoU [95% CI] | Data-derived: acc | mIoU | Δ mIoU [95% CI] |
-|---:|---:|---:|---|---:|---:|---|
-| 0.5 | 0.8418 | 0.6499 | +0.0011 [+0.0006, +0.0014] | 0.8419 | 0.6499 | +0.0010 [+0.0007, +0.0014] |
-| 1 | 0.8418 | 0.6503 | +0.0014 [+0.0008, +0.0019] | 0.8421 | 0.6502 | +0.0014 [+0.0009, +0.0018] |
-| 2 | 0.8419 | 0.6505 | +0.0017 [+0.0010, +0.0023] | 0.8422 | 0.6506 | +0.0017 [+0.0011, +0.0023] |
-| 4 | 0.8419 | 0.6507 | +0.0018 [+0.0010, +0.0026] | 0.8422 | 0.6506 | +0.0018 [+0.0011, +0.0024] |
-| **8** | 0.8419 | **0.6507** | **+0.0019** [+0.0010, +0.0027] | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
+- Every 95% CI is above zero.
+- Pixel accuracy stays between 0.8418 and 0.8422 for every row.
+- **The gain levels off by λ ≈ 4.** After that, every unsure pixel has already flipped.
+- **The two tables tie.**
+- **About 0.9% of pixels change.**
 
-- **Same picture as dev.** A small, reliable gain that levels off by λ ≈ 4, and the two tables are tied.
-- **The gain is smaller than on dev** (+0.0019 vs. +0.0030). New hospitals look different, so the U-Net's mistakes there are more often whole regions, which the WCSP can't fix.
-- **About 0.9% of pixels change.** That's +0.05–0.08 pp of pixel accuracy, so the mIoU gain comes from the edges of the smaller classes.
+</details>
 
-#### Per class (val, λ = 8)
+<details>
+<summary><b>Val: per class (λ = 8)</b></summary>
 
-| Method | Tumor | Stroma | Inflam. | Necrosis | Other |
+IoU per class:
+
+| Method | Tumor | Stroma | Inflammatory | Necrosis | Other |
 |---|---:|---:|---:|---:|---:|
-| **IoU** — U-Net alone | 0.813 | 0.721 | 0.617 | 0.669 | 0.424 |
-| WCSP, handwritten b | 0.813 | 0.722 | 0.618 | 0.670 | **0.431** |
-| WCSP, data-derived b | 0.814 | 0.722 | 0.618 | 0.671 | 0.427 |
-| **Precision** — U-Net alone | 0.892 | 0.828 | 0.800 | 0.805 | 0.604 |
-| WCSP, handwritten b | 0.891 | 0.827 | 0.802 | 0.809 | **0.622** |
-| WCSP, data-derived b | 0.893 | 0.828 | 0.803 | 0.807 | 0.611 |
-| **Recall** — U-Net alone | 0.902 | 0.848 | 0.730 | 0.798 | 0.586 |
-| WCSP, handwritten b | 0.903 | 0.850 | 0.729 | 0.795 | 0.584 |
-| WCSP, data-derived b | 0.903 | 0.850 | 0.729 | 0.799 | 0.586 |
+| U-Net | 0.813 | 0.721 | 0.617 | 0.669 | 0.424 |
+| + WCSP, handwritten b | 0.813 | 0.722 | 0.618 | 0.670 | **0.431** |
+| + WCSP, data-derived b | 0.814 | 0.722 | 0.618 | 0.671 | 0.427 |
 
-- **Most of the mIoU gain is the "other" class, through precision** (0.604 → 0.622 with handwritten b).
-- **Why:** the handwritten table makes "other" very expensive next to tumor, inflammatory and necrosis (8–10). Stray "other" specks inside those regions get relabeled, and recall barely moves.
-- The data-derived table penalizes "other" less, so it cleans fewer specks.
+- **Almost all of the gain is the "other" class.**
+- **It comes from precision, not recall:** precision 0.604 → 0.622, recall 0.586 → 0.584 (handwritten b).
+- **Why:**
+  - The handwritten table makes "other" very expensive next to tumor, inflammatory and necrosis (8–10).
+  - So stray "other" specks inside those regions get relabeled.
+  - The data-derived table penalizes "other" less, so it cleans fewer specks.
 
-#### Step 4. Does a real WCSP solver do better than greedy ICM? (val, handwritten b, λ = 4)
+</details>
 
-Same problem and same blocks; only the search inside each block differs. Compared on the 2,066 val tiles both finished (some toulbar2 jobs hit CARC filesystem errors).
+<details>
+<summary><b>Val: ICM vs. toulbar2</b></summary>
 
-| Solver (inside each block) | Total cost vs. U-Net start | Pixel acc | mIoU | Pixels changed | s/tile |
+Same 2,124 val tiles, handwritten b, λ = 4. The problem and blocks are identical; only the search inside each block differs.
+
+| Solver | Total cost (U-Net start = 100%) | Pixel acc | mIoU | Pixels changed | s/tile |
 |---|---:|---:|---:|---:|---:|
-| none (U-Net alone) | 100% | 0.8423 | 0.6461 | — | — |
-| ICM (greedy) | **52.6%** | **0.8428** | **0.6479** | 0.92% | 12 |
-| toulbar2 (20 s per block) | 98.6% | 0.8425 | 0.6464 | 0.11% | 86 |
+| none (U-Net) | 100% | 0.8414 | 0.6489 | — | — |
+| ICM (greedy) | **52.6%** | **0.8419** | **0.6507** | 0.92% | 12 |
+| toulbar2 (exact search, 20 s per block) | 98.5% | 0.8416 | 0.6492 | 0.11% | 87 |
 
-- **Within the time limit, toulbar2 finds much worse solutions than ICM.** It cuts the cost by only 1.4%, against 47% for ICM, and has a higher cost than ICM on 78% of tiles.
-- **Why:** a block has 10,000–25,000 variables. toulbar2's exact search (depth-first branch and bound) can't get far in 20 s, so it returns little more than its starting point. ICM's greedy local moves are a better fit at this scale.
-- **Lower cost also gave higher mIoU here**, so a better solver could help a bit.
-- **To make toulbar2 competitive:**
-  - start it from the ICM solution;
-  - use its local-search mode (VNS);
-  - give it smaller blocks or more time.
+- **toulbar2 runs out of time.**
+  - Blocks have 10,000–25,000 variables, and its exact search barely moves from the start in 20 s.
+  - It has a higher cost than ICM on 78% of tiles.
+- **Lower cost went with higher mIoU**, so a better solver could still help a little.
+- **To make toulbar2 competitive:** start it from ICM's answer, use its local search (VNS), or give it small blocks. A test with small blocks on dev is running.
 
-#### Examples (val, handwritten b, λ = 4)
+</details>
 
-Panels: image | ground truth | U-Net | WCSP | changed pixels.
+<details>
+<summary><b>Val: example tiles</b></summary>
 
-- **Mixed tile:** U-Net 77.9% → WCSP 78.2%. Ragged edges are smoothed and stray specks removed.
+Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pixels.
+
+- **Mixed tile:** U-Net 77.9% → WCSP 78.2%. Ragged edges are smoothed and specks removed.
   ![mixed](../experiments/bcss_wcsp/figures/val_example_mixed.png)
 - **Helps:** U-Net 65.2% → WCSP 66.4%.
   ![helps](../experiments/bcss_wcsp/figures/val_example_helps.png)
 - **Hurts:** U-Net 24.2% → WCSP 22.7%.
   - The U-Net calls this tumor "other", and confident regions can't be fixed.
-  - The handwritten table also draws 1 px stroma strips along tumor/other edges (see the b table).
+  - The WCSP also adds 1 px stroma strips (see the b table).
   ![hurts](../experiments/bcss_wcsp/figures/val_example_hurts.png)
 
 </details>
