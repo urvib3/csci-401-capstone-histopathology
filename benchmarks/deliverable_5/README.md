@@ -1,6 +1,7 @@
 # Deliverable 5 — PanNuke Full-Patch WCSP
+(In Progress)
 
-This deliverable runs the WCSP end to end on one complete, real HoVer-Net prediction region: **PanNuke Fold 2, `image_00748`**.
+1.Running the WCSP end to end on one complete, real HoVer-Net prediction region: **PanNuke Fold 2, `image_00748`**.
 
 ```text
 PanNuke image
@@ -31,7 +32,7 @@ The prepared inputs are committed, so the last two steps run without the PanNuke
 
 ---
 
-## 1. Full-Patch Input Preparation (Aakanksha)
+## 1. Full-Patch Input Preparation 
 
 ### Source prediction
 
@@ -116,7 +117,7 @@ instance_map = data["instance_map"]
 
 ---
 
-## 2. WCSP Run (Abhishek, Kashvi's original task)
+## 2. WCSP Run 
 
 `run_wcsp.py` only reads `hovernet_labels_164.npy` and `active_mask_164.npy`.
 
@@ -139,7 +140,7 @@ ICM is greedy, so the results are local optima, not proven global ones. For ever
 
 ---
 
-## 3. Ground-Truth Evaluation (Abhishek)
+## 3. Ground-Truth Evaluation 
 
 `evaluate.py` is the only script that opens `pannuke_gt_labels_164.npy`, and it runs after the WCSP labels are saved.
 
