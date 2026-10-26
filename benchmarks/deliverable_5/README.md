@@ -310,13 +310,21 @@ U-Net alone: pixel acc **0.8555**, mIoU **0.7067**.
 
 ### 3. Full val: λ sweep, both tables (ICM)
 
-*Running. Filled in as runs finish.*
+All 2,124 labeled val tiles from held-out hospitals. The U-Net-alone mIoU matches the repo's earlier U-Net benchmark (0.649).
 
-| b table | λ | Pixel acc | mIoU | Δ mIoU [95% CI] | Pixels changed |
-|---|---:|---:|---:|---|---:|
-| U-Net alone | — | | | | |
-| Handwritten | 0.5 / 1 / 2 / 4 / 8 | | | | |
-| Data-derived | 0.5 / 1 / 2 / 4 / 8 | | | | |
+| b table | λ | Pixel acc | mIoU | Δ mIoU [95% CI] | Pixels changed | s/tile |
+|---|---:|---:|---:|---|---:|---:|
+| U-Net alone | — | 0.8414 | 0.6489 | — | — | — |
+| Handwritten | 0.5 | 0.8418 | 0.6499 | +0.0011 [+0.0006, +0.0014] | 0.52% | 9 |
+| Handwritten | 1 | 0.8418 | 0.6503 | +0.0014 [+0.0008, +0.0019] | 0.67% | 7 |
+| Handwritten | 2 | 0.8419 | 0.6505 | +0.0017 [+0.0010, +0.0023] | 0.82% | 14 |
+| Handwritten | 4 | 0.8419 | 0.6507 | +0.0018 [+0.0010, +0.0026] | 0.93% | 12 |
+| Handwritten | 8 | 0.8419 | **0.6507** | **+0.0019** [+0.0010, +0.0027] | 0.98% | 11 |
+| Data-derived | 0.5–8 | *running* | | | | |
+
+- **Same pattern as dev:** every λ helps, gains level off from λ ≈ 2, and every interval is above zero.
+- **Smaller gain on val** (+0.0019 vs. +0.0030 on dev), but the U-Net is also weaker on these unseen hospitals.
+- **Pixel accuracy barely moves** (+0.05 pp). The gain is mostly in mIoU, i.e. in the smaller classes' edges.
 
 ### 4. ICM vs. toulbar2 (full val, same problem)
 
