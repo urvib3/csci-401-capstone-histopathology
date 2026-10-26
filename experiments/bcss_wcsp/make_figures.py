@@ -83,8 +83,9 @@ def pipeline_figure(cfg, sample_id, out):
         (f"4. Keep central 256 × 256\nU-Net labels (acc {accuracy(init, target):.1%})", overlay(sample.grid_image, init), None),
         (f"5. WCSP on the crop\n256 × 256 (acc {accuracy(refined, target):.1%})", overlay(sample.grid_image, refined), None),
         ("Ground truth\n(central 256 × 256)", overlay(sample.grid_image, target), None),
+        ("Ground truth, full tile\n512 × 512", overlay(image, sample.target), 512),
     ]
-    fig, axes = plt.subplots(1, len(panels), figsize=(3.3 * len(panels), 4.2))
+    fig, axes = plt.subplots(1, len(panels), figsize=(3.1 * len(panels), 4.2))
     for ax, (title, img, size) in zip(axes, panels):
         ax.imshow(img)
         if size:

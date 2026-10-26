@@ -114,6 +114,37 @@ def test_cross_layout_matches_the_notes():
         BlockLayout.cross((10, 10), block=4)
 
 
+def test_tile_layout_covers_every_pixel_without_interacting_tiles():
+    from wcsp.solve.blocks import REACH
+
+    layout = BlockLayout.tiles((40, 37), size=8)
+    covered = np.zeros((40, 37), dtype=bool)
+    for regions in layout.phases:
+        for a, b in itertools.combinations(regions, 2):
+            ya, xa = np.nonzero(a)
+            yb, xb = np.nonzero(b)
+            gap_y = max(yb.min() - ya.max(), ya.min() - yb.max())
+            gap_x = max(xb.min() - xa.max(), xa.min() - xb.max())
+            assert max(gap_y, gap_x) > REACH
+        covered |= np.any(regions, axis=0)
+    assert covered.all()
+
+
+def test_chain_never_increases_energy():
+    from wcsp.solve.factory import get_solver
+
+    problem, _, rng = random_problem(shape=(30, 30), lam=20.0)
+    init = rng.integers(0, NUM_LABELS, problem.shape)
+    solver = get_solver({"name": "chain", "stages": [
+        {"name": "blocks", "block": 12, "inner": {"name": "icm"}},
+        {"name": "blocks", "tile": 8, "inner": {"name": "icm"}},
+    ]})
+    first = solver.stages[0].solve(problem, init)
+    result = solver.solve(problem, init)
+    assert result.energy <= first.energy + 1e-9
+    assert result.energy == pytest.approx(energy(problem, result.labels))
+
+
 def test_block_descent_never_increases_energy():
     problem, _, rng = random_problem(shape=(30, 30), lam=20.0)
     init = rng.integers(0, NUM_LABELS, problem.shape)

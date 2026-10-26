@@ -7,7 +7,7 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 | Classifier | HoVer-Net (nucleus instances + class) | TIAToolbox U-Net (per-pixel tissue class) |
 | WCSP grid | 164 × 164 HoVer-Net region; only nucleus pixels are variables | central 256 × 256 of each 512 tile; every pixel is a variable |
 | Labels | neoplastic, inflammatory, connective, dead, non-neoplastic epithelial | tumor, inflammatory, stroma, necrosis, other |
-| Code | [`experiments/pannuke_d5/`](../experiments/pannuke_d5/) | [`wcsp/`](../wcsp/), [`experiments/bcss_wcsp/`](../experiments/bcss_wcsp/) |
+| Code | shared [`wcsp/`](../wcsp/) solver + [`experiments/pannuke_d5/`](../experiments/pannuke_d5/) | shared [`wcsp/`](../wcsp/) package + [`experiments/bcss_wcsp/`](../experiments/bcss_wcsp/) |
 
 **Headline.** The WCSP only reliably fixes **boundaries**, never whole wrong regions.
 - **BCSS:** a small but real gain, mIoU 0.6489 → 0.6507 (+0.0019, 95% CI [+0.0010, +0.0027]) on 2,124 held-out-hospital tiles.
@@ -24,24 +24,45 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 - **Pairwise cost (the biology rules):**
   - Applies to every pixel pair up to 2√2 px apart: 24 neighbors, 5 distance types (left panel).
   - Cost = b[label, label′] / distance. Closer neighbors count more; same label is free.
-  - **b** is the class-compatibility table from the project notes:
+  - **b** is the class-compatibility table from the project notes. Both datasets use the same numbers; only the class names differ:
 
-    | | Neo/Tumor | Inflam. | Conn./Stroma | Dead/Necrosis | Healthy/Other |
-    |---|---|---|---|---|---|
-    | **Neo/Tumor** | 0 | 2 | 1 | 1 | 9 |
-    | **Inflam.** | | 0 | 2 | 1 | 8 |
-    | **Conn./Stroma** | | | 0 | 5 | 1 |
-    | **Dead/Necrosis** | | | | 0 | 10 |
-    | **Healthy/Other** | | | | | 0 |
+<table>
+<tr><th>PanNuke</th><th>BCSS</th></tr>
+<tr><td>
 
-    The last class is *non-neoplastic epithelial* for PanNuke and *other* for BCSS. BCSS also tests a data-derived b (§3).
+| | Neo | Inf | Con | Dead | Epi |
+|---|---|---|---|---|---|
+| **Neo** | 0 | 2 | 1 | 1 | 9 |
+| **Inf** | | 0 | 2 | 1 | 8 |
+| **Con** | | | 0 | 5 | 1 |
+| **Dead** | | | | 0 | 10 |
+| **Epi** | | | | | 0 |
+
+Neo = neoplastic, Inf = inflammatory, Con = connective, Epi = non-neoplastic epithelial
+
+</td><td>
+
+| | Tum | Inf | Str | Nec | Oth |
+|---|---|---|---|---|---|
+| **Tum** | 0 | 2 | 1 | 1 | 9 |
+| **Inf** | | 0 | 2 | 1 | 8 |
+| **Str** | | | 0 | 5 | 1 |
+| **Nec** | | | | 0 | 10 |
+| **Oth** | | | | | 0 |
+
+Tum = tumor, Inf = inflammatory, Str = stroma, Nec = necrosis, Oth = other. BCSS also tests a data-derived b (§3).
+
+</td></tr>
+</table>
+
 - **Unary cost (trust the classifier).** This is where the two datasets differ:
 
   | | PanNuke | BCSS |
   |---|---|---|
   | Unary | **λ if the pixel changes from HoVer-Net's label, else 0** | **−log p(label)** from the U-Net (p = 0.9 → 0.1, p = 0.01 → 4.6) |
   | Uses classifier certainty? | No: HoVer-Net's saved output has labels only | **Yes:** unsure pixels are cheap to change |
-  | λ multiplies | the unary (higher λ = stronger fidelity) | the pairwise (higher λ = stronger rules) |
+
+- **The trade-off knob λ (same idea on both datasets):** λ balances *trust the classifier* against *follow the rules*, and only that balance matters. PanNuke writes it as λ · unary + pairwise; BCSS writes it as unary + λ · pairwise. Those are the same thing with λ inverted: a small λ on PanNuke is a large λ on BCSS. So on PanNuke a *lower* λ means stronger rules, and on BCSS a *higher* λ does.
 
 - **Solver (both datasets):** block scheme + ICM.
   - Block scheme (right panel): solve the four corner blocks with the cross fixed, then the cross with the corners fixed; repeat. Blocks are 100/56/100 px on BCSS and 60/44/60 px on PanNuke.
@@ -409,6 +430,24 @@ U-Net alone: pixel acc **0.8414**, mIoU **0.6489**. This matches the repo's earl
 - **Same picture as dev.** A small, reliable gain that levels off by λ ≈ 4, and the two tables are tied.
 - **The gain is smaller than on dev** (+0.0019 vs. +0.0030). New hospitals look different, so the U-Net's mistakes there are more often whole regions, which the WCSP can't fix.
 - **About 0.9% of pixels change.** That's +0.05–0.08 pp of pixel accuracy, so the mIoU gain comes from the edges of the smaller classes.
+
+#### Per class (val, λ = 8)
+
+| Method | Tumor | Stroma | Inflam. | Necrosis | Other |
+|---|---:|---:|---:|---:|---:|
+| **IoU** — U-Net alone | 0.813 | 0.721 | 0.617 | 0.669 | 0.424 |
+| WCSP, handwritten b | 0.813 | 0.722 | 0.618 | 0.670 | **0.431** |
+| WCSP, data-derived b | 0.814 | 0.722 | 0.618 | 0.671 | 0.427 |
+| **Precision** — U-Net alone | 0.892 | 0.828 | 0.800 | 0.805 | 0.604 |
+| WCSP, handwritten b | 0.891 | 0.827 | 0.802 | 0.809 | **0.622** |
+| WCSP, data-derived b | 0.893 | 0.828 | 0.803 | 0.807 | 0.611 |
+| **Recall** — U-Net alone | 0.902 | 0.848 | 0.730 | 0.798 | 0.586 |
+| WCSP, handwritten b | 0.903 | 0.850 | 0.729 | 0.795 | 0.584 |
+| WCSP, data-derived b | 0.903 | 0.850 | 0.729 | 0.799 | 0.586 |
+
+- **Most of the mIoU gain is the "other" class, through precision** (0.604 → 0.622 with handwritten b).
+- **Why:** the handwritten table makes "other" very expensive next to tumor, inflammatory and necrosis (8–10). Stray "other" specks inside those regions get relabeled, and recall barely moves.
+- The data-derived table penalizes "other" less, so it cleans fewer specks.
 
 #### Step 4. Does a real WCSP solver do better than greedy ICM? (val, handwritten b, λ = 4)
 

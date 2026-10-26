@@ -55,6 +55,28 @@ class BlockLayout:
         return cls(phases=(tuple(corners), (cross,)))
 
     @classmethod
+    def tiles(cls, shape, size=16):
+        """
+        size x size tiles REACH px apart, so the tiles of one phase never
+        interact; four phases shifted by half a stride cover every pixel.
+        """
+        height, width = shape
+        stride = size + REACH
+        phases = []
+        for dy, dx in ((0, 0), (stride // 2, 0), (0, stride // 2), (stride // 2, stride // 2)):
+            regions = []
+            for y in range(dy - stride, height, stride):
+                for x in range(dx - stride, width, stride):
+                    rows = slice(max(y, 0), max(min(y + size, height), 0))
+                    cols = slice(max(x, 0), max(min(x + size, width), 0))
+                    if rows.stop > rows.start and cols.stop > cols.start:
+                        mask = np.zeros(shape, dtype=bool)
+                        mask[rows, cols] = True
+                        regions.append(mask)
+            phases.append(tuple(regions))
+        return cls(phases=tuple(phases))
+
+    @classmethod
     def whole(cls, shape):
         """No decomposition: one region covering the image."""
         return cls(phases=((np.ones(shape, dtype=bool),),))
@@ -120,7 +142,13 @@ class BlockCoordinateDescent:
                         region = region & active
                         if region.any():
                             sub, window = condition(problem, labels, region)
-                            jobs.append((sub, window, labels[window].copy()))
+                            before = labels[window].copy()
+                            # Pairwise costs are >= 0, so the sum of the smallest
+                            # unaries bounds the region's optimum: skip regions
+                            # already at that bound.
+                            bound = sub.constant + sub.unary[sub.active_mask].min(-1).sum()
+                            if energy(sub, before) > bound + self.tol:
+                                jobs.append((sub, window, before))
                     if pool is None:
                         results = [self.inner.solve(sub, before) for sub, _, before in jobs]
                     else:

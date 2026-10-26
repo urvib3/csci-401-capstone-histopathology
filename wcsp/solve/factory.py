@@ -3,6 +3,7 @@
 
 from .argmax import ArgmaxSolver
 from .blocks import BlockCoordinateDescent, BlockLayout
+from .chain import ChainSolver
 from .icm import ICMSolver
 
 
@@ -21,9 +22,16 @@ def get_solver(spec):
         inner = get_solver(spec.pop("inner", {"name": "icm"}))
         block = spec.pop("block", 100)
         whole = spec.pop("whole", False)
+        tile = spec.pop("tile", None)
 
         def layout_for(shape):
-            return BlockLayout.whole(shape) if whole else BlockLayout.cross(shape, block)
+            if whole:
+                return BlockLayout.whole(shape)
+            if tile:
+                return BlockLayout.tiles(shape, tile)
+            return BlockLayout.cross(shape, block)
 
         return BlockCoordinateDescent(inner, layout=layout_for, **spec)
+    if name == "chain":
+        return ChainSolver([get_solver(stage) for stage in spec.pop("stages")])
     raise ValueError(f"unknown solver {name!r}.")
