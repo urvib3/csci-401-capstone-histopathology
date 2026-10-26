@@ -8,14 +8,14 @@ For each problem, we identify the WCSP formulation, describe its combinatorial s
 
 ### Current Implementations
 
-| Problem | Owner | File / Status |
-| --- | --- | --- |
-| N-Queens | Abhishek | `sample_problems/n_queens.cpp` |
-| Sudoku | Rishi | `sample_problems/sudoku.py` |
-| Crosswords | Kashvi | `sample_problems/crosswords.py` |
-| Maximum Weighted Independent Set | Ryan | `sample_problems/MWIS/MWIS_solver.py` |
-| Minimum Spanning Tree | Aakanksha | `sample_problems/minimum_spanning_tree.py` |
-| Traveling Salesman Problem | Urvi | `sample_problems/traveling_salesman.py` |
+| Problem | File / Status |
+| --- | --- |
+| N-Queens | `sample_problems/n_queens.cpp` |
+| Sudoku | `sample_problems/sudoku.py` |
+| Crosswords | `sample_problems/crosswords.py` |
+| Maximum Weighted Independent Set | `sample_problems/MWIS/MWIS_solver.py` |
+| Minimum Spanning Tree | `sample_problems/minimum_spanning_tree.py` |
+| Traveling Salesman Problem | `sample_problems/traveling_salesman.py` |
 
 ---
 
@@ -335,8 +335,6 @@ With an admissible heuristic, A* can find the optimal TSP tour, although the sea
 ---
 
 # N-Queens
-
-**Name:** Abhishek
 
 ## WCSP framework
 

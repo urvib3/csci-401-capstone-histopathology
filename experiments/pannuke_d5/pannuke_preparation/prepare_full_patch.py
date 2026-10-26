@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import sys
 
 import numpy as np
 import pandas as pd
@@ -9,7 +10,14 @@ import pandas as pd
 # Configuration
 # ============================================================
 
-TARGET_IMAGE = "image_00748"
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--index", type=int, required=True)
+args = parser.parse_args()
+
+image_index = args.index
+TARGET_IMAGE = f"image_00{image_index}"
 OFFSET = 46
 
 CLASS_TO_ID = {
@@ -143,9 +151,8 @@ print(
 )
 
 if target_rows.empty:
-    raise RuntimeError(
-        f"No CSV predictions found for {TARGET_IMAGE}"
-    )
+    print(f"\nSkipping {TARGET_IMAGE}: no HoVer-Net predictions.")
+    sys.exit(0)
 
 
 # ============================================================
@@ -286,9 +293,7 @@ print(
 # ============================================================
 
 # image_00748 -> dataset index 748
-image_index = int(
-    TARGET_IMAGE.split("_")[1]
-)
+
 
 masks = np.load(
     masks_path,
@@ -404,9 +409,16 @@ print(
 
 out_dir = (
     repo
+<<<<<<<< HEAD:experiments/pannuke_d5/pannuke_aakanksha/prepare_full_patch.py
     / "experiments"
     / "pannuke_d5"
     / "pannuke_aakanksha"
+========
+    / "experiments"
+    / "pannuke_d5"
+    / "pannuke_multi_patch"
+    / TARGET_IMAGE
+>>>>>>>> origin/main:experiments/pannuke_d5/pannuke_preparation/prepare_full_patch.py
 )
 
 out_dir.mkdir(
@@ -449,6 +461,7 @@ metadata = {
     "dataset": "PanNuke Fold 2",
     "image": TARGET_IMAGE,
     "dataset_index": image_index,
+    "experiment": "PanNuke Deliverable 5 multi-patch evaluation",
 
     "model": "hovernet_fast-pannuke",
 
@@ -543,4 +556,4 @@ for filename in [
     print(" ", out_dir / filename)
 
 
-print("\nAakanksha D5 input preparation complete.")
+print("\nPanNuke D5 input preparation complete.")

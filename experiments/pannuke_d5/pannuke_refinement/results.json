@@ -1,8 +1,8 @@
 {
   "source_image": "image_00748",
   "inputs": [
-    "pannuke_aakanksha/hovernet_labels_164.npy",
-    "pannuke_aakanksha/active_mask_164.npy"
+    "pannuke_preparation/hovernet_labels_164.npy",
+    "pannuke_preparation/active_mask_164.npy"
   ],
   "ground_truth_used": false,
   "label_dictionary": {

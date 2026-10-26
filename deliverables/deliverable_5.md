@@ -1,19 +1,23 @@
 # Deliverable 5 — Full-Patch WCSP (PanNuke) and Pixel WCSP (BCSS)
 
-This deliverable runs the WCSP end to end on one complete, real HoVer-Net prediction region: **PanNuke Fold 2, `image_00748`**.
+- **PanNuke:** single full patch (below) and the multi-patch / λ study in [deliverable_5_pannuke_multipatch.md](deliverable_5_pannuke_multipatch.md). Code in [`experiments/pannuke_d5/`](../experiments/pannuke_d5/).
+- **BCSS:** [pixel-level WCSP on a U-Net](#bcss-pixel-level-wcsp-on-a-u-net-urvi). Code in [`wcsp/`](../wcsp/) and [`experiments/bcss_wcsp/`](../experiments/bcss_wcsp/).
+(In Progress)
+
+1.Running the WCSP end to end on one complete, real HoVer-Net prediction region: **PanNuke Fold 2, `image_00748`**.
 
 ```text
 PanNuke image
     ↓
 HoVer-Net prediction
     ↓
-164×164 predicted pixel-label map          (experiments/pannuke_d5/pannuke_aakanksha/)
+164×164 predicted pixel-label map          (experiments/pannuke_d5/pannuke_preparation/)
     ↓
-WCSP refinement                            (experiments/pannuke_d5/pannuke_abhishek/run_wcsp.py)
+WCSP refinement                            (experiments/pannuke_d5/pannuke_refinement/run_wcsp.py)
     ↓
 refined labels
     ↓
-comparison with aligned PanNuke ground truth   (experiments/pannuke_d5/pannuke_abhishek/evaluate.py)
+comparison with aligned PanNuke ground truth   (experiments/pannuke_d5/pannuke_refinement/evaluate.py)
 ```
 
 Ground truth is used only for evaluation. It is never read by the WCSP solver.
@@ -22,16 +26,16 @@ Run from the repository root, in this order:
 
 ```bash
 conda activate pannuke
-python experiments/pannuke_d5/pannuke_aakanksha/prepare_full_patch.py   # needs the Fold 2 data, see below
-python experiments/pannuke_d5/pannuke_abhishek/run_wcsp.py
-python experiments/pannuke_d5/pannuke_abhishek/evaluate.py
+python experiments/pannuke_d5/pannuke_preparation/prepare_full_patch.py   # needs the Fold 2 data, see below
+python experiments/pannuke_d5/pannuke_refinement/run_wcsp.py
+python experiments/pannuke_d5/pannuke_refinement/evaluate.py
 ```
 
 The prepared inputs are committed, so the last two steps run without the PanNuke data.
 
 ---
 
-## 1. Full-Patch Input Preparation (Aakanksha)
+## 1. Full-Patch Input Preparation 
 
 ### Source prediction
 
@@ -91,7 +95,7 @@ The **0.7737 class agreement is not overall pixel accuracy**. It is the fraction
 
 The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mask represent an important upstream limitation: these pixels do not become WCSP variables and therefore cannot be recovered through label refinement alone.
 
-### Files in [`experiments/pannuke_d5/pannuke_aakanksha/`](../experiments/pannuke_d5/pannuke_aakanksha/)
+### Files in [`experiments/pannuke_d5/pannuke_preparation/`](../experiments/pannuke_d5/pannuke_preparation/)
 
 | File | Contents |
 | --- | --- |
@@ -103,10 +107,22 @@ The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mas
 | `metadata.json` | Dataset/image ID, coordinates, label dictionary, active/background policy, counts, overlap statistics, source paths. |
 | `prepare_full_patch.py` | Reproduces the files above from the saved HoVer-Net instance map + prediction CSV and the Fold 2 `masks.npy`. |
 
+HoVer-Net instance map
+        +
+HoVer-Net nucleus class predictions
+        ->
+hovernet_labels_164.npy
+        ->
+active_mask_164.npy = hovernet_labels > 0
+        ->
+WCSP gets:
+  1. label map
+  2. active mask
+
 ```python
 import numpy as np
 
-data = np.load("experiments/pannuke_d5/pannuke_aakanksha/pannuke_d5_patch_package.npz")
+data = np.load("experiments/pannuke_d5/pannuke_preparation/pannuke_d5_patch_package.npz")
 
 initial_labels = data["predicted_labels"]
 active_mask = data["active_mask"]
@@ -116,7 +132,7 @@ instance_map = data["instance_map"]
 
 ---
 
-## 2. WCSP Run (Abhishek, Kashvi's original task)
+## 2. WCSP Run 
 
 `run_wcsp.py` only reads `hovernet_labels_164.npy` and `active_mask_164.npy`.
 
@@ -139,7 +155,7 @@ ICM is greedy, so the results are local optima, not proven global ones. For ever
 
 ---
 
-## 3. Ground-Truth Evaluation (Abhishek)
+## 3. Ground-Truth Evaluation 
 
 `evaluate.py` is the only script that opens `pannuke_gt_labels_164.npy`, and it runs after the WCSP labels are saved.
 
@@ -191,7 +207,7 @@ How it was evaluated:
 - IoU is only reported for Inflammatory since it is the only class in the ground truth. The other predicted classes have IoU 0 both before and after, and Dead is never predicted.
 - λ = 1 was taken from D4 and not tuned on this patch, since tuning it here would use the ground truth.
 
-### Files in [`experiments/pannuke_d5/pannuke_abhishek/`](../experiments/pannuke_d5/pannuke_abhishek/)
+### Files in [`experiments/pannuke_d5/pannuke_refinement/`](../experiments/pannuke_d5/pannuke_refinement/)
 
 | File | Contents |
 | --- | --- |
@@ -206,7 +222,6 @@ How it was evaluated:
 The goal of this stage was to show a working end-to-end pipeline on one real full prediction region, not yet to show the WCSP improves HoVer-Net across PanNuke. Next is scaling the same experiment to multiple patches and checking whether the biological constraints consistently improve held-out performance rather than just smoothing individual examples.
 
 ---
-
 
 # BCSS: Pixel-Level WCSP on a U-Net (Urvi)
 

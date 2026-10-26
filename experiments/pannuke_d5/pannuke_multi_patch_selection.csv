@@ -1,0 +1,21 @@
+image_index,image,tissue_type,num_gt_classes,gt_classes,gt_nucleus_pixels,hovernet_predicted_nuclei,has_hovernet_predictions,gt_neoplastic_pixels,gt_inflammatory_pixels,gt_connective_pixels,gt_dead_pixels,gt_non_neoplastic_pixels
+826,image_826,Bladder,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,11450,21,True,1004,8754,1572,0,120
+2084,image_2084,Liver,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,14286,16,True,7215,3643,2888,0,540
+2352,image_2352,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,13719,23,True,987,6356,6246,130,0
+785,image_785,Breast,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,10188,11,True,5361,199,4292,0,336
+1659,image_1659,Colon,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,19911,16,True,290,1225,3657,0,14739
+2326,image_2326,Stomach,4,Neoplastic; Inflammatory; Connective; Dead,12797,14,True,9450,2283,490,574,0
+911,image_911,Lung,4,Neoplastic; Inflammatory; Connective; Dead,14352,29,True,11295,199,1554,1304,0
+906,image_906,Lung,4,Neoplastic; Inflammatory; Connective; Dead,12288,34,True,5565,287,1505,4931,0
+931,image_931,Uterus,4,Neoplastic; Inflammatory; Connective; Non-neoplastic epithelial,15806,45,True,10409,1993,2304,0,1100
+849,image_849,Colon,4,Neoplastic; Inflammatory; Connective; Dead,20468,15,True,19365,491,43,569,0
+987,image_987,Thyroid,3,Neoplastic; Inflammatory; Connective,14376,13,True,7910,1349,5117,0,0
+364,image_364,Breast,3,Neoplastic; Inflammatory; Connective,12984,8,True,6195,2418,4371,0,0
+2010,image_2010,HeadNeck,3,Neoplastic; Inflammatory; Connective,11876,11,True,4576,1297,6003,0,0
+1409,image_1409,Bile-duct,3,Inflammatory; Connective; Non-neoplastic epithelial,14656,16,True,0,5015,5392,0,4249
+2373,image_2373,Testis,3,Neoplastic; Inflammatory; Connective,19027,31,True,2315,13259,3453,0,0
+1294,image_1294,Bile-duct,3,Neoplastic; Inflammatory; Connective,10979,15,True,4141,5495,1343,0,0
+1088,image_1088,Esophagus,3,Inflammatory; Connective; Non-neoplastic epithelial,10926,16,True,0,1410,2904,0,6612
+1115,image_1115,Adrenal_gland,3,Inflammatory; Connective; Non-neoplastic epithelial,5932,9,True,0,259,1298,0,4375
+1251,image_1251,Testis,3,Inflammatory; Connective; Non-neoplastic epithelial,14912,17,True,0,992,9227,0,4693
+1993,image_1993,HeadNeck,3,Neoplastic; Inflammatory; Dead,6750,8,True,4196,1868,0,686,0

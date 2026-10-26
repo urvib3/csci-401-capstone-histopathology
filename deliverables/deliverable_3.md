@@ -17,9 +17,9 @@ Deliverable 3 set up baselines for each dataset (one on PanNuke, three on BCSS),
 
 ## PanNuke (nuclei)
 
-**Data and baseline.** PanNuke Fold 2 (2,523 patches of 256 × 256 px). HoVer-Net was chosen because one model segments and classifies nuclei and a pretrained PanNuke checkpoint runs on a free Colab GPU in about a minute for the whole fold. It found 25,301 nuclei; 185 patches had none. *(Aakanksha)*
+**Data and baseline.** PanNuke Fold 2 (2,523 patches of 256 × 256 px). HoVer-Net was chosen because one model segments and classifies nuclei and a pretrained PanNuke checkpoint runs on a free Colab GPU in about a minute for the whole fold. It found 25,301 nuclei; 185 patches had none.
 
-**Evaluation against ground truth** (central 164 × 164 px that HoVer-Net "fast" predicts; centroid matching within 12 px; PQ at IoU > 0.5, averaged over the 19 tissues). *(Abhishek)*
+**Evaluation against ground truth** (central 164 × 164 px that HoVer-Net "fast" predicts; centroid matching within 12 px; PQ at IoU > 0.5, averaged over the 19 tissues).
 
 | Metric | Value |
 | --- | ---: |
@@ -32,7 +32,7 @@ Deliverable 3 set up baselines for each dataset (one on PanNuke, three on BCSS),
 - Most common mix-ups: connective predicted as neoplastic (715), inflammatory and connective swapped both ways (468 / 464).
 - Caveat: we could not confirm which folds the checkpoint was trained on, so these numbers may be optimistic.
 
-**WCSP mapping and clustering** (10 sample patches, 55 nuclei). *(Kashvi)* Each nucleus becomes a variable over the 5 cell classes with unary cost −log p. Clustering nucleus centroids to cut the variable count:
+**WCSP mapping and clustering** (10 sample patches, 55 nuclei). Each nucleus becomes a variable over the 5 cell classes with unary cost −log p. Clustering nucleus centroids to cut the variable count:
 
 | Method | Variables | Reduction | Groups mixing predicted classes |
 | --- | ---: | ---: | ---: |
