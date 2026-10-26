@@ -1,4 +1,4 @@
-# Minimum Spanning Tree as a WCSP [Aakanksha]
+# Minimum Spanning Tree as a WCSP
 #
 # MST: a subset of edges in a connected, edge-weighted undirected graph that connects all
 #  vertices with the minimum possible total edge weight and no cycles

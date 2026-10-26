@@ -35,7 +35,7 @@
   "predicted_only_pixels": 2497,
   "ground_truth_only_pixels": 1021,
   "overlap_class_accuracy": 0.7737270628265889,
-  "prediction_csv": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/results/sample_predictions/fold2/hovernet_fold2_predictions.csv",
-  "instance_map_source": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/results/sample_predictions/fold2/hovernet_instance_maps_0500_0749.npz",
-  "ground_truth_source": "/Users/aakankshapeeru/Documents/csci-401-capstone-histopathology/benchmarks/pannuke/data/masks/fold2/masks.npy"
+  "prediction_csv": "benchmarks/pannuke/results/sample_predictions/fold2/hovernet_fold2_predictions.csv",
+  "instance_map_source": "benchmarks/pannuke/results/sample_predictions/fold2/hovernet_instance_maps_0500_0749.npz",
+  "ground_truth_source": "benchmarks/pannuke/data/masks/fold2/masks.npy"
 }

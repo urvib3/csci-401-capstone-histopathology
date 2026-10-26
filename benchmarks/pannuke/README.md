@@ -52,7 +52,7 @@ Use PanNuke to test a baseline model for nucleus detection and classification, t
 
 ## Tasks
 
-### Aakanksha - Dataset Setup and HoVer-Net Inference
+### Dataset Setup and HoVer-Net Inference
 
 HoVer-Net was selected because it performs both nucleus instance segmentation and classification and has a pretrained PanNuke model. Its nucleus-level outputs also align naturally with the eventual WCSP representation.
 
@@ -110,7 +110,7 @@ Saved outputs include:
   - Documents the inference setup and experiment
 
 ---
-### Abhishek - Evaluation Against Ground Truth
+### Evaluation Against Ground Truth
 
 Compared the full Fold 2 HoVer-Net predictions (all 2,523 patches) against the ground truth, which is `masks.npy` from the Fold 2 zip. No new inference was run, this only uses the saved instance maps and prediction CSV.
 
@@ -166,7 +166,7 @@ We went with HoVer-Net because it does segmentation and classification in one mo
 
 ---
 
-### Kashvi - Prediction Inspection and WCSP Mapping
+### Prediction Inspection and WCSP Mapping
 
 - Dataset: PanNuke Fold 2, first 10 sample 256x256 patches, matching the existing inference run.
 - Baseline: pretrained `hovernet_fast-pannuke`; analysis selects patches 000 through 009 from `fold2/hovernet_fold2_predictions.csv` (55 nuclei). No new inference was run for these results.
@@ -211,7 +211,7 @@ Cluster each patch separately using centroids. K-means uses `K=ceil(N/3)`, seed 
 
 The included [Fold 2 sample](data/sample_fold2/README.md) contains the first ten images and their matching ground-truth masks. Run local commands from the repository root.
 
-### Aakanksha - HoVer-Net Inference
+### HoVer-Net Inference
 
 1. Open [PanNuke_HoVerNet_Inference.ipynb](PanNuke_HoVerNet_Inference.ipynb) in Google Colab and select a GPU runtime.
 2. Upload `data/sample_fold2/images.npy` to `/content/`. Generate the ten input PNGs before running the notebook's image-list cell:
@@ -229,7 +229,7 @@ for i, image in enumerate(images):
 3. Run the notebook's setup, model-loading, inference, and CSV-export cells in order.
 4. The sample cells export `hovernet_predictions.csv`. The current inspection script uses the checked-in `results/sample_predictions/fold2/hovernet_fold2_predictions.csv` and selects image indices 0 through 9. To regenerate that full-fold file, use the complete Fold 2 inputs and the notebook's full-fold inference/export cells.
 
-### Abhishek - Ground-Truth Evaluation
+### Ground-Truth Evaluation
 
 The evaluation needs the complete Fold 2 ground truth, which is too large for the repository. Download the official Fold 2 archive (about 660 MB) and extract the masks and tissue types into the ignored `data/` directory:
 
@@ -256,7 +256,7 @@ Use `--masks` and `--types` if the files are stored elsewhere. The script reads 
 - [Confusion matrix](results/evaluation/fold2_confusion_matrix.csv)
 - [Per-tissue metrics](results/evaluation/fold2_tissue_metrics.csv)
 
-### Kashvi - Prediction Inspection and Clustering
+### Prediction Inspection and Clustering
 
 Install the analysis dependencies in your Python environment:
 

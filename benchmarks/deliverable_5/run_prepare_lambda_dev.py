@@ -22,7 +22,7 @@ prepare_script = (
     repo
     / "benchmarks"
     / "deliverable_5"
-    / "pannuke_aakanksha"
+    / "pannuke_preparation"
     / "prepare_full_patch.py"
 )
 

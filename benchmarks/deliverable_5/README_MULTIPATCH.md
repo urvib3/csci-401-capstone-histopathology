@@ -537,7 +537,7 @@ This nucleus-level redesign is proposed as future work and was not implemented a
 ## Input preparation
 
 ```text
-pannuke_aakanksha/prepare_full_patch.py
+pannuke_preparation/prepare_full_patch.py
 ```
 
 Converts one PanNuke/HoVer-Net patch into the arrays required by the WCSP and evaluation pipeline.
@@ -568,7 +568,7 @@ Prepares all selected evaluation patches.
 ## WCSP solver
 
 ```text
-pannuke_abhishek/run_wcsp.py
+pannuke_refinement/run_wcsp.py
 ```
 
 Runs:
@@ -606,7 +606,7 @@ Runs the WCSP over the 20-patch evaluation set.
 ## Ground-truth evaluation
 
 ```text
-pannuke_abhishek/evaluate.py
+pannuke_refinement/evaluate.py
 ```
 
 Compares HoVer-Net and WCSP labels against PanNuke ground truth.

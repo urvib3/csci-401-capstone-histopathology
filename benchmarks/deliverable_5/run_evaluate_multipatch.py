@@ -30,7 +30,7 @@ evaluate_script = (
     repo
     / "benchmarks"
     / "deliverable_5"
-    / "pannuke_abhishek"
+    / "pannuke_refinement"
     / "evaluate.py"
 )
 

@@ -30,7 +30,7 @@ wcsp_script = (
     repo
     / "benchmarks"
     / "deliverable_5"
-    / "pannuke_abhishek"
+    / "pannuke_refinement"
     / "run_wcsp.py"
 )
 

@@ -7,7 +7,7 @@ This deliverable advances our existing segmentation work toward WCSP refinement.
 From our previous findings, PanNuke inference and prediction inspection are available, and the BCSS U-Net baseline achieved approximately 0.649 mean IoU and 0.779 mean Dice. The contributions below build on those outputs through new integration work and numerical checks.
 
 
-## Task 1 — PanNuke: Prepare a Real Prediction Crop [Aakanksha]
+## Task 1 — PanNuke: Prepare a Real Prediction Crop
 
 We selected a real 3×3 crop from the existing `hovernet_fast-pannuke` predictions for PanNuke Fold 2. The crop was taken from `image_00748` at HoVer-Net output coordinates `x = 5–7, y = 17–19`. Because the fast HoVer-Net output represents the central 164×164 region of the original 256×256 patch, a 46-pixel offset was applied in both directions, giving original-image coordinates `x = 51–53, y = 63–65`.
 

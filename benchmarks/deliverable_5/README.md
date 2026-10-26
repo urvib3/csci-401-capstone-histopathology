@@ -8,13 +8,13 @@ PanNuke image
     ↓
 HoVer-Net prediction
     ↓
-164×164 predicted pixel-label map          (pannuke_aakanksha/)
+164×164 predicted pixel-label map          (pannuke_preparation/)
     ↓
-WCSP refinement                            (pannuke_abhishek/run_wcsp.py)
+WCSP refinement                            (pannuke_refinement/run_wcsp.py)
     ↓
 refined labels
     ↓
-comparison with aligned PanNuke ground truth   (pannuke_abhishek/evaluate.py)
+comparison with aligned PanNuke ground truth   (pannuke_refinement/evaluate.py)
 ```
 
 Ground truth is used only for evaluation. It is never read by the WCSP solver.
@@ -23,9 +23,9 @@ Run from the repository root, in this order:
 
 ```bash
 conda activate pannuke
-python benchmarks/deliverable_5/pannuke_aakanksha/prepare_full_patch.py   # needs the Fold 2 data, see below
-python benchmarks/deliverable_5/pannuke_abhishek/run_wcsp.py
-python benchmarks/deliverable_5/pannuke_abhishek/evaluate.py
+python benchmarks/deliverable_5/pannuke_preparation/prepare_full_patch.py   # needs the Fold 2 data, see below
+python benchmarks/deliverable_5/pannuke_refinement/run_wcsp.py
+python benchmarks/deliverable_5/pannuke_refinement/evaluate.py
 ```
 
 The prepared inputs are committed, so the last two steps run without the PanNuke data.
@@ -92,7 +92,7 @@ The **0.7737 class agreement is not overall pixel accuracy**. It is the fraction
 
 The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mask represent an important upstream limitation: these pixels do not become WCSP variables and therefore cannot be recovered through label refinement alone.
 
-### Files in `pannuke_aakanksha/`
+### Files in `pannuke_preparation/`
 
 | File | Contents |
 | --- | --- |
@@ -107,7 +107,7 @@ The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mas
 ```python
 import numpy as np
 
-data = np.load("benchmarks/deliverable_5/pannuke_aakanksha/pannuke_d5_patch_package.npz")
+data = np.load("benchmarks/deliverable_5/pannuke_preparation/pannuke_d5_patch_package.npz")
 
 initial_labels = data["predicted_labels"]
 active_mask = data["active_mask"]
@@ -192,7 +192,7 @@ How it was evaluated:
 - IoU is only reported for Inflammatory since it is the only class in the ground truth. The other predicted classes have IoU 0 both before and after, and Dead is never predicted.
 - λ = 1 was taken from D4 and not tuned on this patch, since tuning it here would use the ground truth.
 
-### Files in `pannuke_abhishek/`
+### Files in `pannuke_refinement/`
 
 | File | Contents |
 | --- | --- |

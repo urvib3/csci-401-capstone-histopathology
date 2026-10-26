@@ -550,4 +550,4 @@ for filename in [
     print(" ", out_dir / filename)
 
 
-print("\nAakanksha D5 input preparation complete.")
+print("\nPanNuke D5 input preparation complete.")
