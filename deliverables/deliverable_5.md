@@ -254,12 +254,12 @@ How it was evaluated:
 | U-Net | 0.8414 | 0.6489 | — |
 | U-Net + WCSP, handwritten b (λ = 8) | 0.8419 | **0.6507** | +0.0019 [+0.0010, +0.0027] |
 | U-Net + WCSP, data-derived b (λ = 8) | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
-| U-Net + WCSP, toulbar2 instead of ICM (λ = 4)* | 0.8425 | 0.6464 | +0.0003 (ICM on the same tiles: +0.0018) |
+| U-Net + WCSP, toulbar2 instead of ICM (λ = 4)* | 0.8416 | 0.6492 | +0.0003 [−0.0000, +0.0006] (ICM at λ = 4: +0.0018) |
 | U-Net + WCSP + image term f (β = 1, λ = 8)† | 0.8560 | 0.7092 | +0.0025 (without f: +0.0030) |
 
 Val = 2,124 held-out-hospital tiles.
-- \* 2,066 val tiles, where U-Net mIoU is 0.6461. toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
-- † dev, 185 tiles, where U-Net mIoU is 0.7067. f was dropped on dev, so it was never run on val.
+- \* toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
+- † dev, 185 tiles, where U-Net mIoU is 0.7067. The val run is in progress.
 
 **Why it helps a little on BCSS:**
 - Every pixel is a variable, and the unary carries the U-Net's certainty.
