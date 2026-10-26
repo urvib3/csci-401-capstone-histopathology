@@ -107,11 +107,11 @@ The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mas
 HoVer-Net instance map
         +
 HoVer-Net nucleus class predictions
-        ↓
+        ->
 hovernet_labels_164.npy
-        ↓
+        ->
 active_mask_164.npy = hovernet_labels > 0
-        ↓
+        ->
 WCSP gets:
   1. label map
   2. active mask
