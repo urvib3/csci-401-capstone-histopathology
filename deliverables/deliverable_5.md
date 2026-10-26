@@ -26,9 +26,7 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
   - Cost = b[label, label′] / distance. Closer neighbors count more; same label is free.
   - **b** is the class-compatibility table. PanNuke uses the handwritten table from the project notes. BCSS tests both the handwritten table and one **derived from the BCSS training labels** (each cell: handwritten / data-derived; details in §3):
 
-<table>
-<tr><th>PanNuke (handwritten)</th><th>BCSS (handwritten / data-derived)</th></tr>
-<tr><td>
+**PanNuke (handwritten)**
 
 | | Neo | Inf | Con | Dead | Epi |
 |---|---|---|---|---|---|
@@ -40,7 +38,7 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 
 Neo neoplastic · Inf inflammatory · Con connective · Epi non-neoplastic epithelial
 
-</td><td>
+**BCSS (handwritten / data-derived)**
 
 | | Tum | Inf | Str | Nec | Oth |
 |---|---|---|---|---|---|
@@ -51,9 +49,6 @@ Neo neoplastic · Inf inflammatory · Con connective · Epi non-neoplastic epith
 | **Oth** | | | | | 0 |
 
 Tum tumor · Inf inflammatory · Str stroma · Nec necrosis · Oth other
-
-</td></tr>
-</table>
 
   Symmetric, so only the upper triangle is shown; same label (diagonal) is free.
 
