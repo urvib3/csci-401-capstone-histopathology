@@ -249,17 +249,17 @@ How it was evaluated:
 
 ### Results
 
-| Method | Pixel acc | mIoU | Δ mIoU vs. U-Net [95% CI] |
-|---|---:|---:|---|
-| U-Net | 0.8414 | 0.6489 | — |
-| U-Net + WCSP, handwritten b (λ = 8) | 0.8419 | **0.6507** | +0.0019 [+0.0010, +0.0027] |
-| U-Net + WCSP, data-derived b (λ = 8) | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
-| U-Net + WCSP, toulbar2 instead of ICM (λ = 4)* | 0.8416 | 0.6492 | +0.0003 [−0.0000, +0.0006] (ICM at λ = 4: +0.0018) |
-| U-Net + WCSP + image term f (β = 1, λ = 8)† | 0.8560 | 0.7092 | +0.0025 (without f: +0.0030) |
+| Method | Evaluated on | Pixel acc | mIoU | Δ mIoU vs. U-Net [95% CI] |
+|---|---|---:|---:|---|
+| U-Net | val, 2,124 tiles | 0.8414 | 0.6489 | — |
+| U-Net + WCSP, handwritten b (λ = 8) | val, 2,124 tiles | 0.8419 | **0.6507** | +0.0019 [+0.0010, +0.0027] |
+| U-Net + WCSP, data-derived b (λ = 8) | val, 2,124 tiles | **0.8422** | 0.6506 | +0.0018 [+0.0011, +0.0024] |
+| U-Net + WCSP, toulbar2 instead of ICM (λ = 4) | val, 2,124 tiles | 0.8416 | 0.6492 | +0.0003 [−0.0000, +0.0006] (ICM at λ = 4: +0.0018) |
+| U-Net + WCSP + image term f (β = 1, λ = 8) | dev, 185 tiles (val running) | 0.8560 | 0.7092 | +0.0025 (no f on dev: +0.0030) |
 
-Val = 2,124 held-out-hospital tiles.
-- \* toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
-- † dev, 185 tiles, where U-Net mIoU is 0.7067. The val run is in progress.
+- **val:** 2,124 labeled tiles from hospitals the U-Net never saw.
+- **dev:** 185 tiles from every 8th training region, used only to choose settings. U-Net mIoU on dev is 0.7067.
+- toulbar2 times out at 20 s per block, so it finds worse solutions than ICM.
 
 **Why it helps a little on BCSS:**
 - Every pixel is a variable, and the unary carries the U-Net's certainty.
