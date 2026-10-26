@@ -21,12 +21,19 @@ def comparison_figure(image, target, baseline, refined, title="", path=None):
     from matplotlib.patches import Patch
 
     changed = np.asarray(baseline) != np.asarray(refined)
+
+    def accuracy(labels):
+        if target is None or not (np.asarray(target) != IGNORE).any():
+            return ""
+        scored = np.asarray(target) != IGNORE
+        return f" (acc {(np.asarray(labels)[scored] == np.asarray(target)[scored]).mean():.1%})"
+
     panels = [
         ("image", np.asarray(image)),
         ("ground truth", overlay(image, target) if target is not None else image),
-        ("classifier (argmax)", colorize(baseline)),
-        ("WCSP", colorize(refined)),
-        (f"changed ({changed.mean():.1%})", np.where(changed[..., None], colorize(refined), 255).astype(np.uint8)),
+        ("classifier (argmax)" + accuracy(baseline), overlay(image, baseline)),
+        ("WCSP" + accuracy(refined), overlay(image, refined)),
+        (f"changed ({changed.mean():.1%})", overlay(image, np.where(changed, refined, IGNORE), alpha=0.8)),
     ]
     fig, axes = plt.subplots(1, len(panels), figsize=(3.2 * len(panels), 3.6))
     for ax, (name, panel) in zip(axes, panels):

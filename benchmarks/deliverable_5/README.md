@@ -204,3 +204,147 @@ How it was evaluated:
 ## Next Steps
 
 The goal of this stage was to show a working end-to-end pipeline on one real full prediction region, not yet to show the WCSP improves HoVer-Net across PanNuke. Next is scaling the same experiment to multiple patches and checking whether the biological constraints consistently improve held-out performance rather than just smoothing individual examples.
+
+---
+
+# BCSS: Pixel-Level WCSP on a U-Net (Urvi)
+
+Separate from the PanNuke work above. Code: [`wcsp/`](../../wcsp/) (BCSS only), configs in `configs/`, SLURM scripts in `slurm/`.
+
+## Setup
+
+- **Data:** BCSS breast-cancer tiles, 512 × 512 px. 5 classes: tumor, stroma, inflammatory, necrosis, other.
+- **Classifier:** the pretrained TIAToolbox U-Net (`fcn_resnet50_unet-bcss`), used as is: no training, no calibration.
+  - It sees the full 512 px tile and predicts at half resolution. We upsample ×2 and keep the **central 256 × 256**.
+  - The outer ring is context only. Everything below (U-Net, WCSP, scoring) uses the central 256 × 256.
+- **Splits:**
+  - **dev:** every 8th training region. Used only to choose λ, the b table and β.
+  - **val:** held-out hospitals. Used only for the final numbers.
+  - Tiles with no labeled pixels in the crop are skipped.
+- **Metrics:**
+  - **Pixel accuracy:** share of labeled pixels with the right class.
+  - **mIoU:** per-class overlap (IoU), averaged over the 5 classes, so small classes count as much as big ones.
+  - **95% CI** on the WCSP − U-Net difference, from resampling whole tissue regions (bootstrap).
+
+## How the WCSP works
+
+The WCSP takes the U-Net's per-pixel probabilities and looks for a labeling of the whole tile that agrees with the U-Net *and* follows tissue-adjacency rules.
+
+- **Variables:** every pixel of the 256 × 256 crop (65,536). **Domain:** the 5 classes.
+- **Total cost** = Σ unary + λ · Σ pairwise. The solver looks for the labeling with the lowest total.
+- **Unary (trust the U-Net):** −log p(label).
+  - p = 0.9 → 0.1; p = 0.5 → 0.7; p = 0.01 → 4.6.
+  - Labels the U-Net likes are cheap.
+- **Pairwise (the biology rules):** for every pixel pair up to 2√2 px apart (24 neighbors), the cost is b[label₁, label₂] / distance.
+  - Same label costs 0.
+  - Weights are normalized so a pixel's 24 neighbors sum to 1.
+- **λ:** how much the rules count relative to the U-Net. λ = 0 gives back the U-Net exactly.
+- **Optional image term f** (my addition, not in the original notes): extra cost for a label change between similar-looking pixels, so boundaries snap to color edges. Strength β; off unless stated.
+- **Solver:** the notes' block scheme with greedy ICM inside each block. toulbar2 solves the same problem as a comparison.
+  - Block scheme: fix the 56 px cross and solve the four 100 × 100 corners, then fix the corners and solve the cross; repeat.
+  - ICM: switch each pixel to its cheapest label given its neighbors until nothing changes.
+
+**Intuition: when do the rules win?**
+- A pixel's label changes only if the rule savings beat the U-Net's cost difference.
+- At λ = 4, an edge pixel with half its neighbors disagreeing gets about 2–4 of rule pressure.
+- That only beats the U-Net where it is unsure (top label p ≲ 0.5). So the WCSP mostly cleans up **edges and specks**, and only ~1% of pixels change.
+- It cannot fix a whole region the U-Net is confidently wrong about.
+
+## The b table: handwritten vs. data-derived
+
+Each cell is **handwritten / data-derived** (symmetric, so only the upper triangle is shown; diagonal = 0).
+
+| | Tumor | Inflam. | Stroma | Necrosis | Other |
+|---|---|---|---|---|---|
+| **Tumor** | 0 | 2 / 5.2 | 1 / 3.0 | 1 / 4.1 | 9 / 4.5 |
+| **Inflam.** | | 0 | 2 / 2.2 | 1 / 6.9 | 8 / 3.2 |
+| **Stroma** | | | 0 | 5 / 3.6 | 1 / 2.3 |
+| **Necrosis** | | | | 0 | 10 / 4.9 |
+| **Other** | | | | | 0 |
+
+- **Handwritten:** from the project notes; the "Other" row is the notes' *healthy* class.
+- **Data-derived:** from how often each pair of classes touches in the training ground truth, using pointwise mutual information:
+  - cost = −log( P(a next to b) / (P(a) · P(b)) )
+  - Dividing by P(a)·P(b) means a rare class like necrosis is not penalized just for being rare. A pair is only expensive if it touches *less than its frequency predicts*.
+  - +1 smoothing; negative values are set to 0; rescaled to the handwritten table's mean (4.0) so λ means the same for both.
+- **How they differ:**
+  - The notes punish anything next to healthy (8–10). In BCSS, "other" is fat, vessels and similar tissue, which touches everything, so the data gives only 2.3–4.9.
+  - Inflammatory next to necrosis is the rarest pair in the data (6.9) but costs 1 in the notes.
+  - The handwritten table breaks the triangle inequality: tumor → stroma → other costs 1 + 1 = 2 < 9. So the cheapest fix is often a **fake 1-px stroma strip** between tumor and other (see the "hurts" figure below). The data-derived table is flatter and almost removes this incentive (3.0 + 2.3 vs. 4.5).
+
+## Results
+
+### 1. Choosing settings on dev (185 labeled tiles, ICM)
+
+U-Net alone: pixel acc **0.8555**, mIoU **0.7067**.
+
+| b table | λ | Pixel acc | mIoU | Δ mIoU [95% CI] | Pixels changed |
+|---|---:|---:|---:|---|---:|
+| Handwritten | 0.5 | 0.8560 | 0.7082 | +0.0015 [+0.0007, +0.0020] | 0.45% |
+| Handwritten | 1 | 0.8561 | 0.7086 | +0.0019 [+0.0009, +0.0026] | 0.60% |
+| Handwritten | 2 | 0.8563 | 0.7094 | +0.0027 [+0.0014, +0.0035] | 0.75% |
+| Handwritten | 4 | 0.8562 | 0.7096 | +0.0029 [+0.0013, +0.0038] | 0.87% |
+| Handwritten | 8 | 0.8562 | **0.7097** | **+0.0030** [+0.0013, +0.0040] | 0.94% |
+| Data-derived | 0.5 | 0.8562 | 0.7082 | +0.0015 [+0.0008, +0.0021] | 0.52% |
+| Data-derived | 1 | 0.8563 | 0.7085 | +0.0018 [+0.0008, +0.0027] | 0.65% |
+| Data-derived | 2 | 0.8564 | 0.7089 | +0.0022 [+0.0011, +0.0032] | 0.73% |
+| Data-derived | 4 | **0.8565** | 0.7090 | +0.0023 [+0.0012, +0.0033] | 0.76% |
+| Data-derived | 8 | 0.8564 | 0.7090 | +0.0023 [+0.0012, +0.0033] | 0.76% |
+
+- **Every setting helps a little**, and every interval stays above 0.
+- **Gains level off from λ ≈ 2.** λ = 16 and 32 are running to confirm.
+- **Handwritten is slightly ahead on mIoU, data-derived slightly ahead on pixel accuracy.** The difference is far smaller than the intervals, so the two tables are effectively tied.
+
+### 2. Adding the image term f (dev, handwritten b)
+
+| λ | β | Pixel acc | mIoU | Δ mIoU [95% CI] |
+|---:|---:|---:|---:|---|
+| 4 | 0 (no f) | 0.8562 | 0.7096 | +0.0029 [+0.0013, +0.0038] |
+| 4 | 1 | 0.8562 | 0.7095 | +0.0027 [+0.0012, +0.0036] |
+| 4 | 2 | 0.8560 | 0.7089 | +0.0022 [+0.0007, +0.0031] |
+| 4 | 4 | 0.8560 | 0.7085 | +0.0018 [+0.0006, +0.0026] |
+| 8 | 1, 2, 4 | *running* | | |
+
+- **f does not help; it hurts slightly as β grows.**
+- Likely reason: H&E color edges are mostly nucleus vs. background *inside* one tissue type, not tissue boundaries. So f protects the wrong edges.
+
+### 3. Full val: λ sweep, both tables (ICM)
+
+*Running. Filled in as runs finish.*
+
+| b table | λ | Pixel acc | mIoU | Δ mIoU [95% CI] | Pixels changed |
+|---|---:|---:|---:|---|---:|
+| U-Net alone | — | | | | |
+| Handwritten | 0.5 / 1 / 2 / 4 / 8 | | | | |
+| Data-derived | 0.5 / 1 / 2 / 4 / 8 | | | | |
+
+### 4. ICM vs. toulbar2 (full val, same problem)
+
+*Running.* Same costs, different search: ICM is greedy and fast; toulbar2 searches each block properly, up to 20 s per block.
+
+### Example tiles (val, handwritten b, λ = 4)
+
+Panels: image | ground truth | U-Net | WCSP | changed pixels, with colors overlaid on the tissue.
+
+- **Mixed tile (4 classes):** U-Net 77.9% → WCSP 78.2%. Ragged edges are smoothed and stray specks removed.
+  ![mixed](../../wcsp/figures/val_example_mixed.png)
+- **Helps:** U-Net 65.2% → WCSP 66.4%.
+  ![helps](../../wcsp/figures/val_example_helps.png)
+- **Hurts:** U-Net 24.2% → WCSP 22.7%.
+  - The U-Net calls most of this tumor "healthy", and the WCSP can't fix that.
+  - The WCSP also draws 1-px stroma strips along tumor/other edges (the triangle-inequality issue above).
+  ![hurts](../../wcsp/figures/val_example_hurts.png)
+
+## Takeaways so far
+
+- **The WCSP helps, but only slightly:** +0.002–0.003 mIoU (≈ +0.4% relative) and +0.05–0.1 pp pixel accuracy. The gains are consistent, with every interval above zero.
+- **Why it's small:**
+  - The rules reach at most 2√2 px, so the WCSP only edits boundaries.
+  - The U-Net's mistakes are mostly whole regions it is confident about.
+- **The handwritten and data-derived tables perform about the same.**
+  - The data table is better grounded: it fits BCSS's "other" class and avoids the fake-strip artifact.
+  - The handwritten table encodes the notes' biology.
+- **The image term f doesn't help.**
+- **Next:**
+  - learn b directly on dev, for accuracy rather than co-occurrence;
+  - add longer-range or region-level variables (superpixels, whole regions) so the rules can fix whole regions, not just edges.

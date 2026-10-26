@@ -1,5 +1,16 @@
-dev_lam0.5 --set problem.lam=0.5
-dev_lam1 --set problem.lam=1
-dev_lam2 --set problem.lam=2
-dev_lam4 --set problem.lam=4
-dev_lam8 --set problem.lam=8
+hw_lam0.5 --set problem.lam=0.5
+hw_lam1 --set problem.lam=1
+hw_lam2 --set problem.lam=2
+hw_lam4 --set problem.lam=4
+hw_lam8 --set problem.lam=8
+data_lam0.5 --set problem.lam=0.5 --set problem.table=configs/tables/bcss_elicited.csv
+data_lam1 --set problem.lam=1 --set problem.table=configs/tables/bcss_elicited.csv
+data_lam2 --set problem.lam=2 --set problem.table=configs/tables/bcss_elicited.csv
+data_lam4 --set problem.lam=4 --set problem.table=configs/tables/bcss_elicited.csv
+data_lam8 --set problem.lam=8 --set problem.table=configs/tables/bcss_elicited.csv
+hw_lam2_f1 --set problem.lam=2 --set problem.contrast_beta=1
+hw_lam2_f2 --set problem.lam=2 --set problem.contrast_beta=2
+hw_lam2_f4 --set problem.lam=2 --set problem.contrast_beta=4
+hw_lam4_f1 --set problem.lam=4 --set problem.contrast_beta=1
+hw_lam4_f2 --set problem.lam=4 --set problem.contrast_beta=2
+hw_lam4_f4 --set problem.lam=4 --set problem.contrast_beta=4

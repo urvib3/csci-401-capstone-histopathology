@@ -47,6 +47,12 @@ def classifier_for(cfg):
     raise ValueError(f"unknown classifier {name!r}.")
 
 
+def _scored(sample):
+    """True if the grid has at least one labeled pixel (others add nothing to any metric)."""
+    target = sample.grid_target
+    return target is None or bool((target != IGNORE).any())
+
+
 def predict(cfg, split, shard=(0, 1), batch_size=8, limit=0):
     data = dataset_for(cfg, split)
     store = store_for(cfg, split)
@@ -60,7 +66,9 @@ def predict(cfg, split, shard=(0, 1), batch_size=8, limit=0):
     ids, predictions = [], []
     start = time.perf_counter()
     for begin in range(0, len(positions), batch_size):
-        samples = [data[i] for i in positions[begin:begin + batch_size]]
+        samples = [s for s in (data[i] for i in positions[begin:begin + batch_size]) if _scored(s)]
+        if not samples:
+            continue
         predictions.extend(classifier.predict(samples))
         ids.extend(s.id for s in samples)
         print(f"  {len(ids)}/{len(positions)} ({(time.perf_counter() - start) / len(ids):.2f} s/sample)",
@@ -143,6 +151,8 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
     scores = {"argmax": [], "wcsp": [], "truth_rules": []}
     for n, i in enumerate(positions):
         sample = data[i]
+        if not _scored(sample):
+            continue
         prediction = store.load(sample.id)
         problem = problem_for(cfg, sample, prediction, temperature)
         init = ArgmaxSolver().solve(problem, np.zeros(problem.shape, dtype=np.int64))

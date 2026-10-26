@@ -27,5 +27,5 @@ export OMP_NUM_THREADS=1
 
 cd "$SLURM_SUBMIT_DIR"
 # shellcheck disable=SC2086
-python -m wcsp solve --config "$config" --run "$run" $extra "$@"
+python -m wcsp solve --config "$config" --run "$run" --shard 0/1 $extra "$@"
 python -m wcsp summarize --config "$config" --run "$run" "$@" > /dev/null
