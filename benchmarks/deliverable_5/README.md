@@ -104,6 +104,18 @@ The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mas
 | `metadata.json` | Dataset/image ID, coordinates, label dictionary, active/background policy, counts, overlap statistics, source paths. |
 | `prepare_full_patch.py` | Reproduces the files above from the saved HoVer-Net instance map + prediction CSV and the Fold 2 `masks.npy`. |
 
+HoVer-Net instance map
+        +
+HoVer-Net nucleus class predictions
+        ↓
+hovernet_labels_164.npy
+        ↓
+active_mask_164.npy = hovernet_labels > 0
+        ↓
+WCSP gets:
+  1. label map
+  2. active mask
+
 ```python
 import numpy as np
 
