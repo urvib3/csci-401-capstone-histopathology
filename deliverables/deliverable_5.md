@@ -290,6 +290,81 @@ Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pix
 
 </details>
 
+
+<!-- BEGIN BCSS FOLLOWUP RESULTS -->
+### Follow-up BCSS experiments (development results)
+
+Automatically refreshed from experiment artifacts at **2026-11-02 07:42 UTC**. Incomplete runs are explicitly marked; their partial metrics are not treated as final results.
+
+**Protocol.** The follow-up uses the same underlying 151 BCSS ROIs and the same 106/45 hospital-held-out ROI split. Tiles were regenerated directly from the upstream images at requested 0.25 MPP: 7,768 fit, 1,012 dev, and 4,028 val tiles. Preparation version 2 preserves both axes of 16-bit grayscale masks; codes 0 and 7 are ignored. The documented earlier preparation has different tile counts, so its historical scores above are not a paired comparison to these follow-ups. These new results are **development results**, not a new held-out-validation result.
+
+**Training.** Cross-entropy (CE) is the supervised pixel-classification loss. The control fine-tunes the original half-resolution U-Net with CE. The full-resolution arm trains the existing full-resolution RGB encoder/decoder refinement head **and** the pretrained backbone on the entire 512×512 tile; this is one forward pass, not shift-and-stitch. Pairwise-loss arms retain the original architecture and central field, adding a differentiable expected compatibility-table cost to CE. All arms use 10 epochs, batch 4, seed 0, and checkpoint selection on dev. The full-resolution checkpoint is selected by whole-tile dev mIoU; other checkpoints use central-crop dev mIoU.
+
+| Training arm | Epochs logged / 10 | Best epoch | Central 256 mIoU | Whole 512 mIoU |
+|---|---:|---:|---:|---:|
+| Pretrained U-Net reference | 0 | 0 | 0.6362 | — |
+| Original architecture, cross-entropy | 10/10 | 8 | 0.6679 | — |
+| Full-resolution head + backbone, cross-entropy | 10/10 | 7 | 0.6797 | 0.6648 |
+| Cross-entropy + 0.01 × pairwise | 10/10 | 8 | 0.6597 | — |
+| Cross-entropy + 0.1 × pairwise | 10/10 | 10 | 0.6582 | — |
+| Cross-entropy + 1 × pairwise | 10/10 | 10 | 0.6654 | — |
+
+At the selected checkpoints, the full-resolution arm changes central-crop mIoU by +0.0117 relative to the CE control. Architecture and training field change together; this does not isolate resolution alone.
+After all 10 epochs, the strongest pairwise-loss arm differs from the CE control by -0.0026 central-crop mIoU; none of the tested pairwise-loss weights improves on the CE control.
+
+Training-table scores use all 1,012 dev tiles. Inference comparisons below use 200 evenly selected dev tiles, excluding tiles without labeled pixels in the evaluated field (181 central-field tiles; 185 whole-field tiles). Scores across those different populations must not be subtracted. Within each inference table, methods use the same scored field. WCSP uses raw probabilities, the handwritten table, λ=8, η=1, and local neighborhood normalization.
+
+**Central-field model comparisons.**
+
+| Method | Samples | U-Net mIoU | + WCSP mIoU | Mean solve s/tile | Status |
+|---|---:|---:|---:|---:|---|
+| Pretrained U-Net | 181 | 0.6017 | 0.6042 | 26.6 | Complete |
+| Cross-entropy control | 181 | 0.6441 | 0.6452 | 17.8 | Complete |
+| Pairwise weight 0.01 | 181 | 0.6245 | 0.6243 | 18.0 | Complete |
+| Pairwise weight 0.1 | — | — | — | — | Pending/incomplete: 0/32 shards |
+| Pairwise weight 1 | — | — | — | — | Pending/incomplete: 0/32 shards |
+
+**Whole-field model comparisons.**
+
+| Method | Samples | U-Net mIoU | + WCSP mIoU | Mean solve s/tile | Status |
+|---|---:|---:|---:|---:|---|
+| Pretrained U-Net, bilinear | 185 | 0.6223 | 0.6255 | 153.2 | Complete |
+| Cross-entropy control, bilinear | 185 | 0.6182 | 0.6196 | 240.7 | Complete |
+| Trained full-resolution head | 185 | 0.6524 | 0.6545 | 109.2 | Complete |
+
+**Solver comparison on the same pretrained central-field probabilities.**
+
+| Method | Samples | U-Net mIoU | + WCSP mIoU | Mean solve s/tile | Status |
+|---|---:|---:|---:|---:|---|
+| ICM, instrumented | 181 | 0.6017 | 0.6042 | 24.7 | Complete |
+| Toulbar2, 2 s/block | 181 | 0.6017 | 0.6017 | 9.4 | Complete |
+| ICM → Toulbar2, 2 s/block | 181 | 0.6017 | 0.6042 | 37.1 | Complete |
+| Toulbar2, no search timer | — | — | — | — | Pending/incomplete: 0/32 shards |
+| ICM → Toulbar2, no search timer | — | — | — | — | Pending/incomplete: 0/32 shards |
+
+ICM permits at most 50 sweeps per block and stops early when no labels change. Block refinement permits four outer rounds and stops early on an energy plateau. The uncapped Toulbar2 arms have no internal search timer; the SLURM allocation still has an 8-hour wall limit. The earlier 2-second-capped searches are retained as separately labeled controls. A capped run that returns its starting labeling quickly is not evidence of faster optimization at comparable quality. Completing a conditioned block search does not establish a global optimum for the image.
+
+- Toulbar2, no search timer: 13 tiles have finished according to streaming traces; 9 searches have returned with 194,311 nodes and 42,520 backtracks. Counters exclude searches still running; aggregate mIoU is withheld until all shards exist.
+- ICM → Toulbar2, no search timer: 13 tiles have finished according to streaming traces; 10 searches have returned with 103,318 nodes and 12,623 backtracks. Counters exclude searches still running; aggregate mIoU is withheld until all shards exist.
+Instrumented ICM used 9,320 sweeps over 1,692 block calls (5.51 sweeps/call); 3 calls reached the sweep cap. Outer stopping reasons: 151 energy plateaus and 30 round-limit stops. An outer energy plateau is not a proof of global optimality.
+
+**Sampled distant relations.** Each unordered pair beyond Euclidean distance d is included independently with probability p. Extra edges retain the same compatibility table and distance decay, without diluting local weights or inverse-probability scaling. These runs use whole-grid ICM; the p=0 row is their matching solver control.
+
+| Method | Samples | U-Net mIoU | + WCSP mIoU | Mean solve s/tile | Status |
+|---|---:|---:|---:|---:|---|
+| No distant edges (p=0) | 181 | 0.6017 | 0.6042 | 22.0 | Complete |
+| d=8, p=0.000001 | 181 | 0.6017 | 0.6042 | 41.3 | Complete |
+| d=8, p=0.00001 | 181 | 0.6017 | 0.6041 | 53.5 | Complete |
+| d=32, p=0.000001 | 181 | 0.6017 | 0.6042 | 52.4 | Complete |
+| d=32, p=0.00001 | 181 | 0.6017 | 0.6041 | 66.6 | Complete |
+
+Observed distant-edge mIoU differences from the matching control range from -0.000039 to -0.000011. These settings show no observed accuracy gain; they add runtime. This is a dev observation, not a validation claim.
+
+**Historical shift-and-stitch reference.** The recorded earlier 200-tile dev selection scored the central 256×256 field. Bilinear U-Net / shift-and-stitch mIoU were 0.7067 / 0.7071; with WCSP at λ=8, 0.7097 / 0.7139. Shift-and-stitch interleaves four shifted forward passes with no retraining. There is no fresh shift-and-stitch result on the current tile selection yet; do not rank these historical numbers against the new training table. Source: [BCSS benchmark notes](../benchmarks/bcss/README.md#addendum-changing-the-u-nets-output-resolution).
+
+**Artifacts and interpretation.** Experiment definitions and reproduction commands are in [the BCSS runbook](../experiments/bcss_wcsp/TONIGHT.md). Current logs, predictions, per-tile CSVs, streaming iteration traces, and the machine-readable report snapshot are under `data/outputs/tonight/` and `data/tonight/` on the cluster. Runtime is observed per-tile wall time under concurrent cluster load, not a controlled hardware microbenchmark. Dev checkpoint selection and parameter comparisons do not replace a separately frozen validation evaluation. Energy reduction, segmentation accuracy, and solver runtime are reported as distinct outcomes.
+<!-- END BCSS FOLLOWUP RESULTS -->
+
 ---
 
 ## 4. Takeaways
