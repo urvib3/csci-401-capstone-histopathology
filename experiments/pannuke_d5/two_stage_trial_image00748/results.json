@@ -1,0 +1,619 @@
+{
+  "mode": "two_stage_nucleus_graph",
+  "ground_truth_used": false,
+  "config": {
+    "stage1_transitions": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "stage1_boundary_cost": 0.25,
+    "stage2_transitions": [
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "stage2_neighbor_radius": 12,
+    "stage2_pairwise_strength": 1,
+    "max_rounds": 20
+  },
+  "evidence": {
+    "nucleus_probability_used": false,
+    "type_probability_used": false,
+    "hard_label_fallback": true
+  },
+  "stage1": {
+    "variable_count": 26896,
+    "domain": [
+      "background",
+      "nucleus"
+    ],
+    "initial_energy": 3920.4581957347596,
+    "returned_energy": 3915.7247443836445,
+    "background_to_active": 8,
+    "active_to_background": 0,
+    "local_minimum": true
+  },
+  "stage2": {
+    "variable_count": 47,
+    "domain": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edge_count": 67,
+    "initial_energy": 29.753556087103387,
+    "returned_energy": 17.1409402917101,
+    "energy_trace": [
+      29.753556087103387,
+      17.1409402917101,
+      17.1409402917101
+    ],
+    "nuclei_retyped": 8,
+    "local_minimum": true,
+    "new_unseeded_instances": 0
+  },
+  "nuclei": [
+    {
+      "nucleus_id": 1,
+      "area_px": 155,
+      "centroid_x": 3.774193548387097,
+      "centroid_y": 8.535483870967742,
+      "initial_type_id": 5,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        5
+      ]
+    },
+    {
+      "nucleus_id": 2,
+      "area_px": 253,
+      "centroid_x": 60.134387351778656,
+      "centroid_y": 4.549407114624506,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        1
+      ]
+    },
+    {
+      "nucleus_id": 3,
+      "area_px": 239,
+      "centroid_x": 97.75732217573221,
+      "centroid_y": 7.338912133891213,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        2
+      ]
+    },
+    {
+      "nucleus_id": 4,
+      "area_px": 318,
+      "centroid_x": 138.35220125786162,
+      "centroid_y": 10.09748427672956,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        3
+      ]
+    },
+    {
+      "nucleus_id": 5,
+      "area_px": 161,
+      "centroid_x": 122.35403726708074,
+      "centroid_y": 8.391304347826088,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        4
+      ]
+    },
+    {
+      "nucleus_id": 6,
+      "area_px": 278,
+      "centroid_x": 156.84172661870502,
+      "centroid_y": 14.70503597122302,
+      "initial_type_id": 1,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        6
+      ]
+    },
+    {
+      "nucleus_id": 7,
+      "area_px": 177,
+      "centroid_x": 81.80790960451978,
+      "centroid_y": 13.576271186440678,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        7
+      ]
+    },
+    {
+      "nucleus_id": 8,
+      "area_px": 389,
+      "centroid_x": 17.96401028277635,
+      "centroid_y": 18.946015424164525,
+      "initial_type_id": 3,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        8
+      ]
+    },
+    {
+      "nucleus_id": 9,
+      "area_px": 149,
+      "centroid_x": 3.9194630872483223,
+      "centroid_y": 26.77181208053691,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        10
+      ]
+    },
+    {
+      "nucleus_id": 10,
+      "area_px": 109,
+      "centroid_x": 35.91743119266055,
+      "centroid_y": 24.69724770642202,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        9
+      ]
+    },
+    {
+      "nucleus_id": 11,
+      "area_px": 257,
+      "centroid_x": 55.6692607003891,
+      "centroid_y": 28.245136186770427,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        11
+      ]
+    },
+    {
+      "nucleus_id": 12,
+      "area_px": 194,
+      "centroid_x": 140.2319587628866,
+      "centroid_y": 29.855670103092784,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        12
+      ]
+    },
+    {
+      "nucleus_id": 13,
+      "area_px": 264,
+      "centroid_x": 80.68939393939394,
+      "centroid_y": 31.049242424242426,
+      "initial_type_id": 3,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        13
+      ]
+    },
+    {
+      "nucleus_id": 14,
+      "area_px": 258,
+      "centroid_x": 107.85271317829458,
+      "centroid_y": 33.62015503875969,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        14
+      ]
+    },
+    {
+      "nucleus_id": 15,
+      "area_px": 242,
+      "centroid_x": 25.640495867768596,
+      "centroid_y": 45.34297520661157,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        15
+      ]
+    },
+    {
+      "nucleus_id": 16,
+      "area_px": 186,
+      "centroid_x": 116.54301075268818,
+      "centroid_y": 47.53763440860215,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        16
+      ]
+    },
+    {
+      "nucleus_id": 17,
+      "area_px": 284,
+      "centroid_x": 43.429577464788736,
+      "centroid_y": 50.901408450704224,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        17
+      ]
+    },
+    {
+      "nucleus_id": 18,
+      "area_px": 339,
+      "centroid_x": 12.457227138643068,
+      "centroid_y": 55.306784660766965,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        18
+      ]
+    },
+    {
+      "nucleus_id": 19,
+      "area_px": 147,
+      "centroid_x": 61.3469387755102,
+      "centroid_y": 54.7687074829932,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        19
+      ]
+    },
+    {
+      "nucleus_id": 20,
+      "area_px": 202,
+      "centroid_x": 119.7871287128713,
+      "centroid_y": 61.886138613861384,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        20
+      ]
+    },
+    {
+      "nucleus_id": 21,
+      "area_px": 246,
+      "centroid_x": 106.6869918699187,
+      "centroid_y": 68.78861788617886,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        21
+      ]
+    },
+    {
+      "nucleus_id": 22,
+      "area_px": 193,
+      "centroid_x": 72.9119170984456,
+      "centroid_y": 69.78756476683938,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        22
+      ]
+    },
+    {
+      "nucleus_id": 23,
+      "area_px": 416,
+      "centroid_x": 11.889423076923077,
+      "centroid_y": 79.41826923076923,
+      "initial_type_id": 3,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        23
+      ]
+    },
+    {
+      "nucleus_id": 24,
+      "area_px": 362,
+      "centroid_x": 44.45303867403315,
+      "centroid_y": 80.83977900552486,
+      "initial_type_id": 3,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        24
+      ]
+    },
+    {
+      "nucleus_id": 25,
+      "area_px": 298,
+      "centroid_x": 82.89261744966443,
+      "centroid_y": 84.68456375838926,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        25
+      ]
+    },
+    {
+      "nucleus_id": 26,
+      "area_px": 131,
+      "centroid_x": 70.02290076335878,
+      "centroid_y": 84.6412213740458,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        26
+      ]
+    },
+    {
+      "nucleus_id": 27,
+      "area_px": 161,
+      "centroid_x": 98.22360248447205,
+      "centroid_y": 86.64596273291926,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        27
+      ]
+    },
+    {
+      "nucleus_id": 28,
+      "area_px": 444,
+      "centroid_x": 25.38963963963964,
+      "centroid_y": 98.01576576576576,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        28
+      ]
+    },
+    {
+      "nucleus_id": 29,
+      "area_px": 230,
+      "centroid_x": 149.07391304347826,
+      "centroid_y": 99.36086956521739,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        29
+      ]
+    },
+    {
+      "nucleus_id": 30,
+      "area_px": 117,
+      "centroid_x": 45.23931623931624,
+      "centroid_y": 100.00854700854701,
+      "initial_type_id": 3,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        30
+      ]
+    },
+    {
+      "nucleus_id": 31,
+      "area_px": 89,
+      "centroid_x": 159.98876404494382,
+      "centroid_y": 102.97752808988764,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        31
+      ]
+    },
+    {
+      "nucleus_id": 32,
+      "area_px": 137,
+      "centroid_x": 99.52554744525547,
+      "centroid_y": 111.30656934306569,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        32
+      ]
+    },
+    {
+      "nucleus_id": 33,
+      "area_px": 196,
+      "centroid_x": 116.8061224489796,
+      "centroid_y": 113.55102040816327,
+      "initial_type_id": 2,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        33
+      ]
+    },
+    {
+      "nucleus_id": 34,
+      "area_px": 289,
+      "centroid_x": 154.93425605536333,
+      "centroid_y": 116.14186851211073,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        34
+      ]
+    },
+    {
+      "nucleus_id": 35,
+      "area_px": 298,
+      "centroid_x": 87.36577181208054,
+      "centroid_y": 119.73154362416108,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        35
+      ]
+    },
+    {
+      "nucleus_id": 36,
+      "area_px": 282,
+      "centroid_x": 64.52482269503547,
+      "centroid_y": 122.21985815602837,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        36
+      ]
+    },
+    {
+      "nucleus_id": 37,
+      "area_px": 273,
+      "centroid_x": 126.46153846153847,
+      "centroid_y": 128.26373626373626,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        37
+      ]
+    },
+    {
+      "nucleus_id": 38,
+      "area_px": 229,
+      "centroid_x": 80.26637554585153,
+      "centroid_y": 133.117903930131,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        38
+      ]
+    },
+    {
+      "nucleus_id": 39,
+      "area_px": 132,
+      "centroid_x": 15.401515151515152,
+      "centroid_y": 134.09848484848484,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        39
+      ]
+    },
+    {
+      "nucleus_id": 40,
+      "area_px": 216,
+      "centroid_x": 56.96296296296296,
+      "centroid_y": 139.19444444444446,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        41
+      ]
+    },
+    {
+      "nucleus_id": 41,
+      "area_px": 177,
+      "centroid_x": 112.31073446327683,
+      "centroid_y": 137.6949152542373,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        40
+      ]
+    },
+    {
+      "nucleus_id": 42,
+      "area_px": 204,
+      "centroid_x": 154.65686274509804,
+      "centroid_y": 145.70098039215685,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        42
+      ]
+    },
+    {
+      "nucleus_id": 43,
+      "area_px": 269,
+      "centroid_x": 32.82156133828996,
+      "centroid_y": 151.16728624535315,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        43
+      ]
+    },
+    {
+      "nucleus_id": 44,
+      "area_px": 235,
+      "centroid_x": 100.7872340425532,
+      "centroid_y": 150.8595744680851,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        44
+      ]
+    },
+    {
+      "nucleus_id": 45,
+      "area_px": 272,
+      "centroid_x": 137.9889705882353,
+      "centroid_y": 157.68382352941177,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        45
+      ]
+    },
+    {
+      "nucleus_id": 46,
+      "area_px": 109,
+      "centroid_x": 12.73394495412844,
+      "centroid_y": 159.4954128440367,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        46
+      ]
+    },
+    {
+      "nucleus_id": 47,
+      "area_px": 128,
+      "centroid_x": 89.7109375,
+      "centroid_y": 159.8203125,
+      "initial_type_id": 2,
+      "refined_type_id": 2,
+      "original_instance_ids": [
+        47
+      ]
+    }
+  ],
+  "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/experiments/pannuke_d5/pannuke_preparation",
+  "probability_sources": {
+    "nucleus": null,
+    "type": null
+  }
+}

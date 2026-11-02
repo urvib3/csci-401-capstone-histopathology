@@ -1,0 +1,152 @@
+{
+  "patches": 20,
+  "optimization_rerun": false,
+  "settings_reselected": false,
+  "labels": [
+    "Background",
+    "Neoplastic",
+    "Inflammatory",
+    "Connective",
+    "Dead",
+    "Non-neoplastic epithelial"
+  ],
+  "pooled_metric_definition": "Accumulate pixel confusion matrix across patches, then average IoU equally across all six labels including background. Any label with zero dataset union is undefined and omitted.",
+  "patch_metric_definition": "For each patch average IoU over its GT-present classes including background, using the same class set for both methods; then average patches. Retained for comparison with earlier patch-mean metrics. Classes absent in GT are not separately averaged by this diagnostic.",
+  "methods": {
+    "hovernet": {
+      "pooled_six_class_miou_including_background": 0.5645112913518462,
+      "pooled_class_iou": {
+        "Background": 0.94430763689855,
+        "Neoplastic": 0.5872202948033115,
+        "Inflammatory": 0.5487543530672382,
+        "Connective": 0.464060644807745,
+        "Dead": 0.23137876386687797,
+        "Non-neoplastic epithelial": 0.6113460546673543
+      },
+      "pooled_pixel_accuracy": 0.9273869720404521,
+      "mean_patch_miou_gt_classes_including_background": 0.6884398557164871,
+      "missed_nucleus_pixels": 12193,
+      "false_positive_nucleus_pixels": 13476,
+      "confusion_matrix_rows_gt_columns_prediction": [
+        [
+          435238,
+          7764,
+          372,
+          3486,
+          143,
+          1711
+        ],
+        [
+          4291,
+          31990,
+          0,
+          3037,
+          381,
+          0
+        ],
+        [
+          484,
+          548,
+          4097,
+          360,
+          251,
+          117
+        ],
+        [
+          4461,
+          4225,
+          1041,
+          15243,
+          150,
+          844
+        ],
+        [
+          334,
+          0,
+          196,
+          0,
+          438,
+          0
+        ],
+        [
+          2623,
+          2241,
+          0,
+          0,
+          0,
+          11854
+        ]
+      ]
+    },
+    "wcsp": {
+      "pooled_six_class_miou_including_background": 0.5745821875256484,
+      "pooled_class_iou": {
+        "Background": 0.9429791883971589,
+        "Neoplastic": 0.5997560185273431,
+        "Inflammatory": 0.567704663942511,
+        "Connective": 0.46309095935858446,
+        "Dead": 0.26225769669327254,
+        "Non-neoplastic epithelial": 0.6117045982350209
+      },
+      "pooled_pixel_accuracy": 0.928645523497918,
+      "mean_patch_miou_gt_classes_including_background": 0.6916500772927304,
+      "missed_nucleus_pixels": 14345,
+      "false_positive_nucleus_pixels": 12059,
+      "confusion_matrix_rows_gt_columns_prediction": [
+        [
+          436655,
+          6656,
+          158,
+          3334,
+          89,
+          1822
+        ],
+        [
+          5008,
+          31465,
+          0,
+          2906,
+          320,
+          0
+        ],
+        [
+          614,
+          521,
+          4029,
+          349,
+          244,
+          100
+        ],
+        [
+          5662,
+          3465,
+          892,
+          15075,
+          133,
+          737
+        ],
+        [
+          318,
+          0,
+          190,
+          0,
+          460,
+          0
+        ],
+        [
+          2743,
+          2122,
+          0,
+          0,
+          0,
+          11853
+        ]
+      ]
+    }
+  },
+  "patch_comparison_with_background": {
+    "improved": 13,
+    "worsened": 7,
+    "unchanged": 0
+  }
+}

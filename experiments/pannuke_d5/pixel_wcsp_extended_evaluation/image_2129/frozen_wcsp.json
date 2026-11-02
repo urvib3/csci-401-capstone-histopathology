@@ -1,0 +1,58 @@
+{
+  "optimization": {
+    "initial_energy": 4155.119676563493,
+    "returned_energy": 3540.1611230508734,
+    "changed_pixels": 361,
+    "background_to_nucleus": 192,
+    "nucleus_to_background": 169,
+    "local_minimum": true,
+    "runtime_seconds": 1.4854714589891955,
+    "pairwise_strength": 2.0,
+    "optimization_applied": true
+  },
+  "evaluation": {
+    "hovernet": {
+      "pixel_accuracy": 0.9457540154669839,
+      "class_iou_labels_0_to_5": [
+        0.9463240542469664,
+        null,
+        0.0,
+        0.5705645161290323,
+        null,
+        0.831082207770552
+      ],
+      "miou_over_gt_biological_classes": 0.46721557463319474,
+      "miou_over_gt_classes_including_background": 0.5869926945366377,
+      "missed_nucleus_pixels": 242,
+      "false_positive_nucleus_pixels": 886
+    },
+    "wcsp": {
+      "pixel_accuracy": 0.9398051754907792,
+      "class_iou_labels_0_to_5": [
+        0.9388635932460634,
+        null,
+        0.0,
+        0.5274949083503055,
+        null,
+        0.8165816746175357
+      ],
+      "miou_over_gt_biological_classes": 0.4480255276559471,
+      "miou_over_gt_classes_including_background": 0.5707350440534762,
+      "missed_nucleus_pixels": 311,
+      "false_positive_nucleus_pixels": 978
+    },
+    "delta_pixel_accuracy": -0.005948839976204656,
+    "delta_miou_over_gt_biological_classes": -0.019190046977247632,
+    "changed_pixels": 361,
+    "wrong_to_correct": 98,
+    "correct_to_wrong": 258,
+    "wrong_to_different_wrong": 5,
+    "changes_by_transition": {
+      "5->0": 107,
+      "0->5": 169,
+      "3->0": 62,
+      "0->3": 4,
+      "0->2": 19
+    }
+  }
+}

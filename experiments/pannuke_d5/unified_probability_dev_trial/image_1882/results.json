@@ -1,0 +1,84 @@
+{
+  "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/experiments/pannuke_d5/unified_probability_dev_trial/image_1882",
+  "ground_truth_used": false,
+  "mode": "all_pixels_six_classes",
+  "unary_mode": "probabilities",
+  "label_dictionary": {
+    "0": "Background",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "variable_count": 26896,
+  "unary_transition_costs": null,
+  "optional_type_transition_prior": [
+    [
+      0.0,
+      0.9368806313306764,
+      0.7114562228018699,
+      1.4018669255353589,
+      1.0132588203025994
+    ],
+    [
+      1.1549700966686662,
+      0.0,
+      0.7099044145413804,
+      1.6810919830910074,
+      1.6810919830910074
+    ],
+    [
+      0.8765304821791181,
+      0.7940903084307508,
+      0.0,
+      1.705352155198877,
+      1.4771363509940316
+    ],
+    [
+      0.6308221568400421,
+      0.15442111144656856,
+      0.23520367517420762,
+      0.0,
+      1.1229161905402383
+    ],
+    [
+      0.8292523451805398,
+      0.7282806068497669,
+      0.8144149741434534,
+      1.3410585656598386,
+      0.0
+    ]
+  ],
+  "background_pairwise_cost": 0.25,
+  "runs": [
+    {
+      "initial_energy": 5359.244377020218,
+      "returned_energy": 4048.0505547944313,
+      "changed_pixels": 732,
+      "background_to_nucleus": 127,
+      "nucleus_to_background": 605,
+      "local_minimum": true,
+      "runtime_seconds": 1.527194166003028,
+      "setting": "unified_probabilities"
+    },
+    {
+      "initial_energy": 5359.244377020218,
+      "returned_energy": 4048.0505547944313,
+      "changed_pixels": 732,
+      "background_to_nucleus": 127,
+      "nucleus_to_background": 605,
+      "local_minimum": true,
+      "runtime_seconds": 1.514014957996551,
+      "setting": "probabilities_with_type_prior"
+    }
+  ]
+}

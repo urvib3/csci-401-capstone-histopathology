@@ -1,0 +1,46 @@
+{
+  "mode": "one_stage_six_class_pixel_wcsp",
+  "unary_mode": "probabilities",
+  "initialization": "probability_argmax",
+  "type_prior_included": false,
+  "patches": 15,
+  "costs_tuned_on_dev": false,
+  "methods": {
+    "hovernet": {
+      "mean_miou": 0.4749332855197185,
+      "mean_delta_miou": 0.0,
+      "mean_binary_iou": 0.7461560694970729,
+      "mean_pixel_accuracy": 0.8898473131072773,
+      "changed_pixels": 0,
+      "wrong_to_correct": 0,
+      "correct_to_wrong": 0,
+      "improved_patches": 0,
+      "worsened_patches": 0,
+      "unchanged_patches": 15
+    },
+    "probability_argmax": {
+      "mean_miou": 0.4437959519177222,
+      "mean_delta_miou": -0.031137333601996282,
+      "mean_binary_iou": 0.7545981926140553,
+      "mean_pixel_accuracy": 0.887061273051755,
+      "changed_pixels": 6901,
+      "wrong_to_correct": 1784,
+      "correct_to_wrong": 2908,
+      "improved_patches": 6,
+      "worsened_patches": 9,
+      "unchanged_patches": 0
+    },
+    "unified_probabilities": {
+      "mean_miou": 0.4473820718412445,
+      "mean_delta_miou": -0.027551213678473966,
+      "mean_binary_iou": 0.7491350552223958,
+      "mean_pixel_accuracy": 0.8881419789807653,
+      "changed_pixels": 7420,
+      "wrong_to_correct": 2349,
+      "correct_to_wrong": 3037,
+      "improved_patches": 5,
+      "worsened_patches": 10,
+      "unchanged_patches": 0
+    }
+  }
+}

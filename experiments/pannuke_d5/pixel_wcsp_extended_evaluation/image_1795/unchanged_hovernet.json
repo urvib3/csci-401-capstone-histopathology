@@ -1,0 +1,44 @@
+{
+  "optimization": {
+    "optimization_applied": false
+  },
+  "evaluation": {
+    "hovernet": {
+      "pixel_accuracy": 0.8509071980963712,
+      "class_iou_labels_0_to_5": [
+        0.8820108228392252,
+        null,
+        null,
+        0.3980875691997987,
+        null,
+        0.53974018717698
+      ],
+      "miou_over_gt_biological_classes": 0.46891387818838937,
+      "miou_over_gt_classes_including_background": 0.606612859738668,
+      "missed_nucleus_pixels": 1042,
+      "false_positive_nucleus_pixels": 1291
+    },
+    "wcsp": {
+      "pixel_accuracy": 0.8509071980963712,
+      "class_iou_labels_0_to_5": [
+        0.8820108228392252,
+        null,
+        null,
+        0.3980875691997987,
+        null,
+        0.53974018717698
+      ],
+      "miou_over_gt_biological_classes": 0.46891387818838937,
+      "miou_over_gt_classes_including_background": 0.606612859738668,
+      "missed_nucleus_pixels": 1042,
+      "false_positive_nucleus_pixels": 1291
+    },
+    "delta_pixel_accuracy": 0.0,
+    "delta_miou_over_gt_biological_classes": 0.0,
+    "changed_pixels": 0,
+    "wrong_to_correct": 0,
+    "correct_to_wrong": 0,
+    "wrong_to_different_wrong": 0,
+    "changes_by_transition": {}
+  }
+}

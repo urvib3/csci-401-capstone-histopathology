@@ -1,0 +1,260 @@
+{
+  "mode": "two_stage_nucleus_graph",
+  "ground_truth_used": false,
+  "config": {
+    "stage1_transitions": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "stage1_boundary_cost": 0.25,
+    "stage2_transitions": [
+      [
+        0.0,
+        0.9368806313306764,
+        0.7114562228018699,
+        1.4018669255353589,
+        1.0132588203025994
+      ],
+      [
+        1.1549700966686662,
+        0.0,
+        0.7099044145413804,
+        1.6810919830910074,
+        1.6810919830910074
+      ],
+      [
+        0.8765304821791181,
+        0.7940903084307508,
+        0.0,
+        1.705352155198877,
+        1.4771363509940316
+      ],
+      [
+        0.6308221568400421,
+        0.15442111144656856,
+        0.23520367517420762,
+        0.0,
+        1.1229161905402383
+      ],
+      [
+        0.8292523451805398,
+        0.7282806068497669,
+        0.8144149741434534,
+        1.3410585656598386,
+        0.0
+      ]
+    ],
+    "stage2_neighbor_radius": 12,
+    "stage2_pairwise_strength": 1,
+    "max_rounds": 20,
+    "stage2_transition_source": "experiments/pannuke_d5/unary_calibration/fit.json",
+    "stage2_unary_rule": "directed calibration log-odds barrier; diagonal 0; mean off-diagonal 1"
+  },
+  "evidence": {
+    "nucleus_probability_used": false,
+    "type_probability_used": false,
+    "hard_label_fallback": true
+  },
+  "stage1": {
+    "variable_count": 26896,
+    "domain": [
+      "background",
+      "nucleus"
+    ],
+    "initial_energy": 1117.3638977453688,
+    "returned_energy": 1117.3638977453688,
+    "background_to_active": 0,
+    "active_to_background": 0,
+    "local_minimum": true
+  },
+  "stage2": {
+    "variable_count": 9,
+    "domain": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edge_count": 5,
+    "initial_energy": 0.0,
+    "returned_energy": 0.0,
+    "energy_trace": [
+      0.0,
+      0.0
+    ],
+    "nuclei_retyped": 0,
+    "local_minimum": true,
+    "new_unseeded_instances": 0
+  },
+  "nuclei": [
+    {
+      "nucleus_id": 1,
+      "area_px": 610,
+      "centroid_x": 54.37377049180328,
+      "centroid_y": 20.87049180327869,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306749,
+        0.7114562228018712,
+        1.4018669255353784,
+        1.0132588203025978
+      ],
+      "original_instance_ids": [
+        1
+      ]
+    },
+    {
+      "nucleus_id": 2,
+      "area_px": 401,
+      "centroid_x": 113.33915211970074,
+      "centroid_y": 39.5785536159601,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791188,
+        0.7940903084307477,
+        0.0,
+        1.7053521551988626,
+        1.4771363509940336
+      ],
+      "original_instance_ids": [
+        2
+      ]
+    },
+    {
+      "nucleus_id": 3,
+      "area_px": 221,
+      "centroid_x": 85.44343891402715,
+      "centroid_y": 36.53393665158371,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791151,
+        0.7940903084307529,
+        0.0,
+        1.7053521551988708,
+        1.477136350994039
+      ],
+      "original_instance_ids": [
+        3
+      ]
+    },
+    {
+      "nucleus_id": 4,
+      "area_px": 138,
+      "centroid_x": 92.76811594202898,
+      "centroid_y": 46.84782608695652,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791197,
+        0.7940903084307526,
+        0.0,
+        1.7053521551988795,
+        1.4771363509940356
+      ],
+      "original_instance_ids": [
+        4
+      ]
+    },
+    {
+      "nucleus_id": 5,
+      "area_px": 328,
+      "centroid_x": 70.66768292682927,
+      "centroid_y": 96.21341463414635,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791152,
+        0.7940903084307527,
+        0.0,
+        1.7053521551988648,
+        1.4771363509940407
+      ],
+      "original_instance_ids": [
+        5
+      ]
+    },
+    {
+      "nucleus_id": 6,
+      "area_px": 303,
+      "centroid_x": 131.04290429042905,
+      "centroid_y": 109.26072607260726,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791137,
+        0.7940903084307531,
+        0.0,
+        1.705352155198866,
+        1.4771363509940403
+      ],
+      "original_instance_ids": [
+        6
+      ]
+    },
+    {
+      "nucleus_id": 7,
+      "area_px": 320,
+      "centroid_x": 112.040625,
+      "centroid_y": 121.0875,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791148,
+        0.7940903084307531,
+        0.0,
+        1.7053521551988653,
+        1.4771363509940405
+      ],
+      "original_instance_ids": [
+        7
+      ]
+    },
+    {
+      "nucleus_id": 8,
+      "area_px": 347,
+      "centroid_x": 82.72622478386167,
+      "centroid_y": 150.4236311239193,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791163,
+        0.7940903084307512,
+        0.0,
+        1.7053521551988642,
+        1.477136350994041
+      ],
+      "original_instance_ids": [
+        8
+      ]
+    },
+    {
+      "nucleus_id": 9,
+      "area_px": 346,
+      "centroid_x": 121.86127167630057,
+      "centroid_y": 156.09826589595374,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791162,
+        0.7940903084307512,
+        0.0,
+        1.7053521551988642,
+        1.4771363509940407
+      ],
+      "original_instance_ids": [
+        9
+      ]
+    }
+  ]
+}

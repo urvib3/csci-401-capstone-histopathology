@@ -1,0 +1,46 @@
+{
+  "model": "hovernet_fast-pannuke",
+  "checkpoint": "/private/tmp/pannuke-eval-hovernet-fast.pth",
+  "checkpoint_sha256": "789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8",
+  "image_index": 1433,
+  "original_shape": [
+    256,
+    256
+  ],
+  "probability_shape": [
+    164,
+    164
+  ],
+  "crop": [
+    46,
+    210,
+    46,
+    210
+  ],
+  "type_order": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "nucleus_probability": "softmax NP logits, foreground channel",
+  "type_probability": "softmax TP logits over biological channels 1..5; conditional on nucleus",
+  "type_probability_all": "original TP softmax over channels 0..5, including background; no NP multiplication",
+  "type_probability_all_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "architecture_source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/.venv/lib/python3.12/site-packages/tiatoolbox/models/architecture",
+  "architecture_source_sha256": {
+    "utils.py": "bba5c0a2eb2af5bd13cb3c19e209e758ca0c0c9e99dc5dbe459796a65147a203",
+    "hovernet.py": "4c004c793069824db12f8d880e4773b9034728c3235328cdaa46897a8a90fa0f"
+  },
+  "checkpoint_loaded_strictly": true,
+  "ground_truth_used": false,
+  "torch_version": "2.12.0"
+}

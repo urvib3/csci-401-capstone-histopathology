@@ -1,0 +1,42 @@
+{
+  "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/experiments/pannuke_d5/original_tp_wcsp_dev_trial/image_2042",
+  "ground_truth_used": false,
+  "mode": "all_pixels_six_classes",
+  "unary_mode": "probabilities",
+  "probability_head": "original_tp",
+  "initialization": "probability_argmax",
+  "clustering_used": false,
+  "nucleus_averaging_used": false,
+  "label_dictionary": {
+    "0": "Background",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "variable_count": 26896,
+  "unary_transition_costs": null,
+  "optional_type_transition_prior": null,
+  "background_pairwise_cost": 0.25,
+  "runs": [
+    {
+      "initial_energy": 3317.68820065161,
+      "returned_energy": 2305.7978547963608,
+      "changed_pixels": 312,
+      "background_to_nucleus": 13,
+      "nucleus_to_background": 170,
+      "local_minimum": true,
+      "runtime_seconds": 3.9830113330099266,
+      "setting": "unified_probabilities"
+    }
+  ]
+}

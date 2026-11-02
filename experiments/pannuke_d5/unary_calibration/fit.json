@@ -1,0 +1,637 @@
+{
+  "label_order": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "seed": 401,
+  "patch_count": 100,
+  "calibration_patches": [
+    {
+      "image_index": 900,
+      "tissue_type": "Lung",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 1608,
+      "tissue_type": "Colon",
+      "usable_nuclei": 3
+    },
+    {
+      "image_index": 2353,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 1183,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 6
+    },
+    {
+      "image_index": 1316,
+      "tissue_type": "Colon",
+      "usable_nuclei": 19
+    },
+    {
+      "image_index": 909,
+      "tissue_type": "Lung",
+      "usable_nuclei": 29
+    },
+    {
+      "image_index": 1266,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 16
+    },
+    {
+      "image_index": 1605,
+      "tissue_type": "Colon",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 2341,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 12
+    },
+    {
+      "image_index": 1992,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 11
+    },
+    {
+      "image_index": 1382,
+      "tissue_type": "Adrenal_gland",
+      "usable_nuclei": 6
+    },
+    {
+      "image_index": 1437,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 16
+    },
+    {
+      "image_index": 819,
+      "tissue_type": "Bladder",
+      "usable_nuclei": 6
+    },
+    {
+      "image_index": 242,
+      "tissue_type": "Breast",
+      "usable_nuclei": 19
+    },
+    {
+      "image_index": 1176,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 15
+    },
+    {
+      "image_index": 1658,
+      "tissue_type": "Colon",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 880,
+      "tissue_type": "Esophagus",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 1949,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 812,
+      "tissue_type": "Kidney",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 2058,
+      "tissue_type": "Liver",
+      "usable_nuclei": 3
+    },
+    {
+      "image_index": 899,
+      "tissue_type": "Lung",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 2150,
+      "tissue_type": "Ovarian",
+      "usable_nuclei": 14
+    },
+    {
+      "image_index": 2155,
+      "tissue_type": "Pancreatic",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 2239,
+      "tissue_type": "Prostate",
+      "usable_nuclei": 8
+    },
+    {
+      "image_index": 2277,
+      "tissue_type": "Skin",
+      "usable_nuclei": 29
+    },
+    {
+      "image_index": 855,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 20
+    },
+    {
+      "image_index": 1221,
+      "tissue_type": "Testis",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 946,
+      "tissue_type": "Thyroid",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 2431,
+      "tissue_type": "Uterus",
+      "usable_nuclei": 8
+    },
+    {
+      "image_index": 1054,
+      "tissue_type": "Adrenal_gland",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 1283,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 11
+    },
+    {
+      "image_index": 1486,
+      "tissue_type": "Bladder",
+      "usable_nuclei": 6
+    },
+    {
+      "image_index": 226,
+      "tissue_type": "Breast",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 1193,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 685,
+      "tissue_type": "Colon",
+      "usable_nuclei": 3
+    },
+    {
+      "image_index": 882,
+      "tissue_type": "Esophagus",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 1916,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 19
+    },
+    {
+      "image_index": 2027,
+      "tissue_type": "Kidney",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 2106,
+      "tissue_type": "Liver",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 915,
+      "tissue_type": "Lung",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 2127,
+      "tissue_type": "Ovarian",
+      "usable_nuclei": 20
+    },
+    {
+      "image_index": 1145,
+      "tissue_type": "Pancreatic",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 830,
+      "tissue_type": "Prostate",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 2296,
+      "tissue_type": "Skin",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 856,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 33
+    },
+    {
+      "image_index": 2375,
+      "tissue_type": "Testis",
+      "usable_nuclei": 25
+    },
+    {
+      "image_index": 2390,
+      "tissue_type": "Thyroid",
+      "usable_nuclei": 11
+    },
+    {
+      "image_index": 2429,
+      "tissue_type": "Uterus",
+      "usable_nuclei": 24
+    },
+    {
+      "image_index": 1391,
+      "tissue_type": "Adrenal_gland",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 1428,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 1495,
+      "tissue_type": "Bladder",
+      "usable_nuclei": 14
+    },
+    {
+      "image_index": 38,
+      "tissue_type": "Breast",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 1172,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 690,
+      "tissue_type": "Colon",
+      "usable_nuclei": 6
+    },
+    {
+      "image_index": 867,
+      "tissue_type": "Esophagus",
+      "usable_nuclei": 14
+    },
+    {
+      "image_index": 1986,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 12
+    },
+    {
+      "image_index": 2026,
+      "tissue_type": "Kidney",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 2069,
+      "tissue_type": "Liver",
+      "usable_nuclei": 3
+    },
+    {
+      "image_index": 917,
+      "tissue_type": "Lung",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 861,
+      "tissue_type": "Ovarian",
+      "usable_nuclei": 8
+    },
+    {
+      "image_index": 2189,
+      "tissue_type": "Pancreatic",
+      "usable_nuclei": 17
+    },
+    {
+      "image_index": 2227,
+      "tissue_type": "Prostate",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 957,
+      "tissue_type": "Skin",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 857,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 15
+    },
+    {
+      "image_index": 1216,
+      "tissue_type": "Testis",
+      "usable_nuclei": 12
+    },
+    {
+      "image_index": 2394,
+      "tissue_type": "Thyroid",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 932,
+      "tissue_type": "Uterus",
+      "usable_nuclei": 70
+    },
+    {
+      "image_index": 1385,
+      "tissue_type": "Adrenal_gland",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 1451,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 816,
+      "tissue_type": "Bladder",
+      "usable_nuclei": 8
+    },
+    {
+      "image_index": 612,
+      "tissue_type": "Breast",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 1192,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 718,
+      "tissue_type": "Colon",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 1102,
+      "tissue_type": "Esophagus",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 1871,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 2038,
+      "tissue_type": "Kidney",
+      "usable_nuclei": 17
+    },
+    {
+      "image_index": 2085,
+      "tissue_type": "Liver",
+      "usable_nuclei": 12
+    },
+    {
+      "image_index": 896,
+      "tissue_type": "Lung",
+      "usable_nuclei": 18
+    },
+    {
+      "image_index": 2120,
+      "tissue_type": "Ovarian",
+      "usable_nuclei": 1
+    },
+    {
+      "image_index": 2179,
+      "tissue_type": "Pancreatic",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 2225,
+      "tissue_type": "Prostate",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 2301,
+      "tissue_type": "Skin",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 2336,
+      "tissue_type": "Stomach",
+      "usable_nuclei": 22
+    },
+    {
+      "image_index": 1253,
+      "tissue_type": "Testis",
+      "usable_nuclei": 8
+    },
+    {
+      "image_index": 972,
+      "tissue_type": "Thyroid",
+      "usable_nuclei": 4
+    },
+    {
+      "image_index": 2430,
+      "tissue_type": "Uterus",
+      "usable_nuclei": 11
+    },
+    {
+      "image_index": 1377,
+      "tissue_type": "Adrenal_gland",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 1399,
+      "tissue_type": "Bile-duct",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 1479,
+      "tissue_type": "Bladder",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 148,
+      "tissue_type": "Breast",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 1179,
+      "tissue_type": "Cervix",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 706,
+      "tissue_type": "Colon",
+      "usable_nuclei": 10
+    },
+    {
+      "image_index": 873,
+      "tissue_type": "Esophagus",
+      "usable_nuclei": 14
+    },
+    {
+      "image_index": 1854,
+      "tissue_type": "HeadNeck",
+      "usable_nuclei": 9
+    },
+    {
+      "image_index": 2031,
+      "tissue_type": "Kidney",
+      "usable_nuclei": 12
+    },
+    {
+      "image_index": 2057,
+      "tissue_type": "Liver",
+      "usable_nuclei": 3
+    },
+    {
+      "image_index": 2109,
+      "tissue_type": "Lung",
+      "usable_nuclei": 7
+    },
+    {
+      "image_index": 2117,
+      "tissue_type": "Ovarian",
+      "usable_nuclei": 2
+    },
+    {
+      "image_index": 2192,
+      "tissue_type": "Pancreatic",
+      "usable_nuclei": 5
+    },
+    {
+      "image_index": 2242,
+      "tissue_type": "Prostate",
+      "usable_nuclei": 9
+    }
+  ],
+  "excluded_patch_indices": [
+    134,
+    153,
+    347,
+    364,
+    409,
+    605,
+    748,
+    785,
+    826,
+    829,
+    849,
+    906,
+    911,
+    931,
+    987,
+    1088,
+    1115,
+    1166,
+    1251,
+    1294,
+    1301,
+    1409,
+    1641,
+    1659,
+    1837,
+    1838,
+    1882,
+    1993,
+    2010,
+    2042,
+    2084,
+    2326,
+    2352,
+    2373,
+    2433,
+    2434
+  ],
+  "usable_nuclei": 1054,
+  "nuclei_by_original_class": [
+    503.0,
+    180.0,
+    197.0,
+    105.0,
+    69.0
+  ],
+  "counts_original_to_gt": [
+    [
+      401.9292350238684,
+      24.499748798123584,
+      52.57101617800803,
+      5.0,
+      19.0
+    ],
+    [
+      4.0,
+      156.01357466063348,
+      19.986425339366516,
+      0.0,
+      0.0
+    ],
+    [
+      11.990131578947368,
+      16.019547685834503,
+      167.99032073521812,
+      0.0,
+      1.0
+    ],
+    [
+      4.0,
+      47.001468069488624,
+      26.57747929893243,
+      27.421052631578945,
+      0.0
+    ],
+    [
+      4.0,
+      6.0,
+      4.25,
+      0.0,
+      54.75
+    ]
+  ],
+  "smoothing": 1.0,
+  "rule": "offdiagonal log(1 + (C[a,a]+1)/(C[a,b]+1)); diagonal zero; global mean offdiagonal normalized to 1",
+  "normalization_divisor": 3.01154308974894,
+  "transition_costs": [
+    [
+      0.0,
+      0.9368806313306764,
+      0.7114562228018699,
+      1.4018669255353589,
+      1.0132588203025994
+    ],
+    [
+      1.1549700966686662,
+      0.0,
+      0.7099044145413804,
+      1.6810919830910074,
+      1.6810919830910074
+    ],
+    [
+      0.8765304821791181,
+      0.7940903084307508,
+      0.0,
+      1.705352155198877,
+      1.4771363509940316
+    ],
+    [
+      0.6308221568400421,
+      0.15442111144656856,
+      0.23520367517420762,
+      0.0,
+      1.1229161905402383
+    ],
+    [
+      0.8292523451805398,
+      0.7282806068497669,
+      0.8144149741434534,
+      1.3410585656598386,
+      0.0
+    ]
+  ],
+  "split_limit": "Patch-disjoint calibration only; patient-level independence is not established."
+}

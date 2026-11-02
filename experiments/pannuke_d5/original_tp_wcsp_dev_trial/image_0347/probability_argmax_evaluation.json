@@ -1,0 +1,51 @@
+{
+  "hovernet": {
+    "pixel_accuracy": 0.9309934562760261,
+    "class_iou_labels_0_to_5": [
+      0.9600736346901206,
+      0.0,
+      0.0,
+      0.4737635705669481,
+      null,
+      null
+    ],
+    "miou_over_gt_biological_classes": 0.23688178528347406,
+    "miou_over_gt_classes_including_background": 0.47794573508568955,
+    "missed_nucleus_pixels": 413,
+    "false_positive_nucleus_pixels": 563
+  },
+  "wcsp": {
+    "pixel_accuracy": 0.9189098750743605,
+    "class_iou_labels_0_to_5": [
+      0.9552666012430487,
+      0.0,
+      0.0,
+      0.39469078179696615,
+      null,
+      null
+    ],
+    "miou_over_gt_biological_classes": 0.19734539089848308,
+    "miou_over_gt_classes_including_background": 0.44998579434667163,
+    "missed_nucleus_pixels": 424,
+    "false_positive_nucleus_pixels": 670
+  },
+  "delta_pixel_accuracy": -0.012083581201665639,
+  "delta_miou_over_gt_biological_classes": -0.039536394384990986,
+  "changed_pixels": 646,
+  "wrong_to_correct": 54,
+  "correct_to_wrong": 379,
+  "wrong_to_different_wrong": 213,
+  "changes_by_transition": {
+    "0->1": 211,
+    "0->3": 145,
+    "1->0": 39,
+    "3->0": 221,
+    "3->2": 30
+  },
+  "binary_segmentation": {
+    "nucleus_iou": 0.6904357668364459,
+    "nucleus_dice": 0.8168731168396385,
+    "missed_nucleus_pixels": 424,
+    "false_positive_nucleus_pixels": 670
+  }
+}

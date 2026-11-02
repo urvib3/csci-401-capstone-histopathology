@@ -1,0 +1,11 @@
+{
+  "unary_mode": "probabilities",
+  "transition_costs": null,
+  "initialization": "probability_argmax",
+  "skip_type_prior": true,
+  "probability_dir": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/experiments/pannuke_d5/hovernet_probability_dev_maps",
+  "background_pairwise_cost": 0.25,
+  "transition_source": null,
+  "flat_control": null,
+  "unary_evidence": "full per-pixel HoVer-Net probabilities; no class-transition prior"
+}

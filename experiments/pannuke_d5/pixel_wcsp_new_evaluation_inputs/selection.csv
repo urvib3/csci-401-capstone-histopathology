@@ -1,0 +1,21 @@
+image_index,image,tissue_type,num_gt_classes,gt_classes,gt_nucleus_pixels,hovernet_predicted_nuclei,has_hovernet_predictions,gt_neoplastic_pixels,gt_inflammatory_pixels,gt_connective_pixels,gt_dead_pixels,gt_non_neoplastic_pixels
+45,image_45,Breast,2,Connective; Non-neoplastic epithelial,17251,13,True,0,0,2119,0,15132
+1952,image_1952,HeadNeck,1,Connective,6053,10,True,0,0,6053,0,0
+1548,image_1548,Breast,2,Neoplastic; Connective,15425,34,True,14498,0,927,0,0
+796,image_796,Colon,3,Neoplastic; Inflammatory; Connective,15507,20,True,14399,31,1077,0,0
+2439,image_2439,Colon,2,Inflammatory; Connective,1105,1,True,0,196,909,0,0
+860,image_860,Ovarian,1,Connective,3711,6,True,0,0,3711,0,0
+227,image_227,Breast,3,Inflammatory; Connective; Non-neoplastic epithelial,12855,21,True,0,1002,795,0,11058
+1458,image_1458,Bladder,3,Neoplastic; Inflammatory; Connective,14230,14,True,5273,463,8494,0,0
+2481,image_2481,Colon,2,Inflammatory; Connective,7899,5,True,0,901,6998,0,0
+2465,image_2465,Colon,2,Neoplastic; Connective,22272,36,True,17420,0,4852,0,0
+1906,image_1906,HeadNeck,2,Inflammatory; Connective,1532,2,True,0,19,1513,0,0
+1527,image_1527,Breast,2,Neoplastic; Inflammatory,9879,8,True,9637,242,0,0,0
+895,image_895,Lung,4,Neoplastic; Inflammatory; Connective; Dead,10528,33,True,5584,1481,1603,1860,0
+1109,image_1109,Adrenal_gland,2,Connective; Non-neoplastic epithelial,7205,5,True,0,0,479,0,6726
+1964,image_1964,HeadNeck,3,Neoplastic; Inflammatory; Connective,12751,18,True,9328,271,3152,0,0
+824,image_824,Bladder,2,Inflammatory; Connective,3188,3,True,0,3044,144,0,0
+1275,image_1275,Bile-duct,1,Connective,6374,4,True,0,0,6374,0,0
+835,image_835,Kidney,3,Neoplastic; Inflammatory; Connective,10902,29,True,9176,1484,242,0,0
+2274,image_2274,Skin,2,Inflammatory; Connective,24628,26,True,0,14465,10163,0,0
+26,image_26,Breast,2,Neoplastic; Connective,6431,8,True,4425,0,2006,0,0

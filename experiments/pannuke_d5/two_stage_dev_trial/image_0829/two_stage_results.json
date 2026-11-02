@@ -1,0 +1,317 @@
+{
+  "mode": "two_stage_nucleus_graph",
+  "ground_truth_used": false,
+  "config": {
+    "stage1_transitions": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "stage1_boundary_cost": 0.25,
+    "stage2_transitions": [
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "stage2_neighbor_radius": 12,
+    "stage2_pairwise_strength": 1,
+    "max_rounds": 20
+  },
+  "evidence": {
+    "nucleus_probability_used": false,
+    "type_probability_used": false,
+    "hard_label_fallback": true
+  },
+  "stage1": {
+    "variable_count": 26896,
+    "domain": [
+      "background",
+      "nucleus"
+    ],
+    "initial_energy": 2371.51312504485,
+    "returned_energy": 2370.9993969286975,
+    "background_to_active": 3,
+    "active_to_background": 0,
+    "local_minimum": true
+  },
+  "stage2": {
+    "variable_count": 20,
+    "domain": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edge_count": 19,
+    "initial_energy": 1.5185069675321494,
+    "returned_energy": 1.4379174732987314,
+    "energy_trace": [
+      1.5185069675321494,
+      1.4379174732987314,
+      1.4379174732987314
+    ],
+    "nuclei_retyped": 1,
+    "local_minimum": true,
+    "new_unseeded_instances": 0
+  },
+  "nuclei": [
+    {
+      "nucleus_id": 1,
+      "area_px": 470,
+      "centroid_x": 33.85957446808511,
+      "centroid_y": 10.13191489361702,
+      "initial_type_id": 3,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        1
+      ]
+    },
+    {
+      "nucleus_id": 2,
+      "area_px": 118,
+      "centroid_x": 57.75423728813559,
+      "centroid_y": 2.3135593220338984,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        2
+      ]
+    },
+    {
+      "nucleus_id": 3,
+      "area_px": 1059,
+      "centroid_x": 107.03871576959396,
+      "centroid_y": 23.5590179414542,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        3
+      ]
+    },
+    {
+      "nucleus_id": 4,
+      "area_px": 167,
+      "centroid_x": 4.11377245508982,
+      "centroid_y": 14.37125748502994,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        4
+      ]
+    },
+    {
+      "nucleus_id": 5,
+      "area_px": 509,
+      "centroid_x": 64.24950884086444,
+      "centroid_y": 15.282907662082515,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        5
+      ]
+    },
+    {
+      "nucleus_id": 6,
+      "area_px": 261,
+      "centroid_x": 5.367816091954023,
+      "centroid_y": 48.758620689655174,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        6
+      ]
+    },
+    {
+      "nucleus_id": 7,
+      "area_px": 136,
+      "centroid_x": 78.92647058823529,
+      "centroid_y": 76.94852941176471,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        7
+      ]
+    },
+    {
+      "nucleus_id": 8,
+      "area_px": 830,
+      "centroid_x": 139.70722891566265,
+      "centroid_y": 87.8843373493976,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        8
+      ]
+    },
+    {
+      "nucleus_id": 9,
+      "area_px": 522,
+      "centroid_x": 15.273946360153257,
+      "centroid_y": 96.73180076628353,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        9
+      ]
+    },
+    {
+      "nucleus_id": 10,
+      "area_px": 434,
+      "centroid_x": 79.67972350230414,
+      "centroid_y": 95.23502304147465,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        10
+      ]
+    },
+    {
+      "nucleus_id": 11,
+      "area_px": 205,
+      "centroid_x": 43.8,
+      "centroid_y": 109.41463414634147,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "original_instance_ids": [
+        12
+      ]
+    },
+    {
+      "nucleus_id": 12,
+      "area_px": 645,
+      "centroid_x": 105.35968992248063,
+      "centroid_y": 108.30232558139535,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        11
+      ]
+    },
+    {
+      "nucleus_id": 13,
+      "area_px": 501,
+      "centroid_x": 74.07584830339322,
+      "centroid_y": 119.35928143712574,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        13
+      ]
+    },
+    {
+      "nucleus_id": 14,
+      "area_px": 309,
+      "centroid_x": 6.7216828478964405,
+      "centroid_y": 120.96763754045307,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        14
+      ]
+    },
+    {
+      "nucleus_id": 15,
+      "area_px": 302,
+      "centroid_x": 158.56291390728478,
+      "centroid_y": 128.29470198675497,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        15
+      ]
+    },
+    {
+      "nucleus_id": 16,
+      "area_px": 881,
+      "centroid_x": 51.601589103291715,
+      "centroid_y": 146.7355278093076,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        18
+      ]
+    },
+    {
+      "nucleus_id": 17,
+      "area_px": 492,
+      "centroid_x": 11.123983739837398,
+      "centroid_y": 144.47357723577235,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        17
+      ]
+    },
+    {
+      "nucleus_id": 18,
+      "area_px": 546,
+      "centroid_x": 106.58241758241758,
+      "centroid_y": 141.30586080586082,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        16
+      ]
+    },
+    {
+      "nucleus_id": 19,
+      "area_px": 653,
+      "centroid_x": 132.45022970903523,
+      "centroid_y": 152.01837672281778,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        20
+      ]
+    },
+    {
+      "nucleus_id": 20,
+      "area_px": 436,
+      "centroid_x": 26.68807339449541,
+      "centroid_y": 153.2821100917431,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "original_instance_ids": [
+        19
+      ]
+    }
+  ]
+}

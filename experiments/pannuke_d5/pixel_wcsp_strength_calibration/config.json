@@ -1,0 +1,33 @@
+{
+  "probability_head": "original_tp",
+  "initialization": "saved_hovernet",
+  "background_pairwise_cost": 0.25,
+  "strength_candidates": [
+    0,
+    0.1,
+    0.25,
+    0.5,
+    1,
+    2
+  ],
+  "development_indices": [
+    2434,
+    409,
+    2433,
+    347,
+    134,
+    1166,
+    1882,
+    1301,
+    1641,
+    829,
+    605,
+    1838,
+    1837,
+    2042,
+    153
+  ],
+  "selection_metric": "mean patch biological mIoU; ties prefer unchanged baseline, then lower strength",
+  "ground_truth_used_for_optimization": false,
+  "ground_truth_used_for_development_selection": true
+}

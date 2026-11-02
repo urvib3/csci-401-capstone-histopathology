@@ -1,0 +1,24 @@
+{
+  "unchanged_hovernet": {
+    "miou": 0.595110162520718,
+    "binary_iou": 0.7432636638919408,
+    "pixel_accuracy": 0.9379019185008921,
+    "delta_miou": 0.0,
+    "changed_pixels": 0,
+    "wrong_to_correct": 0,
+    "correct_to_wrong": 0,
+    "improved_patches": 0,
+    "worsened_patches": 0
+  },
+  "frozen_wcsp": {
+    "miou": 0.5953800615677488,
+    "binary_iou": 0.7391896157752538,
+    "pixel_accuracy": 0.9382804134443782,
+    "delta_miou": 0.00026989904703070305,
+    "changed_pixels": 40134,
+    "wrong_to_correct": 17953,
+    "correct_to_wrong": 16935,
+    "improved_patches": 44,
+    "worsened_patches": 55
+  }
+}

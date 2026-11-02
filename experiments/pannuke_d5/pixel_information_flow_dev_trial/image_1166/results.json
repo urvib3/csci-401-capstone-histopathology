@@ -1,0 +1,41 @@
+{
+  "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/experiments/pannuke_d5/pixel_information_flow_dev_trial/image_1166",
+  "ground_truth_used": false,
+  "mode": "all_pixels_six_classes",
+  "unary_mode": "probabilities",
+  "initialization": "probability_argmax",
+  "clustering_used": false,
+  "nucleus_averaging_used": false,
+  "label_dictionary": {
+    "0": "Background",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-neoplastic epithelial"
+  },
+  "domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "variable_count": 26896,
+  "unary_transition_costs": null,
+  "optional_type_transition_prior": null,
+  "background_pairwise_cost": 0.25,
+  "runs": [
+    {
+      "initial_energy": 1358.6826005785724,
+      "returned_energy": 1202.6842274736564,
+      "changed_pixels": 96,
+      "background_to_nucleus": 12,
+      "nucleus_to_background": 60,
+      "local_minimum": true,
+      "runtime_seconds": 1.090274332993431,
+      "setting": "unified_probabilities"
+    }
+  ]
+}

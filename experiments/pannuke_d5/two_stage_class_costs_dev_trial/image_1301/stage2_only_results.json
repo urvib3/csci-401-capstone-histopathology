@@ -1,0 +1,459 @@
+{
+  "mode": "two_stage_nucleus_graph",
+  "ground_truth_used": false,
+  "config": {
+    "stage1_transitions": [
+      [
+        0,
+        2
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "stage1_boundary_cost": 0,
+    "stage2_transitions": [
+      [
+        0.0,
+        0.9368806313306764,
+        0.7114562228018699,
+        1.4018669255353589,
+        1.0132588203025994
+      ],
+      [
+        1.1549700966686662,
+        0.0,
+        0.7099044145413804,
+        1.6810919830910074,
+        1.6810919830910074
+      ],
+      [
+        0.8765304821791181,
+        0.7940903084307508,
+        0.0,
+        1.705352155198877,
+        1.4771363509940316
+      ],
+      [
+        0.6308221568400421,
+        0.15442111144656856,
+        0.23520367517420762,
+        0.0,
+        1.1229161905402383
+      ],
+      [
+        0.8292523451805398,
+        0.7282806068497669,
+        0.8144149741434534,
+        1.3410585656598386,
+        0.0
+      ]
+    ],
+    "stage2_neighbor_radius": 12,
+    "stage2_pairwise_strength": 1,
+    "max_rounds": 20,
+    "stage2_transition_source": "experiments/pannuke_d5/unary_calibration/fit.json",
+    "stage2_unary_rule": "directed calibration log-odds barrier; diagonal 0; mean off-diagonal 1"
+  },
+  "evidence": {
+    "nucleus_probability_used": false,
+    "type_probability_used": false,
+    "hard_label_fallback": true
+  },
+  "stage1": {
+    "variable_count": 26896,
+    "domain": [
+      "background",
+      "nucleus"
+    ],
+    "initial_energy": 0.0,
+    "returned_energy": 0.0,
+    "background_to_active": 0,
+    "active_to_background": 0,
+    "local_minimum": true
+  },
+  "stage2": {
+    "variable_count": 20,
+    "domain": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edge_count": 23,
+    "initial_energy": 12.863982352260805,
+    "returned_energy": 3.8959861168081367,
+    "energy_trace": [
+      12.863982352260805,
+      3.8959861168081367,
+      3.8959861168081367
+    ],
+    "nuclei_retyped": 4,
+    "local_minimum": true,
+    "new_unseeded_instances": 0
+  },
+  "nuclei": [
+    {
+      "nucleus_id": 1,
+      "area_px": 182,
+      "centroid_x": 88.47252747252747,
+      "centroid_y": 7.291208791208791,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.876530482179117,
+        0.7940903084307528,
+        0.0,
+        1.7053521551988748,
+        1.4771363509940376
+      ],
+      "original_instance_ids": [
+        1
+      ]
+    },
+    {
+      "nucleus_id": 2,
+      "area_px": 765,
+      "centroid_x": 19.366013071895424,
+      "centroid_y": 13.0,
+      "initial_type_id": 5,
+      "refined_type_id": 5,
+      "unary_cost_vector": [
+        0.8292523451805301,
+        0.7282806068497653,
+        0.8144149741434595,
+        1.3410585656598568,
+        0.0
+      ],
+      "original_instance_ids": [
+        2
+      ]
+    },
+    {
+      "nucleus_id": 3,
+      "area_px": 445,
+      "centroid_x": 146.81348314606743,
+      "centroid_y": 29.957303370786516,
+      "initial_type_id": 1,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306699,
+        0.7114562228018712,
+        1.4018669255353753,
+        1.0132588203026065
+      ],
+      "original_instance_ids": [
+        3
+      ]
+    },
+    {
+      "nucleus_id": 4,
+      "area_px": 259,
+      "centroid_x": 5.185328185328185,
+      "centroid_y": 39.44401544401544,
+      "initial_type_id": 5,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8292523451805426,
+        0.72828060684977,
+        0.8144149741434581,
+        1.3410585656598435,
+        0.0
+      ],
+      "original_instance_ids": [
+        4
+      ]
+    },
+    {
+      "nucleus_id": 5,
+      "area_px": 188,
+      "centroid_x": 18.106382978723403,
+      "centroid_y": 41.47872340425532,
+      "initial_type_id": 1,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306747,
+        0.7114562228018709,
+        1.4018669255353595,
+        1.0132588203026014
+      ],
+      "original_instance_ids": [
+        5
+      ]
+    },
+    {
+      "nucleus_id": 6,
+      "area_px": 715,
+      "centroid_x": 140.56083916083915,
+      "centroid_y": 57.535664335664336,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.936880631330682,
+        0.7114562228018712,
+        1.4018669255353797,
+        1.0132588203025912
+      ],
+      "original_instance_ids": [
+        6
+      ]
+    },
+    {
+      "nucleus_id": 7,
+      "area_px": 90,
+      "centroid_x": 160.44444444444446,
+      "centroid_y": 50.666666666666664,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791192,
+        0.794090308430752,
+        0.0,
+        1.7053521551988786,
+        1.477136350994031
+      ],
+      "original_instance_ids": [
+        7
+      ]
+    },
+    {
+      "nucleus_id": 8,
+      "area_px": 311,
+      "centroid_x": 8.2508038585209,
+      "centroid_y": 61.68810289389067,
+      "initial_type_id": 5,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8292523451805434,
+        0.7282806068497716,
+        0.8144149741434585,
+        1.341058565659847,
+        0.0
+      ],
+      "original_instance_ids": [
+        8
+      ]
+    },
+    {
+      "nucleus_id": 9,
+      "area_px": 736,
+      "centroid_x": 129.89945652173913,
+      "centroid_y": 94.05027173913044,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306832,
+        0.7114562228018712,
+        1.40186692553538,
+        1.0132588203025903
+      ],
+      "original_instance_ids": [
+        9
+      ]
+    },
+    {
+      "nucleus_id": 10,
+      "area_px": 132,
+      "centroid_x": 153.56060606060606,
+      "centroid_y": 89.82575757575758,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306778,
+        0.7114562228018709,
+        1.4018669255353589,
+        1.0132588203025976
+      ],
+      "original_instance_ids": [
+        10
+      ]
+    },
+    {
+      "nucleus_id": 11,
+      "area_px": 80,
+      "centroid_x": 2.375,
+      "centroid_y": 91.3125,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306759,
+        0.7114562228018708,
+        1.4018669255353589,
+        1.0132588203025974
+      ],
+      "original_instance_ids": [
+        11
+      ]
+    },
+    {
+      "nucleus_id": 12,
+      "area_px": 536,
+      "centroid_x": 62.207089552238806,
+      "centroid_y": 111.86007462686567,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306693,
+        0.7114562228018712,
+        1.4018669255353773,
+        1.0132588203026038
+      ],
+      "original_instance_ids": [
+        12
+      ]
+    },
+    {
+      "nucleus_id": 13,
+      "area_px": 513,
+      "centroid_x": 35.85769980506823,
+      "centroid_y": 111.50292397660819,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306695,
+        0.7114562228018712,
+        1.4018669255353768,
+        1.0132588203026063
+      ],
+      "original_instance_ids": [
+        13
+      ]
+    },
+    {
+      "nucleus_id": 14,
+      "area_px": 544,
+      "centroid_x": 141.59558823529412,
+      "centroid_y": 115.57904411764706,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306692,
+        0.7114562228018712,
+        1.4018669255353775,
+        1.0132588203026032
+      ],
+      "original_instance_ids": [
+        14
+      ]
+    },
+    {
+      "nucleus_id": 15,
+      "area_px": 354,
+      "centroid_x": 119.18361581920904,
+      "centroid_y": 123.4774011299435,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306708,
+        0.7114562228018712,
+        1.4018669255353724,
+        1.0132588203026054
+      ],
+      "original_instance_ids": [
+        15
+      ]
+    },
+    {
+      "nucleus_id": 16,
+      "area_px": 247,
+      "centroid_x": 158.42105263157896,
+      "centroid_y": 131.18623481781376,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306727,
+        0.711456222801871,
+        1.4018669255353662,
+        1.0132588203026034
+      ],
+      "original_instance_ids": [
+        16
+      ]
+    },
+    {
+      "nucleus_id": 17,
+      "area_px": 568,
+      "centroid_x": 133.68485915492957,
+      "centroid_y": 141.375,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306713,
+        0.7114562228018712,
+        1.401866925535378,
+        1.0132588203026012
+      ],
+      "original_instance_ids": [
+        17
+      ]
+    },
+    {
+      "nucleus_id": 18,
+      "area_px": 272,
+      "centroid_x": 61.5,
+      "centroid_y": 153.81985294117646,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791134,
+        0.794090308430753,
+        0.0,
+        1.7053521551988675,
+        1.4771363509940398
+      ],
+      "original_instance_ids": [
+        18
+      ]
+    },
+    {
+      "nucleus_id": 19,
+      "area_px": 329,
+      "centroid_x": 147.8419452887538,
+      "centroid_y": 154.70820668693008,
+      "initial_type_id": 1,
+      "refined_type_id": 1,
+      "unary_cost_vector": [
+        0.0,
+        0.9368806313306712,
+        0.711456222801871,
+        1.4018669255353713,
+        1.0132588203026052
+      ],
+      "original_instance_ids": [
+        19
+      ]
+    },
+    {
+      "nucleus_id": 20,
+      "area_px": 193,
+      "centroid_x": 40.310880829015545,
+      "centroid_y": 158.74093264248705,
+      "initial_type_id": 3,
+      "refined_type_id": 3,
+      "unary_cost_vector": [
+        0.8765304821791164,
+        0.7940903084307528,
+        0.0,
+        1.7053521551988737,
+        1.477136350994038
+      ],
+      "original_instance_ids": [
+        20
+      ]
+    }
+  ]
+}
