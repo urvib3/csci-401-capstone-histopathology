@@ -25,4 +25,6 @@ rows+=['','All beta-zero outputs exactly match raw TP argmax. Every round has an
 '','The 200 training and 20 test patches are disjoint, across 18 and 19 tissues respectively. Prior-use scan excludes 266 patch IDs, but unrecorded use cannot be verified. No slide/patient identifiers are available. Held out refers to WCSP fitting; pretrained HoVer-Net Fold 2 exposure is unknown.',
 '','Pairwise preferences cannot enforce literal stromal barriers or detect dense immune clusters. The learned table sees only two Dead-containing training patches; rare-class cost estimates need caution. Test selection intentionally enriches coverage and is not a prevalence-representative sample.',
 '',f"Checkpoint SHA256: `{f['checkpoint']['sha256']}`.",f"Frozen config SHA256: `{r['prediction_provenance']['frozen_config_sha256']}`.",f"Starting commit: `{f['provenance']['git_commit']}`. No commit or push made."]
+if 'publication_metadata' in f:
+ rows += ['', 'Original evaluation config SHA256: `' + f['publication_metadata']['original_frozen_config_sha256'] + '`. File-path metadata was sanitized after evaluation; scientific settings and saved predictions are unchanged.']
 (HERE/'RESULTS.md').write_text('\n'.join(rows)+'\n')

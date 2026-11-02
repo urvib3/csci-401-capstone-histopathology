@@ -8,7 +8,7 @@
     "Non-Neoplastic Epithelial"
   ],
   "channel_mapping": {
-    "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/.venv/lib/python3.12/site-packages/tiatoolbox/data/pretrained_model.yaml",
+    "source": ".venv/lib/python3.12/site-packages/tiatoolbox/data/pretrained_model.yaml",
     "sha256": "71258a85a955f77b34e64fb42fc98397dfb754d374ab758ac4d6b5ff700ac793",
     "entry": "hovernet_fast-pannuke",
     "metadata": {
@@ -148,7 +148,7 @@
   "blend_data": 0.8,
   "blend_prior": 0.2,
   "archive": {
-    "path": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/benchmarks/pannuke/data/fold_2.zip",
+    "path": "benchmarks/pannuke/data/fold_2.zip",
     "sha256": "5bc540cc509f64b5f5a274d6e5a245527dbd3e6d3155d43555115c5d54709b07"
   },
   "architecture_source_sha256": {
@@ -258,7 +258,7 @@
     }
   },
   "checkpoint": {
-    "path": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/benchmarks/pannuke/data/cache/models/hovernet_fast-pannuke.pth",
+    "path": "benchmarks/pannuke/data/cache/models/hovernet_fast-pannuke.pth",
     "sha256": "789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8"
   },
   "provenance": {
@@ -275,7 +275,20 @@
     },
     "source_hashes": {
       "core.py": "ba07c7ef2a197efca738ec7556d2d6dd5463298208a4162eeabad6bd0bca78a3",
+      "run.py": "f279f59cb95ff558f60eccb396d15f7cd6afe9748f93e2177aa863760d318e73"
+    },
+    "original_source_hashes": {
+      "core.py": "ba07c7ef2a197efca738ec7556d2d6dd5463298208a4162eeabad6bd0bca78a3",
       "run.py": "858e522654b8bad039da633a963dd6bf4c07fed2a1698ddb14888f428ef99f9c"
     }
+  },
+  "publication_metadata": {
+    "original_frozen_config_sha256": "444c64b66b5724fe1451a9bf6c355c735bd920d9ab2bb54a3759950d44e0573a",
+    "changes": [
+      "Machine-specific paths replaced with repository-relative paths.",
+      "Repository discovery and path serialization updated after folder reorganization."
+    ],
+    "scientific_settings_changed": false,
+    "predictions_rerun": false
   }
 }

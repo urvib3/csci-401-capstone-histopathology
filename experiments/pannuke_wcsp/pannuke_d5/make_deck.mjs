@@ -1,4 +1,4 @@
-// Local reproduction of the same editable deck built in the live Artifact Session.
+// Export the editable review deck and slide previews.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createRequire} from 'node:module';

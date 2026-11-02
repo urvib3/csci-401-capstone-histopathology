@@ -1,5 +1,4 @@
 {
-  "repository_instructions": "No AGENTS.md found in repository or parent CSCI401 directory search",
   "branch": "main",
   "starting_commit": "95584cf12c828f371694c2b0103321dfa96625b1",
   "data_archive": {
@@ -29,8 +28,8 @@
     "PyYAML": "6.0.3"
   },
   "missing_project_dependencies": [
-    "pytest (not needed: unittest used)",
-    "ReportLab (bundled PDF Python used)"
+    "pytest (not required: unittest used)",
+    "ReportLab is required only for PDF generation"
   ],
   "compute": "deterministic CPU, 4 Torch threads; no network or model downloads",
   "channel_metadata": "TIAToolbox pretrained_model.yaml hovernet_fast-pannuke nuc_type_dict verified",

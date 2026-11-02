@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 const HERE=path.dirname(new URL(import.meta.url).pathname);
-const ROOT=path.resolve(HERE,'../..');
+const ROOT=path.resolve(HERE,'../../..');
 const INK='#202733',TEAL='#227e80',MUTED='#506174',BG='#FAFBF9';
 const FONT='Arial';
 export async function build(presentation) {
@@ -12,7 +12,7 @@ export async function build(presentation) {
  const config=JSON.parse(await fs.readFile(path.join(HERE,'frozen_config.json'),'utf8'));
  const examples=JSON.parse(await fs.readFile(path.join(HERE,'selected_examples.json'),'utf8'));
  const W=1280,H=720;
- // The live presentation uses the standard 16:9 canvas.
+ // Use a 16:9 canvas.
  function text(s,t,x,y,w,h,size=30,bold=false,color=INK){
   const box=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});
   box.text=t;box.text.style={fontFamily:FONT,fontSize:size,bold,color};return box;
@@ -22,7 +22,7 @@ export async function build(presentation) {
   text(s,'HISTOPATHOLOGY CAPSTONE / REVIEW GUIDE',60,30,1120,24,16,true,TEAL);
   text(s,title,60,85,1160,titleSize>43?150:100,titleSize,true);
   text(s,`${presentation.slides.items.length}  |  Historical records are context; the new experiment has one fixed beta`,60,677,1160,24,15,false,MUTED);
-  s.speakerNotes.text=`Sources: ${source}\nHistorical runs were read only, not rerun. Different baselines and aggregation methods are not controlled comparisons.`;return s;
+  s.speakerNotes.text=`Sources: ${source.split(ROOT+path.sep).join('')}\nHistorical runs were read only, not rerun. Different baselines and aggregation methods are not controlled comparisons.`;return s;
  }
  function lines(s,items,y=210,size=30,step=80){for(const [i,t] of items.entries())text(s,t,66,y+i*step,1145,step-8,size);}
  function table(s,values,x=65,y=207,w=1150,h=330,size=27,widths){
@@ -98,6 +98,6 @@ export async function build(presentation) {
  const [lo,hi]=r.bootstrap.ci95;
  const conclusion=lo>0?'Observed gain; the patch-bootstrap interval excludes zero.':hi<0?'Observed degradation; the patch-bootstrap interval excludes zero.':'No reliable improvement: the patch-bootstrap interval includes zero.';
  lines(s,[conclusion,'Pairwise contacts cannot literally enforce stromal barriers or detect dense immune clusters. Rare Dead cells remain fragile evidence.','All results are single-pixel local solutions, not global optima. Unknown patient clustering and pretrained-fold exposure limit claims.','Questions: Is pixel adjacency the right biological scale? Would region-level context help? What should a separately frozen follow-up test measure?'],195,28,105);
- s.speakerNotes.text+=`\nReproducibility: ${HERE}/README.md; frozen config SHA256 ${r.prediction_provenance.frozen_config_sha256}; checkpoint SHA256 ${config.checkpoint.sha256}. Numerical tests, manifests, tables, label predictions, confusion matrices and bootstrap replicates accompany the report. No commit or push. Deliverable 5 files untouched.`;
+ s.speakerNotes.text+=`\nReproducibility: ${path.relative(ROOT,HERE)}/README.md; frozen config SHA256 ${r.prediction_provenance.frozen_config_sha256}; checkpoint SHA256 ${config.checkpoint.sha256}. Numerical tests, manifests, tables, label predictions, confusion matrices and bootstrap replicates accompany the report.`;
  return {slides:presentation.slides.items.length};
 }

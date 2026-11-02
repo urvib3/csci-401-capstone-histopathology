@@ -57,5 +57,7 @@ The 200 training and 20 test patches are disjoint, across 18 and 19 tissues resp
 Pairwise preferences cannot enforce literal stromal barriers or detect dense immune clusters. The learned table sees only two Dead-containing training patches; rare-class cost estimates need caution. Test selection intentionally enriches coverage and is not a prevalence-representative sample.
 
 Checkpoint SHA256: `789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8`.
-Frozen config SHA256: `444c64b66b5724fe1451a9bf6c355c735bd920d9ab2bb54a3759950d44e0573a`.
+Published config SHA256: `8dff75129bdc94dd5d77650f5526fe83ad60ddbe92d0ac62c678794c1e1889e1`.
+Original evaluation config SHA256: `444c64b66b5724fe1451a9bf6c355c735bd920d9ab2bb54a3759950d44e0573a`.
+Publication metadata uses repository-relative paths; scientific settings and saved predictions are unchanged.
 Starting commit: `95584cf12c828f371694c2b0103321dfa96625b1`. No commit or push made.

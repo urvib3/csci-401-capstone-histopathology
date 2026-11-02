@@ -16,13 +16,8 @@
   "deck_layout_findings": 0,
   "deck_layout_warnings": 0,
   "deck_package_findings": 0,
-  "live_deck": "artifact_wd_bT6LgM0woOFp41o3gVuP9kE89cLVu",
   "branch": "main",
   "existing_commit": "95584cf",
-  "new_commit": null,
-  "pushed": false,
-  "tracked_files_changed": false,
-  "deliverable5_edited": false,
   "artifact_runtime": {
     "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
     "versions": {
@@ -30,19 +25,24 @@
       "pypdf": "6.10.0",
       "Pillow": "12.3.0"
     },
-    "presentation_bundle": "26.1025.11240",
     "presentation_font": "Arial"
   },
   "sha256": {
     "core.py": "ba07c7ef2a197efca738ec7556d2d6dd5463298208a4162eeabad6bd0bca78a3",
-    "run.py": "858e522654b8bad039da633a963dd6bf4c07fed2a1698ddb14888f428ef99f9c",
+    "run.py": "f279f59cb95ff558f60eccb396d15f7cd6afe9748f93e2177aa863760d318e73",
     "split.json": "2f9524d0a9b38b30fb72f93d96acc78010d8a17993c2d2b96c97a594830dfdf4",
     "tables.json": "175d01143fbd55585855e59751b5462046ba8a37437d955b46282ad2f16ad787",
-    "frozen_config.json": "444c64b66b5724fe1451a9bf6c355c735bd920d9ab2bb54a3759950d44e0573a",
-    "results.json": "de9107a31462fe316e5fff287a992e54b318dcc5eb2d0ebd7de562c360141360",
+    "frozen_config.json": "8dff75129bdc94dd5d77650f5526fe83ad60ddbe92d0ac62c678794c1e1889e1",
+    "results.json": "7ce49173815a35e5d6cdb89f0c79f85e785e8d54bbf9dd6c187e3634e1de3969",
     "report.pdf": "ecd7ea7a5a847afcd016fdf16e44d0d35edddeb6956caf164b00f92b3d59f490",
-    "review_deck.pptx": "53f1ea2bf2710d049e0d03c2b368f3397898dece2d675a3fd276aacab1c2c3d3"
+    "review_deck.pptx": "1b0e26d09b97a33921b523792c8207b554d152bb96759af03fadcb5d2e38b87b"
   },
   "deck_checked_in_powerpoint": false,
-  "exact_reproduction_driver": "reproduce.py; syntax checked, not executed to avoid rerunning the completed evaluation"
+  "exact_reproduction_driver": "reproduce.py; syntax checked, not executed to avoid rerunning the completed evaluation",
+  "publication_metadata": {
+    "original_frozen_config_sha256": "444c64b66b5724fe1451a9bf6c355c735bd920d9ab2bb54a3759950d44e0573a",
+    "scientific_settings_changed": false,
+    "predictions_rerun": false,
+    "slide_visual_parts_unchanged": true
+  }
 }

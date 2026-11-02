@@ -3,14 +3,14 @@ import argparse,json,shutil,subprocess,sys
 from pathlib import Path
 import numpy as np
 from core import semantic,adjacency,fit
-from run import stream_arrays,sha,DATA
+from run import stream_arrays,sha,DATA,ROOT
 HERE=Path(__file__).resolve().parent
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Path,required=True);p.add_argument('--prepare-only',action='store_true');args=p.parse_args()
     out=args.output.resolve()
     if out.exists():p.error('Output must be new; existing experiment files are preserved.')
-    if out.parent!=HERE.parent:p.error('Use a new sibling directory under experiments/.')
+    if out.parent!=HERE.parent:p.error('Use a new sibling experiment directory.')
     cfg=json.loads((HERE/'frozen_config.json').read_text());split=json.loads((HERE/'split.json').read_text());tables=json.loads((HERE/'tables.json').read_text())
     assert sha(DATA/'fold_2.zip')==cfg['archive']['sha256']
     assert sha(HERE/'split.json')==cfg['split_sha256']
@@ -32,7 +32,7 @@ def main():
     for i,image in stream_arrays('images.npy',ids):
         assert np.array_equal(image,image.astype(np.uint8))
         np.save(out/f'cache/rgb_{i:04d}.npy',image.astype(np.uint8))
-    (out/'reproduction_note.json').write_text(json.dumps(dict(original=str(HERE),frozen_config_sha256=sha(HERE/'frozen_config.json'),exact_manifests_reused=True,training_table_recomputed_and_matched=True,unused_cache_rows='zeros; never used'),indent=2)+'\n')
+    (out/'reproduction_note.json').write_text(json.dumps(dict(original=HERE.relative_to(ROOT).as_posix(),frozen_config_sha256=sha(HERE/'frozen_config.json'),exact_manifests_reused=True,training_table_recomputed_and_matched=True,unused_cache_rows='zeros; never used'),indent=2)+'\n')
     if not args.prepare_only:subprocess.run([sys.executable,str(out/'run.py'),'evaluate'],check=True)
     print(out)
 

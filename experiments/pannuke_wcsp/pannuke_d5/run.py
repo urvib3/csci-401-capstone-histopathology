@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 
 HERE=Path(__file__).resolve().parent
-ROOT=HERE.parents[1]
+ROOT=next(parent for parent in HERE.parents if (parent/'benchmarks/pannuke').is_dir())
 DATA=ROOT/'benchmarks/pannuke/data'
 SEED=20261101
 CLASSES=['Background','Neoplastic','Inflammatory','Connective','Dead','Non-Neoplastic Epithelial']
@@ -45,7 +45,7 @@ def mapping():
     meta=yaml.safe_load(p.read_text())['hovernet_fast-pannuke']
     actual=meta['architecture']['kwargs']['nuc_type_dict']
     assert actual==dict(enumerate(CLASSES)),actual
-    return dict(source=str(p),sha256=sha(p),entry='hovernet_fast-pannuke',metadata=meta,verified_mapping=actual)
+    return dict(source=p.relative_to(ROOT).as_posix(),sha256=sha(p),entry='hovernet_fast-pannuke',metadata=meta,verified_mapping=actual)
 
 def exclusions():
     found={}; sources=[]
@@ -135,7 +135,7 @@ def freeze():
     config=dict(classes=CLASSES,channel_mapping=mapping(),split_sha256=sha(HERE/'split.json'),
         manifests={n:sha(HERE/n) for n in ['train_manifest.csv','test_manifest.csv']},table=tables['final'],tables_sha256=sha(HERE/'tables.json'),
         seed=SEED,beta=.30,eta=1,smoothing=1,blend_data=.8,blend_prior=.2,
-        archive=dict(path=str(DATA/'fold_2.zip'),sha256=sha(DATA/'fold_2.zip')),
+        archive=dict(path=(DATA/'fold_2.zip').relative_to(ROOT).as_posix(),sha256=sha(DATA/'fold_2.zip')),
         architecture_source_sha256={n:sha(ROOT/'.venv/lib/python3.12/site-packages/tiatoolbox/models/architecture'/n) for n in ['utils.py','hovernet.py']},
         normalization=tables['normalization'],counting='12 undirected offsets; add both orientations, including twice on diagonal; unweighted GT counts',
         equations=dict(J='(N_ab+1)/sum(N+1)',m='sum_b J_ab',raw='max(0,-log(J_ab/(m_a*m_b))); diagonal=0',normalization='divide by mean over all ordered off-diagonal entries',unary='-log(max(P_i(k),1e-12)); subtract per-pixel minimum',pairwise='beta*C[a,b]/Euclidean_distance'),
@@ -143,7 +143,7 @@ def freeze():
         gt_overlap='Highest class ID wins overlapping biological channels; background iff no biological annotation; GT channel 5 ignored as background encoding.',
         solver=dict(name='deterministic raster-order ICM',initialization='raw six-channel TP softmax argmax',acceptance='strict local energy decrease',max_rounds=100,stop='complete round with zero changes',independent_audit_tolerance=1e-10,tie_policy='retain current label unless strictly better; ascending labels among improving ties'),
         metrics=dict(primary='pooled biological mIoU, fixed classes 1..5',secondary='pooled six-class mIoU, fixed classes 0..5',zero_union='IoU=0; never drop classes',bootstrap=dict(replicates=5000,seed=20261102,unit='paired patches',interval='percentile 2.5/97.5')),
-        checkpoint=dict(path=str(DATA/'cache/models/hovernet_fast-pannuke.pth'),sha256=sha(DATA/'cache/models/hovernet_fast-pannuke.pth')),
+        checkpoint=dict(path=(DATA/'cache/models/hovernet_fast-pannuke.pth').relative_to(ROOT).as_posix(),sha256=sha(DATA/'cache/models/hovernet_fast-pannuke.pth')),
         provenance=dict(git_commit=__import__('subprocess').check_output(['git','rev-parse','HEAD'],text=True).strip(),python=sys.version,platform=platform.platform(),versions={n:importlib.metadata.version(n) for n in ['numpy','numba','torch','tiatoolbox','matplotlib','PyYAML']},source_hashes={n:sha(HERE/n) for n in ['core.py','run.py']}))
     dump(HERE/'frozen_config.json',config)
     (HERE/'frozen_config.sha256').write_text(sha(HERE/'frozen_config.json')+'\n')

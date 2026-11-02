@@ -4,7 +4,7 @@ This standalone experiment asks whether a GT-trained spatial incompatibility tab
 
 ## Environment and reproduction
 
-Run from the repository root using Python 3.12 and the installed `.venv`. Required: NumPy, Numba, Torch, TIAToolbox (source/metadata), PyYAML. Tests use stdlib unittest; pytest is unnecessary. Matplotlib generates scientific figures. ReportLab is required only for PDF authoring; the Codex bundled Python supplies it. Exact experiment versions and checkpoint SHA256 are in `frozen_config.json`. In this run TIAToolbox optional whole-slide dependencies are bypassed: `run.py` compiles only unchanged official architecture/layer/forward definitions from installed sources and strictly loads every checkpoint parameter/buffer. This is not a substitute architecture. Source hashes are recorded.
+Run from the repository root using Python 3.12 and the installed `.venv`. Required: NumPy, Numba, Torch, TIAToolbox (source/metadata), PyYAML. Tests use stdlib unittest; pytest is unnecessary. Matplotlib generates scientific figures. ReportLab is required only for PDF generation and should be installed in the active Python environment. Exact experiment versions and checkpoint SHA256 are in `frozen_config.json`. In this run TIAToolbox optional whole-slide dependencies are bypassed: `run.py` compiles only unchanged official architecture/layer/forward definitions from installed sources and strictly loads every checkpoint parameter/buffer. This is not a substitute architecture. Source hashes are recorded.
 
 Local prerequisites (never commit/push):
 
@@ -17,17 +17,17 @@ The archive contains float64 RGB and masks (~12 GB uncompressed). The pipeline s
 Exact commands, in order:
 
 ```bash
-.venv/bin/python experiments/pannuke_pixel_learned_costs/run.py prepare
-.venv/bin/python -m unittest discover -s experiments/pannuke_pixel_learned_costs -v
-.venv/bin/python experiments/pannuke_pixel_learned_costs/run.py freeze
-.venv/bin/python experiments/pannuke_pixel_learned_costs/run.py evaluate
-.venv/bin/python -m unittest discover -s experiments/pannuke_pixel_learned_costs -v
-.venv/bin/python experiments/pannuke_pixel_learned_costs/make_figures.py
+.venv/bin/python experiments/pannuke_wcsp/pannuke_d5/run.py prepare
+.venv/bin/python -m unittest discover -s experiments/pannuke_wcsp/pannuke_d5 -v
+.venv/bin/python experiments/pannuke_wcsp/pannuke_d5/run.py freeze
+.venv/bin/python experiments/pannuke_wcsp/pannuke_d5/run.py evaluate
+.venv/bin/python -m unittest discover -s experiments/pannuke_wcsp/pannuke_d5 -v
+.venv/bin/python experiments/pannuke_wcsp/pannuke_d5/make_figures.py
 # Use a Python with ReportLab for the report:
-python experiments/pannuke_pixel_learned_costs/make_report.py
+python experiments/pannuke_wcsp/pannuke_d5/make_report.py
 ```
 
-Prepare/freeze/evaluate refuse to overwrite their corresponding frozen/final outputs. For an exact frozen reproduction, use `reproduce.py` below. It copies the frozen split/configuration, rebuilds its input cache, recomputes the training table to verify equality, then evaluates the same two methods. Do not run fresh split selection: the existing experiment itself would now appear in the prior-use scan. Do not delete this run's manifests to select another test set. The absolute metadata paths in frozen records identify the original environment; source code resolves the current repository root.
+Prepare/freeze/evaluate refuse to overwrite their corresponding frozen/final outputs. For an exact frozen reproduction, use `reproduce.py` below. It copies the frozen split/configuration, rebuilds its input cache, recomputes the training table to verify equality, then evaluates the same two methods. Do not run fresh split selection: the existing experiment itself would now appear in the prior-use scan. Do not delete this run's manifests to select another test set. Metadata paths are repository-relative, and scripts locate the repository root from the data directory.
 
 ## Pixel variables and provenance
 
@@ -61,42 +61,49 @@ Pool confusion counts **before** computing IoUs. Rows are GT, columns prediction
 
 `results.json` contains pooled metrics, all patch metrics, fixes/breaks/different-wrong, separate CPU inference and solver times, and bootstrap replicates. `confusions.npz` contains per-patch 6x6 confusion matrices, the baseline-to-WCSP transition matrix, and GT x baseline x WCSP counts. `predictions/` contains aligned GT/baseline/WCSP label arrays and solver audits. Inference timing covers model forward, transfer and softmax; model setup is separate. Solver timing includes independent energy/local-minimum audits and excludes the explicit synthetic warmup and beta-zero validation. Any additional layout-specific JIT specialization inside a timed real solve is included; timings should not be interpreted as pure optimized-kernel speed.
 
-## Scope and safety
+## Figures, report and review deck
 
-Preserve earlier experiments and every Deliverable 5 file. No commit or push is authorized. Do not push data, checkpoint, environment, credentials or probability/logit caches. Historical results in the review deck are read from existing records only; no older experiment is rerun and differing metrics/baselines are not presented as controlled comparisons.
-
-## Reproduce the document artifacts on this host
-
-After evaluation, run `validate_inputs.py`, then `make_figures.py` and `make_summary.py` with the project Python. The independent input validator re-streams the selected raw RGB/GT and checks lossless RGB plus exact crop alignment.
+- Generate figures and the numeric summary from saved outputs; no inference or optimization is rerun.
+- The input validator checks raw RGB values and exact GT crop alignment.
+- Install ReportLab in the active environment to generate the PDF.
 
 ```bash
-.venv/bin/python experiments/pannuke_pixel_learned_costs/validate_inputs.py
-.venv/bin/python experiments/pannuke_pixel_learned_costs/make_figures.py
-.venv/bin/python experiments/pannuke_pixel_learned_costs/make_summary.py
-/Users/kashvi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 experiments/pannuke_pixel_learned_costs/make_report.py
+python experiments/pannuke_wcsp/pannuke_d5/validate_inputs.py
+python experiments/pannuke_wcsp/pannuke_d5/make_figures.py
+python experiments/pannuke_wcsp/pannuke_d5/make_deliverable_figures.py
+python experiments/pannuke_wcsp/pannuke_d5/make_summary.py
+python experiments/pannuke_wcsp/pannuke_d5/make_report.py
 ```
 
-The review deck is built from the same `deck_builder.mjs` in a live Artifact Session and exported as `review_deck.pptx`. It contains editable tables/charts and speaker-note source paths. A local reproduction uses the bundled Artifact Tool (adjust the runtime paths on another host):
+- `RESULTS.md`: numerical results and solver audits.
+- `report.pdf`: three-page illustrated experiment report.
+- `review_deck.pptx`: editable review slides, including historical experiments with their original baselines and metric definitions.
+- Optional deck-generation source: `deck_builder.mjs` and `make_deck.mjs`; requires the `@oai/artifact-tool` JavaScript package in the Node.js environment. The exported deck is already included.
 
 ```bash
-mkdir -p experiments/pannuke_pixel_learned_costs/.build
-ln -s /Users/kashvi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules experiments/pannuke_pixel_learned_costs/.build/node_modules
-/Users/kashvi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node experiments/pannuke_pixel_learned_costs/make_deck.mjs
+node experiments/pannuke_wcsp/pannuke_d5/make_deck.mjs
 ```
 
-Run the artifact commands against the new reproduction directory if the final deck already exists. Inspect all exported preview slides before using the deck. PDF rendering uses the bundled `pdftoppm`:
+- Deck export refuses to overwrite an existing file; regenerate in the new reproduction directory.
+- Optional PDF preview with Poppler:
 
 ```bash
-mkdir -p experiments/pannuke_pixel_learned_costs/.build/pdf_previews
-/Users/kashvi/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm -r 120 -png experiments/pannuke_pixel_learned_costs/report.pdf experiments/pannuke_pixel_learned_costs/.build/pdf_previews/page
+mkdir -p experiments/pannuke_wcsp/pannuke_d5/.build/pdf_previews
+pdftoppm -r 120 -png experiments/pannuke_wcsp/pannuke_d5/report.pdf experiments/pannuke_wcsp/pannuke_d5/.build/pdf_previews/page
 ```
 
-`RESULTS.md` is the readable numeric report; `report.pdf` is the three-page office-hours explanation. The historical slides summarize prior repository records (including older lambda/strength tests) without rerunning them; their scores are labeled with their original baselines and aggregation conventions.
+## Published metadata
+
+- File references use repository-relative paths; no personal machine paths are required.
+- After the experiment directory was reorganized, repository discovery and path serialization were updated for portability.
+- Original evaluation configuration and source hashes are retained in `frozen_config.json`; the published configuration has a separate checksum.
+- These metadata/path changes do not change the split, learned table, model settings, solver, predictions or metrics. Predictions were not rerun.
+- Keep datasets, checkpoints, environments and large probability/logit caches local; they are not required in version control.
 
 ## Exact frozen reproduction (no new split)
 
 ```bash
-.venv/bin/python experiments/pannuke_pixel_learned_costs/reproduce.py --output experiments/pannuke_pixel_learned_costs_reproduction
+.venv/bin/python experiments/pannuke_wcsp/pannuke_d5/reproduce.py --output experiments/pannuke_wcsp/pannuke_d5_reproduction
 ```
 
 The output must not exist. `--prepare-only` rebuilds the fixed inputs and independently checks the learned table without running inference. The normal command runs exactly the original raw-TP baseline and fixed beta-0.30 WCSP. It preserves the original exclusion snapshot and all 220 patch IDs. Then run the tests and artifact commands above with `pannuke_pixel_learned_costs_reproduction` in place of `pannuke_pixel_learned_costs`. Reproduction requires the exact archived input/checkpoint/source hashes and installed dependency versions recorded in the frozen configuration.
