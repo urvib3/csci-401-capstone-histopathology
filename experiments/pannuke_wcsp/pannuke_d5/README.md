@@ -1,6 +1,13 @@
 # PanNuke: learned pixel compatibility costs, fixed beta 0.30
 
-This standalone experiment asks whether a GT-trained spatial incompatibility table plus four fixed soft biological preferences improves **raw six-channel HoVer-Net TP argmax**. It imports no earlier experiment code. Only two evaluated methods: raw TP argmax and the frozen WCSP at beta 0.30. Beta zero is an equivalence test, not a model-selection variant. No sweep or test-based tuning.
+This standalone experiment asks whether a GT-trained spatial incompatibility table plus four fixed soft biological preferences improves **raw six-channel HoVer-Net TP argmax**. It imports no earlier experiment code. In this original evaluation, only two evaluated methods: raw TP argmax and the frozen WCSP at beta 0.30. Beta zero is an equivalence test, not a model-selection variant. No sweep or test-based tuning within this original evaluation. The later development sweep is documented below.
+
+
+## Follow-up: development-selected beta 0.15
+
+The subsequent [learned-table beta sweep](../pannuke_learned_table_beta_dev/README.md) retains this exact trained table and evaluates 15 beta values on 20 development patches disjoint from this run's 200 fitting and 20 test patches. **Beta 0.15** achieves the highest pooled biological mIoU: **42.7366%**, versus **42.5791%** for raw TP and **42.6956%** at beta 0.30 on that development set. See the [selected candidate config](../pannuke_learned_table_beta_dev/selected_config.json) and [full sweep report](../pannuke_learned_table_beta_dev/REPORT.md).
+
+Beta 0.30 was carried forward from the earlier handwritten-table development sweep, whose patch-averaged, zero-union-excluding metric differs from the current pooled metric. The new learned table changes cost values and scale, motivating a fresh development-only sweep. Beta 0.15 is now the candidate for a fresh frozen evaluation; **it has not been evaluated on a new final test set**. The beta 0.30 configuration, results, PDF and deck in this directory remain the historical D5 evaluation and have not been relabeled or rerun. Absolute scores across these different patch sets are not directly comparable.
 
 ## Environment and reproduction
 

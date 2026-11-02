@@ -1,0 +1,7 @@
+{
+  "saved_prediction_recount": true,
+  "beta_zero_exact": true,
+  "patches": 20,
+  "betas": 15,
+  "selected_beta": 0.15
+}

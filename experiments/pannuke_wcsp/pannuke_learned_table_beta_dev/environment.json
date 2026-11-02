@@ -1,0 +1,22 @@
+{
+  "model_setup_seconds": 18.805053000000044,
+  "channel_mapping": {
+    "0": "Background",
+    "1": "Neoplastic",
+    "2": "Inflammatory",
+    "3": "Connective",
+    "4": "Dead",
+    "5": "Non-Neoplastic Epithelial"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "numba": "0.64.0",
+    "torch": "2.9.1",
+    "tiatoolbox": "2.0.1"
+  },
+  "architecture_sha256": {
+    "hovernet.py": "77a2397860a5e6bc498aaf2618deece76ec62da8df8ddeb432ef489fb6beab01",
+    "utils.py": "e6a7bf33d0bf3c23dd54373a455c126117ba701fad2f5a8a47cd53218e11de18"
+  },
+  "note": "Local TIAToolbox 2.0.1/PyTorch 2.9.1 versus D5 recorded 2.1.2/2.12.0. Same checkpoint hash, verified mapping and direct raw TP forward; environment difference recorded."
+}

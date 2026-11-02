@@ -11,7 +11,8 @@ optimization techniques.
   solvers (argmax, ICM, 100/56/100 blocks, toulbar2), BCSS data/U-Net wrappers, evaluation, CLI.
 - `experiments/` - code, configs and results behind the deliverables:
   - `bcss_wcsp/` - BCSS U-Net + WCSP experiments (configs, b tables, sweeps, SLURM scripts, figures).
-  - `pannuke_d4/`, `pannuke_d5/` - PanNuke WCSP crops and full patch (Deliverables 4 and 5).
+  - `pannuke_wcsp/` - PanNuke WCSP experiments, including [D4 checks](experiments/pannuke_wcsp/pannuke_d4/) and the [D5 learned-table evaluation](experiments/pannuke_wcsp/pannuke_d5/).
+  - Latest PanNuke update: [learned-table beta sweep](experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/) selects **beta 0.15** on 20 development patches (biological mIoU 42.5791% → 42.7366%). This is a development-selected candidate; a new final evaluation is pending. The earlier beta 0.30 test results remain unchanged.
 - BCSS overnight experiments (full 512 output, pairwise training loss, sparse distant relations, hybrid solvers): [runbook](experiments/bcss_wcsp/TONIGHT.md).
 - `benchmarks/` - classifier baselines on PanNuke and BCSS (Deliverable 3), plus the BCSS
   loader package `benchmarks/bcss/loader` (dataset, classes, grid, stats, metrics).

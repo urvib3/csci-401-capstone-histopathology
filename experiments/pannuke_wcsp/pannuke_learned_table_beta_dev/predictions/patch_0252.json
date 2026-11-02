@@ -1,0 +1,342 @@
+{
+  "0": {
+    "rounds": 1,
+    "changes_per_round": [
+      0
+    ],
+    "energy": [
+      0.0,
+      0.0
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.005": {
+    "rounds": 2,
+    "changes_per_round": [
+      1,
+      0
+    ],
+    "energy": [
+      15.351813956503667,
+      15.327188393236138,
+      15.327188393236138
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.01": {
+    "rounds": 2,
+    "changes_per_round": [
+      2,
+      0
+    ],
+    "energy": [
+      30.703627913007335,
+      30.63660450542158,
+      30.63660450542158
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.025": {
+    "rounds": 2,
+    "changes_per_round": [
+      4,
+      0
+    ],
+    "energy": [
+      76.75906978251834,
+      76.53858879048465,
+      76.53858879048465
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.05": {
+    "rounds": 3,
+    "changes_per_round": [
+      9,
+      1,
+      0
+    ],
+    "energy": [
+      153.51813956503668,
+      152.78679423198307,
+      152.73380934337501,
+      152.73380934337501
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.075": {
+    "rounds": 2,
+    "changes_per_round": [
+      14,
+      0
+    ],
+    "energy": [
+      230.277209347555,
+      228.61698102566987,
+      228.61698102566987
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.1": {
+    "rounds": 3,
+    "changes_per_round": [
+      18,
+      2,
+      0
+    ],
+    "energy": [
+      307.03627913007335,
+      304.2061762028393,
+      304.12227111774115,
+      304.12227111774115
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.125": {
+    "rounds": 3,
+    "changes_per_round": [
+      21,
+      1,
+      0
+    ],
+    "energy": [
+      383.7953489125917,
+      379.6089319087735,
+      379.6020022073244,
+      379.6020022073244
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.15": {
+    "rounds": 4,
+    "changes_per_round": [
+      23,
+      1,
+      1,
+      0
+    ],
+    "energy": [
+      460.55441869511,
+      455.0796680921139,
+      454.9591556711239,
+      454.958385743014,
+      454.958385743014
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.2": {
+    "rounds": 4,
+    "changes_per_round": [
+      30,
+      4,
+      1,
+      0
+    ],
+    "energy": [
+      614.0725582601467,
+      605.8636588028672,
+      605.1629772575916,
+      605.0720087713249,
+      605.0720087713249
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.25": {
+    "rounds": 4,
+    "changes_per_round": [
+      32,
+      7,
+      1,
+      0
+    ],
+    "energy": [
+      767.5906978251834,
+      755.8182474433639,
+      754.5939029633191,
+      754.5014592037517,
+      754.5014592037517
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.3": {
+    "rounds": 5,
+    "changes_per_round": [
+      41,
+      6,
+      1,
+      4,
+      0
+    ],
+    "energy": [
+      921.10883739022,
+      904.5254228341489,
+      903.3728729364476,
+      903.3246384802744,
+      902.6150499722896,
+      902.6150499722896
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.4": {
+    "rounds": 5,
+    "changes_per_round": [
+      47,
+      8,
+      4,
+      2,
+      0
+    ],
+    "energy": [
+      1228.1451165202934,
+      1203.2411670811684,
+      1200.3719517869795,
+      1198.6887507386389,
+      1198.3734161829268,
+      1198.3734161829268
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.5": {
+    "rounds": 4,
+    "changes_per_round": [
+      56,
+      11,
+      8,
+      0
+    ],
+    "energy": [
+      1535.1813956503668,
+      1499.2667188913013,
+      1493.874486961248,
+      1491.6006729700186,
+      1491.6006729700186
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "1.0": {
+    "rounds": 6,
+    "changes_per_round": [
+      77,
+      14,
+      7,
+      4,
+      4,
+      0
+    ],
+    "energy": [
+      3070.3627913007335,
+      2969.9208290240463,
+      2956.346837754599,
+      2948.5195164034903,
+      2947.578529838958,
+      2944.7559278139265,
+      2944.7559278139265
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "0": {
+    "rounds": 1,
+    "changes_per_round": [
+      0
+    ],
+    "energy": [
+      0.0,
+      0.0
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.005": {
+    "rounds": 2,
+    "changes_per_round": [
+      3,
+      0
+    ],
+    "energy": [
+      19.36722597093735,
+      19.33201753729985,
+      19.33201753729985
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.01": {
+    "rounds": 2,
+    "changes_per_round": [
+      8,
+      0
+    ],
+    "energy": [
+      38.7344519418747,
+      38.54663288582874,
+      38.54663288582874
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.025": {
+    "rounds": 2,
+    "changes_per_round": [
+      17,
+      0
+    ],
+    "energy": [
+      96.83612985468677,
+      95.47425062174435,
+      95.47425062174435
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.05": {
+    "rounds": 3,
+    "changes_per_round": [
+      39,
+      4,
+      0
+    ],
+    "energy": [
+      193.67225970937355,
+      188.15666588848663,
+      187.911105080748,
+      187.911105080748
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.075": {
+    "rounds": 3,
+    "changes_per_round": [
+      61,
+      6,
+      0
+    ],
+    "energy": [
+      290.5083895640603,
+      277.4590750004704,
+      276.8753643428223,
+      276.8753643428223
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.1": {
+    "rounds": 4,
+    "changes_per_round": [
+      66,
+      5,
+      1,
+      0
+    ],
+    "energy": [
+      387.3445194187471,
+      366.21386172119264,
+      364.8893294906407,
+      364.8004489114704,
+      364.8004489114704
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.125": {
+    "rounds": 4,
+    "changes_per_round": [
+      72,
+      3,
+      1,
+      0
+    ],
+    "energy": [
+      484.18064927343386,
+      452.891232409569,
+      452.6993408629076,
+      452.60468706970534,
+      452.60468706970534
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.15": {
+    "rounds": 4,
+    "changes_per_round": [
+      78,
+      9,
+      2,
+      0
+    ],
+    "energy": [
+      581.0167791281206,
+      540.8331434798879,
+      539.9610755733831,
+      539.778970379089,
+      539.778970379089
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.2": {
+    "rounds": 4,
+    "changes_per_round": [
+      91,
+      8,
+      2,
+      0
+    ],
+    "energy": [
+      774.6890388374942,
+      715.5918550537299,
+      714.5168545465543,
+      714.1582689560807,
+      714.1582689560807
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.25": {
+    "rounds": 4,
+    "changes_per_round": [
+      106,
+      9,
+      2,
+      0
+    ],
+    "energy": [
+      968.3612985468677,
+      889.3361667905074,
+      887.5174970075046,
+      886.982431020852,
+      886.982431020852
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.3": {
+    "rounds": 7,
+    "changes_per_round": [
+      114,
+      9,
+      2,
+      1,
+      1,
+      1,
+      0
+    ],
+    "energy": [
+      1162.0335582562411,
+      1062.1153881357225,
+      1059.4378734088862,
+      1059.062641781056,
+      1058.999681412644,
+      1058.9830612589285,
+      1058.7441248118766,
+      1058.7441248118766
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.4": {
+    "rounds": 5,
+    "changes_per_round": [
+      128,
+      15,
+      4,
+      2,
+      0
+    ],
+    "energy": [
+      1549.3780776749884,
+      1405.090328396047,
+      1401.0308395149968,
+      1400.346644935811,
+      1399.9791148424727,
+      1399.9791148424727
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "0.5": {
+    "rounds": 5,
+    "changes_per_round": [
+      149,
+      29,
+      5,
+      4,
+      0
+    ],
+    "energy": [
+      1936.7225970937354,
+      1748.7022550839347,
+      1737.5423292556334,
+      1736.5105823009055,
+      1733.9794806138457,
+      1733.9794806138457
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "1.0": {
+    "rounds": 7,
+    "changes_per_round": [
+      211,
+      57,
+      26,
+      15,
+      8,
+      5,
+      0
+    ],
+    "energy": [
+      3873.445194187471,
+      3410.13308317466,
+      3370.3872135329057,
+      3351.2125466363477,
+      3343.6566071169027,
+      3338.694216020912,
+      3331.204150457656,
+      3331.204150457656
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  }
+}

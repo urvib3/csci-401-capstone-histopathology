@@ -1,0 +1,60 @@
+{
+  "beta": 0.15,
+  "status": "development_selected_candidate_not_final_tested",
+  "table_source": "../pannuke_d5/frozen_config.json",
+  "table": [
+    [
+      0.0,
+      0.4158284008866229,
+      0.35717341339775205,
+      0.36337260560099527,
+      0.21706929645957818,
+      0.41091330559688527
+    ],
+    [
+      0.4158284008866229,
+      0.0,
+      1.0420476029596473,
+      0.8440856965077456,
+      1.2861860344335898,
+      2.3148440117697517
+    ],
+    [
+      0.35717341339775205,
+      1.0420476029596473,
+      0.0,
+      0.6838678983640888,
+      1.1267906513631072,
+      1.9292381484581624
+    ],
+    [
+      0.36337260560099527,
+      0.8440856965077456,
+      0.6838678983640888,
+      0.0,
+      1.355712300138887,
+      1.0561501866992344
+    ],
+    [
+      0.21706929645957818,
+      1.2861860344335898,
+      1.1267906513631072,
+      1.355712300138887,
+      0.0,
+      1.596720447363952
+    ],
+    [
+      0.41091330559688527,
+      2.3148440117697517,
+      1.9292381484581624,
+      1.0561501866992344,
+      1.596720447363952,
+      0.0
+    ]
+  ],
+  "source_config_sha256": "8dff75129bdc94dd5d77650f5526fe83ad60ddbe92d0ac62c678794c1e1889e1",
+  "primary_metric": "pooled biological mIoU, fixed five classes; zero union=0",
+  "development_manifest": "development_manifest.csv",
+  "sweep_results": "results.json",
+  "validation_note": "Selected on these 20 development patches; requires fresh frozen evaluation. Existing D5 beta=0.30 test results are unchanged."
+}
