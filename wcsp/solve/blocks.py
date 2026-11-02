@@ -137,6 +137,24 @@ class BlockCoordinateDescent:
                         break
                     # Regions of one phase never interact, so they are all
                     # conditioned on the same labels and solved independently.
+                    if problem.long_edges is not None and len(problem.long_edges):
+                        # Distant edges can connect regions in the same phase.
+                        # Condition each region after accepting the preceding one.
+                        for region in regions:
+                            if out_of_time():
+                                break
+                            region = region & active
+                            if not region.any():
+                                continue
+                            sub, window = condition(problem, labels, region)
+                            before = labels[window].copy()
+                            result = self.inner.solve(sub, before)
+                            if result.energy < energy(sub, before) - self.tol:
+                                labels[window] = np.where(sub.active, result.labels, labels[window])
+                        current = energy(problem, labels)
+                        trace.append({"round": round_, "phase": phase, "energy": current,
+                                      "seconds": time.perf_counter() - start})
+                        continue
                     jobs = []
                     for region in regions:
                         region = region & active

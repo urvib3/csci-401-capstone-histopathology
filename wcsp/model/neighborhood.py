@@ -84,3 +84,50 @@ def pair_slices(shape, offset):
     p_rows, q_rows = axis(height, dy)
     p_cols, q_cols = axis(width, dx)
     return (p_rows, p_cols), (q_rows, q_cols)
+
+
+def sample_long_edges(shape, distance, probability, seed=0, max_edges=2_000_000):
+    """Independent Bernoulli(p) edges over unordered pairs beyond distance.
+
+    Sample the upper triangle via geometric skips, without enumerating N²
+    candidates. Local neighbors (distance <= 2 sqrt(2)) are never duplicated.
+    The explicit memory guard rejects dense requests; it does not truncate.
+    """
+    if not np.isfinite(distance) or distance < np.sqrt(8):
+        raise ValueError("long_distance must be finite and >= sqrt(8).")
+    if not np.isfinite(probability) or not 0 <= probability <= 1:
+        raise ValueError("long_probability must be in [0, 1].")
+    if max_edges < 1:
+        raise ValueError("long_max_edges must be positive.")
+    n = int(np.prod(shape))
+    total = n * (n - 1) // 2
+    if probability == 0 or total == 0:
+        return np.empty((0, 2), dtype=np.int64)
+    # Conservative guard on candidates, before the distance filter.
+    if total * probability > max_edges:
+        raise ValueError("expected long-edge candidates exceed long_max_edges; reduce p.")
+    rng = np.random.default_rng(seed)
+    chunks, cursor, count = [], -1, 0
+    while cursor < total - 1:
+        batch = min(65536, max(1, int(np.ceil((total-cursor)*probability)) + 8))
+        gaps = (np.ones(batch, dtype=np.int64) if probability == 1 else
+                rng.geometric(probability, size=batch))
+        # Extremely small p may overflow int64 in geometric sampling.
+        if (gaps <= 0).any():
+            raise ValueError("long_probability is too small for geometric sampling.")
+        ranks = cursor + np.cumsum(gaps)
+        ranks = ranks[(ranks >= 0) & (ranks < total)]
+        if not len(ranks):
+            break
+        count += len(ranks)
+        if count > max_edges:
+            raise ValueError("sampled candidates exceed long_max_edges; reduce p.")
+        first = np.floor((2*n - 1 - np.sqrt((2*n-1)**2 - 8.0*ranks))/2).astype(np.int64)
+        second = ranks - first * (2*n-first-1)//2 + first + 1
+        width = shape[1]
+        d2 = (first//width-second//width)**2 + (first%width-second%width)**2
+        chunks.append(np.stack([first[d2 > distance**2], second[d2 > distance**2]], axis=1))
+        if len(ranks) < len(gaps):
+            break
+        cursor = int(ranks[-1])
+    return np.concatenate(chunks) if chunks else np.empty((0, 2), dtype=np.int64)

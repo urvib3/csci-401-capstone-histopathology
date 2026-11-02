@@ -97,10 +97,10 @@ def load_fullres_unet(checkpoint=None, weights=None, width=32, device="cpu"):
     weights:
         Optional local copy of the TIAToolbox weights.
     """
-    from tiatoolbox.models.architecture import get_pretrained_model
+    from wcsp.classifiers.tia_model import get_pretrained_model
 
     base, _ = get_pretrained_model(MODEL_NAME, pretrained_weights=weights)
-    state = torch.load(checkpoint, map_location="cpu") if checkpoint else None
+    state = torch.load(checkpoint, map_location="cpu", weights_only=False) if checkpoint else None
     if state is not None:
         width = state.get("width", width)
     model = FullResUNet(base, width=width)

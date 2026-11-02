@@ -44,6 +44,13 @@ def pair_tables(problem):
         else:
             change = problem.change[o][p][both]
             tables.append(base + problem.weights[o] * change[:, None] * unlike)
+    if problem.long_edges is not None:
+        a, b = problem.long_edges.T
+        keep = active.ravel()[a] & active.ravel()[b]
+        if keep.any():
+            firsts.append(a[keep])
+            seconds.append(b[keep])
+            tables.append(problem.long_weights[keep, None] * problem.table.ravel())
     if not firsts:
         return np.empty(0, int), np.empty(0, int), np.empty((0, k * k))
     return np.concatenate(firsts), np.concatenate(seconds), np.concatenate(tables)
@@ -89,6 +96,11 @@ class Toulbar2Solver:
         if len(first):
             scopes = np.stack([var_of[first], var_of[second]], axis=1)
             cfn.AddFunctions(scopes, np.ascontiguousarray(costs.reshape(-1, k, k)))
+        # Seed value ordering as well as the objective upper bound. ICM's
+        # assignment stays available outside Toulbar2 if search finds no gain.
+        if hasattr(cfn.CFN.wcsp, "setBestValue"):
+            for variable, value in enumerate(np.asarray(init).ravel()[flat]):
+                cfn.CFN.wcsp.setBestValue(variable, int(value))
         return cfn, flat
 
     def solve(self, problem, init):

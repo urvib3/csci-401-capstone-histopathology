@@ -108,7 +108,7 @@ def main():
     parser.add_argument("--limit-dev", type=int, default=0, help="debug: dev tiles scored")
     args = parser.parse_args()
 
-    from tiatoolbox.models.architecture import get_pretrained_model
+    from wcsp.classifiers.tia_model import get_pretrained_model
 
     torch.manual_seed(0)
     np.random.seed(0)

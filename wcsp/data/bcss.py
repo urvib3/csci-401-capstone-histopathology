@@ -28,13 +28,14 @@ def _roi(name):
 class BCSS(SampleList):
     name = "bcss"
 
-    def __init__(self, split="dev", root=None):
+    def __init__(self, split="dev", root=None, full_tile=False):
         if split not in ("fit", "dev", "val"):
             raise ValueError("BCSS split must be fit, dev or val.")
         lut, _ = coarse_lut()
         source = "val" if split == "val" else "train"
         self.data = BCSSDataset(root, variant="512", split=source, lut=lut)
         self.split = split
+        self.window = (slice(None), slice(None)) if full_tile else WINDOW
         positions = list(range(len(self.data.tiles)))
         if split != "val":
             rois = sorted({_roi(t.name) for t in self.data.tiles})
@@ -50,6 +51,6 @@ class BCSS(SampleList):
             id=self.ids[i],
             image=tile.image,
             target=remap_labels(tile.mask, BCSS_TO_WCSP),
-            window=WINDOW,
+            window=self.window,
             meta={"roi": tile.info.roi_id, "hospital": tile.info.slide_id.split("-")[1]},
         )

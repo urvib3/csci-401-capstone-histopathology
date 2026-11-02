@@ -28,18 +28,33 @@ class ICMSolver:
         active = problem.active_mask
         rows, cols = np.indices(problem.shape)
         trace = [energy(problem, labels)]
+        colors = (rows % STRIDE) * STRIDE + cols % STRIDE
+        # Greedily split each grid color so distant adjacent pixels cannot
+        # update simultaneously. Local edges already connect different colors.
+        if problem.long_edges is not None and len(problem.long_edges):
+            adjacency = [[] for _ in range(active.size)]
+            flat_colors = colors.ravel()
+            for a, b in problem.long_edges:
+                if flat_colors[a] == flat_colors[b] and active.ravel()[a] and active.ravel()[b]:
+                    adjacency[a].append(b)
+                    adjacency[b].append(a)
+            extra = np.zeros(active.size, dtype=np.int64)
+            for node, neighbors in enumerate(adjacency):
+                used = {extra[q] for q in neighbors if q < node}
+                while extra[node] in used:
+                    extra[node] += 1
+            colors = colors + STRIDE**2 * extra.reshape(problem.shape)
+        batches = [active & (colors == c) for c in np.unique(colors[active])]
 
         for _ in range(self.max_sweeps):
             changed = 0
-            for dy in range(STRIDE):
-                for dx in range(STRIDE):
-                    batch = active & (rows % STRIDE == dy) & (cols % STRIDE == dx)
-                    costs = local_costs(problem, labels)
-                    best = costs.argmin(axis=-1)
-                    current = np.take_along_axis(costs, labels[..., None], -1)[..., 0]
-                    better = batch & (costs.min(axis=-1) < current - 1e-12)
-                    labels[better] = best[better]
-                    changed += int(better.sum())
+            for batch in batches:
+                costs = local_costs(problem, labels)
+                best = costs.argmin(axis=-1)
+                current = np.take_along_axis(costs, labels[..., None], -1)[..., 0]
+                better = batch & (costs.min(axis=-1) < current - 1e-12)
+                labels[better] = best[better]
+                changed += int(better.sum())
             trace.append(energy(problem, labels))
             timed_out = self.time_limit and time.perf_counter() - start > self.time_limit
             if not changed or timed_out:

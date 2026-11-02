@@ -28,6 +28,11 @@ def partial_energy(problem, labels, mask):
         both = mask[p] & mask[q]
         cost = _pair_cost(problem, o, p, labels[p], labels[q])
         total += float(cost[both].sum())
+    if problem.long_edges is not None:
+        a, b = problem.long_edges.T
+        both = mask.ravel()[a] & mask.ravel()[b]
+        flat = labels.ravel()
+        total += float((problem.long_weights[both] * problem.table[flat[a[both]], flat[b[both]]]).sum())
     return total
 
 
@@ -67,6 +72,14 @@ def neighbor_costs(problem, labels, source):
         if change is not None:
             cost = cost + change * (choices != lp[..., None])
         out[q] += weight * cost * source[p][..., None]
+    if problem.long_edges is not None:
+        a, b = problem.long_edges.T
+        flat, src = labels.ravel(), source.ravel()
+        output = out.reshape(-1, k)
+        for dest, neighbor in ((a, b), (b, a)):
+            keep = src[neighbor]
+            costs = problem.long_weights[keep, None] * problem.table[:, flat[neighbor[keep]]].T
+            np.add.at(output, dest[keep], costs)
     return out
 
 

@@ -31,6 +31,11 @@ class ProblemConfig:
     color_space: str = "rgb"
     instance_gamma: float = 0.0      # 0 disables the same-nucleus f term (PanNuke)
 
+    long_distance: float = 8.0       # minimum Euclidean distance (strictly greater)
+    long_probability: float = 0.0    # Bernoulli probability per unordered distant pair
+    long_seed: int = 0
+    long_max_edges: int = 2_000_000   # fail explicitly rather than silently thinning
+
     @classmethod
     def from_dict(cls, values):
         known = {f.name for f in fields(cls)}

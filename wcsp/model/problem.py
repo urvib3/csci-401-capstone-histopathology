@@ -16,7 +16,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from ..config import ProblemConfig
-from .neighborhood import distance_weights, forward_offsets
+from .neighborhood import distance_weights, forward_offsets, sample_long_edges
 from .pairwise import color_features, contrast_term, instance_term
 from .tables import check_table, load_table
 from .unary import unary_costs
@@ -32,11 +32,20 @@ class GridProblem:
     active: np.ndarray | None = None  # (H, W) bool; None = all active
     constant: float = 0.0
 
+    long_edges: np.ndarray | None = None    # (M, 2), flattened pixel indices
+    long_weights: np.ndarray | None = None  # (M,), includes lambda and distance decay
+
     def __post_init__(self):
         height, width, k = self.unary.shape
         n = len(self.offsets)
         if self.offsets.shape != (n, 2) or self.weights.shape != (n,):
             raise ValueError("offsets must be (n, 2) and weights (n,).")
+        if self.long_edges is not None:
+            edges = self.long_edges
+            if edges.ndim != 2 or edges.shape[1] != 2 or self.long_weights is None or self.long_weights.shape != (len(edges),):
+                raise ValueError("long_edges / long_weights must be (M, 2) / (M,).")
+            if (edges < 0).any() or (edges >= height * width).any() or (edges[:, 0] >= edges[:, 1]).any():
+                raise ValueError("long_edges must have ordered, distinct in-bounds endpoints.")
         check_table(self.table, num_labels=k)
         if self.change is not None and self.change.shape != (n, height, width):
             raise ValueError(f"change must be ({n}, {height}, {width}).")
@@ -95,7 +104,16 @@ def build_problem(probs, config=ProblemConfig(), image=None, instances=None,
     if change is not None and change.shape[1:] != shape:
         raise ValueError("image / instances must match the probability map size.")
 
+    edges = sample_long_edges(shape, config.long_distance, config.long_probability,
+                              config.long_seed, config.long_max_edges)
+    distances = np.sqrt(((edges[:, 0] // shape[1] - edges[:, 1] // shape[1]) ** 2 +
+                         (edges[:, 0] % shape[1] - edges[:, 1] % shape[1]) ** 2).astype(float))
+    long_weights = config.lam * distances ** -config.eta
+    if config.normalize and len(offsets):
+        long_weights /= 2 * distance_weights(offsets, config.eta).sum()
+
     return GridProblem(
+        long_edges=edges, long_weights=long_weights,
         unary=config.alpha * unary_costs(probs, config.temperature, informative),
         offsets=offsets,
         weights=weights,

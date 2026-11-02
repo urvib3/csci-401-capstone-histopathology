@@ -26,7 +26,8 @@ class ProbStore:
         self.dir.mkdir(parents=True, exist_ok=True)
         arrays = {
             "ids": np.array(ids),
-            "probs": np.stack([p.probs for p in predictions]).astype(np.float16),
+            "probs": (np.stack([p.probs for p in predictions]).astype(np.float16)
+                      if predictions else np.empty((0, 0, 0, 0), dtype=np.float16)),
         }
         if predictions and predictions[0].instances is not None:
             arrays["instances"] = np.stack([p.instances for p in predictions]).astype(np.int32)

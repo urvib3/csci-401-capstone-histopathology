@@ -47,8 +47,17 @@ def condition(problem, labels, region):
     constant = problem.constant + partial_energy(problem, labels, fixed)
 
     window = bounding_box(region)
+    edges, weights = problem.long_edges, problem.long_weights
+    if edges is not None:
+        a, b = edges.T
+        keep = region.ravel()[a] & region.ravel()[b]
+        edges, weights = edges[keep], weights[keep]
+        old_width = problem.shape[1]
+        new_width = window[1].stop - window[1].start
+        edges = (edges // old_width - window[0].start) * new_width + edges % old_width - window[1].start
     sub = replace(
         problem,
+        long_edges=edges, long_weights=weights,
         unary=unary[window],
         change=None if problem.change is None else problem.change[(slice(None),) + window],
         active=region[window],

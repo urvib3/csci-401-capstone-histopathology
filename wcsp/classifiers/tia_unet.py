@@ -56,7 +56,7 @@ class TiaUNet:
 
     def __init__(self, device="cpu", threads=None, weights=None, native=False):
         import torch
-        from tiatoolbox.models.architecture import get_pretrained_model
+        from wcsp.classifiers.tia_model import get_pretrained_model
 
         if threads:
             torch.set_num_threads(threads)
@@ -84,7 +84,8 @@ class TiaUNet:
             raise ValueError(f"{self.name} expects {TILE}x{TILE} tiles.")
         x = torch.from_numpy(np.ascontiguousarray(images)).permute(0, 3, 1, 2).float().to(self.device)
         with torch.inference_mode():
-            probs = self._full_probs(x)[..., OFFSET:OFFSET + CROP, OFFSET:OFFSET + CROP].cpu().numpy()
+            full = self._full_probs(x)
+            probs = [full[(i, slice(None)) + s.window].cpu().numpy() for i, s in enumerate(samples)]
         return [Prediction(reorder_probs(p, BCSS_TO_WCSP, axis=0)) for p in probs]
 
 
@@ -112,3 +113,16 @@ class FullResTiaUNet(TiaUNet):
 
     def _full_probs(self, x):
         return self.torch.nn.functional.softmax(self.model(x), dim=1)
+
+
+class TrainedTiaUNet(TiaUNet):
+    """Original half-resolution architecture, fine-tuned by train_experiments.py."""
+
+    def __init__(self, checkpoint, **kwargs):
+        super().__init__(**kwargs)
+        state = self.torch.load(checkpoint, map_location="cpu", weights_only=False)
+        if state.get("args", {}).get("architecture") != "baseline":
+            raise ValueError("tia_unet_trained requires a baseline architecture checkpoint")
+        self.model.load_state_dict(state["model"])
+        self.model.eval()
+        self.name = "tia_unet_trained"

@@ -8,6 +8,8 @@ from .base import SolveResult
 
 class ChainSolver:
     def __init__(self, stages):
+        if not stages:
+            raise ValueError("a solver chain needs at least one stage.")
         self.stages = stages
 
     def solve(self, problem, init):
@@ -16,6 +18,7 @@ class ChainSolver:
         for i, stage in enumerate(self.stages):
             result = stage.solve(problem, labels)
             labels = result.labels
-            trace.extend({**t, "stage": i} for t in result.trace)
+            trace.extend({**(t if isinstance(t, dict) else {"energy": t}), "stage": i}
+                         for t in result.trace)
         return SolveResult(labels, result.energy, time.perf_counter() - start,
                            lower_bound=result.lower_bound, trace=trace)

@@ -12,6 +12,7 @@ optimization techniques.
 - `experiments/` - code, configs and results behind the deliverables:
   - `bcss_wcsp/` - BCSS U-Net + WCSP experiments (configs, b tables, sweeps, SLURM scripts, figures).
   - `pannuke_d4/`, `pannuke_d5/` - PanNuke WCSP crops and full patch (Deliverables 4 and 5).
+- BCSS overnight experiments (full 512 output, pairwise training loss, sparse distant relations, hybrid solvers): [runbook](experiments/bcss_wcsp/TONIGHT.md).
 - `benchmarks/` - classifier baselines on PanNuke and BCSS (Deliverable 3), plus the BCSS
   loader package `benchmarks/bcss/loader` (dataset, classes, grid, stats, metrics).
 - `sample_problems/` - warm-up problems cast as WCSPs and solved with Toulbar2.

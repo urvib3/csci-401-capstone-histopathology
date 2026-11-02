@@ -1,0 +1,33 @@
+name: tonight_full512
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+  full_tile: true
+classifier:
+  name: tia_unet_fullres
+  checkpoint: data/outputs/tonight/full512/best.pt
+  temperature: 1.0
+  cache_tag: tonight_full512
+  weights: data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  normalize: true
+  table: handwritten
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: icm
+  max_sweeps: 50
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

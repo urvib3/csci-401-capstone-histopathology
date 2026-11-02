@@ -8,7 +8,7 @@ def load_dataset(name, split, root=None, **options):
     if name == "bcss":
         from .bcss import BCSS
 
-        return BCSS(split, root)
+        return BCSS(split, root, **options)
     if name == "pannuke":
         from .pannuke import PanNuke
 

@@ -33,17 +33,22 @@ def dataset_for(cfg, split=None):
 
 
 def store_for(cfg, split):
-    return ProbStore(cfg.cache_root, cfg.dataset["name"], cfg.classifier["name"], split)
+    return ProbStore(cfg.cache_root, cfg.dataset["name"], cfg.classifier.get("cache_tag", cfg.classifier["name"]), split)
 
 
 def classifier_for(cfg):
     spec = dict(cfg.classifier)
     name = spec.pop("name")
     spec.pop("temperature", None)
+    spec.pop("cache_tag", None)
     if name in ("tia_unet", "tia_unet_native"):   # separate names keep separate caches
         from .classifiers.tia_unet import TiaUNet
 
         return TiaUNet(native=name == "tia_unet_native", **spec)
+    if name == "tia_unet_trained":
+        from .classifiers.tia_unet import TrainedTiaUNet
+
+        return TrainedTiaUNet(**spec)
     if name == "tia_unet_fullres":
         from .classifiers.tia_unet import FullResTiaUNet
 
@@ -166,11 +171,12 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
         scores["truth_rules"].append(pair_counts(sample.grid_target))
         rows.append({
             "id": sample.id, **sample.meta,
+            "long_edges": len(problem.long_edges) if problem.long_edges is not None else 0,
             "energy_argmax": init.energy, "energy_wcsp": result.energy,
             "lower_bound": result.lower_bound,
             "changed": float((init.labels != result.labels).mean()),
             "seconds": result.seconds,
-            "rounds": max((t.get("round") or 0) for t in result.trace) if result.trace else 0,
+            "rounds": max((t.get("round") or 0) if isinstance(t, dict) else 0 for t in result.trace) if result.trace else 0,
         })
         arrays["ids"].append(sample.id)
         arrays["argmax"].append(init.labels.astype(np.uint8))
@@ -189,7 +195,12 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
                 payload[f"{name}_{key}"] = np.stack(values)
     if scores["truth_rules"]:
         payload["truth_rules"] = np.stack(scores["truth_rules"])
-    pd.DataFrame(rows).to_csv(run_dir / f"shard_{index:04d}_of_{count:04d}.csv", index=False)
+    columns = list(rows[0]) if rows else [
+        "id", "long_edges", "energy_argmax", "energy_wcsp", "lower_bound",
+        "changed", "seconds", "rounds",
+    ]
+    pd.DataFrame(rows, columns=columns).to_csv(
+        run_dir / f"shard_{index:04d}_of_{count:04d}.csv", index=False)
     np.savez_compressed(out_path, **payload)
     return out_path
 
