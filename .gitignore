@@ -14,3 +14,6 @@ benchmarks/pannuke/results/sample_predictions/ground_truth_mask_0.png
 benchmarks/pannuke/results/sample_predictions/input_image_0.png
 /data/
 /bcss_inspect/
+
+# Local PanNuke migration archives; never push data/cache bundles.
+/migration/pannuke-*/

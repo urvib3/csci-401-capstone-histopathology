@@ -1,0 +1,34 @@
+{
+  "source": "Frozen 200-patch training GT adjacency counts, before smoothing; both orientations counted so proportions equal undirected-edge proportions",
+  "counts_sha256": "175d01143fbd55585855e59751b5462046ba8a37437d955b46282ad2f16ad787",
+  "oriented_counts": {
+    "total": 127140000,
+    "same_label": 123166924,
+    "different_biological_labels": 8850,
+    "background_biological": 3964226
+  },
+  "percent": {
+    "same_label": 96.87503854019191,
+    "different_biological_labels": 0.006960830580462482,
+    "background_biological": 3.118000629227623
+  },
+  "scope": "Descriptive training-GT graph statistic; not test-prediction contacts or a causal intervention. No experiment rerun.",
+  "examples": [
+    {
+      "kind": "improvement",
+      "image_index": 2334,
+      "tissue": "Stomach",
+      "delta": 0.016603291880942173,
+      "fixes": 62,
+      "breaks": 8
+    },
+    {
+      "kind": "degradation",
+      "image_index": 910,
+      "tissue": "Lung",
+      "delta": -0.00745903832169989,
+      "fixes": 53,
+      "breaks": 88
+    }
+  ]
+}

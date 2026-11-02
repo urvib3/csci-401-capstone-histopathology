@@ -1,0 +1,89 @@
+{
+  "fold": 2,
+  "image_index": 930,
+  "tissue": "Uterus",
+  "class_pixels": [
+    19450,
+    5814,
+    129,
+    1503,
+    0,
+    0
+  ],
+  "overlap_pixels": 4,
+  "baseline": {
+    "iou": [
+      0.889446047589763,
+      0.5300432384076338,
+      0.0,
+      0.1298232960692391,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.13197330689537456,
+    "six_class_miou": 0.2582187636777727,
+    "pixel_accuracy": 0.8446237358715051,
+    "gt_absent_classes": [
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.8887368470721465,
+      0.5329728105753342,
+      0.0,
+      0.13070017953321364,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.13273459802170956,
+    "six_class_miou": 0.2587349728634491,
+    "pixel_accuracy": 0.8457391433670435,
+    "gt_absent_classes": [
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "changed_pixels": 250,
+  "wrong_to_correct": 123,
+  "correct_to_wrong": 93,
+  "wrong_to_different_wrong": 34,
+  "inference_seconds": 0.8471849160268903,
+  "solver_seconds": 0.052143334003631026,
+  "solver": {
+    "rounds": 6,
+    "changes_per_round": [
+      218,
+      43,
+      18,
+      10,
+      4,
+      0
+    ],
+    "energy": [
+      1559.9398817987308,
+      1408.657554661997,
+      1395.7555024278117,
+      1388.012458755362,
+      1377.442861658908,
+      1376.2495728194656,
+      1376.2495728194656
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

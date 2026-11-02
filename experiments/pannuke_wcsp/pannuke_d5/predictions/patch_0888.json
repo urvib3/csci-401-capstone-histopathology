@@ -1,0 +1,93 @@
+{
+  "fold": 2,
+  "image_index": 888,
+  "tissue": "Esophagus",
+  "class_pixels": [
+    25852,
+    0,
+    0,
+    1044,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9955678883878676,
+      0.0,
+      0.0,
+      0.788135593220339,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.1576271186440678,
+    "six_class_miou": 0.2972839136013678,
+    "pixel_accuracy": 0.9915600832837597,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9956065978110066,
+      0.0,
+      0.0,
+      0.795668549905838,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.1591337099811676,
+    "six_class_miou": 0.29854585795280747,
+    "pixel_accuracy": 0.9919318857822724,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 16,
+  "wrong_to_correct": 12,
+  "correct_to_wrong": 2,
+  "wrong_to_different_wrong": 2,
+  "inference_seconds": 0.8402507910504937,
+  "solver_seconds": 0.032642000005580485,
+  "solver": {
+    "rounds": 4,
+    "changes_per_round": [
+      17,
+      3,
+      2,
+      0
+    ],
+    "energy": [
+      116.63571503449063,
+      104.89489751313221,
+      104.44762413952839,
+      104.31312491167924,
+      104.31312491167924
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

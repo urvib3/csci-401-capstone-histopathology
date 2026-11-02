@@ -1,0 +1,95 @@
+{
+  "fold": 2,
+  "image_index": 2238,
+  "tissue": "Prostate",
+  "class_pixels": [
+    24470,
+    0,
+    0,
+    2426,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9680061017221308,
+      0.0,
+      0.0,
+      0.7135154565061107,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14270309130122213,
+    "six_class_miou": 0.28025359303804026,
+    "pixel_accuracy": 0.9703673408685306,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.967679846018125,
+      0.0,
+      0.0,
+      0.7083936324167872,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14167872648335744,
+    "six_class_miou": 0.27934557973915203,
+    "pixel_accuracy": 0.9700327186198692,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 47,
+  "wrong_to_correct": 19,
+  "correct_to_wrong": 28,
+  "wrong_to_different_wrong": 0,
+  "inference_seconds": 0.8243709160014987,
+  "solver_seconds": 0.0336484580184333,
+  "solver": {
+    "rounds": 4,
+    "changes_per_round": [
+      40,
+      5,
+      2,
+      0
+    ],
+    "energy": [
+      433.4072763336587,
+      414.06077219594596,
+      413.1022661385171,
+      412.7468912676254,
+      412.7468912676254
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

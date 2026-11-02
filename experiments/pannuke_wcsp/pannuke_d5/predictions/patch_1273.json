@@ -1,0 +1,91 @@
+{
+  "fold": 2,
+  "image_index": 1273,
+  "tissue": "Bile-duct",
+  "class_pixels": [
+    26017,
+    0,
+    0,
+    879,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9879600701059209,
+      0.0,
+      0.0,
+      0.6728778467908902,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.13457556935817805,
+    "six_class_miou": 0.2768063194828019,
+    "pixel_accuracy": 0.9882510410469958,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9879238095238095,
+      0.0,
+      0.0,
+      0.6708203530633438,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.13416407061266875,
+    "six_class_miou": 0.27645736043119223,
+    "pixel_accuracy": 0.9882138607971446,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 11,
+  "wrong_to_correct": 5,
+  "correct_to_wrong": 6,
+  "wrong_to_different_wrong": 0,
+  "inference_seconds": 0.8404924999922514,
+  "solver_seconds": 0.02373341703787446,
+  "solver": {
+    "rounds": 2,
+    "changes_per_round": [
+      11,
+      0
+    ],
+    "energy": [
+      127.99137365093478,
+      125.55318467189385,
+      125.55318467189385
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

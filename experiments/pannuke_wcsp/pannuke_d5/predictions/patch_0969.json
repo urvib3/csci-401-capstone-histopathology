@@ -1,0 +1,111 @@
+{
+  "fold": 2,
+  "image_index": 969,
+  "tissue": "Cervix",
+  "class_pixels": [
+    22601,
+    0,
+    0,
+    0,
+    0,
+    4295
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9350796769264352,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.40127528583992966
+    ],
+    "biological_miou": 0.08025505716798594,
+    "six_class_miou": 0.22272582712772748,
+    "pixel_accuracy": 0.8641805472932778,
+    "gt_absent_classes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9337751231634477,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.40935030728709393
+    ],
+    "biological_miou": 0.08187006145741879,
+    "six_class_miou": 0.22385423840842358,
+    "pixel_accuracy": 0.8656677572873289,
+    "gt_absent_classes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4
+    ]
+  },
+  "changed_pixels": 231,
+  "wrong_to_correct": 91,
+  "correct_to_wrong": 51,
+  "wrong_to_different_wrong": 89,
+  "inference_seconds": 0.8279114169999957,
+  "solver_seconds": 0.07828729198081419,
+  "solver": {
+    "rounds": 13,
+    "changes_per_round": [
+      178,
+      51,
+      32,
+      12,
+      5,
+      5,
+      8,
+      7,
+      4,
+      4,
+      6,
+      1,
+      0
+    ],
+    "energy": [
+      1276.775491960173,
+      1114.4834044094096,
+      1096.0965787148155,
+      1083.1478293319062,
+      1080.544590253597,
+      1077.8615016467033,
+      1076.2129275887155,
+      1074.2963638389128,
+      1072.3068619090857,
+      1071.8815068277406,
+      1070.6959482442742,
+      1069.2906735192607,
+      1068.8883345807299,
+      1068.8883345807299
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

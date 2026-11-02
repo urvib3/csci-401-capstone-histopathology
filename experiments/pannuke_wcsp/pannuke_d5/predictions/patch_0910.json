@@ -1,0 +1,89 @@
+{
+  "fold": 2,
+  "image_index": 910,
+  "tissue": "Lung",
+  "class_pixels": [
+    23666,
+    480,
+    1302,
+    317,
+    1131,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9121409014752155,
+      0.2851985559566787,
+      0.18710089399744573,
+      0.2670250896057348,
+      0.182713695583095,
+      0.0
+    ],
+    "biological_miou": 0.18440764702859086,
+    "six_class_miou": 0.30569652276969494,
+    "pixel_accuracy": 0.8735871505056514,
+    "gt_absent_classes": [
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9115379909457971,
+      0.28832116788321166,
+      0.16732026143790849,
+      0.25444839857651247,
+      0.1746532156368222,
+      0.0
+    ],
+    "biological_miou": 0.17694860870689097,
+    "six_class_miou": 0.29938017241337533,
+    "pixel_accuracy": 0.8722858417608567,
+    "gt_absent_classes": [
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "changed_pixels": 206,
+  "wrong_to_correct": 53,
+  "correct_to_wrong": 88,
+  "wrong_to_different_wrong": 65,
+  "inference_seconds": 0.9277417080011219,
+  "solver_seconds": 0.05116554198320955,
+  "solver": {
+    "rounds": 7,
+    "changes_per_round": [
+      160,
+      31,
+      17,
+      3,
+      5,
+      1,
+      0
+    ],
+    "energy": [
+      1156.5790095965774,
+      1015.8478985000299,
+      1004.6700622731987,
+      996.1731776046174,
+      995.3561211636116,
+      992.6934732135618,
+      991.3938978510346,
+      991.3938978510346
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

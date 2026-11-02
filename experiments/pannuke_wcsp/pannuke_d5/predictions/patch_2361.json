@@ -1,0 +1,89 @@
+{
+  "fold": 2,
+  "image_index": 2361,
+  "tissue": "Testis",
+  "class_pixels": [
+    22144,
+    4119,
+    0,
+    633,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9617155637416129,
+      0.7252252252252253,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14504504504504506,
+    "six_class_miou": 0.2811567981611397,
+    "pixel_accuracy": 0.9470553242117787,
+    "gt_absent_classes": [
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9618521441725861,
+      0.7258560590526963,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14517121181053927,
+    "six_class_miou": 0.2812847005375471,
+    "pixel_accuracy": 0.9472040452111838,
+    "gt_absent_classes": [
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 29,
+  "wrong_to_correct": 14,
+  "correct_to_wrong": 10,
+  "wrong_to_different_wrong": 5,
+  "inference_seconds": 0.802817833959125,
+  "solver_seconds": 0.027686458022799343,
+  "solver": {
+    "rounds": 3,
+    "changes_per_round": [
+      25,
+      6,
+      0
+    ],
+    "energy": [
+      496.61885723091865,
+      492.3278894123715,
+      491.4578278098045,
+      491.4578278098045
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

@@ -1,0 +1,55 @@
+2324: fixes=35 breaks=33 rounds=4 local_min=True inference=1.02s solve=0.21s
+0910: fixes=53 breaks=88 rounds=7 local_min=True inference=0.93s solve=0.05s
+2334: fixes=62 breaks=8 rounds=5 local_min=True inference=0.84s solve=0.04s
+1603: fixes=3 breaks=0 rounds=2 local_min=True inference=0.87s solve=0.02s
+1113: fixes=5 breaks=4 rounds=2 local_min=True inference=0.86s solve=0.02s
+0205: fixes=13 breaks=8 rounds=3 local_min=True inference=0.82s solve=0.03s
+0888: fixes=12 breaks=2 rounds=4 local_min=True inference=0.84s solve=0.03s
+2361: fixes=14 breaks=10 rounds=3 local_min=True inference=0.80s solve=0.03s
+2089: fixes=83 breaks=97 rounds=20 local_min=True inference=0.83s solve=0.14s
+1273: fixes=5 breaks=6 rounds=2 local_min=True inference=0.84s solve=0.02s
+2029: fixes=23 breaks=36 rounds=4 local_min=True inference=0.85s solve=0.03s
+1965: fixes=1 breaks=0 rounds=3 local_min=True inference=0.86s solve=0.03s
+2174: fixes=31 breaks=31 rounds=5 local_min=True inference=0.84s solve=0.04s
+2286: fixes=49 breaks=25 rounds=5 local_min=True inference=0.86s solve=0.04s
+0969: fixes=91 breaks=51 rounds=13 local_min=True inference=0.83s solve=0.08s
+2238: fixes=19 breaks=28 rounds=4 local_min=True inference=0.82s solve=0.03s
+2143: fixes=69 breaks=58 rounds=7 local_min=True inference=0.83s solve=0.05s
+2424: fixes=46 breaks=55 rounds=8 local_min=True inference=0.83s solve=0.05s
+1497: fixes=64 breaks=54 rounds=7 local_min=True inference=0.81s solve=0.05s
+0930: fixes=123 breaks=93 rounds=6 local_min=True inference=0.85s solve=0.05s
+{
+  "baseline": {
+    "iou": [
+      0.9544562843225134,
+      0.6319034988427294,
+      0.16037368625924484,
+      0.4129978136922879,
+      0.1553981541103241,
+      0.5236973590292648
+    ],
+    "biological_miou": 0.3768741023867702,
+    "six_class_miou": 0.47313779937606076,
+    "pixel_accuracy": 0.9333618381915526,
+    "gt_absent_classes": [],
+    "zero_union_classes": []
+  },
+  "wcsp": {
+    "iou": [
+      0.9544758695596398,
+      0.6337731944774246,
+      0.1535889872173058,
+      0.4110495338746402,
+      0.152300712896954,
+      0.5253304751697034
+    ],
+    "biological_miou": 0.37520858072720564,
+    "six_class_miou": 0.4717531288659446,
+    "pixel_accuracy": 0.9335737656157049,
+    "gt_absent_classes": [],
+    "zero_union_classes": []
+  },
+  "biological_miou_difference": -0.0016655216595645728,
+  "wrong_to_correct": 801,
+  "correct_to_wrong": 687
+}

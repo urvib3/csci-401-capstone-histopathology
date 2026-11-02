@@ -1,0 +1,93 @@
+{
+  "fold": 2,
+  "image_index": 2029,
+  "tissue": "Kidney",
+  "class_pixels": [
+    24930,
+    0,
+    0,
+    1966,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9733849312904754,
+      0.0,
+      0.0,
+      0.3809950694755715,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.0761990138951143,
+    "six_class_miou": 0.2257300001276745,
+    "pixel_accuracy": 0.9480963712076145,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9737122557726465,
+      0.0,
+      0.0,
+      0.3673102828917827,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.07346205657835654,
+    "six_class_miou": 0.22350375644407153,
+    "pixel_accuracy": 0.9476130279595479,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 64,
+  "wrong_to_correct": 23,
+  "correct_to_wrong": 36,
+  "wrong_to_different_wrong": 5,
+  "inference_seconds": 0.8536869999952614,
+  "solver_seconds": 0.03451779100578278,
+  "solver": {
+    "rounds": 4,
+    "changes_per_round": [
+      49,
+      10,
+      5,
+      0
+    ],
+    "energy": [
+      441.0010079464568,
+      390.4384945187082,
+      386.14621368418386,
+      383.5105541274285,
+      383.5105541274285
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

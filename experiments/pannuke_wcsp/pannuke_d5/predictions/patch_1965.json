@@ -1,0 +1,91 @@
+{
+  "fold": 2,
+  "image_index": 1965,
+  "tissue": "HeadNeck",
+  "class_pixels": [
+    26680,
+    0,
+    0,
+    216,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9918397903799364,
+      0.0,
+      0.0,
+      0.5112994350282486,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.10225988700564972,
+    "six_class_miou": 0.2505232042346975,
+    "pixel_accuracy": 0.9918947055324212,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9918772225341569,
+      0.0,
+      0.0,
+      0.5171428571428571,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.10342857142857143,
+    "six_class_miou": 0.25150334661283563,
+    "pixel_accuracy": 0.9919318857822724,
+    "gt_absent_classes": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      5
+    ]
+  },
+  "changed_pixels": 4,
+  "wrong_to_correct": 1,
+  "correct_to_wrong": 0,
+  "wrong_to_different_wrong": 3,
+  "inference_seconds": 0.8598795830039307,
+  "solver_seconds": 0.026963458047248423,
+  "solver": {
+    "rounds": 3,
+    "changes_per_round": [
+      4,
+      1,
+      0
+    ],
+    "energy": [
+      82.74930499607814,
+      76.22972746785896,
+      75.95749855837828,
+      75.95749855837828
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

@@ -1,0 +1,21 @@
+{
+  "policy": "Largest positive and largest negative fixed-five-class patch mIoU delta; illustrative extremes, not representative sampling.",
+  "examples": [
+    {
+      "kind": "improvement",
+      "image_index": 2334,
+      "tissue": "Stomach",
+      "delta": 0.016603291880942173,
+      "fixes": 62,
+      "breaks": 8
+    },
+    {
+      "kind": "degradation",
+      "image_index": 910,
+      "tissue": "Lung",
+      "delta": -0.00745903832169989,
+      "fixes": 53,
+      "breaks": 88
+    }
+  ]
+}

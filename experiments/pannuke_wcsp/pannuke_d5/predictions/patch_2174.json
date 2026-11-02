@@ -1,0 +1,93 @@
+{
+  "fold": 2,
+  "image_index": 2174,
+  "tissue": "Pancreatic",
+  "class_pixels": [
+    22291,
+    2778,
+    0,
+    1827,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9636006117544242,
+      0.6094674556213018,
+      0.0,
+      0.3824468085106383,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.198382852826388,
+    "six_class_miou": 0.3259191459810607,
+    "pixel_accuracy": 0.9347114812611541,
+    "gt_absent_classes": [
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9636276307746049,
+      0.6065911431513903,
+      0.0,
+      0.38317256162915325,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.1979527409561087,
+    "six_class_miou": 0.32556522259252474,
+    "pixel_accuracy": 0.9347114812611541,
+    "gt_absent_classes": [
+      2,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 66,
+  "wrong_to_correct": 31,
+  "correct_to_wrong": 31,
+  "wrong_to_different_wrong": 4,
+  "inference_seconds": 0.8372119580162689,
+  "solver_seconds": 0.038267208030447364,
+  "solver": {
+    "rounds": 5,
+    "changes_per_round": [
+      55,
+      9,
+      9,
+      1,
+      0
+    ],
+    "energy": [
+      674.9056379349807,
+      658.8378406625527,
+      657.1373308116762,
+      653.9940035619089,
+      653.957652115517,
+      653.957652115517
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

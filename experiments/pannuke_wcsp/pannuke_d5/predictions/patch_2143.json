@@ -1,0 +1,101 @@
+{
+  "fold": 2,
+  "image_index": 2143,
+  "tissue": "Ovarian",
+  "class_pixels": [
+    17941,
+    8955,
+    0,
+    0,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.850731266020003,
+      0.7020764369545591,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14041528739091183,
+    "six_class_miou": 0.2588012838290937,
+    "pixel_accuracy": 0.8895746579417013,
+    "gt_absent_classes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.8512915870941803,
+      0.7028221351812795,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.14056442703625588,
+    "six_class_miou": 0.2590189537125766,
+    "pixel_accuracy": 0.8899836406900654,
+    "gt_absent_classes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 127,
+  "wrong_to_correct": 69,
+  "correct_to_wrong": 58,
+  "wrong_to_different_wrong": 0,
+  "inference_seconds": 0.8334797919960693,
+  "solver_seconds": 0.05441041698213667,
+  "solver": {
+    "rounds": 7,
+    "changes_per_round": [
+      108,
+      26,
+      6,
+      4,
+      4,
+      1,
+      0
+    ],
+    "energy": [
+      742.774189030095,
+      688.1635923071489,
+      678.6186716825246,
+      676.5957209307593,
+      675.8120830471347,
+      675.156656839891,
+      675.0327960060501,
+      675.0327960060501
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

@@ -1,0 +1,16 @@
+test_beta_zero_and_energy (test_experiment.ExperimentTests.test_beta_zero_and_energy) ... ok
+test_bootstrap_reproducibility (test_experiment.ExperimentTests.test_bootstrap_reproducibility) ... ok
+test_crop_overlap (test_experiment.ExperimentTests.test_crop_overlap) ... ok
+test_edge_counts (test_experiment.ExperimentTests.test_edge_counts) ... ok
+test_fixed_pooled_metrics (test_experiment.ExperimentTests.test_fixed_pooled_metrics) ... ok
+test_mapping (test_experiment.ExperimentTests.test_mapping) ... ok
+test_probabilities (test_experiment.ExperimentTests.test_probabilities) ... ok
+test_real_outputs (test_experiment.ExperimentTests.test_real_outputs) ... skipped 'evaluate not yet run'
+test_round_limit_status (test_experiment.ExperimentTests.test_round_limit_status) ... ok
+test_split (test_experiment.ExperimentTests.test_split) ... ok
+test_tables (test_experiment.ExperimentTests.test_tables) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 121.785s
+
+OK (skipped=1)

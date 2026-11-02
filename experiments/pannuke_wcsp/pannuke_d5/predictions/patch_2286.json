@@ -1,0 +1,92 @@
+{
+  "fold": 2,
+  "image_index": 2286,
+  "tissue": "Skin",
+  "class_pixels": [
+    17228,
+    9206,
+    462,
+    0,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.8892198741007195,
+      0.8175100551866056,
+      0.5974025974025974,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.28298253051784056,
+    "six_class_miou": 0.38402208778165375,
+    "pixel_accuracy": 0.9234458655562165,
+    "gt_absent_classes": [
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      3,
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.8901863911969459,
+      0.8188983766538426,
+      0.6017316017316018,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.28412599567708885,
+    "six_class_miou": 0.3851360615970651,
+    "pixel_accuracy": 0.9243381915526472,
+    "gt_absent_classes": [
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      3,
+      4,
+      5
+    ]
+  },
+  "changed_pixels": 90,
+  "wrong_to_correct": 49,
+  "correct_to_wrong": 25,
+  "wrong_to_different_wrong": 16,
+  "inference_seconds": 0.8570415419526398,
+  "solver_seconds": 0.03772354201646522,
+  "solver": {
+    "rounds": 5,
+    "changes_per_round": [
+      72,
+      15,
+      8,
+      3,
+      0
+    ],
+    "energy": [
+      1464.1932855255484,
+      1426.197445955153,
+      1416.671959314359,
+      1415.2370424396786,
+      1415.0005829516501,
+      1415.0005829516501
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

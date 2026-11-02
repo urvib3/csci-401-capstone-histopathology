@@ -1,0 +1,45 @@
+{
+  "repository_instructions": "No AGENTS.md found in repository or parent CSCI401 directory search",
+  "branch": "main",
+  "starting_commit": "95584cf12c828f371694c2b0103321dfa96625b1",
+  "data_archive": {
+    "patches": 2523,
+    "RGB_shape": [
+      2523,
+      256,
+      256,
+      3
+    ],
+    "mask_shape": [
+      2523,
+      256,
+      256,
+      6
+    ],
+    "dtype": "float64",
+    "tissues": 19,
+    "identifiers": "tissue only; no patient/slide IDs"
+  },
+  "available_dependencies": {
+    "numpy": "2.2.6",
+    "numba": "0.65.1",
+    "torch": "2.12.0",
+    "tiatoolbox": "2.1.2",
+    "matplotlib": "3.10.9",
+    "PyYAML": "6.0.3"
+  },
+  "missing_project_dependencies": [
+    "pytest (not needed: unittest used)",
+    "ReportLab (bundled PDF Python used)"
+  ],
+  "compute": "deterministic CPU, 4 Torch threads; no network or model downloads",
+  "channel_metadata": "TIAToolbox pretrained_model.yaml hovernet_fast-pannuke nuc_type_dict verified",
+  "GT_order_source": "benchmarks/pannuke/data/sample_fold2/README.md",
+  "overlap_pixels": {
+    "train": 64,
+    "test": 4
+  },
+  "edges_per_patch": 317850,
+  "training_oriented_adjacency_count": 127140000,
+  "startup_note": "Long imports sampled: blocked in filesystem reads of Python dependency modules, not expensive model computation."
+}

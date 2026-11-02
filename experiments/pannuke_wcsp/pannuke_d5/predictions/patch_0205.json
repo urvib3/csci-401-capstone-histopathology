@@ -1,0 +1,85 @@
+{
+  "fold": 2,
+  "image_index": 205,
+  "tissue": "Breast",
+  "class_pixels": [
+    24335,
+    0,
+    5,
+    851,
+    0,
+    1705
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9673733091055926,
+      0.0,
+      0.0,
+      0.392090395480226,
+      0.0,
+      0.7292790583619422
+    ],
+    "biological_miou": 0.22427389076843363,
+    "six_class_miou": 0.3481237938246268,
+    "pixel_accuracy": 0.9589158239143367,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      1,
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9675686591276252,
+      0.0,
+      0.0,
+      0.39184597961494905,
+      0.0,
+      0.7315041646251838
+    ],
+    "biological_miou": 0.22467002884802656,
+    "six_class_miou": 0.3484864672279597,
+    "pixel_accuracy": 0.959101725163593,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      1,
+      4
+    ]
+  },
+  "changed_pixels": 21,
+  "wrong_to_correct": 13,
+  "correct_to_wrong": 8,
+  "wrong_to_different_wrong": 0,
+  "inference_seconds": 0.8225092079956084,
+  "solver_seconds": 0.031232082983478904,
+  "solver": {
+    "rounds": 3,
+    "changes_per_round": [
+      19,
+      4,
+      0
+    ],
+    "energy": [
+      404.60197881752407,
+      401.0439976890899,
+      400.3272658851034,
+      400.3272658851034
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

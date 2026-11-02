@@ -1,0 +1,281 @@
+{
+  "classes": [
+    "Background",
+    "Neoplastic",
+    "Inflammatory",
+    "Connective",
+    "Dead",
+    "Non-Neoplastic Epithelial"
+  ],
+  "channel_mapping": {
+    "source": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/.venv/lib/python3.12/site-packages/tiatoolbox/data/pretrained_model.yaml",
+    "sha256": "71258a85a955f77b34e64fb42fc98397dfb754d374ab758ac4d6b5ff700ac793",
+    "entry": "hovernet_fast-pannuke",
+    "metadata": {
+      "hf_repo_id": "TIACentre/TIAToolbox_pretrained_weights",
+      "architecture": {
+        "class": "hovernet.HoVerNet",
+        "kwargs": {
+          "num_types": 6,
+          "mode": "fast",
+          "nuc_type_dict": {
+            "0": "Background",
+            "1": "Neoplastic",
+            "2": "Inflammatory",
+            "3": "Connective",
+            "4": "Dead",
+            "5": "Non-Neoplastic Epithelial"
+          }
+        }
+      },
+      "ioconfig": {
+        "class": "io_config.IOInstanceSegmentorConfig",
+        "kwargs": {
+          "input_resolutions": [
+            {
+              "units": "mpp",
+              "resolution": 0.25
+            }
+          ],
+          "output_resolutions": [
+            {
+              "units": "mpp",
+              "resolution": 0.25
+            },
+            {
+              "units": "mpp",
+              "resolution": 0.25
+            },
+            {
+              "units": "mpp",
+              "resolution": 0.25
+            }
+          ],
+          "margin": 128,
+          "tile_shape": [
+            1024,
+            1024
+          ],
+          "patch_input_shape": [
+            256,
+            256
+          ],
+          "patch_output_shape": [
+            164,
+            164
+          ],
+          "stride_shape": [
+            164,
+            164
+          ],
+          "save_resolution": {
+            "units": "mpp",
+            "resolution": 0.25
+          },
+          "ignore_index": 0
+        }
+      }
+    },
+    "verified_mapping": {
+      "0": "Background",
+      "1": "Neoplastic",
+      "2": "Inflammatory",
+      "3": "Connective",
+      "4": "Dead",
+      "5": "Non-Neoplastic Epithelial"
+    }
+  },
+  "split_sha256": "2f9524d0a9b38b30fb72f93d96acc78010d8a17993c2d2b96c97a594830dfdf4",
+  "manifests": {
+    "train_manifest.csv": "a4ea7421d0bb74edf1a61251bf29203a442fa6891f1a0c38ad2dfa87ed8d3d9a",
+    "test_manifest.csv": "49861639abbbc754589a7b9908df8b0aefb8bc1c55fa81e5dc9f873e64149e5b"
+  },
+  "table": [
+    [
+      0.0,
+      0.4158284008866229,
+      0.35717341339775205,
+      0.36337260560099527,
+      0.21706929645957818,
+      0.41091330559688527
+    ],
+    [
+      0.4158284008866229,
+      0.0,
+      1.0420476029596473,
+      0.8440856965077456,
+      1.2861860344335898,
+      2.3148440117697517
+    ],
+    [
+      0.35717341339775205,
+      1.0420476029596473,
+      0.0,
+      0.6838678983640888,
+      1.1267906513631072,
+      1.9292381484581624
+    ],
+    [
+      0.36337260560099527,
+      0.8440856965077456,
+      0.6838678983640888,
+      0.0,
+      1.355712300138887,
+      1.0561501866992344
+    ],
+    [
+      0.21706929645957818,
+      1.2861860344335898,
+      1.1267906513631072,
+      1.355712300138887,
+      0.0,
+      1.596720447363952
+    ],
+    [
+      0.41091330559688527,
+      2.3148440117697517,
+      1.9292381484581624,
+      1.0561501866992344,
+      1.596720447363952,
+      0.0
+    ]
+  ],
+  "tables_sha256": "175d01143fbd55585855e59751b5462046ba8a37437d955b46282ad2f16ad787",
+  "seed": 20261101,
+  "beta": 0.3,
+  "eta": 1,
+  "smoothing": 1,
+  "blend_data": 0.8,
+  "blend_prior": 0.2,
+  "archive": {
+    "path": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/benchmarks/pannuke/data/fold_2.zip",
+    "sha256": "5bc540cc509f64b5f5a274d6e5a245527dbd3e6d3155d43555115c5d54709b07"
+  },
+  "architecture_source_sha256": {
+    "utils.py": "bba5c0a2eb2af5bd13cb3c19e209e758ca0c0c9e99dc5dbe459796a65147a203",
+    "hovernet.py": "4c004c793069824db12f8d880e4773b9034728c3235328cdaa46897a8a90fa0f"
+  },
+  "normalization": {
+    "data_off_diagonal_mean": 5.840141418133699,
+    "biological_off_diagonal_mean": 3.7,
+    "final_off_diagonal_mean": 0.955818740076774
+  },
+  "counting": "12 undirected offsets; add both orientations, including twice on diagonal; unweighted GT counts",
+  "equations": {
+    "J": "(N_ab+1)/sum(N+1)",
+    "m": "sum_b J_ab",
+    "raw": "max(0,-log(J_ab/(m_a*m_b))); diagonal=0",
+    "normalization": "divide by mean over all ordered off-diagonal entries",
+    "unary": "-log(max(P_i(k),1e-12)); subtract per-pixel minimum",
+    "pairwise": "beta*C[a,b]/Euclidean_distance"
+  },
+  "crop": [
+    46,
+    210,
+    46,
+    210
+  ],
+  "neighborhood": {
+    "half_offsets": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        -2
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        -2
+      ],
+      [
+        2,
+        -1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "full_neighbors": 24,
+    "squared_distances": [
+      1,
+      2,
+      4,
+      5,
+      8
+    ],
+    "undirected_edges_once": true
+  },
+  "gt_overlap": "Highest class ID wins overlapping biological channels; background iff no biological annotation; GT channel 5 ignored as background encoding.",
+  "solver": {
+    "name": "deterministic raster-order ICM",
+    "initialization": "raw six-channel TP softmax argmax",
+    "acceptance": "strict local energy decrease",
+    "max_rounds": 100,
+    "stop": "complete round with zero changes",
+    "independent_audit_tolerance": 1e-10,
+    "tie_policy": "retain current label unless strictly better; ascending labels among improving ties"
+  },
+  "metrics": {
+    "primary": "pooled biological mIoU, fixed classes 1..5",
+    "secondary": "pooled six-class mIoU, fixed classes 0..5",
+    "zero_union": "IoU=0; never drop classes",
+    "bootstrap": {
+      "replicates": 5000,
+      "seed": 20261102,
+      "unit": "paired patches",
+      "interval": "percentile 2.5/97.5"
+    }
+  },
+  "checkpoint": {
+    "path": "/Users/kashvi/Desktop/CSCI401/csci-401-capstone-histopathology/benchmarks/pannuke/data/cache/models/hovernet_fast-pannuke.pth",
+    "sha256": "789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8"
+  },
+  "provenance": {
+    "git_commit": "95584cf12c828f371694c2b0103321dfa96625b1",
+    "python": "3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "numpy": "2.2.6",
+      "numba": "0.65.1",
+      "torch": "2.12.0",
+      "tiatoolbox": "2.1.2",
+      "matplotlib": "3.10.9",
+      "PyYAML": "6.0.3"
+    },
+    "source_hashes": {
+      "core.py": "ba07c7ef2a197efca738ec7556d2d6dd5463298208a4162eeabad6bd0bca78a3",
+      "run.py": "858e522654b8bad039da633a963dd6bf4c07fed2a1698ddb14888f428ef99f9c"
+    }
+  }
+}

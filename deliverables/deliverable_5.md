@@ -1,42 +1,46 @@
 # Deliverable 5 — WCSP Refinement of Classifier Predictions (PanNuke + BCSS)
 
-We take a trained classifier's per-pixel predictions and refine them with a **weighted constraint satisfaction problem (WCSP)** that encodes which tissue/cell types should and shouldn't sit next to each other. We test this on two datasets:
+- **Goal:** refine pretrained segmentation predictions with a weighted constraint satisfaction problem (WCSP).
+- **Costs:** retain classifier probabilities while expressing preferences about neighboring labels.
 
-| | **PanNuke** (nuclei) | **BCSS** (tissue regions) |
+| | **PanNuke: current experiment** | **BCSS** |
 |---|---|---|
-| Classifier | HoVer-Net (nucleus instances + class) | TIAToolbox U-Net (per-pixel tissue class) |
-| WCSP grid | 164 × 164 HoVer-Net region; only nucleus pixels are variables | central 256 × 256 of each 512 tile; every pixel is a variable |
-| Labels | neoplastic, inflammatory, connective, dead, non-neoplastic epithelial | tumor, inflammatory, stroma, necrosis, other |
-| Code | shared [`wcsp/`](../wcsp/) solver + [`experiments/pannuke_d5/`](../experiments/pannuke_d5/) | shared [`wcsp/`](../wcsp/) package + [`experiments/bcss_wcsp/`](../experiments/bcss_wcsp/) |
+| Classifier | Pretrained HoVer-Net fast PanNuke; raw TP/type probabilities | TIAToolbox U-Net; tissue probabilities |
+| WCSP variables | All 26,896 pixels on the 164 × 164 output grid | All pixels in the central 256 × 256 output grid |
+| Labels | Background + five biological classes | Tumor, inflammatory, stroma, necrosis, other |
+| Compatibility table | Learned from 200 training GT patches, blended with a fixed biological prior | Handwritten or learned from training labels |
+| Code | [`pannuke_pixel_learned_costs/`](../experiments/pannuke_wcsp/pannuke_d5/) | [`bcss_wcsp/`](../experiments/bcss_wcsp/) |
 
-**Headline.** The WCSP only reliably fixes **boundaries**, never whole wrong regions.
-- **BCSS:** a small but real gain, mIoU 0.6489 → 0.6507 (+0.0019, 95% CI [+0.0010, +0.0027]) on 2,124 held-out-hospital tiles.
-- **PanNuke:** almost no changes, and the few changes it makes are mostly wrong.
+**Main findings:**
+
+- **PanNuke:** no reliable improvement at fixed β = 0.30. Pooled biological mIoU decreases **0.37687 → 0.37521**; the paired 95% interval includes zero.
+- **BCSS:** a small gain, mIoU **0.6489 → 0.6507** (+0.0019, 95% CI [+0.0010, +0.0027]) on 2,124 validation tiles.
 
 ---
 
-## 1. The WCSP (shared)
+## 1. The WCSP (shared idea)
 
-![wcsp](../experiments/bcss_wcsp/figures/wcsp_diagram.png)
+- **Objective:** unary costs for unlikely labels + pairwise costs for discouraged neighboring labels.
+- **Unaries:** −log classifier probability in both current pipelines.
+- **Graph:** 24 neighbors at squared distances 1, 2, 4, 5 and 8; pairwise costs decrease as 1/distance; each undirected edge is counted once.
 
-- **Variables:** pixels. **Domain:** the 5 class labels.
-- **Objective:** find the labeling with the lowest total cost = Σ unary + Σ pairwise.
-- **Pairwise cost (the biology rules):**
-  - Applies to every pixel pair up to 2√2 px apart: 24 neighbors, 5 distance types (left panel).
-  - Cost = b[label, label′] / distance. Closer neighbors count more; same label is free.
-  - **b** is the class-compatibility table. PanNuke uses the handwritten table from the project notes. BCSS tests both the handwritten table and one **derived from the BCSS training labels** (each cell: handwritten / data-derived; details in §3):
+| Setting | PanNuke: current experiment | BCSS |
+|---|---|---|
+| Pairwise weight | β = 0.30, fixed before testing | λ chosen on development data; 8 reported |
+| Solver | Deterministic raster-order ICM over the full grid | Alternating corner/cross blocks with ICM; time-limited toulbar2 also compared |
+| Stopping | No changes in a complete round; maximum 100 rounds | Up to four block rounds; toulbar2 limited to 20 s/block |
 
-**PanNuke (handwritten)**
+- **ICM:** accepts energy-decreasing changes and finds a local solution; lower energy does not guarantee better accuracy or global optimality.
+- **Notation:** the BCSS image-term β in §3 is separate from the PanNuke pairwise weight β.
 
-| | Neoplastic | Inflammatory | Connective | Dead | Non-neoplastic epithelial |
-|---|---|---|---|---|---|
-| **Neoplastic** | 0 | 2 | 1 | 1 | 9 |
-| **Inflammatory** | | 0 | 2 | 1 | 8 |
-| **Connective** | | | 0 | 5 | 1 |
-| **Dead** | | | | 0 | 10 |
-| **Non-neoplastic epithelial** | | | | | 0 |
+<details>
+<summary><b>BCSS compatibility costs and block diagram</b></summary>
 
-**BCSS (handwritten / data-derived)**
+![BCSS neighborhood and alternating-block solver](../experiments/bcss_wcsp/figures/wcsp_diagram.png)
+
+- **Diagram:** BCSS block updates; PanNuke uses six labels and full-grid raster updates.
+
+- **BCSS table:** handwritten / data-derived costs; symmetric, with zero diagonal.
 
 | | Tumor | Inflammatory | Stroma | Necrosis | Other |
 |---|---|---|---|---|---|
@@ -46,234 +50,94 @@ We take a trained classifier's per-pixel predictions and refine them with a **we
 | **Necrosis** | | | | 0 | 10 / 4.9 |
 | **Other** | | | | | 0 |
 
-  Symmetric, so only the upper triangle is shown; same label (diagonal) is free.
-
-- **Unary cost (trust the classifier).** This is where the two datasets differ:
-
-  | | PanNuke | BCSS |
-  |---|---|---|
-  | Unary | **λ if the pixel changes from HoVer-Net's label, else 0** | **−log p(label)** from the U-Net (p = 0.9 → 0.1, p = 0.01 → 4.6) |
-  | Uses classifier certainty? | No: HoVer-Net's saved output has labels only | **Yes:** unsure pixels are cheap to change |
-
-- **The trade-off knob λ (same idea on both datasets):** λ balances *trust the classifier* against *follow the rules*, and only that balance matters. PanNuke writes it as λ · unary + pairwise; BCSS writes it as unary + λ · pairwise. Those are the same thing with λ inverted: a small λ on PanNuke is a large λ on BCSS. So on PanNuke a *lower* λ means stronger rules, and on BCSS a *higher* λ does.
-
-- **Solver (both datasets):** block scheme + ICM.
-  - Block scheme (right panel): solve the four corner blocks with the cross fixed, then the cross with the corners fixed; repeat. Blocks are 100/56/100 px on BCSS and 60/44/60 px on PanNuke.
-  - ICM inside each block: switch each pixel to its cheapest label until nothing changes. It's greedy and fast, and finds a local optimum.
-  - BCSS also compares **toulbar2**, an exact WCSP solver, on the same problem (§3).
-- **Intuition:** a pixel's label changes only if the rule savings beat its unary cost. Inside a region (or nucleus) every neighbor agrees, so there's nothing to gain. Only **boundary** pixels ever change.
-
-### Hyperparameters
-
-| Knob | What it controls | PanNuke | BCSS |
-|---|---|---|---|
-| **λ** | classifier vs. rules trade-off | 1 (also 0–0.5, and 139 as the strong-fidelity check) | 0.5–32 swept on dev; **8** reported |
-| **b** | pairwise cost for each pair of classes | handwritten | handwritten **or** data-derived (PMI) |
-| **unary** | how the classifier's opinion is scored | λ · [label changed] | −log p, raw softmax (temperature 1) |
-| **neighborhood** | which pixel pairs interact | 5 distance types, up to 2√2 px (24 neighbors) | same |
-| **η** | distance falloff, b / dᵑ | 1 | 1 |
-| **f: β, σ** | image term: extra cost for a label change between similar colors | off | off (β = 1, 2, 4 tested; hurt) |
-| **solver** | search inside each block | ICM | ICM (toulbar2 compared) |
-| **blocks** | corner size / cross width | 60 / 44 px | 100 / 56 px |
-| **rounds, time limit** | how long to iterate | until no change | ≤ 4 rounds; toulbar2 20 s per block |
-
-All of these are set in one YAML config, e.g. `experiments/bcss_wcsp/configs/bcss_unet.yaml`, or per run with `--set problem.lam=8`.
+</details>
 
 ---
 
-## 2. PanNuke
+## 2. PanNuke — learned pixel costs at fixed β = 0.30
 
-### Pipeline and experiments
+### Pipeline and method
 
-![PanNuke preparation and refinement](../experiments/pannuke_d5/figures/pipeline.png)
+![PanNuke pipeline examples: histology, ground truth, raw TP argmax, WCSP, and actual changed pixels](../experiments/pannuke_wcsp/pannuke_d5/figures/pipeline.png)
 
-*image_00748 label maps (164 × 164). Changes: red = correct → wrong; orange = changed on ground-truth background.*
-
-1. **Input:** a 256 × 256 RGB patch. **HoVer-Net:** returns nucleus instances and class metadata for the central 164 × 164 region.
-2. **Prepare pixel labels:** copy each nucleus's predicted class to all its instance pixels. Set `active_mask = predicted_labels > 0`; background pixels are inactive, not WCSP variables.
-3. **Align ground truth:** crop the PanNuke annotations to `[46:210, 46:210]`, matching the prediction region. Ground truth is used only for evaluation.
-4. **WCSP:** refine the active pixels with the handwritten pairwise table and a flat unary penalty λ for changing a HoVer-Net label. The active mask stays fixed; missed nuclei cannot be recovered and predicted nuclei cannot be removed as background.
-5. **Evaluation and development sets:** report the main result on **20 diverse Fold 2 patches**. Use **15 separate development patches** to diagnose lambda, without retuning on the evaluation set.
-6. **Experiments, each answering one question:**
-   - Single patch (`image_00748`): do unary-only and strong fidelity reproduce HoVer-Net, and can weak fidelity lower energy?
-   - Main evaluation, 20 patches at λ = 1: does refinement improve accuracy across patches?
-   - Development sweep, λ ∈ {1, 0.5, 0.25, 0}: is the change penalty preventing useful refinement?
-
-**Metrics:** full-crop pixel accuracy, class agreement on overlapping nucleus pixels, and mean patch mIoU (over biological classes present in each patch’s ground truth). Refinement: Δ mIoU = WCSP − HoVer-Net, plus wrong → correct and correct → wrong counts.
-
-#### Sweeps and details (click to expand)
+- **Panels:** histology → GT → raw TP argmax → WCSP → changed pixels, all on the same 164 × 164 grid. GT is used only for scoring.
+- **Change colors:** green = fixes; red = new errors; orange = changes between wrong labels.
+- **Examples:** largest improvement, patch 2334 (Stomach), and largest degradation, patch 0910 (Lung). These illustrate extremes, not representative averages.
+- **Question:** can learned neighbor costs and four biological preferences improve raw HoVer-Net type predictions?
+- **Baseline:** pretrained `hovernet_fast-pannuke` raw TP logits → six-channel softmax → pixelwise argmax.
+- **Variables:** all 26,896 output pixels, each with six metadata-verified labels: Background, Neoplastic, Inflammatory, Connective, Dead and Non-Neoplastic Epithelial. No NP confidence, HV, instances or nucleus voting.
+- **Unary:** −log(max(probability, 10⁻¹²)), minus the minimum at each pixel.
+- **Pairwise:** 0.30 × C[label, neighbor label] / distance, using all 24 neighbors.
+- **Learned table:** training-GT adjacency relative to class prevalence; smoothing = 1; **80% learned costs + 20% fixed prior**; zero diagonal; final mean off-diagonal cost = 1.
+- **Four soft biological preferences:**
+  - Prefer same-type neighbors.
+  - Discourage Dead–Non-Neoplastic contact more than Dead–Tumor/Immune contact.
+  - Discourage Immune–Non-Neoplastic contact.
+  - Favor Connective contact with Tumor/Non-Neoplastic over direct Tumor–Non-Neoplastic contact.
 
 <details>
-<summary><b>Single-patch sanity checks (image_00748)</b></summary>
+<summary><b>Learned compatibility table</b></summary>
 
-HoVer-Net found 47 nuclei in the central 164 × 164 region, giving 10,726 active (nucleus) pixels. The ground truth is cropped to the same region and used only for evaluation.
-
-##### HoVer-Net vs. ground truth (before the WCSP)
-
-| Quantity                                          |  Value |
-| ------------------------------------------------- | -----: |
-| Predicted nuclei                                  |     47 |
-| Active HoVer-Net pixels                           | 10,726 |
-| Inactive/background pixels                        | 16,170 |
-| Ground-truth nucleus pixels                       |  9,250 |
-| Prediction/GT overlapping nucleus pixels          |  8,229 |
-| Predicted nucleus pixels where GT is background   |  2,497 |
-| GT nucleus pixels missed by predicted active mask |  1,021 |
-| Class agreement on overlapping nucleus pixels     | 0.7737 |
-
-The **0.7737 class agreement is not overall pixel accuracy**. It is the fraction of overlapping nucleus pixels where both HoVer-Net and PanNuke assign a nucleus and their biological class labels agree.
-
-The 1,021 ground-truth nucleus pixels that fall outside the HoVer-Net active mask represent an important upstream limitation: these pixels do not become WCSP variables and therefore cannot be recovered through label refinement alone.
-
-##### WCSP runs
-
-| Run | λ | Initial objective | Returned objective | Changed pixels | Rounds | Runtime |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Unary-only | 1 | 0.00 | 0.00 | 0 | 1 | 1.8 s |
-| Strong fidelity | 139 | 772.81 | 772.81 | 0 | 1 | 1.8 s |
-| Weaker fidelity | 1 | 772.81 | 723.15 | 13 | 2 | 3.4 s |
-
-Why λ = 139 is strong enough: a pixel has at most 24 neighbors, and the sum of 1/d over them is 13.82. The biggest table cost is 10, so changing one pixel can save at most 138.2 in pairwise cost. Changing any k pixels saves at most 138.2k but costs λk, so with λ > 138.2 no change can lower the objective. This bound is actually reached on this mask, since some pixels have all 24 neighbors active. The run also confirms it empirically: 0 changes.
-
-ICM is greedy, so the results are local optima, not proven global ones. For every run, no single pixel can lower the objective by changing its label, and solving the whole image as one block gives the same weak result (723.1453).
-
-##### Ground-truth evaluation 
-
-The ground truth for this patch only has one class: all 9,250 nucleus pixels are Inflammatory. This was verified against the raw `masks.npy` channels.
-
-Strong fidelity output is identical to HoVer-Net on every pixel.
-
-The 13 pixels changed in the weaker fidelity run:
-
-| Change | Pixels | What changed |
-| --- | ---: | --- |
-| Wrong → correct | 0 | |
-| Correct → wrong | 6 | Inflammatory → Connective |
-| Wrong → different wrong | 0 | |
-| Ground truth is background | 7 | 5 Connective → Inflammatory, 2 Inflammatory → Connective |
-
-Before and after:
-
-| Metric | HoVer-Net | WCSP (λ = 1) | Difference |
-| --- | ---: | ---: | ---: |
-| Class agreement on overlap (8,229 px) | 0.7737 | 0.7730 | −0.0007 |
-| Accuracy on HoVer-Net active region | 0.5936 | 0.5930 | −0.0006 |
-| Accuracy on ground-truth nucleus region | 0.6883 | 0.6877 | −0.0006 |
-| Pixel accuracy, full patch | 0.8000 | 0.7997 | −0.0002 |
-| Inflammatory IoU | 0.6399 | 0.6391 | −0.0008 |
-
-Error breakdown:
-
-| Error | Pixels | Can the WCSP fix it? |
-| --- | ---: | --- |
-| Detection: ground-truth nucleus missed by HoVer-Net | 1,021 | No, never a variable |
-| Detection: HoVer-Net nucleus where ground truth is background | 2,497 | No, the WCSP can't relabel to background |
-| Classification: wrong class on overlap, HoVer-Net | 1,862 | Yes |
-| Classification: wrong class on overlap, after WCSP | 1,868 | |
-
-What we see:
-
-- The pipeline works end to end on a real full prediction: HoVer-Net → WCSP → ground-truth comparison.
-- Strong fidelity reproduces HoVer-Net exactly, as expected.
-- At λ = 1 the WCSP lowers the objective but makes accuracy slightly worse. It made 0 corrections and 6 new errors. A lower objective only means the labels fit the cost table better, not that they are more correct.
-- Almost all of HoVer-Net's class errors are whole nuclei labeled Connective (3,231 px) when they are Inflammatory. The WCSP can't fix a whole wrong nucleus because every pixel inside it agrees with its neighbors, so it only moves pixels on the edges where two nuclei touch.
-- Same thing we saw on BCSS: the pairwise terms only reach 2√2 pixels, so they only change boundaries.
-- This is one patch with one ground-truth class, so it doesn't say much about PanNuke in general. The 20-patch evaluation below tests whether this behavior repeats. Making the decision per nucleus (using the instance map) instead of per pixel would also probably fit PanNuke better.
-
-How it was evaluated:
-
-- Overlap = pixels that are nucleus in both HoVer-Net and the ground truth. This is the same 0.7737 class agreement from Section 1, so the evaluation matches the preparation.
-- Active region accuracy counts ground-truth background as wrong. Ground-truth nucleus accuracy counts missed pixels as wrong.
-- IoU is only reported for Inflammatory since it is the only class in the ground truth. The other predicted classes have IoU 0 both before and after, and Dead is never predicted.
-- λ = 1 was taken from D4 and not tuned on this patch, since tuning it here would use the ground truth.
+![Final learned-plus-rules compatibility table; larger values discourage contact](../experiments/pannuke_wcsp/pannuke_d5/figures/final_table.png)
 
 </details>
 
-<details>
-<summary><b>Main evaluation (20 patches, λ = 1)</b></summary>
+### Evaluation design
 
-The evaluation set covers diverse tissues and class combinations. λ = 1 is fixed for this evaluation.
+- **Split:** 200 training patches / 18 tissues; 20 disjoint test patches / all 19 Fold 2 tissues.
+- **Selection:** tissue/GT metadata only; 266 identifiable prior-use IDs excluded; no test replacements based on predictions.
+- **Alignment:** central `[46:210, 46:210]` GT crop matches the 164 × 164 predictions; highest biological class ID wins overlapping annotations.
+- **Metrics:** pool confusion counts before IoU; biological mIoU always averages classes 1–5; six-class mIoU always averages classes 0–5; zero-union IoU = 0; no method-specific class dropping.
+- **Uncertainty:** paired patch-bootstrap 95% interval, 5,000 replicates, fixed seed.
+- **Comparison:** raw TP argmax versus frozen β = 0.30 WCSP only; **no sweep or test-based tuning**.
 
-| Outcome | Result |
-|---|---:|
-| Patches with zero initial pairwise cost | 13 / 20 |
-| Patches improved / unchanged / worsened in mIoU | 0 / 19 / 1 |
-| Total changed pixels | 2 |
-| Wrong → correct | 0 |
-| Correct → wrong | 2 |
-| Classification errors before → after | 22,249 → 22,251 |
-| Ground-truth nucleus pixels missed by HoVer-Net | 12,623 |
-| Predicted nucleus pixels where GT is background | 16,574 |
+### Results
 
-- **No accuracy improvement:** 19 patches are unchanged and one is slightly worse.
-- **Detection errors remain fixed:** missed pixels are not variables, and active pixels cannot switch to background.
-- **Little pairwise conflict:** 13 patches already start with zero pairwise cost, leaving no incentive to pay a positive unary penalty for changes.
-
-</details>
-
-<details>
-<summary><b>λ sweep (development, 15 separate patches)</b></summary>
-
-These patches are separate from the 20-patch evaluation set. Lower λ makes changes cheaper; λ = 0 removes the unary penalty but still uses HoVer-Net's active mask and initial labels.
-
-| λ | Mean mIoU, HoVer-Net | Mean mIoU, + WCSP | Mean Δ mIoU | Changed px | Patches changed | Wrong → correct | Correct → wrong |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1.00 | 0.474933 | 0.474395 | -0.000539 | 83 | 4/15 | 1 | 28 |
-| 0.50 | 0.474933 | 0.474406 | -0.000528 | 85 | 4/15 | 1 | 27 |
-| 0.25 | 0.474933 | 0.474403 | -0.000530 | 94 | 5/15 | 2 | 27 |
-| 0.00 | 0.474933 | 0.473899 | -0.001034 | 145 | 5/15 | 2 | 61 |
-
-- **Lower lambda increases changes modestly, without improving mean mIoU.**
-- **Even at λ = 0, 10/15 patches remain unchanged.** Across the set, only 2 wrong pixels are corrected while 61 correct pixels become wrong.
-- **No development setting shows an average improvement.** Excessive unary fidelity alone does not explain the result; the pixel representation and pairwise preferences remain limitations to investigate.
-
-</details>
-
-### Final results
-
-| Method | Evaluated on | Mean pixel acc | Mean mIoU | Mean Δ mIoU vs. HoVer-Net |
-|---|---|---:|---:|---:|
-| HoVer-Net | evaluation, 20 patches | 0.904361 | 0.424023 | — |
-| HoVer-Net + WCSP, handwritten b (λ = 1) | evaluation, 20 patches | 0.904358 | 0.424000 | -0.000023 |
-| HoVer-Net | development, 15 patches | 0.889847 | 0.474933 | — |
-| HoVer-Net + WCSP, handwritten b (λ = 0) | development, 15 patches | 0.889701 | 0.473899 | -0.001034 |
-
-- **Evaluation:** 0/20 patches improve; 19 stay unchanged and 1 worsens. Both changed pixels are new errors.
-
-**Why the WCSP doesn't help on PanNuke:**
-
-- Nuclei are separated by inactive background, so neighboring nuclei often have no connecting edges.
-- Each nucleus starts with one uniform label, giving zero pairwise cost on same-label interior edges.
-- The flat unary cannot distinguish confident predictions from uncertain ones.
-- The few changes observed are mostly harmful, suggesting that the current representation and cost table do not provide useful refinement on these sets.
-
-<details>
-<summary><b>Example patch: lower energy, worse accuracy (image_001409)</b></summary>
-
-| Metric | HoVer-Net | WCSP (λ = 1) |
+| Pooled metric | Raw TP argmax | Learned + rules WCSP |
 |---|---:|---:|
-| Objective | 210.1984 | 207.5958 |
-| Class agreement on overlapping nucleus pixels | 0.8147 | 0.8143 |
-| mIoU | 0.618970 | 0.618508 |
+| **Biological five-class mIoU** | **0.376874** | **0.375209** |
+| Six-class mIoU | 0.473138 | 0.471753 |
+| Pixel accuracy | 0.933362 | 0.933574 |
 
-Both changed pixels switch from Non-neoplastic epithelial to Connective. Ground truth confirms that both were correct before and wrong afterward: 0 corrections and 2 new errors. The solver improves its objective, but the preferred labels are less accurate.
+- **Biological mIoU change:** −0.001666; paired 95% CI **[−0.004971, +0.007969]**.
+- **Conclusion:** no reliable improvement; the observed mIoU decreases and the interval includes zero.
 
-</details>
+| Class | Test GT pixels | Patches containing GT | Raw TP IoU | WCSP IoU |
+|---|---:|---:|---:|---:|
+| Background | 456,622 | 20/20 | 0.954456 | 0.954476 |
+| Neoplastic | 45,575 | 10/20 | 0.631903 | 0.633773 |
+| Inflammatory | 4,212 | 8/20 | 0.160374 | 0.153589 |
+| Connective | 18,105 | 15/20 | 0.412998 | 0.411050 |
+| Dead | 1,301 | 3/20 | 0.155398 | 0.152301 |
+| Non-Neoplastic Epithelial | 12,105 | 5/20 | 0.523697 | 0.525330 |
 
-<details>
-<summary><b>Example patch: local changes that hurt (image_00748)</b></summary>
+- **Changed pixels:** 1,820 / 537,920.
+- **Fixes / new errors / different wrong labels:** 801 / 687 / 332.
 
-Panels: ground truth | HoVer-Net | WCSP | changed pixels. Black boxes mark changed pixels.
+![Corrections versus new errors across the frozen 20-patch test set](../experiments/pannuke_wcsp/pannuke_d5/figures/fixes_breaks.png)
 
-![PanNuke close-up of harmful refinement](../experiments/pannuke_d5/figures/example_hurts_zoom.png)
+### Why the current PanNuke experiment does not show improvement
 
-- **Whole-patch class agreement on overlapping nucleus pixels:** 0.7737 → 0.7730.
-- **Whole-patch changes:** 13 pixels, with 0 corrections, 6 new errors (Inflammatory → Connective), and 7 changes on ground-truth background.
-- **Interpretation:** energy decreases, but some previously correct boundary pixels become wrong.
+- **Gains and losses fall on different classes:** 114 net fixes slightly raise accuracy, but Inflammatory, Connective and Dead IoUs fall. Those losses outweigh the other gains under equally weighted biological mIoU.
+- **Background dominates:** 84.89% of GT pixels are background; high overall accuracy can hide biological-class errors.
+- **Possible scale mismatch:** in training GT, 96.875% of neighbor edges have the same label, 3.118% join background to a biological class, and only **0.007%** join different biological classes ([counts](../experiments/pannuke_wcsp/pannuke_d5/deliverable_diagnostics.json)). The 2.83-pixel neighborhood mostly sees interiors and nucleus boundaries rather than relationships between distinct cells. This is a plausible limitation, not a proven cause.
+- **Rare-class evidence is limited:** Dead appears in only two training patches (2,842 pixels) and three test patches (1,301 pixels).
+- **Earlier limitations have been addressed:** this version already uses probability unaries and background variables; missing confidence or an inactive background mask cannot explain the current result.
 
-</details>
+### Validation and limits
 
-**Saved results:** [20-patch evaluation CSV](../experiments/pannuke_d5/pannuke_multi_patch_evaluation_summary.csv), [development sweep CSV](../experiments/pannuke_d5/pannuke_lambda_dev_evaluation_summary.csv). Full patch-selection and execution details: [PanNuke multi-patch write-up](deliverable_5_pannuke_multipatch.md).
+- **β = 0:** exactly reproduces raw TP argmax on all 20 test patches.
+- **Solver:** non-increasing energy; all 20 solutions independently verified as single-pixel local minima; 2–20 rounds; no 100-round limits reached. No global optimum claimed.
+- **Tests:** 13 passed.
+- **CPU runtime:** inference 17.04 s; solver plus audits 1.07 s; excludes model setup and explicit warmup/β = 0 checks.
+- **Coverage:** no biological class is absent from pooled test GT; the coverage-enriched sample is not prevalence-representative.
+- **Leakage uncertainty:** patient/slide IDs unavailable; “held out” means WCSP fitting only; pretrained HoVer-Net exposure to Fold 2 is unknown.
+- **Biological limits:** preferences are soft; pairwise costs cannot enforce literal stromal barriers or detect dense immune clusters.
+
+### Experiment records
+
+- **Current:** [setup, frozen settings and manifests](../experiments/pannuke_wcsp/pannuke_d5/README.md); [full evaluation and solver audits](../experiments/pannuke_wcsp/pannuke_d5/RESULTS.md).
+- **Earlier work:** [multi-patch refinement](deliverable_5_pannuke_multipatch.md), [one-stage experiments](../experiments/pannuke_d5/README_FULLGRID.md), and [two-stage experiments](../experiments/pannuke_d5/README_TWO_STAGE.md). Different historical baselines and patch-mean metrics are not directly comparable with this pooled raw-TP test.
 
 ---
 
@@ -430,16 +294,7 @@ Handwritten b, λ = 4. Panels: image | ground truth | U-Net | WCSP | changed pix
 
 ## 4. Takeaways
 
-- **The WCSP mostly cleans boundaries.**
-  - The rules reach at most 2√2 px, and only flip pixels the classifier is unsure about.
-  - So they can't fix a whole region or nucleus the classifier got confidently wrong, which is where most errors are.
-- **Classifier certainty matters.** With −log p unaries (BCSS) the WCSP gives a small but reliable gain. With a flat "λ per change" unary (PanNuke) its changes are mostly wrong.
-- **The handwritten b is a reasonable but rough prior.**
-  - On BCSS it ties a data-derived table.
-  - It breaks the triangle inequality, which creates fake 1 px stroma strips.
-  - On PanNuke its pairwise pressure doesn't match the true classes.
-- **Next:**
-  - learn b on dev for accuracy;
-  - use region- or nucleus-level variables (superpixels, HoVer-Net instances) so the rules can act on whole objects;
-  - save HoVer-Net class probabilities so PanNuke can use −log p unaries;
-  - for toulbar2, start from the ICM solution and use its local search (VNS).
+- **PanNuke:** probability unaries, all six pixel labels, and a learned-plus-rules compatibility table still do not establish an improvement at fixed β = 0.30. Accuracy rises slightly, while biological mIoU falls and its uncertainty interval includes zero.
+- **BCSS:** spatial refinement gives a small gain in the reported validation experiment, mainly in the “other” class.
+- **Optimization and accuracy are different:** lower energy and a verified local minimum show that the specified objective was optimized locally; they do not prove biological correctness or global optimality.
+- **Questions for further development:** is pixel adjacency the appropriate biological scale, how should rare classes be protected, and would region- or nucleus-level context justify a separately frozen follow-up experiment?

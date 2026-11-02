@@ -1,0 +1,83 @@
+{
+  "train": {
+    "patches": 200,
+    "class_pixels": [
+      4490845,
+      426677,
+      140162,
+      211748,
+      2842,
+      106926
+    ],
+    "patch_coverage": [
+      200,
+      94,
+      85,
+      136,
+      2,
+      28
+    ],
+    "tissues": {
+      "Adrenal_gland": 13,
+      "Bile-duct": 6,
+      "Bladder": 6,
+      "Breast": 61,
+      "Cervix": 2,
+      "Colon": 32,
+      "Esophagus": 10,
+      "HeadNeck": 23,
+      "Kidney": 3,
+      "Liver": 8,
+      "Lung": 2,
+      "Ovarian": 2,
+      "Pancreatic": 6,
+      "Prostate": 2,
+      "Skin": 6,
+      "Stomach": 1,
+      "Testis": 8,
+      "Thyroid": 9
+    }
+  },
+  "test": {
+    "patches": 20,
+    "class_pixels": [
+      456622,
+      45575,
+      4212,
+      18105,
+      1301,
+      12105
+    ],
+    "patch_coverage": [
+      20,
+      10,
+      8,
+      15,
+      3,
+      5
+    ],
+    "tissues": {
+      "Adrenal_gland": 1,
+      "Bile-duct": 1,
+      "Bladder": 1,
+      "Breast": 1,
+      "Cervix": 1,
+      "Colon": 1,
+      "Esophagus": 1,
+      "HeadNeck": 1,
+      "Kidney": 1,
+      "Liver": 1,
+      "Lung": 1,
+      "Ovarian": 1,
+      "Pancreatic": 1,
+      "Prostate": 1,
+      "Skin": 1,
+      "Stomach": 2,
+      "Testis": 1,
+      "Thyroid": 1,
+      "Uterus": 1
+    }
+  },
+  "excluded_patch_count": 266,
+  "eligible_patch_count": 2257
+}

@@ -1,0 +1,81 @@
+{
+  "fold": 2,
+  "image_index": 1113,
+  "tissue": "Adrenal_gland",
+  "class_pixels": [
+    22325,
+    0,
+    180,
+    1099,
+    0,
+    3292
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9753886577622072,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.7920522591181274
+    ],
+    "biological_miou": 0.15841045182362548,
+    "six_class_miou": 0.2945734861467224,
+    "pixel_accuracy": 0.936310232004759,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9753470245653982,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.7920522591181274
+    ],
+    "biological_miou": 0.15841045182362548,
+    "six_class_miou": 0.2945665472805876,
+    "pixel_accuracy": 0.9363474122546104,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      4
+    ]
+  },
+  "changed_pixels": 12,
+  "wrong_to_correct": 5,
+  "correct_to_wrong": 4,
+  "wrong_to_different_wrong": 3,
+  "inference_seconds": 0.8570046660024673,
+  "solver_seconds": 0.020934959000442177,
+  "solver": {
+    "rounds": 2,
+    "changes_per_round": [
+      12,
+      0
+    ],
+    "energy": [
+      614.1632508274603,
+      607.5226719498557,
+      607.5226719498557
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

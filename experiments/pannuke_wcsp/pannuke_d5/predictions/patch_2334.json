@@ -1,0 +1,85 @@
+{
+  "fold": 2,
+  "image_index": 2334,
+  "tissue": "Stomach",
+  "class_pixels": [
+    24918,
+    564,
+    654,
+    647,
+    113,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.980432010202455,
+      0.33539823008849556,
+      0.2545454545454545,
+      0.5313653136531366,
+      0.3205574912891986,
+      0.0
+    ],
+    "biological_miou": 0.28837329791525707,
+    "six_class_miou": 0.40371641662979,
+    "pixel_accuracy": 0.9555324211778703,
+    "gt_absent_classes": [
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9819485953377167,
+      0.33839285714285716,
+      0.2548262548262548,
+      0.5526315789473685,
+      0.3790322580645161,
+      0.0
+    ],
+    "biological_miou": 0.30497658979619924,
+    "six_class_miou": 0.4178052573864522,
+    "pixel_accuracy": 0.9575401546698393,
+    "gt_absent_classes": [
+      5
+    ],
+    "zero_union_classes": [
+      5
+    ]
+  },
+  "changed_pixels": 95,
+  "wrong_to_correct": 62,
+  "correct_to_wrong": 8,
+  "wrong_to_different_wrong": 25,
+  "inference_seconds": 0.8419822920113802,
+  "solver_seconds": 0.03744658303912729,
+  "solver": {
+    "rounds": 5,
+    "changes_per_round": [
+      84,
+      19,
+      7,
+      1,
+      0
+    ],
+    "energy": [
+      514.8477781889421,
+      462.47832504172,
+      457.51307618188923,
+      456.72362326996716,
+      456.4665368647282,
+      456.4665368647282
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

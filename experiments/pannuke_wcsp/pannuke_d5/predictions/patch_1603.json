@@ -1,0 +1,91 @@
+{
+  "fold": 2,
+  "image_index": 1603,
+  "tissue": "Colon",
+  "class_pixels": [
+    26430,
+    0,
+    0,
+    0,
+    0,
+    466
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9918668432003026,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.6819526627218935
+    ],
+    "biological_miou": 0.1363905325443787,
+    "six_class_miou": 0.27896991765369933,
+    "pixel_accuracy": 0.992006246281975,
+    "gt_absent_classes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9919803291091356,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.6849925705794948
+    ],
+    "biological_miou": 0.13699851411589897,
+    "six_class_miou": 0.2794954832814384,
+    "pixel_accuracy": 0.9921177870315289,
+    "gt_absent_classes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "zero_union_classes": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "changed_pixels": 3,
+  "wrong_to_correct": 3,
+  "correct_to_wrong": 0,
+  "wrong_to_different_wrong": 0,
+  "inference_seconds": 0.8701016249833629,
+  "solver_seconds": 0.024528332985937595,
+  "solver": {
+    "rounds": 2,
+    "changes_per_round": [
+      3,
+      0
+    ],
+    "energy": [
+      69.58157822675481,
+      69.36487577241355,
+      69.36487577241355
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

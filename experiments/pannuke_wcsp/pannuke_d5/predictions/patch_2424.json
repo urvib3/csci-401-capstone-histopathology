@@ -1,0 +1,93 @@
+{
+  "fold": 2,
+  "image_index": 2424,
+  "tissue": "Thyroid",
+  "class_pixels": [
+    22925,
+    0,
+    247,
+    1377,
+    0,
+    2347
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9556416881998278,
+      0.0,
+      0.01832460732984293,
+      0.2879799666110184,
+      0.0,
+      0.24725897920604914
+    ],
+    "biological_miou": 0.11071271062938208,
+    "six_class_miou": 0.25153420689112305,
+    "pixel_accuracy": 0.8880874479476502,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.955040227165168,
+      0.0,
+      0.0,
+      0.2934148374548486,
+      0.0,
+      0.23553875236294897
+    ],
+    "biological_miou": 0.1057907179635595,
+    "six_class_miou": 0.24733230283049426,
+    "pixel_accuracy": 0.8877528256989887,
+    "gt_absent_classes": [
+      1,
+      4
+    ],
+    "zero_union_classes": [
+      4
+    ]
+  },
+  "changed_pixels": 119,
+  "wrong_to_correct": 46,
+  "correct_to_wrong": 55,
+  "wrong_to_different_wrong": 18,
+  "inference_seconds": 0.8306334589724429,
+  "solver_seconds": 0.054819250013679266,
+  "solver": {
+    "rounds": 8,
+    "changes_per_round": [
+      104,
+      19,
+      7,
+      3,
+      4,
+      1,
+      1,
+      0
+    ],
+    "energy": [
+      1043.650852192686,
+      942.3273828842147,
+      930.1810879212761,
+      928.42705022159,
+      928.022877668971,
+      926.9094716594486,
+      926.6656156863407,
+      926.5936719264225,
+      926.5936719264225
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}

@@ -1,0 +1,99 @@
+{
+  "fold": 2,
+  "image_index": 1497,
+  "tissue": "Bladder",
+  "class_pixels": [
+    20372,
+    6524,
+    0,
+    0,
+    0,
+    0
+  ],
+  "overlap_pixels": 0,
+  "baseline": {
+    "iou": [
+      0.9542943481750791,
+      0.7926701570680629,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.15853403141361258,
+    "six_class_miou": 0.291160750873857,
+    "pixel_accuracy": 0.9484681737061273,
+    "gt_absent_classes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4
+    ]
+  },
+  "wcsp": {
+    "iou": [
+      0.9542215300391713,
+      0.7939194248914183,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "biological_miou": 0.15878388497828366,
+    "six_class_miou": 0.2913568258217649,
+    "pixel_accuracy": 0.9488399762046401,
+    "gt_absent_classes": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "zero_union_classes": [
+      2,
+      3,
+      4
+    ]
+  },
+  "changed_pixels": 119,
+  "wrong_to_correct": 64,
+  "correct_to_wrong": 54,
+  "wrong_to_different_wrong": 1,
+  "inference_seconds": 0.8124073749640957,
+  "solver_seconds": 0.0514724999666214,
+  "solver": {
+    "rounds": 7,
+    "changes_per_round": [
+      90,
+      23,
+      6,
+      5,
+      2,
+      6,
+      0
+    ],
+    "energy": [
+      1203.811553522251,
+      998.5904531567203,
+      983.9535793068605,
+      979.2548993186261,
+      976.9003430492742,
+      976.2907120170423,
+      972.190635538013,
+      972.190635538013
+    ],
+    "nonincreasing_energy": true,
+    "remaining_improving_pixels": 0,
+    "max_remaining_gain": 0.0,
+    "strict_floating_point_candidates": 0,
+    "verified_local_minimum": true,
+    "audit_tolerance": 1e-10,
+    "stop_reason": "no_changes",
+    "global_optimum_claimed": false
+  },
+  "beta_zero_exact": true
+}
