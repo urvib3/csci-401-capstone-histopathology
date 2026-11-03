@@ -97,10 +97,11 @@ edges. Distant-edge ICM uses extra graph colors. Blocks with distant edges
 are conditioned sequentially because different blocks may interact.
 
 The solver comparison uses the same 100/56/100 layout, four outer rounds,
-and either ICM, Toulbar2 (2 seconds search per block), or ICM followed by
+and either ICM, Toulbar2 (no search time limit), or ICM followed by
 Toulbar2 within each block. Hybrid seeds Toulbar2's value order and upper
-bound from ICM and retains ICM if search finds no improvement. The time
-limit covers search, not Python construction. Compare measured end-to-end
+bound from ICM and retains ICM if search finds no improvement. The original completed runs used a 2-second search cap per block. The
+`_unlimited` runs remove that cap; their SLURM allocations still have an
+8-hour wall limit. Compare measured end-to-end
 time and final energy alongside mIoU; hybrid has extra ICM compute, so this
 is not an equal-total-wall-time benchmark. It cannot promise better accuracy
 or runtime in advance. Full-512 inference uses whole-grid ICM.
@@ -144,8 +145,58 @@ export WCSP_DATA="$PWD/data" WCSP_OUT="$PWD/data/tonight"
 
 Run names for additional experiments are `tonight_long_d8_p0.000001`,
 `tonight_long_d8_p0.00001`, corresponding d32 names, and
-`tonight_solver_{icm,toulbar2,hybrid}`. Use `pretrained.yaml` to summarize
+`tonight_solver_icm_instrumented`,
+`tonight_solver_toulbar2_unlimited_instrumented`, and
+`tonight_solver_hybrid_unlimited_instrumented`. The earlier unsuffixed Toulbar2 and hybrid
+runs retain their original capped settings for comparison. Use `pretrained.yaml` to summarize
 those runs. Outputs live in `data/tonight/runs/<run>/dev/`; logs are in
 `data/logs/`. `config.json` records every effective setting. Solver CSVs
 record energies, changed-pixel fraction, runtime, and actual long-edge
 count. ROI-paired bootstrap comparisons are already supported by `compare`.
+
+Detailed iteration instrumentation
+----------------------------------
+
+New solver processes write `shard_*.iterations.jsonl` alongside their CSV/NPZ
+outputs. Events stream during each ICM sweep, at block/stage boundaries,
+and before and after each Toulbar2 search. An uncapped C++ search emits its
+node/backtrack counters when it returns; it does not emit live node counts
+while searching. Start events remain visible during a long search. Each
+record carries a sample id, attempt id and timestamp (the run header has no
+sample id). ICM events identify round, block window and stage when relevant.
+For parallel block workers, sweep histories return with each completed
+block rather than streaming from subprocesses into a shared file.
+
+The per-sample CSV now includes total ICM calls/sweeps/pixel updates, sweep
+cap hits, Toulbar2 calls/search nodes/backtracks, and the outer stopping
+reason and convergence flag. Full per-block and per-stage details are in
+the JSONL sample-end records, including energy/update/time histories per
+ICM sweep. `converged` for block refinement means an energy plateau under
+the configured inner solver, not a proof of global optimality. Unknown
+Toulbar2 counters are null rather than fabricated zeros.
+
+The limits remain 50 ICM sweeps per call and four outer block rounds, with
+early stopping. No search timer is used for the new unlimited Toulbar2 arms.
+Previously completed/running processes do not gain this instrumentation
+retroactively. The instrumented run suffix avoids reusing those outputs.
+
+Deliverable refresh
+-------------------
+
+`update_deliverable.py` reads the training logs, completed inference shards,
+and iteration traces, and refreshes only the marked follow-up section of
+`deliverables/deliverable_6.md`. Partial shard sets do not receive aggregate
+accuracy scores. Earlier validation results and the PanNuke section stay in Deliverable 5;
+the refresh script refuses to write follow-up results into that file. Concurrent refreshes use a lock and an atomic file replacement.
+
+```bash
+.venv/bin/python experiments/bcss_wcsp/update_deliverable.py
+# Run again once a specified experiment job finishes, including failure/timeout:
+sbatch --dependency=afterany:JOB_ID experiments/bcss_wcsp/slurm/refresh_deliverable.sbatch
+```
+
+This run has refresh jobs 6715150 (remaining model evaluations), 6715151
+(uncapped Toulbar2), and 6715152 (uncapped hybrid). Dependency records are in
+`data/tonight/deliverable_refresh_jobs.json`; the source snapshot is
+`data/tonight/deliverable_results.json`. Refreshes update workspace files;
+commits and pushes remain separate actions.

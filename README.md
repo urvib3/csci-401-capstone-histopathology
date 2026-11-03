@@ -6,7 +6,7 @@ optimization techniques.
 
 ## Layout
 
-- `deliverables/` - deliverable write-ups only (`deliverable_3.md`, `deliverable_4.md`, `deliverable_5.md`).
+- `deliverables/` - deliverable write-ups only (`deliverable_3.md`, `deliverable_4.md`, `deliverable_5.md`, `deliverable_6.md`).
 - `wcsp/` - the pixel-level WCSP package: problem building (unary, pairwise b table, neighbors),
   solvers (argmax, ICM, 100/56/100 blocks, toulbar2), BCSS data/U-Net wrappers, evaluation, CLI.
 - `experiments/` - code, configs and results behind the deliverables:
