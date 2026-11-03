@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Deliverable 6 — What Changed This Week
 
 Covers only work added since Deliverable 5 was finished on Monday, October 26: all the commits from November 1–2.
@@ -17,6 +16,7 @@ Covers only work added since Deliverable 5 was finished on Monday, October 26: a
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
 | BCSS | Add distant pixel pairs to the WCSP | No gain, and slower |
 | BCSS | toulbar2 with a 2 s per-block limit | No gain over the U-Net; ICM → toulbar2 ties ICM |
+| BCSS | toulbar2 without a search timer, alone or after ICM | Both jobs hit the 8-hour allocation limit; no complete accuracy result |
 
 **Main takeaway:** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
 
@@ -131,11 +131,13 @@ These use a 200-tile dev selection. Only rows within one table can be compared.
 | Central field, 181 tiles | Pretrained | 0.6017 | 0.6042 | 26.6 |
 | Central field, 181 tiles | Cross-entropy | 0.6441 | 0.6452 | 17.8 |
 | Central field, 181 tiles | Cross-entropy + 0.01 × pairwise loss | 0.6245 | 0.6243 | 18.0 |
+| Central field, 181 tiles | Cross-entropy + 0.1 × pairwise loss | 0.6241 | 0.6244 | 15.5 |
+| Central field, 181 tiles | Cross-entropy + 1 × pairwise loss | 0.6293 | 0.6291 | 13.9 |
 | Whole tile, 185 tiles | Pretrained | 0.6223 | 0.6255 | 153.2 |
 | Whole tile, 185 tiles | Cross-entropy | 0.6182 | 0.6196 | 240.7 |
 | Whole tile, 185 tiles | Full-resolution head | **0.6524** | **0.6545** | 109.2 |
 
-The WCSP still adds only about +0.001 to +0.003, whichever model it starts from. The one exception is the pairwise-loss model, where it adds nothing.
+For the pretrained and cross-entropy models, WCSP adds about +0.001 to +0.003 mIoU. All three pairwise-loss evaluations are now complete: WCSP changes mIoU by −0.0002, +0.0003 and −0.0002 at weights 0.01, 0.1 and 1, respectively. None beats the cross-entropy control on these same 181 dev tiles.
 
 ### Other WCSP tests (pretrained U-Net, central field, 181 dev tiles, mIoU 0.6017 before WCSP)
 
@@ -149,6 +151,7 @@ The WCSP still adds only about +0.001 to +0.003, whichever model it starts from.
 
 - **Distant pairs:** extra pixel pairs beyond 8 or 32 px, sampled at random, add runtime with no accuracy gain at the tested sampling rates.
 - **toulbar2:** at 2 s per block it gives the same mIoU as the U-Net alone.
+- **Without a search timer:** both toulbar2 jobs (alone and after ICM) hit their 8-hour SLURM limit on November 2. Streaming traces record 14 and 13 finished tiles, respectively, but neither run produced a complete shard (0/32 for each). Aggregate mIoU and mean runtime remain unavailable; these jobs are no longer running. The timeout messages are in `data/logs/bcss-toulbar-counts_6715091_{0,1}.out` and `data/logs/bcss-hybrid-counts_6715092_{0,1}.out`.
 
 ## Correction to Deliverable 5
 
@@ -157,8 +160,8 @@ The image term f was only scored on dev when Deliverable 5 was written, and it h
 ## Not finished
 
 - **BCSS:**
-  - Pairwise-loss weights 0.1 and 1 had no WCSP result at the last results refresh (Nov 2).
-  - toulbar2 with no time limit, with and without ICM first, was also incomplete at that refresh.
+  - toulbar2 without a search timer, with and without ICM first, timed out before producing complete evaluation shards.
+  - The retrained models still need a held-out val evaluation with frozen settings.
 - **PanNuke:** β = 0.15 needs fresh test patches.
 
 ## Next
@@ -167,14 +170,10 @@ The image term f was only scored on dev when Deliverable 5 was written, and it h
 2. Test PanNuke β = 0.15 on patches that haven't been used.
 3. Put effort into the classifier, since that's where this week's gain came from. WCSP changes have stayed small on both datasets.
 
-# Deliverable 6 — BCSS Full-Resolution Training and WCSP Follow-up Experiments
-
-This deliverable reports the new BCSS training, distant-relation, and solver experiments. The earlier PanNuke and BCSS validation experiments remain in [Deliverable 5](deliverable_5.md).
-
 <!-- BEGIN BCSS FOLLOWUP RESULTS -->
 ## BCSS follow-up experiments (development results)
 
-Automatically refreshed from experiment artifacts at **2026-11-02 15:15 UTC**. Incomplete runs are explicitly marked; their partial metrics are not treated as final results.
+Automatically refreshed from experiment artifacts at **2026-11-03 00:30 UTC**. Incomplete runs are explicitly marked; their partial metrics are not treated as final results.
 
 **Protocol.** The follow-up uses the same underlying 151 BCSS ROIs and the same 106/45 hospital-held-out ROI split. Tiles were regenerated directly from the upstream images at requested 0.25 MPP: 7,768 fit, 1,012 dev, and 4,028 val tiles. Preparation version 2 preserves both axes of 16-bit grayscale masks; codes 0 and 7 are ignored. The documented earlier preparation has different tile counts, so the historical scores in [Deliverable 5](deliverable_5.md) are not a paired comparison to these follow-ups. These new results are **development results**, not a new held-out-validation result.
 
