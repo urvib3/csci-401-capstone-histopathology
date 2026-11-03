@@ -1,19 +1,21 @@
 # Deliverable 6 — What Changed This Week
 
-Covers the commits from November 1–2, plus one BCSS run left over from Deliverable 5. Everything else is in [Deliverable 5](deliverable_5.md).
+Covers only work added since Deliverable 5 was finished on Monday, October 26: all the commits from November 1–2.
 
 ## Summary
 
 | Area | What we tried | Result |
 |---|---|---|
-| PanNuke | WCSP on HoVer-Net's real probabilities, with a learned b table | Test mIoU −0.0017, CI includes 0: no reliable change |
-| PanNuke | Sweep β for that table on dev | β = 0.15 is best, +0.0016 mIoU on dev; not yet tested on fresh patches |
+| PanNuke | Export HoVer-Net's real pixel probabilities and use them as unary costs | Now possible, but raw probabilities alone score below HoVer-Net |
+| PanNuke | Two-stage WCSP: find nuclei, then type each nucleus | Dev mIoU 0.4749 → 0.4325: worse, dropped |
+| PanNuke | One-stage WCSP on all pixels, tested on 100 unused patches | mIoU +0.0003, CI includes 0: no reliable change |
+| PanNuke | Learned b table, tested on 20 patches | mIoU −0.0017, CI includes 0: no reliable change |
+| PanNuke | β sweep for the learned table on dev | β = 0.15 is best, +0.0016 mIoU; not yet tested on fresh patches |
 | BCSS | Retrain the U-Net with cross-entropy | Dev mIoU 0.6362 → 0.6679 |
 | BCSS | Full-resolution head + backbone | Dev mIoU 0.6797, **the best result this week** |
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
 | BCSS | Add distant pixel pairs to the WCSP | No gain, and slower |
 | BCSS | toulbar2 with a 2 s per-block limit | No gain over the U-Net; ICM → toulbar2 ties ICM |
-| BCSS | Image term f on all val tiles | Ties no f |
 
 **Main takeaway:** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
 
@@ -21,13 +23,47 @@ Covers the commits from November 1–2, plus one BCSS run left over from Deliver
 
 ### What changed
 
+Last Monday's flat unary couldn't use HoVer-Net's confidence, so this week started by exporting the real pixel probabilities.
+
 | | Deliverable 5 | This week |
 |---|---|---|
-| Starting labels | HoVer-Net nucleus labels | Raw argmax of HoVer-Net's 6-class pixel output |
-| Variables | Nucleus pixels only | All 26,896 pixels, including background |
 | Unary | Flat penalty for changing a label | −log p, so it counts certainty |
-| b table | Handwritten | 80% learned from 200 training patches, 20% biological prior |
-| Trade-off | λ on the unary | β on the pairwise |
+| Variables | Nucleus pixels only | All 26,896 pixels, including background |
+| Labels | 5 nucleus classes | Those 5 + background |
+| b table | Handwritten | Handwritten, then learned |
+
+### Step 1: find a formulation (15 dev patches)
+
+Saved HoVer-Net scores mean mIoU **0.4749**. The handwritten table is used here, with background added.
+
+| Method | mIoU | Δ vs. HoVer-Net |
+|---|---:|---:|
+| Two-stage WCSP: find nuclei, then type each nucleus | 0.4325 | −0.0424 |
+| Pixel argmax of the probabilities, no WCSP | 0.4438 | −0.0311 |
+| Six-class type head + WCSP, starting from its own argmax | 0.4410 | −0.0339 |
+| Six-class type head + WCSP, starting from HoVer-Net, neighbor strength 2 | 0.4624 | −0.0125 |
+| One-stage WCSP, nucleus × type probabilities, starting from HoVer-Net | **0.4759** | **+0.0010** |
+
+- **Two-stage:** a nucleus removed in the first stage can't come back, and it scored worst, so it was dropped.
+- **HoVer-Net's labels are hard to beat:** they include instance post-processing, and raw pixel probabilities don't.
+- **Neighbor strength 2 is the highest value tried:** it gave the best WCSP score of the strengths tested on the six-class type head, but still fell below HoVer-Net.
+
+### Step 2: test it on unused patches (handwritten table, neighbor strength 2)
+
+Settings were frozen before these runs, using the six-class type-head WCSP starting from HoVer-Net.
+
+| Test set | HoVer-Net mIoU | + WCSP mIoU | Δ [95% CI] | Nucleus IoU |
+|---|---:|---:|---|---:|
+| 20 patches | 0.5555 | 0.5599 | +0.0044 [−0.0089, +0.0181] | 0.7709 → 0.7649 |
+| 100 patches, 18 tissues | 0.5951 | 0.5954 | +0.0003 [−0.0078, +0.0082] | 0.7433 → 0.7392 |
+
+- **The larger test removes most of the early gain:** on 100 patches, 44 improve and 55 worsen.
+- **Pixel changes nearly cancel out:** 17,953 pixels fixed and 16,935 broken.
+- **Nucleus detection gets slightly worse** on both sets.
+
+### Step 3: learn the b table
+
+Next the team replaced the handwritten table with a learned one: 80% from 200 training patches, 20% biological prior. The baseline here is the raw argmax of the 6-class output, without HoVer-Net's post-processing.
 
 **Learned b table** (upper triangle; same label costs 0):
 
@@ -40,7 +76,7 @@ Covers the commits from November 1–2, plus one BCSS run left over from Deliver
 | **Dead** | | | | | 0 | 1.60 |
 | **Non-neoplastic epithelial** | | | | | | 0 |
 
-### Test result (20 held-out patches, β = 0.30)
+**Test result (20 held-out patches, β = 0.30).** This uses pooled mIoU and a different baseline, so it can't be compared with Step 2.
 
 | Metric | Raw argmax | + WCSP |
 |---|---:|---:|
@@ -50,9 +86,8 @@ Covers the commits from November 1–2, plus one BCSS run left over from Deliver
 
 - **mIoU change:** −0.0017, 95% CI [−0.0050, +0.0080], so no reliable improvement.
 - **Fixes and breaks:** 801 pixels fixed and 687 broken, a net gain of 114. That raises pixel accuracy, but inflammatory, connective and dead IoU fall, and mIoU weights each class equally.
-- **Compared with last week:** the WCSP now makes real changes, including about as many fixes as breaks. Last week's flat-unary runs on the 15 dev patches broke far more than they fixed (at λ = 1, 1 fix and 28 breaks). The two runs use different patches and baselines, so this isn't a paired comparison.
 
-### β sweep (20 separate dev patches)
+### Step 4: sweep β for the learned table (20 separate dev patches)
 
 β = 0.30 was carried over from the earlier handwritten-table sweep, so the team re-swept 15 values for the learned table.
 
@@ -114,24 +149,15 @@ The WCSP still adds only about +0.001 to +0.003, whichever model it starts from.
 - **Distant pairs:** extra pixel pairs beyond 8 or 32 px, sampled at random, add runtime with no accuracy gain at the tested sampling rates.
 - **toulbar2:** at 2 s per block it gives the same mIoU as the U-Net alone.
 
-### Image term f on val (leftover from Deliverable 5)
+## Correction to Deliverable 5
 
-Scored on all 2,124 val tiles with the Deliverable 5 tiling, handwritten b, λ = 8.
-
-| Method | Pixel acc | mIoU | Δ mIoU vs. U-Net [95% CI] |
-|---|---:|---:|---|
-| U-Net | 0.8414 | 0.6489 | — |
-| + WCSP, no f | 0.8419 | 0.6507 | +0.0019 [+0.0010, +0.0027] |
-| + WCSP, f (β = 1) | 0.8419 | 0.6507 | +0.0019 [+0.0009, +0.0027] |
-
-This corrects Deliverable 5, where the f row is dev-only and says f hurts. On val, f ties no f, at about twice the runtime (25 vs. 11 s per tile).
+The image term f was only scored on dev when Deliverable 5 was written, and it hurt there. Its val run has since finished: on the same 2,124 val tiles, f ties no f (mIoU 0.6507 and +0.0019 for both).
 
 ## Not finished
 
 - **BCSS:**
   - Pairwise-loss weights 0.1 and 1 had no WCSP result at the last results refresh (Nov 2).
   - toulbar2 with no time limit, with and without ICM first, was also incomplete at that refresh.
-  - Handwritten b at λ = 16 on val and ICM → toulbar2 on small tiles both stopped partway when some jobs failed, so neither is reported.
 - **PanNuke:** β = 0.15 needs fresh test patches.
 
 ## Next
