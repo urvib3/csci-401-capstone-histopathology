@@ -1,0 +1,10 @@
+msd_mu0 --set solver.mu=0
+msd_mu0.05 --set solver.mu=0.05
+msd_mu0.1 --set solver.mu=0.1
+msd_mu0.2 --set solver.mu=0.2
+msd_mu0.5 --set solver.mu=0.5
+msd_mu1 --set solver.mu=1
+msd_mu0.2_L1 --set solver.mu=0.2 --set solver.levels=1
+msd_mu0.2_L2 --set solver.mu=0.2 --set solver.levels=2
+msd_mu0.2_noblockunary --set solver.mu=0.2 --set solver.block_alpha=0
+msd_mu0.2_noblockpairs --set solver.mu=0.2 --set solver.block_lam=0

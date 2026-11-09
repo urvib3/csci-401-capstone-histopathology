@@ -1,0 +1,22 @@
+{
+  "run": "valfull_data_lam8",
+  "wcsp_errors": 19558986,
+  "share_from_absent_class": 0.23188359560153068,
+  "absent_class_errors_by_predicted_class": {
+    "Tumor": 0.15510137125480222,
+    "Inflammatory": 0.15319768364830683,
+    "Stroma": 0.32573827977549097,
+    "Necrosis": 0.11860608791976378,
+    "Other": 0.2473565774016362
+  },
+  "scores": {
+    "wcsp": {
+      "pixel_acc": 0.8422345221683241,
+      "mIoU": 0.6506022782943212
+    },
+    "oracle_presence": {
+      "pixel_acc": 0.8788177484297266,
+      "mIoU": 0.7532111592369847
+    }
+  }
+}

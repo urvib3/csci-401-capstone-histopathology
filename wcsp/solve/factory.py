@@ -1,5 +1,6 @@
 # Solvers from config dictionaries, e.g.
 #   {name: blocks, block: 100, max_rounds: 10, inner: {name: toulbar2, time_limit: 20}}
+#   {name: hierarchy, levels: 3, mu: 1, pixel: {name: blocks, block: 100, max_rounds: 4}}
 
 from .argmax import ArgmaxSolver
 from .blocks import BlockCoordinateDescent, BlockLayout
@@ -32,6 +33,11 @@ def get_solver(spec):
             return BlockLayout.cross(shape, block)
 
         return BlockCoordinateDescent(inner, layout=layout_for, **spec)
+    if name == "hierarchy":
+        from .hierarchy import HierarchySolver
+
+        pixel = get_solver(spec.pop("pixel", {"name": "blocks", "block": 100, "max_rounds": 4}))
+        return HierarchySolver(pixel, **spec)
     if name == "chain":
         return ChainSolver([get_solver(stage) for stage in spec.pop("stages")])
     raise ValueError(f"unknown solver {name!r}.")

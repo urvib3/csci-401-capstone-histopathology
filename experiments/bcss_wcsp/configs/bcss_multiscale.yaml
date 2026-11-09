@@ -1,0 +1,39 @@
+# Multi-scale block WCSP (wcsp/solve/hierarchy.py) on the Deliverable 5 setup:
+# pretrained U-Net, central 256 x 256, data-derived b, lambda = 8, and the same
+# 100/56/100 ICM block scheme for the pixel level. Only the block levels are new.
+name: bcss_multiscale
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+classifier:
+  name: tia_unet
+  temperature: 1.0
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: experiments/bcss_wcsp/configs/tables/bcss_elicited.csv   # data-derived (PMI) b, as in Deliverable 5
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: hierarchy
+  levels: 3            # blocks of 4x4, 8x8, 16x16 px (16, 64, 256 pixels)
+  size: 4
+  mu: 0.2              # parent-child mismatch cost per child pixel
+  block_alpha: 1.0     # block unary: -log(mean p) x block area
+  block_lam: 8.0       # block neighbors: same b table, x block side
+  block_types: [1, 2]
+  max_rounds: 4
+  pixel:
+    name: blocks
+    block: 100
+    max_rounds: 4
+    inner:
+      name: icm
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

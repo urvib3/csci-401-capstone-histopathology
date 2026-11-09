@@ -1,0 +1,2 @@
+data_lam8_conv50 --set problem.lam=8 --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_elicited.csv --set solver.max_rounds=50
+msd_mu0.5_conv20 --set solver.mu=0.5 --set solver.max_rounds=20

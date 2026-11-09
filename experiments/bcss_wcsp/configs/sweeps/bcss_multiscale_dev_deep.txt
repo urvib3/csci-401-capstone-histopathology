@@ -1,0 +1,4 @@
+msd_mu0.1_L4 --set solver.mu=0.1 --set solver.levels=4
+msd_mu0.2_L4 --set solver.mu=0.2 --set solver.levels=4
+msd_mu0.5_L4 --set solver.mu=0.5 --set solver.levels=4
+msd_mu0.2_L5 --set solver.mu=0.2 --set solver.levels=5
