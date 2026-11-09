@@ -1,16 +1,10 @@
-# Deliverable 6 — What Changed This Week
+# Deliverable 6 — WCSP refinement experiments
 
-Covers only work added since Deliverable 5 was finished on Monday, October 26: all the commits from November 1–2.
 
 ## Summary
 
 | Area | What we tried | Result |
 |---|---|---|
-| PanNuke | Export HoVer-Net's real pixel probabilities and use them as unary costs | Now possible, but raw probabilities alone score below HoVer-Net |
-| PanNuke | Two-stage WCSP: find nuclei, then type each nucleus | Dev mIoU 0.4749 → 0.4325: worse, dropped |
-| PanNuke | One-stage WCSP on all pixels, tested on 100 unused patches | mIoU +0.0003, CI includes 0: no reliable change |
-| PanNuke | Learned b table, tested on 20 patches | mIoU −0.0017, CI includes 0: no reliable change |
-| PanNuke | β sweep for the learned table on dev | β = 0.15 is best, +0.0016 mIoU; not yet tested on fresh patches |
 | BCSS | Retrain the U-Net with cross-entropy | Dev mIoU 0.6362 → 0.6679 |
 | BCSS | Full-resolution head + backbone | Dev mIoU 0.6797, **the best result this week** |
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
@@ -97,87 +91,70 @@ Dev sweeps are running: γ ∈ {0, 10, 30, 100, 300, 1000, 3000}, plus the two e
 
 At 20 s per block, toulbar2 ends 75% of tiles after one round, with *higher* energy than ICM: it runs out of time before matching ICM. A per-block benchmark of search nodes, backtracks and proved optima at 2 / 20 / 120 s is running.
 
-## PanNuke
+<!-- BEGIN PANNUKE HIERARCHY 20261109 -->
+## PanNuke: three controlled follow-up experiments
 
-### What changed
+- **Goal:** match or improve raw HoVer-Net TP predictions; preserve the original V1/V2 experiment.
+- **Protocol:** same 100 full 256×256 patches; 200 table-fitting / 12 development patches; six labels including Background.
+- **Hierarchy:** pixels → 2×2 → 4×4 → 8×8 → 16×16 → 32×32; soft parent-child consistency and scale-specific neighbor tables.
 
-Last Monday's flat unary couldn't use HoVer-Net's confidence, so this week started by exporting the real pixel probabilities.
-
-| | Deliverable 5 | This week |
+| Experiment | What changed | Finding |
 |---|---|---|
-| Unary | Flat penalty for changing a label | −log p, so it counts certainty |
-| Variables | Nucleus pixels only | All 26,896 pixels, including background |
-| Labels | 5 nucleus classes | Those 5 + background |
-| b table | Handwritten | Handwritten, then learned |
+| Block fidelity | V1 has pixel unaries only; V2 adds block unaries | Only 83 final pixel labels differ; no reliable added benefit |
+| BCSS-style scaling | Multiply block fidelity by area, sibling costs by side, parent-child costs by child area | No reliable matched-setting advantage over V2 |
+| Sibling constraints | Frozen V1; remove siblings, use Potts, or retain learned/biological costs | Potts is best numerically; biological costs do not establish added value |
 
-### Step 1: find a formulation (15 dev patches)
+![Hierarchy](../experiments/pannuke_wcsp/hierarchy_20261109/figures/hierarchy.png)
 
-Saved HoVer-Net scores mean mIoU **0.4749**. The handwritten table is used here, with background added.
+### Combined results
 
-| Method | mIoU | Δ vs. HoVer-Net |
-|---|---:|---:|
-| Two-stage WCSP: find nuclei, then type each nucleus | 0.4325 | −0.0424 |
-| Pixel argmax of the probabilities, no WCSP | 0.4438 | −0.0311 |
-| Six-class type head + WCSP, starting from its own argmax | 0.4410 | −0.0339 |
-| Six-class type head + WCSP, starting from HoVer-Net, neighbor strength 2 | 0.4624 | −0.0125 |
-| One-stage WCSP, nucleus × type probabilities, starting from HoVer-Net | **0.4759** | **+0.0010** |
+| Method | Biological mIoU | Δ vs raw (pp) | Patch W / L / tie |
+|---|---:|---:|---|
+| Raw TP | 0.472126 | +0.0000 | - |
+| V1: no block fidelity | 0.472389 | +0.0262 | 58 / 34 / 8 |
+| V2: block fidelity | 0.472389 | +0.0263 | 58 / 34 / 8 |
+| BCSS scaling: matched | 0.472407 | +0.0280 | 56 / 36 / 8 |
+| BCSS scaling: dev-selected | 0.472228 | +0.0101 | 55 / 36 / 9 |
+| Parent-child only | 0.472262 | +0.0136 | 57 / 35 / 8 |
+| Generic Potts siblings | 0.472480 | +0.0354 | 58 / 34 / 8 |
 
-- **Two-stage:** a nucleus removed in the first stage can't come back, and it scored worst, so it was dropped.
-- **HoVer-Net's labels are hard to beat:** they include instance post-processing, and raw pixel probabilities don't.
-- **Neighbor strength 2 is the highest value tried:** it gave the best WCSP score of the strengths tested on the six-class type head, but still fell below HoVer-Net.
+- **V1 = biological-sibling ablation reference:** pixel labels reproduced exactly; this is the same model, not an independent extra result.
+- **Target unmet:** all WCSP variants worsen some patches; Potts improves 58, worsens 34, and ties eight.
 
-### Step 2: test it on unused patches (handwritten table, neighbor strength 2)
+![Sibling comparison](../experiments/pannuke_wcsp/scaling_siblings_20261109/figures/overall.png)
 
-Settings were frozen before these runs, using the six-class type-head WCSP starting from HoVer-Net.
+### Paired comparisons
 
-| Test set | HoVer-Net mIoU | + WCSP mIoU | Δ [95% CI] | Nucleus IoU |
-|---|---:|---:|---|---:|
-| 20 patches | 0.5555 | 0.5599 | +0.0044 [−0.0089, +0.0181] | 0.7709 → 0.7649 |
-| 100 patches, 18 tissues | 0.5951 | 0.5954 | +0.0003 [−0.0078, +0.0082] | 0.7433 → 0.7392 |
+| Comparison | Δ biological mIoU (pp) | 95% paired CI (pp) |
+|---|---:|---|
+| Matched scaling − V2 | +0.0017 | [-0.0054, +0.0087] |
+| Dev-selected scaling − V2 | -0.0162 | [-0.0315, -0.0017] |
+| Parent-child only − raw | +0.0136 | [-0.0042, +0.0299] |
+| Potts − parent-child only | +0.0218 | [+0.0020, +0.0367] |
+| Biological − Potts | -0.0091 | [-0.0164, +0.0022] |
 
-- **The larger test removes most of the early gain:** on 100 patches, 44 improve and 55 worsen.
-- **Pixel changes nearly cancel out:** 17,953 pixels fixed and 16,935 broken.
-- **Nucleus detection gets slightly worse** on both sets.
+- **Generic smoothing contributes:** Potts improves over parent-child alone on the reported interval.
+- **Biological contribution is not established:** biological-minus-Potts interval includes zero; the point estimate is lower.
 
-### Step 3: learn the b table
+![Biological minus Potts](../experiments/pannuke_wcsp/scaling_siblings_20261109/figures/bio_minus_potts.png)
 
-Next the team replaced the handwritten table with a learned one: 80% from 200 training patches, 20% biological prior. The baseline here is the raw argmax of the 6-class output, without HoVer-Net's post-processing.
+### Interpretation and limitations
 
-**Learned b table** (upper triangle; same label costs 0):
+- **Fragile classes:** biological costs have lower Dead IoU and slightly higher Non-Neoplastic IoU than Potts; class effects are descriptive.
+- **Exploratory comparison:** these patches were already inspected; IDs 908, 2216, 2330 and 2354 also overlap upstream beta-development data.
+- **Representation:** PanNuke labels nuclei; Background can dominate mixed coarse blocks. Dead fitting support is sparse.
+- **Inference / solver:** reflect-padded borders, simple mismatch costs, local optima, and unverified patient independence limit conclusions.
+- **BCSS comparison:** its tissue-region gains do not imply PanNuke gains; only its cost-scaling idea was adapted.
+- **Not tested here:** BCSS-style oracle ceilings, class-presence models, regional-rule validation, or a matched solver-time ablation.
+- **Next research questions:** retain class proportions in blocks, protect rare structures, validate rules at each scale, then confirm frozen choices on new patches.
 
-| | Background | Neoplastic | Inflammatory | Connective | Dead | Non-neoplastic epithelial |
-|---|---:|---:|---:|---:|---:|---:|
-| **Background** | 0 | 0.42 | 0.36 | 0.36 | 0.22 | 0.41 |
-| **Neoplastic** | | 0 | 1.04 | 0.84 | 1.29 | 2.31 |
-| **Inflammatory** | | | 0 | 0.68 | 1.13 | 1.93 |
-| **Connective** | | | | 0 | 1.36 | 1.06 |
-| **Dead** | | | | | 0 | 1.60 |
-| **Non-neoplastic epithelial** | | | | | | 0 |
+### Report and reproducibility
 
-**Test result (20 held-out patches, β = 0.30).** This uses pooled mIoU and a different baseline, so it can't be compared with Step 2.
+- [Final detailed report](../experiments/pannuke_wcsp/scaling_siblings_20261109/report.pdf)
+- [Results, figures and limitations](../experiments/pannuke_wcsp/scaling_siblings_20261109/REPORT.md)
+- [Code, manifests and frozen settings](../experiments/pannuke_wcsp/scaling_siblings_20261109/README.md)
 
-| Metric | Raw argmax | + WCSP |
-|---|---:|---:|
-| Biological mIoU | 0.3769 | 0.3752 |
-| Six-class mIoU | 0.4731 | 0.4718 |
-| Pixel accuracy | 0.9334 | 0.9336 |
-
-- **mIoU change:** −0.0017, 95% CI [−0.0050, +0.0080], so no reliable improvement.
-- **Fixes and breaks:** 801 pixels fixed and 687 broken, a net gain of 114. That raises pixel accuracy, but inflammatory, connective and dead IoU fall, and mIoU weights each class equally.
-
-### Step 4: sweep β for the learned table (20 separate dev patches)
-
-β = 0.30 was carried over from the earlier handwritten-table sweep, so the team re-swept 15 values for the learned table.
-
-| | Raw argmax | β = 0.15 | β = 0.30 |
-|---|---:|---:|---:|
-| Biological mIoU | 0.4258 | **0.4274** | 0.4270 |
-| Pixel accuracy | 0.9056 | **0.9059** | 0.9058 |
-| Fixes / breaks | — | 574 / 421 | 813 / 744 |
-
-![β sweep](../experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/beta_sweep.png)
-
-β = 0.15 is a development pick. It still needs a fresh test set, because the 20 test patches above have already been used.
+<!-- END PANNUKE HIERARCHY 20261109 -->
 
 ## BCSS
 

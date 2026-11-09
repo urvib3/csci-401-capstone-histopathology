@@ -1,0 +1,39 @@
+{
+  "split_separation": true,
+  "previous_use_exclusion_against_original_snapshot": true,
+  "upstream_overlap_audit": {
+    "upstream_commit": "fcb136ad1f18ada94c8453fed5c0ff7c1ebf5565",
+    "source": "experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/development_manifest.csv",
+    "comparison_overlap": [
+      908,
+      2216,
+      2330,
+      2354
+    ],
+    "current_training_overlap": [],
+    "current_development_overlap": [],
+    "qualification": "100-patch results remain unchanged but are exploratory, not completely previously-unused test evidence. Discovered after the remote fetch. No optimization rerun or test-outcome tuning."
+  },
+  "source_hashes": true,
+  "checkpoint_architecture": true,
+  "tables_reconstructed": true,
+  "outputs": [
+    {
+      "version": 1,
+      "patches": 100,
+      "metrics_verified": true,
+      "changed": 8195,
+      "fixes": 3617,
+      "breaks": 3263
+    },
+    {
+      "version": 2,
+      "patches": 100,
+      "metrics_verified": true,
+      "changed": 8181,
+      "fixes": 3609,
+      "breaks": 3260
+    }
+  ],
+  "markdown_links": true
+}

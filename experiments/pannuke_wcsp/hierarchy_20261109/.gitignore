@@ -1,0 +1,10 @@
+cache/
+__pycache__/
+.build/
+internal_guide.pdf
+internal_guide.md
+*.log
+version_*/patch_*.npz
+version_*/patch_*.json
+version_*/results.json
+report.pdf

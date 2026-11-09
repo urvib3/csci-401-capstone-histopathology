@@ -1,0 +1,14 @@
+{
+  "conditions_verified": [
+    "scaled_matched",
+    "scaled_calibrated",
+    "parent_only",
+    "potts",
+    "biological"
+  ],
+  "bootstrap_draws_verified": true,
+  "preserved_original_experiment": true,
+  "deliverable_6_unchanged": true,
+  "source_hashes": true,
+  "report_links": true
+}

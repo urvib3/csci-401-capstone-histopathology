@@ -1,0 +1,18 @@
+{
+  "gamma": 0.3,
+  "selection": [
+    {
+      "gamma": 0.1,
+      "score": 0.5455556583886038
+    },
+    {
+      "gamma": 0.3,
+      "score": 0.5456060379811482
+    },
+    {
+      "gamma": 1.0,
+      "score": 0.5455155104229619
+    }
+  ],
+  "selection_data": "12 development patches only; shared weights unchanged"
+}

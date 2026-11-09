@@ -1,0 +1,86 @@
+{
+  "seed": 20261109,
+  "sibling": 0.3,
+  "parent": 0.1,
+  "block_gamma_candidates": [
+    0.1,
+    0.3,
+    1.0
+  ],
+  "max_rounds": 100,
+  "graph": [
+    {
+      "level": 1,
+      "block_size": 1,
+      "variables": 65536,
+      "sibling_edges": 130560,
+      "parent_child_edges": 65536
+    },
+    {
+      "level": 2,
+      "block_size": 2,
+      "variables": 16384,
+      "sibling_edges": 32512,
+      "parent_child_edges": 16384
+    },
+    {
+      "level": 3,
+      "block_size": 4,
+      "variables": 4096,
+      "sibling_edges": 8064,
+      "parent_child_edges": 4096
+    },
+    {
+      "level": 4,
+      "block_size": 8,
+      "variables": 1024,
+      "sibling_edges": 1984,
+      "parent_child_edges": 1024
+    },
+    {
+      "level": 5,
+      "block_size": 16,
+      "variables": 256,
+      "sibling_edges": 480,
+      "parent_child_edges": 256
+    },
+    {
+      "level": 6,
+      "block_size": 32,
+      "variables": 64,
+      "sibling_edges": 112,
+      "parent_child_edges": 0
+    }
+  ],
+  "shared_selection": [
+    {
+      "sibling": 0.1,
+      "parent": 0.03,
+      "score": 0.5453098306436035
+    },
+    {
+      "sibling": 0.3,
+      "parent": 0.1,
+      "score": 0.545462565113396
+    },
+    {
+      "sibling": 0.6,
+      "parent": 0.3,
+      "score": 0.5452972057284509
+    }
+  ],
+  "objective": "sum pixel U + gamma sum block U + sibling/4 sum scale-table costs + parent sum label-mismatch",
+  "block_meaning": "soft dominant class; no exact majority requirement",
+  "sibling_graph": "4-connected spatial adjacency at every level, including adjacent blocks with different immediate parents",
+  "prior": "Previously user-specified revised D5 biological preference matrix retained; separately learned and normalized six-class table per scale; .8 data/.2 prior.",
+  "solver": "bidirectional deterministic ICM; strict decreases, local optimum only",
+  "init": "identical in both versions: raw pixel argmax and averaged-probability block argmax",
+  "evaluation": "100 fixed patches; pooled five-biological-class mIoU; six-class and per-class metrics also reported",
+  "trigger": "Run version 2 if V1 pooled biological mIoU does not exceed raw, or any patch biological mIoU worsens.",
+  "split_sha256": "5c0c9653656391f962f82cfa1ac1a1f68d0e4eb6a39ff7f1e9dae019236d07e8",
+  "tables_sha256": "19b512bba6eda92fb7e6af0f9607c44a5b88ffb428a0cd217755fde0e3b84506",
+  "source_sha256": {
+    "core.py": "f1975f12fcf1a527c2f7b68ae3c5b15918fd277f3fc6ddddec6f530b7772bba1",
+    "run.py": "c0aad04ec25c5ea7dd212ec58b16142465f52d1f8c11e39377475f13a9c7527b"
+  }
+}

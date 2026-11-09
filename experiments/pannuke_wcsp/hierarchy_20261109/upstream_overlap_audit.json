@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "fcb136ad1f18ada94c8453fed5c0ff7c1ebf5565",
+  "source": "experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/development_manifest.csv",
+  "comparison_overlap": [
+    908,
+    2216,
+    2330,
+    2354
+  ],
+  "current_training_overlap": [],
+  "current_development_overlap": [],
+  "qualification": "100-patch results remain unchanged but are exploratory, not completely previously-unused test evidence. Discovered after the remote fetch. No optimization rerun or test-outcome tuning."
+}

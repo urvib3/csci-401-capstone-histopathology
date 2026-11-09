@@ -1,0 +1,29 @@
+source,target,changes,fixes,breaks,different_wrong
+Neoplastic,Background,1773,902,603,268
+Background,Neoplastic,1536,587,761,188
+Connective,Background,1108,560,400,148
+Background,Connective,752,287,386,79
+Non-Neoplastic Epithelial,Background,438,211,160,67
+Background,Non-Neoplastic Epithelial,407,158,206,43
+Neoplastic,Non-Neoplastic Epithelial,257,146,70,41
+Non-Neoplastic Epithelial,Neoplastic,240,98,111,31
+Connective,Neoplastic,239,96,86,57
+Neoplastic,Connective,237,85,66,86
+Inflammatory,Background,209,82,91,36
+Background,Inflammatory,171,79,73,19
+Dead,Background,140,88,20,32
+Inflammatory,Connective,102,31,55,16
+Connective,Inflammatory,93,54,28,11
+Background,Dead,71,13,38,20
+Non-Neoplastic Epithelial,Connective,63,33,3,27
+Neoplastic,Inflammatory,60,24,16,20
+Connective,Non-Neoplastic Epithelial,49,10,18,21
+Dead,Neoplastic,42,18,3,21
+Inflammatory,Dead,35,10,20,5
+Non-Neoplastic Epithelial,Inflammatory,33,9,2,22
+Neoplastic,Dead,32,4,13,15
+Inflammatory,Neoplastic,31,10,17,4
+Connective,Dead,27,0,10,17
+Dead,Inflammatory,16,9,2,5
+Inflammatory,Non-Neoplastic Epithelial,14,1,2,11
+Dead,Connective,6,4,0,2

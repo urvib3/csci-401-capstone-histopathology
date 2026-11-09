@@ -1,0 +1,1260 @@
+{
+  "seed": 20261109,
+  "train": [
+    {
+      "image_index": 1924,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1584,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 21,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 284,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 609,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1987,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2207,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2190,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 817,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 2419,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 870,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 526,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1864,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1235,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1897,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2410,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 802,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 2343,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 394,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 124,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1518,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 331,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2268,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 1789,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1194,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1909,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 40,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1827,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1881,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2123,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 630,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 184,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1902,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1234,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1034,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 416,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 587,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1947,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1349,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2313,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2186,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 171,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1978,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 800,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 696,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2302,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 326,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1587,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 768,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1550,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 575,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1907,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1922,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 507,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2479,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 194,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1761,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 916,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1616,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1171,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 2235,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 2407,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 710,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 503,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1453,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1765,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 637,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1622,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1278,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1112,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 555,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 302,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1408,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 2100,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 188,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 142,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1705,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 139,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2428,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 231,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 608,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1012,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1210,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1378,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1875,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 823,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 203,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1261,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 110,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2013,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 749,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1633,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 245,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 261,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2055,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1503,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1360,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2188,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 543,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1824,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1950,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 716,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2081,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2047,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1510,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2008,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 14,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 720,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 983,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2388,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 1233,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1896,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1539,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 939,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 1186,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 789,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1520,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1351,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1198,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1591,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 276,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 199,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 288,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2061,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 981,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 1913,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1904,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1825,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 666,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2474,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1852,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1664,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1856,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 994,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 509,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1813,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1357,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2418,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2357,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 638,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1991,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2197,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 247,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1490,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 2218,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 136,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1213,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1042,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 833,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 2459,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 728,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1398,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2507,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1462,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1879,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1108,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 904,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1007,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1151,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2052,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1678,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2003,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 599,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 437,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1732,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1380,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1704,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1098,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 678,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1130,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 266,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 336,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 262,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 395,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1205,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1244,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 413,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1476,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1745,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 371,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 963,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 955,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 495,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2053,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 303,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1324,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2367,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1019,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 2070,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1317,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2515,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2118,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 69,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 333,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 621,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 481,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2482,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1065,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2263,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 1644,
+      "tissue": "Colon"
+    }
+  ],
+  "dev": [
+    {
+      "image_index": 2415,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 70,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1682,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 907,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1265,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1093,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1911,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1140,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 805,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 1394,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1232,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2351,
+      "tissue": "Stomach"
+    }
+  ],
+  "test": [
+    {
+      "image_index": 2330,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 908,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 2354,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 2321,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 694,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1282,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 505,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2011,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1090,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 2125,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 1240,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2401,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 1123,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 2216,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 1126,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2067,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 155,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 903,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 2340,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 740,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1184,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 2305,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2015,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 815,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 489,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1427,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1370,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 80,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2511,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 578,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1396,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 654,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 433,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1202,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1988,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1687,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 369,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 540,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 97,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 275,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1826,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 742,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1452,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1792,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1741,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 681,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2062,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1092,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1865,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1525,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 329,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 28,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1371,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 44,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 531,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 311,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1858,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 144,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 422,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2236,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 577,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1200,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 2438,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 883,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1086,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1577,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1849,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 129,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2409,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 684,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 406,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 170,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 837,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 1135,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 1914,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2253,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 1891,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1619,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 572,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 550,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 991,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 2030,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 1558,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 2107,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 565,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1082,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 410,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 2078,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2050,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 1672,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1758,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1572,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 786,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 631,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 484,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1895,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1208,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 641,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1757,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1473,
+      "tissue": "Bladder"
+    }
+  ],
+  "selection": "Seeded GT-coverage and tissue-diversity selection using existing central GT catalog; full-patch coverage reported after extraction.",
+  "training": "Same 200 fitting patches as previous D5; not new independent training data.",
+  "independence": "Patch-disjoint from identifiable previous uses; no patient/slide identifiers; checkpoint exposure unknown."
+}

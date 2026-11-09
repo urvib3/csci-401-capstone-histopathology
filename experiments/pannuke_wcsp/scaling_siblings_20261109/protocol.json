@@ -1,0 +1,32 @@
+{
+  "seed": 20261109,
+  "source_split_sha256": "5c0c9653656391f962f82cfa1ac1a1f68d0e4eb6a39ff7f1e9dae019236d07e8",
+  "source_tables_sha256": "19b512bba6eda92fb7e6af0f9607c44a5b88ffb428a0cd217755fde0e3b84506",
+  "source_hashes": {
+    "core.py": "ebd3919f5d1a17da008ebf65f67ee6ddc56fe6dd68cd2a066dde614dcbda8a89",
+    "run.py": "2825529e092966a41d3da60385de22f947a4a38f94b0c65dd7aea1322c7632aa"
+  },
+  "preserve_before": {
+    "deliverables/deliverable_6.md": "2bc6dbaa27ef5877914f685e6a2ce0906f1f5eadc41b629619384f77c949ad23",
+    "experiments/pannuke_wcsp/hierarchy_20261109/core.py": "f1975f12fcf1a527c2f7b68ae3c5b15918fd277f3fc6ddddec6f530b7772bba1",
+    "experiments/pannuke_wcsp/hierarchy_20261109/run.py": "c0aad04ec25c5ea7dd212ec58b16142465f52d1f8c11e39377475f13a9c7527b",
+    "experiments/pannuke_wcsp/hierarchy_20261109/frozen_config.json": "bbfe34331397afffbccc2a5be87f7a250262fcb21929f4916f57346f880b5cfd",
+    "experiments/pannuke_wcsp/hierarchy_20261109/version_1/results.json": "a373334c365afbc6725782737f88da63b5b220577d55ce2b227ce888d10a155f",
+    "experiments/pannuke_wcsp/hierarchy_20261109/version_2/results.json": "1980903570829763bb78c14d40e554c33f952a3075ab64a563cad0b95ca15f78"
+  },
+  "scaling": "Block unaries x area; sibling costs x side; parent-child mismatch x child area. Keep six levels, four-neighbor graph, and learned tables; this adapts BCSS scaling rather than copying its complete model.",
+  "sibling_ablation": "Original unscaled V1; gamma=0; sibling=.3 and parent=.1; only same-level cost tables change.",
+  "reuse": "Exact original 100 patches/probabilities/GT, 12 development patches; exploratory follow-up; four test IDs overlap newly fetched beta development sweep.",
+  "scaling_grid_parent": [
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    0.5
+  ],
+  "gamma": 0.3,
+  "sibling": 0.3,
+  "stopping": "Bidirectional strict-decrease ICM; max100; independent local audit",
+  "bootstrap": "5000 paired patch resamples; fixed seed20261109; fixed-five-class pooled mIoU; zero-union=0",
+  "d6": "Deferred by direct user instruction; no edits now."
+}

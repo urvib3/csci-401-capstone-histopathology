@@ -1,0 +1,13 @@
+{
+  "reporting_only": true,
+  "no_new_optimization": true,
+  "prior_outputs_preserved": true,
+  "internal_guides_excluded_from_git": true,
+  "files": {
+    "deliverables/deliverable_6.md": "d9f6e7b976ccff25d629016681556472c93c2be8afec926b98e6de5ec7f3fc3d",
+    "experiments/pannuke_wcsp/scaling_siblings_20261109/report.pdf": "12f12526257765532a21ec0e3c60aacbad4ce46f9ed60584c9892886ba469ca7",
+    "experiments/pannuke_wcsp/scaling_siblings_20261109/REPORT.md": "12e2d86d3089976ee7a5e99fe720d47c7f8aba879bf0e7d131fe826a6c76d8d5",
+    "experiments/pannuke_wcsp/scaling_siblings_20261109/internal/pannuke_review_final.pptx": "ae1873364636ea1fcbcdd3c2c5ec9809512b8d6ed5b57b65a904660bf09b5c09",
+    "experiments/pannuke_wcsp/scaling_siblings_20261109/internal/pannuke_review.pdf": "b498a65742d6b8d5541db28db97ba4b6641110c47b1c25f14d33a654024f1041"
+  }
+}

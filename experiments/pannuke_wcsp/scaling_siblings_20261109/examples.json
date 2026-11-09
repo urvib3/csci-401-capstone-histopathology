@@ -1,0 +1,17 @@
+{
+  "bio_helps": {
+    "image_index": 2067,
+    "tissue": "Liver",
+    "delta": 0.0006911653367935866
+  },
+  "bio_hurts": {
+    "image_index": 1240,
+    "tissue": "Testis",
+    "delta": -0.0007503903694104364
+  },
+  "representative": {
+    "image_index": 2015,
+    "tissue": "Kidney",
+    "delta": 0.0
+  }
+}

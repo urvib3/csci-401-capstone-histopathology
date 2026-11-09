@@ -1,0 +1,8 @@
+__pycache__/
+.build/
+internal/
+*.log
+*/patch_*.npz
+*/results.json
+.chart-data-*/
+.codex-finalizer/

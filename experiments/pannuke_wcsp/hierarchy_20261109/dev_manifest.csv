@@ -1,0 +1,13 @@
+image_index,tissue,Background,Neoplastic,Inflammatory,Connective,Dead,Non-Neoplastic Epithelial
+2415,Thyroid,52156,7517,1482,4381,0,0
+70,Breast,56011,1422,848,2132,0,5123
+1682,Colon,44175,0,9185,2425,0,9751
+907,Lung,58756,101,0,193,6486,0
+1265,Bile-duct,53376,10979,0,443,738,0
+1093,Esophagus,44784,20752,0,0,0,0
+1911,HeadNeck,62975,0,316,2245,0,0
+1140,Pancreatic,55851,5426,0,4259,0,0
+805,Kidney,59494,6042,0,0,0,0
+1394,Adrenal_gland,59087,2159,201,4089,0,0
+1232,Testis,58790,986,1009,4751,0,0
+2351,Stomach,60532,0,0,5004,0,0

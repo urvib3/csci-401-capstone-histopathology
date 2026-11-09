@@ -1,0 +1,555 @@
+{
+  "version_1": {
+    "transitions": [
+      {
+        "source": "Neoplastic",
+        "target": "Background",
+        "changes": 1775,
+        "fixes": 903,
+        "breaks": 603,
+        "different_wrong": 269
+      },
+      {
+        "source": "Background",
+        "target": "Neoplastic",
+        "changes": 1536,
+        "fixes": 589,
+        "breaks": 760,
+        "different_wrong": 187
+      },
+      {
+        "source": "Connective",
+        "target": "Background",
+        "changes": 1114,
+        "fixes": 564,
+        "breaks": 400,
+        "different_wrong": 150
+      },
+      {
+        "source": "Background",
+        "target": "Connective",
+        "changes": 751,
+        "fixes": 286,
+        "breaks": 386,
+        "different_wrong": 79
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Background",
+        "changes": 439,
+        "fixes": 210,
+        "breaks": 160,
+        "different_wrong": 69
+      },
+      {
+        "source": "Background",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 406,
+        "fixes": 158,
+        "breaks": 205,
+        "different_wrong": 43
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 254,
+        "fixes": 144,
+        "breaks": 71,
+        "different_wrong": 39
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Neoplastic",
+        "changes": 244,
+        "fixes": 101,
+        "breaks": 113,
+        "different_wrong": 30
+      },
+      {
+        "source": "Connective",
+        "target": "Neoplastic",
+        "changes": 243,
+        "fixes": 96,
+        "breaks": 87,
+        "different_wrong": 60
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Connective",
+        "changes": 235,
+        "fixes": 84,
+        "breaks": 66,
+        "different_wrong": 85
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Background",
+        "changes": 211,
+        "fixes": 83,
+        "breaks": 91,
+        "different_wrong": 37
+      },
+      {
+        "source": "Background",
+        "target": "Inflammatory",
+        "changes": 171,
+        "fixes": 79,
+        "breaks": 73,
+        "different_wrong": 19
+      },
+      {
+        "source": "Dead",
+        "target": "Background",
+        "changes": 139,
+        "fixes": 88,
+        "breaks": 20,
+        "different_wrong": 31
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Connective",
+        "changes": 100,
+        "fixes": 30,
+        "breaks": 55,
+        "different_wrong": 15
+      },
+      {
+        "source": "Connective",
+        "target": "Inflammatory",
+        "changes": 94,
+        "fixes": 56,
+        "breaks": 28,
+        "different_wrong": 10
+      },
+      {
+        "source": "Background",
+        "target": "Dead",
+        "changes": 71,
+        "fixes": 13,
+        "breaks": 38,
+        "different_wrong": 20
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Connective",
+        "changes": 65,
+        "fixes": 34,
+        "breaks": 3,
+        "different_wrong": 28
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Inflammatory",
+        "changes": 60,
+        "fixes": 24,
+        "breaks": 16,
+        "different_wrong": 20
+      },
+      {
+        "source": "Connective",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 48,
+        "fixes": 10,
+        "breaks": 18,
+        "different_wrong": 20
+      },
+      {
+        "source": "Dead",
+        "target": "Neoplastic",
+        "changes": 42,
+        "fixes": 18,
+        "breaks": 3,
+        "different_wrong": 21
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Dead",
+        "changes": 35,
+        "fixes": 10,
+        "breaks": 20,
+        "different_wrong": 5
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Dead",
+        "changes": 33,
+        "fixes": 4,
+        "breaks": 13,
+        "different_wrong": 16
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Inflammatory",
+        "changes": 33,
+        "fixes": 9,
+        "breaks": 2,
+        "different_wrong": 22
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Neoplastic",
+        "changes": 31,
+        "fixes": 10,
+        "breaks": 17,
+        "different_wrong": 4
+      },
+      {
+        "source": "Connective",
+        "target": "Dead",
+        "changes": 28,
+        "fixes": 0,
+        "breaks": 11,
+        "different_wrong": 17
+      },
+      {
+        "source": "Dead",
+        "target": "Inflammatory",
+        "changes": 18,
+        "fixes": 10,
+        "breaks": 2,
+        "different_wrong": 6
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 14,
+        "fixes": 1,
+        "breaks": 2,
+        "different_wrong": 11
+      },
+      {
+        "source": "Dead",
+        "target": "Connective",
+        "changes": 5,
+        "fixes": 3,
+        "breaks": 0,
+        "different_wrong": 2
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "changed": 8195,
+        "variables": 6553600,
+        "parent_disagreement_before": 80181,
+        "parent_disagreement_after": 72615
+      },
+      {
+        "level": 2,
+        "changed": 10022,
+        "variables": 1638400,
+        "parent_disagreement_before": 38539,
+        "parent_disagreement_after": 28951
+      },
+      {
+        "level": 3,
+        "changed": 3241,
+        "variables": 409600,
+        "parent_disagreement_before": 18201,
+        "parent_disagreement_after": 15193
+      },
+      {
+        "level": 4,
+        "changed": 1687,
+        "variables": 102400,
+        "parent_disagreement_before": 7774,
+        "parent_disagreement_after": 6220
+      },
+      {
+        "level": 5,
+        "changed": 617,
+        "variables": 25600,
+        "parent_disagreement_before": 2632,
+        "parent_disagreement_after": 2019
+      },
+      {
+        "level": 6,
+        "changed": 134,
+        "variables": 6400,
+        "parent_disagreement_before": 0,
+        "parent_disagreement_after": 0
+      }
+    ]
+  },
+  "version_2": {
+    "transitions": [
+      {
+        "source": "Neoplastic",
+        "target": "Background",
+        "changes": 1773,
+        "fixes": 902,
+        "breaks": 603,
+        "different_wrong": 268
+      },
+      {
+        "source": "Background",
+        "target": "Neoplastic",
+        "changes": 1536,
+        "fixes": 587,
+        "breaks": 761,
+        "different_wrong": 188
+      },
+      {
+        "source": "Connective",
+        "target": "Background",
+        "changes": 1108,
+        "fixes": 560,
+        "breaks": 400,
+        "different_wrong": 148
+      },
+      {
+        "source": "Background",
+        "target": "Connective",
+        "changes": 752,
+        "fixes": 287,
+        "breaks": 386,
+        "different_wrong": 79
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Background",
+        "changes": 438,
+        "fixes": 211,
+        "breaks": 160,
+        "different_wrong": 67
+      },
+      {
+        "source": "Background",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 407,
+        "fixes": 158,
+        "breaks": 206,
+        "different_wrong": 43
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 257,
+        "fixes": 146,
+        "breaks": 70,
+        "different_wrong": 41
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Neoplastic",
+        "changes": 240,
+        "fixes": 98,
+        "breaks": 111,
+        "different_wrong": 31
+      },
+      {
+        "source": "Connective",
+        "target": "Neoplastic",
+        "changes": 239,
+        "fixes": 96,
+        "breaks": 86,
+        "different_wrong": 57
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Connective",
+        "changes": 237,
+        "fixes": 85,
+        "breaks": 66,
+        "different_wrong": 86
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Background",
+        "changes": 209,
+        "fixes": 82,
+        "breaks": 91,
+        "different_wrong": 36
+      },
+      {
+        "source": "Background",
+        "target": "Inflammatory",
+        "changes": 171,
+        "fixes": 79,
+        "breaks": 73,
+        "different_wrong": 19
+      },
+      {
+        "source": "Dead",
+        "target": "Background",
+        "changes": 140,
+        "fixes": 88,
+        "breaks": 20,
+        "different_wrong": 32
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Connective",
+        "changes": 102,
+        "fixes": 31,
+        "breaks": 55,
+        "different_wrong": 16
+      },
+      {
+        "source": "Connective",
+        "target": "Inflammatory",
+        "changes": 93,
+        "fixes": 54,
+        "breaks": 28,
+        "different_wrong": 11
+      },
+      {
+        "source": "Background",
+        "target": "Dead",
+        "changes": 71,
+        "fixes": 13,
+        "breaks": 38,
+        "different_wrong": 20
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Connective",
+        "changes": 63,
+        "fixes": 33,
+        "breaks": 3,
+        "different_wrong": 27
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Inflammatory",
+        "changes": 60,
+        "fixes": 24,
+        "breaks": 16,
+        "different_wrong": 20
+      },
+      {
+        "source": "Connective",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 49,
+        "fixes": 10,
+        "breaks": 18,
+        "different_wrong": 21
+      },
+      {
+        "source": "Dead",
+        "target": "Neoplastic",
+        "changes": 42,
+        "fixes": 18,
+        "breaks": 3,
+        "different_wrong": 21
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Dead",
+        "changes": 35,
+        "fixes": 10,
+        "breaks": 20,
+        "different_wrong": 5
+      },
+      {
+        "source": "Non-Neoplastic Epithelial",
+        "target": "Inflammatory",
+        "changes": 33,
+        "fixes": 9,
+        "breaks": 2,
+        "different_wrong": 22
+      },
+      {
+        "source": "Neoplastic",
+        "target": "Dead",
+        "changes": 32,
+        "fixes": 4,
+        "breaks": 13,
+        "different_wrong": 15
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Neoplastic",
+        "changes": 31,
+        "fixes": 10,
+        "breaks": 17,
+        "different_wrong": 4
+      },
+      {
+        "source": "Connective",
+        "target": "Dead",
+        "changes": 27,
+        "fixes": 0,
+        "breaks": 10,
+        "different_wrong": 17
+      },
+      {
+        "source": "Dead",
+        "target": "Inflammatory",
+        "changes": 16,
+        "fixes": 9,
+        "breaks": 2,
+        "different_wrong": 5
+      },
+      {
+        "source": "Inflammatory",
+        "target": "Non-Neoplastic Epithelial",
+        "changes": 14,
+        "fixes": 1,
+        "breaks": 2,
+        "different_wrong": 11
+      },
+      {
+        "source": "Dead",
+        "target": "Connective",
+        "changes": 6,
+        "fixes": 4,
+        "breaks": 0,
+        "different_wrong": 2
+      }
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "changed": 8181,
+        "variables": 6553600,
+        "parent_disagreement_before": 80181,
+        "parent_disagreement_after": 72276
+      },
+      {
+        "level": 2,
+        "changed": 6450,
+        "variables": 1638400,
+        "parent_disagreement_before": 38539,
+        "parent_disagreement_after": 32208
+      },
+      {
+        "level": 3,
+        "changed": 2678,
+        "variables": 409600,
+        "parent_disagreement_before": 18201,
+        "parent_disagreement_after": 15576
+      },
+      {
+        "level": 4,
+        "changed": 1237,
+        "variables": 102400,
+        "parent_disagreement_before": 7774,
+        "parent_disagreement_after": 6534
+      },
+      {
+        "level": 5,
+        "changed": 563,
+        "variables": 25600,
+        "parent_disagreement_before": 2632,
+        "parent_disagreement_after": 2078
+      },
+      {
+        "level": 6,
+        "changed": 82,
+        "variables": 6400,
+        "parent_disagreement_before": 0,
+        "parent_disagreement_after": 0
+      }
+    ]
+  },
+  "version_2_minus_version_1": {
+    "delta": 4.352854847122778e-07,
+    "ci95": [
+      -2.5018014447729386e-05,
+      2.3224374044047963e-05
+    ],
+    "different_pixels": 83,
+    "different_patches": 39
+  }
+}

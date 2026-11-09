@@ -1,0 +1,17 @@
+{
+  "largest_gain": {
+    "image_index": 129,
+    "tissue": "Breast",
+    "delta": 0.00224937446732848
+  },
+  "largest_loss": {
+    "image_index": 1184,
+    "tissue": "Cervix",
+    "delta": -0.0029838492933932648
+  },
+  "representative": {
+    "image_index": 684,
+    "tissue": "Colon",
+    "delta": 4.998399744993165e-05
+  }
+}
