@@ -1,5 +1,6 @@
 # Solvers from config dictionaries, e.g.
 #   {name: blocks, block: 100, max_rounds: 10, inner: {name: toulbar2, time_limit: 20}}
+#   {name: presence, gamma: 100, prior: <json>, inner: {name: blocks, ...}}
 #   {name: hierarchy, levels: 3, mu: 1, pixel: {name: blocks, block: 100, max_rounds: 4}}
 
 from .argmax import ArgmaxSolver
@@ -38,6 +39,11 @@ def get_solver(spec):
 
         pixel = get_solver(spec.pop("pixel", {"name": "blocks", "block": 100, "max_rounds": 4}))
         return HierarchySolver(pixel, **spec)
+    if name == "presence":
+        from .presence import PresenceSolver
+
+        inner = get_solver(spec.pop("inner", {"name": "blocks", "block": 100, "max_rounds": 4}))
+        return PresenceSolver(inner, **spec)
     if name == "chain":
         return ChainSolver([get_solver(stage) for stage in spec.pop("stages")])
     raise ValueError(f"unknown solver {name!r}.")

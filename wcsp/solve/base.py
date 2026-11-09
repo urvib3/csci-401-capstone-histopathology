@@ -13,6 +13,7 @@ class SolveResult:
     seconds: float
     lower_bound: float | None = None   # when the solver proves one
     trace: list = field(default_factory=list)  # per-step records, e.g. energy per round
+    info: dict = field(default_factory=dict)   # per-sample extras saved as CSV columns
 
 
 class Solver(Protocol):

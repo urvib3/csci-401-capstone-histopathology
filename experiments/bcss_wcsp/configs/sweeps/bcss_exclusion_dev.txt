@@ -1,0 +1,2 @@
+excl15 --set problem.lam=8 --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_elicited_excl15.csv
+excl50 --set problem.lam=8 --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_elicited_excl50.csv

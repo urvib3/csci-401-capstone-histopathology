@@ -1,0 +1,34 @@
+# Tile-level class presence (wcsp/solve/presence.py) on the Deliverable 5 setup:
+# pretrained U-Net, central 256 x 256, data-derived b, lambda = 8, and the same
+# 100/56/100 ICM block scheme once the classes are chosen.
+name: bcss_presence
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+classifier:
+  name: tia_unet
+  temperature: 1.0
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: experiments/bcss_wcsp/configs/tables/bcss_elicited.csv   # data-derived (PMI) b
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: presence
+  prior: experiments/bcss_wcsp/configs/tables/bcss_presence_prior.json   # fit-split class sets
+  gamma: 100.0         # weight of -log P(class set), in summed-unary units
+  inner:
+    name: blocks
+    block: 100
+    max_rounds: 4
+    inner:
+      name: icm
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

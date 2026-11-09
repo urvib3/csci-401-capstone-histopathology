@@ -20,6 +20,83 @@ Covers only work added since Deliverable 5 was finished on Monday, October 26: a
 
 **Main takeaway:** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
 
+## November 8–9: multi-scale WCSP and biological rules
+
+All runs below use the Deliverable 5 setup: pretrained U-Net, central 256 × 256, **data-derived b**, λ = 8 and ICM. Settings are chosen on dev (185 tiles) and run once on val (2,124 tiles).
+
+### Results on val (2,124 tiles)
+
+| Method | mIoU | Δ vs. U-Net [95% CI] | s/tile |
+|---|---:|---|---:|
+| U-Net | 0.6489 | — | — |
+| Current WCSP (pixel neighbors) | 0.6506 | +0.0018 [+0.0011, +0.0024] | 10.2 |
+| Current WCSP, run to convergence | 0.6506 | +0.0018 [+0.0011, +0.0024] | 16.7 |
+| **Multi-scale blocks** | **0.6517** | **+0.0028 [+0.0016, +0.0040]** | 32.3 |
+
+![Val gains](../experiments/bcss_wcsp/figures/val_gains.png)
+
+- **Multi-scale vs. current WCSP, paired:** +0.0011 [+0.0004, +0.0017]. This is the best val result so far.
+- **Not from extra solver time:** run until it stops improving (up to 16 rounds), the current WCSP stays at 0.6506.
+
+### Multi-scale blocks
+
+Blocks of 4 × 4, 8 × 8 and 16 × 16 px each get their own label. Each block has three costs:
+- **Unary:** how well the label fits the mean U-Net probabilities inside the block.
+- **Neighbors:** the b table, against adjacent blocks.
+- **Parent–child:** μ per pixel that disagrees with the block containing it.
+
+![Blocks](../experiments/bcss_wcsp/figures/multiscale_blocks.png)
+
+| Dev setting (U-Net 0.7067, current WCSP 0.7090) | Dev mIoU |
+|---|---:|
+| μ = 0 / 0.1 / 0.2 / **0.5** / 1 | 0.7090 / 0.7097 / 0.7101 / **0.7108** / 0.7106 |
+| 1 / 2 / 3 levels (μ = 0.2) | 0.7097 / 0.7100 / 0.7101 |
+| 4 or 5 levels, adding 32 px and 64 px blocks | No change |
+| No block neighbors (μ = 0.2) | 0.7096 |
+
+The frozen settings are **μ = 0.5 with 3 levels**.
+
+![Example tiles](../experiments/bcss_wcsp/figures/multiscale_compare.png)
+
+Both WCSPs change only pixels along region borders (green = fixed, red = broke). Whole regions the U-Net gets wrong stay wrong.
+
+![Levels on one tile](../experiments/bcss_wcsp/figures/multiscale_diagram.png)
+
+### Why every WCSP gain is small
+
+![Error location](../experiments/bcss_wcsp/figures/error_location.png)
+
+- **Errors are far from borders:** 56% of the U-Net's wrong pixels are more than 10 px from any border, which no neighbor rule reaches.
+- **Smoothing is already maxed out:** an oracle that perfectly fixes every island under 64 px only ties the current WCSP.
+- **The table can only smooth:** every b entry is ≥ 0, so borders can only cost energy.
+
+![Rule check](../experiments/bcss_wcsp/figures/rule_check.png)
+
+**What's left to fix is which classes appear in a tile.** 23% of WCSP errors are a class the tile's ground truth doesn't contain. Fixing exactly those (an oracle) would give 0.7532.
+
+### Biological rules (running)
+
+Each rule was checked against the fit-split ground truth first:
+
+| Rule | Fit ground truth | Test |
+|---|---|---|
+| Some class pairs almost never share a tile (e.g. necrosis + inflammatory 2%) | Holds | **Class presence:** choose the tile's classes from U-Net evidence + γ · −log P(class set) from fit counts, then run the WCSP with only those classes |
+| Necrosis never borders inflammatory or other (0% / 1% of its border) | Holds | **Exclusion:** raise those b entries to 15 or 50 |
+| Necrosis needs tumor in the tile | 58% only, not a rule | Not tested |
+| Inflammatory sits inside stroma (95% of its border) | Holds | Not tested: the WCSP output is already at 90% |
+
+Dev sweeps are running: γ ∈ {0, 10, 30, 100, 300, 1000, 3000}, plus the two exclusion tables.
+
+### toulbar2: time and search effort
+
+| Run | Per-block limit | s/tile | Result |
+|---|---|---:|---|
+| Deliverable 5 val (λ = 4, 2,124 tiles) | 20 s | 87.2 | mIoU +0.0003; mean energy 2,824 → 2,780 vs. ICM's → 1,485 |
+| Ryan, dev (181 tiles) | 2 s | 9.4 | No change from the U-Net |
+| Ryan, dev | None | — | 14 tiles in 8 h before the job limit |
+
+At 20 s per block, toulbar2 ends 75% of tiles after one round, with *higher* energy than ICM: it runs out of time before matching ICM. A per-block benchmark of search nodes, backtracks and proved optima at 2 / 20 / 120 s is running.
+
 ## PanNuke
 
 ### What changed
@@ -152,98 +229,6 @@ For the pretrained and cross-entropy models, WCSP adds about +0.001 to +0.003 mI
 - **Distant pairs:** extra pixel pairs beyond 8 or 32 px, sampled at random, add runtime with no accuracy gain at the tested sampling rates.
 - **toulbar2:** at 2 s per block it gives the same mIoU as the U-Net alone.
 - **Without a search timer:** both toulbar2 jobs (alone and after ICM) hit their 8-hour SLURM limit on November 2. Streaming traces record 14 and 13 finished tiles, respectively, but neither run produced a complete shard (0/32 for each). Aggregate mIoU and mean runtime remain unavailable; these jobs are no longer running. The timeout messages are in `data/logs/bcss-toulbar-counts_6715091_{0,1}.out` and `data/logs/bcss-hybrid-counts_6715092_{0,1}.out`.
-
-### Multi-scale blocks (November 8)
-
-**Idea.** The WCSP only links each pixel to the 24 pixels around it. This adds coarser grids on top: blocks of 4 × 4, 8 × 8 and 16 × 16 pixels, where each block has its own label.
-
-- **Block unary:** −log of the U-Net probabilities averaged over the block.
-- **Block neighbors:** adjacent blocks pay the same b table as pixels.
-- **Parent–child links:** each block is linked to the blocks or pixels inside it, at cost μ per pixel whose label differs.
-- **Solving:** levels are solved one at a time (pixels, then each block level) and repeated. The pixel level uses the same ICM block scheme as before.
-
-![Multi-scale WCSP](../experiments/bcss_wcsp/figures/multiscale_diagram.png)
-
-**Same conditions as Deliverable 5.** Pretrained U-Net, the Deliverable 5 tiling, central 256 × 256, **data-derived b**, λ = 8 and ICM. μ and the number of levels were chosen on dev (185 tiles) and then run once on val (2,124 tiles). The new-tiling set used above is not readable from our accounts, so these numbers compare with Deliverable 5, not with the tables above.
-
-**Dev sweep (185 tiles; U-Net 0.7067, current WCSP 0.7090).**
-
-| Setting | Dev mIoU |
-|---|---:|
-| μ = 0 (block levels on, links off) | 0.7090 |
-| μ = 0.05 / 0.1 / 0.2 | 0.7093 / 0.7097 / 0.7101 |
-| **μ = 0.5** | **0.7108** |
-| μ = 1 | 0.7106 |
-| 1 / 2 / 3 levels (μ = 0.2) | 0.7097 / 0.7100 / 0.7101 |
-| 4 levels, adding 32 × 32 blocks (μ = 0.5) | 0.7108 |
-| 5 levels, adding 64 × 64 blocks (μ = 0.2) | Same output as 4 levels |
-| No block unary (μ = 0.2) | 0.7105 |
-| No block neighbors (μ = 0.2) | 0.7096 |
-
-Frozen settings: **μ = 0.5, 3 levels.** Blocks larger than 16 × 16 add nothing. On dev, the new WCSP beats the current one by +0.0018 mIoU [+0.0008, +0.0027].
-
-**Val (2,124 tiles, run once with frozen settings).**
-
-| Method | Pixel accuracy | mIoU | Δ mIoU vs. U-Net [95% CI] | s/tile |
-|---|---:|---:|---|---:|
-| U-Net | 0.8414 | 0.6489 | — | — |
-| Current WCSP (data-derived b, λ = 8) | 0.8422 | 0.6506 | +0.0018 [+0.0011, +0.0024] | 10.2 |
-| **Multi-scale WCSP** | **0.8427** | **0.6517** | **+0.0028 [+0.0016, +0.0040]** | 32.3 |
-
-- **Paired against the current WCSP:** +0.0011 [+0.0004, +0.0017]. This is the best val mIoU so far, but the run is about 3× slower.
-- **Per class (current → multi-scale IoU):**
-
-  | Class | Current WCSP | Multi-scale |
-  |---|---:|---:|
-  | Necrosis | 0.6710 | 0.6734 |
-  | Other | 0.4271 | 0.4294 |
-  | Tumor | 0.8145 | 0.8152 |
-  | Stroma | 0.7221 | 0.7225 |
-  | Inflammatory | 0.6183 | 0.6180 |
-
-- **Convergence check (running):** the current WCSP stops at 4 rounds and hits that cap on 22% of val tiles. A run with no practical cap (50 rounds) will show whether some of the +0.0011 comes from extra solver time rather than the block levels. The μ = 0 control, with the same outer loop, did not gain anything on dev.
-
-![Old vs. new WCSP](../experiments/bcss_wcsp/figures/multiscale_compare.png)
-
-All the differences sit along region borders (right column). Whole regions the U-Net gets wrong stay wrong, as in the bottom-right stroma region of the diagram tile.
-
-### What the WCSP can and can't fix (November 8)
-
-The question here is why every WCSP change, including multi-scale, stays at about +0.001 to +0.003 mIoU. This was measured on the val outputs of the current data-derived WCSP.
-
-**1. Most U-Net errors are whole wrong regions.**
-
-| Where the U-Net's wrong pixels are | Share of errors |
-|---|---:|
-| Within 5 px of a predicted border | 27% |
-| 5–20 px from a border | 36% |
-| More than 20 px from a border | 37% |
-| Inside predicted regions of ≥ 8,192 px | 82% |
-
-The WCSP never changed a pixel more than 10 px from a border. In the 0–5 px band it fixed 486,539 error pixels and broke 382,539 correct ones, out of 19.6 million errors.
-
-**2. The smoothing it can do is already done.** A perfect oracle that relabels every predicted island under 64 px with its true majority label scores 0.6506 mIoU, the same as the WCSP. Even a perfect fix of every island under 1,024 px only reaches 0.6604. After the WCSP, region counts and sizes already look like the ground truth: about 1 tumor region per tile in both, against 2.4 from the U-Net.
-
-**3. The table can only smooth.** Every b entry must be ≥ 0, and same-label pairs cost 0. So any border between two classes can only add cost, and the optimizer can only shorten or remove borders. A rule like "inflammatory cells sit inside stroma" can't be written as a reward. It can only be written as a smaller penalty than the alternatives.
-
-**4. The rules the U-Net breaks are tile-level, not pixel-level.** On val, the WCSP output gets region shapes right, but often puts a class in a tile where it doesn't occur.
-
-| Regularity (ground truth from fit tiles) | Ground truth (fit) | Ground truth (val) | After WCSP (val) |
-|---|---:|---:|---:|
-| P(inflammatory in tile \| necrosis in tile) | 0.02 | 0.01 | 0.18 |
-| P(other in tile \| necrosis in tile) | 0.03 | 0.08 | 0.32 |
-| P(other in tile \| tumor in tile) | 0.05 | 0.06 | 0.16 |
-| Share of the other class's border touching tumor | 0.06 | 0.06 | 0.25 |
-| Share of necrosis border touching stroma | 0.61 | 0.51 | 0.33 |
-
-- **23% of the WCSP's val errors** are pixels given a class that the tile's ground truth doesn't contain (under 1% of its pixels).
-- **Ceiling for fixing them:** fixing exactly those pixels would raise val mIoU from 0.6506 to **0.7532**. That's an oracle ceiling, not a result, but it is about 10× the room a perfect fix of every island under 1,024 px would have (+0.10 vs. +0.01).
-
-**What this suggests:**
-
-1. **Improve the classifier.** The dev–val gap (0.7067 vs. 0.6489) comes from new hospitals, and it is about 20× anything the WCSP has added. Retraining already gave +0.03 to +0.04 dev mIoU. Next steps are test-time augmentation, stain augmentation or normalization, and more context per prediction (the full-resolution arm).
-2. **Encode tile-level rules, not more neighbor rules.** Add a whole-tile variable that decides which classes are present, with costs from fit-split co-occurrence (e.g. necrosis with inflammatory is rare). Pixels may only take a present class, or pay a large cost otherwise. This targets the 23% of errors above, which no neighbor or block rule can reach.
-3. **Learn the weights instead of hand-setting them.** Fit b, λ and μ on the fit split by structured learning, or train the U-Net through the WCSP. This lets the rules come from data rather than being picked by sweeps.
 
 ## Correction to Deliverable 5
 

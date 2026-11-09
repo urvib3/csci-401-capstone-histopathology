@@ -35,7 +35,20 @@ Deliverable 5's set is the one we can reproduce exactly.
 - [x] Class-presence ceiling (`analysis/class_presence.py`): 23% of the WCSP's val errors are pixels given a class
       the tile's ground truth doesn't contain; fixing only those would give val mIoU 0.7532 (vs. 0.6506)
 - [x] Val (2,124 tiles): mIoU 0.6517 vs. current WCSP 0.6506; paired +0.0011 [+0.0004, +0.0017]; 32 vs 10 s/tile
-- [ ] **Convergence check (running):** current WCSP with 50 rounds on dev + val (jobs 13860296, 13860298);
-      multi-scale with 20 outer rounds on dev (13860297). Does the old WCSP catch up with more solver time?
+- [x] **Convergence check:** old WCSP run to convergence (≤ 16 rounds) stays at val 0.6506 / dev 0.7090;
+      multi-scale with 20 outer rounds stays at dev 0.7108. Multi-scale vs. converged old WCSP on val: +0.0011
+      [+0.0004, +0.0017]. The gain is not from extra solver time.
 - [x] Deliverable 6: "Multi-scale blocks" + "What the WCSP can and can't fix" sections added (not pushed)
 - [x] General evaluation of the WCSP approach + better options (in the Deliverable 6 section)
+
+## Biological rules (started 2026-11-09)
+
+- [x] Rules checked against fit-split ground truth (see Deliverable 6). Kept: tile-level co-occurrence,
+      necrosis never borders inflammatory / other. Dropped: "necrosis needs tumor" (only 58% of necrosis tiles).
+- [x] Presence solver (`wcsp/solve/presence.py`): choose the tile's class set exactly from the U-Net evidence
+      + γ · −log P(set) from fit counts, then the usual WCSP with other classes forbidden. 6 tests pass.
+- [x] Exclusion tables: necrosis–inflammatory and necrosis–other b raised to 15 and 50.
+- [ ] **Running:** fit-split prior (job 13892100) → presence dev sweep γ ∈ {0, 10, 30, 100, 300, 1000, 3000}
+      (13892101); exclusion dev runs (13892102)
+- [ ] Combine the best rule with multi-scale; freeze; one val run
+- [ ] Charts + concise rewrite of my Deliverable 6 sections; push

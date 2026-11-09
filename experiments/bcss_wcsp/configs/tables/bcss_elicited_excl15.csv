@@ -1,0 +1,6 @@
+label,neoplastic,inflammatory,connective,dead,healthy
+neoplastic,0,5.20464,3.04626,4.14219,4.5045
+inflammatory,5.20464,0,2.23844,15,3.16127
+connective,3.04626,2.23844,0,3.61356,2.27017
+dead,4.14219,15,3.61356,0,15
+healthy,4.5045,3.16127,2.27017,15,0

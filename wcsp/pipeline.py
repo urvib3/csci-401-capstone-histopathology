@@ -177,6 +177,7 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
             "changed": float((init.labels != result.labels).mean()),
             "seconds": result.seconds,
             "rounds": max((t.get("round") or 0) if isinstance(t, dict) else 0 for t in result.trace) if result.trace else 0,
+            **getattr(result, "info", {}),
         })
         arrays["ids"].append(sample.id)
         arrays["argmax"].append(init.labels.astype(np.uint8))
