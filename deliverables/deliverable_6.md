@@ -5,6 +5,9 @@
 
 | Area | What we tried | Result |
 |---|---|---|
+| PanNuke | Block fidelity: V1 pixel unaries vs. V2 pixel + block unaries | Both ≈0.472389 biological mIoU; only 83 pixel labels differ |
+| PanNuke | BCSS-style area / boundary cost scaling | Matched scaling adds +0.0017 pp vs. V2; 95% CI includes zero |
+| PanNuke | Sibling ablation: none / generic Potts / biological | Potts highest numerically (0.472480); no established biological advantage |
 | BCSS | Retrain the U-Net with cross-entropy | Dev mIoU 0.6362 → 0.6679 |
 | BCSS | Full-resolution head + backbone | Dev mIoU 0.6797, **the best result this week** |
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
@@ -12,7 +15,9 @@
 | BCSS | toulbar2 with a 2 s per-block limit | No gain over the U-Net; ICM → toulbar2 ties ICM |
 | BCSS | toulbar2 without a search timer, alone or after ICM | Both jobs hit the 8-hour allocation limit; no complete accuracy result |
 
-**Main takeaway:** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
+**Main takeaway (BCSS):** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
+
+- **PanNuke takeaway:** refinements make small aggregate changes; every variant worsens some patches. These are exploratory results on a reused comparison set, not confirmation on fresh data.
 
 ## November 8–9: multi-scale WCSP and biological rules
 
