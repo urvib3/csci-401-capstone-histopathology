@@ -148,6 +148,15 @@ Use a fresh output directory when changing the dataset or model checkpoints. Cac
 
 ## Testing
 
+The [shared development inputs](../../data/fullres_multiscale_20261115/README.md)
+provide the 185 cached full-resolution probability/ground-truth tiles through
+Git LFS, plus the original `protocol.json`, so teammates can compare heuristics
+without access to Ryan's private cluster paths.
+
+The [full-resolution validation protocol](multiscale/FULLRES_VALIDATION.md)
+evaluates dev-selected ICM mu=1 against mu=0 and the raw U-Net on all 4,028
+validation tiles, with full 512px outputs and frozen settings.
+
 The [full-resolution multiscale follow-up](multiscale/FULLRES.md) repeats the
 documented mu sweep with the local trained 512px U-Net, paired ICM/Toulbar2
 controls, frozen probability inputs, and resumable per-tile outputs.
