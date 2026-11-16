@@ -18,6 +18,8 @@ optimization techniques.
   loader package `benchmarks/bcss/loader` (dataset, classes, grid, stats, metrics).
 - `sample_problems/` - warm-up problems cast as WCSPs and solved with Toulbar2.
 - `scripts/` - dataset download and inspection.
+- `models/bcss_fullres_unet/` - [trained full-resolution U-Net checkpoint](models/bcss_fullres_unet/README.md),
+  stored with Git LFS, with download, checksum and loading instructions.
 - `tests/` - `python3 -m pytest tests` (runs without the dataset).
 - `docs/design/` - design docs: [segmentation + WCSP pipeline](docs/design/segmentation-wcsp-pipeline.md)
   (proposed) and [segmentation algorithm reference](docs/design/segmentation-algorithms.md).
@@ -29,6 +31,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+For the trained BCSS full-resolution model, install Git LFS and run
+`git lfs pull --include="models/bcss_fullres_unet/best.pt" --exclude=""`.
+See the [model documentation](models/bcss_fullres_unet/README.md) for inference
+dependencies and restoring the checkpoint path used by existing experiments.
 
 ## BCSS dataset
 

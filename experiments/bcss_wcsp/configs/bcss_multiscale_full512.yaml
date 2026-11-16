@@ -1,0 +1,40 @@
+# Full-resolution checkpoint + the documented multiscale energy.
+# Keep the historical 100-pixel corner blocks (the cross is 312px at 512).
+name: bcss_multiscale_full512
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+  full_tile: true
+classifier:
+  name: tia_unet_fullres
+  checkpoint: data/outputs/tonight/full512/best.pt
+  weights: data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth
+  temperature: 1.0
+  cache_tag: tonight_full512
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: experiments/bcss_wcsp/configs/tables/bcss_elicited.csv
+solver:
+  name: hierarchy
+  levels: 3
+  size: 4
+  mu: 0.5
+  block_alpha: 1.0
+  block_lam: 8.0
+  block_types: [1, 2]
+  max_rounds: 4
+  pixel:
+    name: blocks
+    block: 100
+    max_rounds: 4
+    inner:
+      name: icm
+      max_sweeps: 50
+paths:
+  cache: $WCSP_FULLRES_CACHE
+  runs: $WCSP_FULLRES_OUT/runs

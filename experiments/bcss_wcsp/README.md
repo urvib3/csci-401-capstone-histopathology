@@ -148,6 +148,10 @@ Use a fresh output directory when changing the dataset or model checkpoints. Cac
 
 ## Testing
 
+The [full-resolution multiscale follow-up](multiscale/FULLRES.md) repeats the
+documented mu sweep with the local trained 512px U-Net, paired ICM/Toulbar2
+controls, frozen probability inputs, and resumable per-tile outputs.
+
 Run the WCSP package tests from the repository root:
 
 ```bash
