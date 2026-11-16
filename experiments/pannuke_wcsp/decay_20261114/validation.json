@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "n_eval": 100,
+  "comparisons": 12,
+  "source_hashes": {
+    "core.py": "f1975f12fcf1a527c2f7b68ae3c5b15918fd277f3fc6ddddec6f530b7772bba1",
+    "tables.json": "19b512bba6eda92fb7e6af0f9607c44a5b88ffb428a0cd217755fde0e3b84506",
+    "split.json": "5c0c9653656391f962f82cfa1ac1a1f68d0e4eb6a39ff7f1e9dae019236d07e8"
+  }
+}

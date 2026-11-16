@@ -1,0 +1,17 @@
+{
+  "wcsp": {
+    "name": "vote_potts_2",
+    "unary": "vote",
+    "table": "potts",
+    "beta": 2.0,
+    "area_weight": 0
+  },
+  "unary_control": {
+    "name": "vote_unary_only",
+    "unary": "vote",
+    "table": "potts",
+    "beta": 0,
+    "area_weight": 0
+  },
+  "highest_dev_bio_miou": 0.5321886857675524
+}

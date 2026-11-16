@@ -1,0 +1,14 @@
+{
+  "prior_experiment": "presence_20261114",
+  "n_primary": 300,
+  "n_dead_stress": 21,
+  "primary": "Frozen type-set WCSP versus Raw TP and fixed-mask voting; pooled five-class mIoU.",
+  "secondary": "Paired intervals without Dead; separate selected Dead-positive cohort, not pooled into the primary result.",
+  "paired_bootstrap": 5000,
+  "sampling_seed": 20261117,
+  "frozen_inputs": {
+    "frozen.json": "cbf27038826e490d0f6567edf38dc94f8a7ca672bda5e1e548802851b956a7f2",
+    "priors.json": "88073ce4f7794bd6da4522e005e1f9e3d85f917e1d33a1e6cce1acf08fdfe4fb",
+    "run.py": "a8429f1ee4311e2c4d8b5fb0408c1faa72d5799b7ac68962254bdb5984e0d1d9"
+  }
+}

@@ -8,6 +8,8 @@
 | PanNuke | Block fidelity: V1 pixel unaries vs. V2 pixel + block unaries | Both ≈0.472389 biological mIoU; only 83 pixel labels differ |
 | PanNuke | BCSS-style area / boundary cost scaling | Matched scaling adds +0.0017 pp vs. V2; 95% CI includes zero |
 | PanNuke | Sibling ablation: none / generic Potts / biological | Potts highest numerically (0.472480); no established biological advantage |
+| PanNuke | Sibling decay and nucleus-level neighbor constraints | No clear gain over their matched controls |
+| **PanNuke** | **Frozen patch-wide type-set WCSP, 300 new patches** | **+0.53 pp vs. Raw TP and +0.25 pp vs. fixed-mask voting. Both paired intervals exclude zero** |
 | BCSS | Retrain the U-Net with cross-entropy | Dev mIoU 0.6362 → 0.6679 |
 | BCSS | Full-resolution head + backbone | Dev mIoU 0.6797, **the best result this week** |
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
@@ -17,7 +19,7 @@
 
 **Main takeaway (BCSS):** improving the classifier gained far more than improving the WCSP. Training gained about +0.04 dev mIoU, while the WCSP adds about +0.001 to +0.003.
 
-- **PanNuke takeaway:** refinements make small aggregate changes; every variant worsens some patches. These are exploratory results on a reused comparison set, not confirmation on fresh data.
+- **PanNuke takeaway:** patch-wide type context improved mIoU on the larger replication. Dead nuclei remain a weakness.
 
 ## PanNuke: three controlled follow-up experiments
 
@@ -82,6 +84,25 @@
 - [Code, manifests and frozen settings](../experiments/pannuke_wcsp/scaling_siblings_20261109/README.md)
 
 <!-- END PANNUKE HIERARCHY 20261109 -->
+
+<!-- BEGIN PANNUKE FOLLOWUP 20261114 -->
+## PanNuke follow-up: patch-wide type-set WCSP
+
+- **What changed:** keep HoVer-Net’s nucleus outlines and assign one type per nucleus. The solver combines local type votes, the frequency of each type set in the fitting data, and the model's support for those types in the patch. It tests all 31 nonempty sets of five biological types.
+- **Earlier controls:** block-only decay scored −0.005 pp versus V1. Nucleus-neighbor WCSP scored −0.18 pp versus fixed-mask voting. Type counts did not beat voting. The Raw TP-only component WCSP gained +0.34 pp over Raw TP, with an interval that included zero.
+- **Why test patch context:** copying correct types onto matched nuclei raised mIoU from 0.4533 to 0.7020 on the earlier instance sample. This ground-truth diagnostic measured room for improvement. The actual WCSP uses model evidence and frozen fitted costs.
+
+| Run | Raw TP | Fixed-mask vote | Type-set WCSP | Δ vs. Raw TP [95% paired CI], pp | Δ vs. vote [95% paired CI], pp |
+|---|---:|---:|---:|---:|---:|
+| Initial comparison, 100 patches | 0.45436 | 0.46331 | 0.47297 | +1.86 [+0.34, +6.17] | +0.97 [+0.14, +4.71] |
+| **Frozen replication, 300 new patches** | **0.39474** | **0.39758** | **0.40007** | **+0.53 [+0.19, +0.85]** | **+0.25 [+0.09, +0.42]** |
+
+![Paired differences on the replication and Dead-positive stress samples](../experiments/pannuke_wcsp/presence_scale_20261114/comparison.png)
+
+- **Replication:** fixed 22 matched nucleus types and broke 3 compared with voting. Excluding Dead, mIoU still rose **+0.67 pp** versus Raw TP [+0.23, +1.06].
+- **Rare-class limit:** in the separate 21-patch Dead-positive stress set, overall mIoU rose +2.30 pp versus Raw TP [−0.54, +4.39], while Dead IoU fell 3.46 pp. Patch IDs were held out from documented prior uses. Patient and slide independence are unverified.
+- [Review PDF](../experiments/pannuke_wcsp/presence_scale_20261114/output/pdf/pannuke_review.pdf) · [Replication protocol and per-class results](../experiments/pannuke_wcsp/presence_scale_20261114/README.md) · [Decay](../experiments/pannuke_wcsp/decay_20261114/README.md) · [Fixed-mask WCSP](../experiments/pannuke_wcsp/instances_20261114/README.md) · [Type-set and count experiments](../experiments/pannuke_wcsp/presence_20261114/README.md)
+<!-- END PANNUKE FOLLOWUP 20261114 -->
 
 ## BCSS
 

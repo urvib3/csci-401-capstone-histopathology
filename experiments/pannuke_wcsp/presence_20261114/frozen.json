@@ -1,0 +1,14 @@
+{
+  "presence": {
+    "name": "vote_presence_evidence_1",
+    "mode": "presence_evidence",
+    "unary": "vote",
+    "strength": 1.0
+  },
+  "count": {
+    "name": "vote_count_model_0.25",
+    "mode": "count_model",
+    "unary": "vote",
+    "strength": 0.25
+  }
+}

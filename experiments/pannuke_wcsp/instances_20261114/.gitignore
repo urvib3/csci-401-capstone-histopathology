@@ -1,0 +1,4 @@
+cache/
+*.log
+__pycache__/
+/initial_dev/

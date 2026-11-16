@@ -1,0 +1,44 @@
+{
+  "hybrid": {
+    "name": "v2_v1",
+    "beta": [
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "table": "hybrid",
+    "gamma": 0.3,
+    "parent": 0.1
+  },
+  "potts": {
+    "name": "potts",
+    "beta": [
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "table": "potts",
+    "gamma": 0,
+    "parent": 0.1
+  },
+  "best_nonuniform_hybrid_decay": {
+    "name": "blocks_0.6",
+    "beta": [
+      0.3,
+      0.03888,
+      0.06479999999999998,
+      0.108,
+      0.18,
+      0.3
+    ],
+    "table": "hybrid",
+    "gamma": 0,
+    "parent": 0.1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "exact_solver_small_cases": true,
+  "patches": 100,
+  "verified_comparisons": 8,
+  "fixed_masks": true
+}

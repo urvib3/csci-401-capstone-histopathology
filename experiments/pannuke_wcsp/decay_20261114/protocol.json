@@ -1,0 +1,378 @@
+{
+  "dev": [
+    {
+      "image_index": 2415,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 70,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1682,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 907,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1265,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1093,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1911,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1140,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 805,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 1394,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1232,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2351,
+      "tissue": "Stomach"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "v1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "potts",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "potts",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "blocks_0.8",
+      "beta": [
+        0.3,
+        0.12288000000000002,
+        0.15360000000000004,
+        0.19200000000000003,
+        0.24,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "all_0.8",
+      "beta": [
+        0.09830400000000002,
+        0.12288000000000002,
+        0.15360000000000004,
+        0.19200000000000003,
+        0.24,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "pixels_0.8",
+      "beta": [
+        0.09830400000000002,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "potts_blocks_0.8",
+      "beta": [
+        0.3,
+        0.12288000000000002,
+        0.15360000000000004,
+        0.19200000000000003,
+        0.24,
+        0.3
+      ],
+      "table": "potts",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "blocks_0.6",
+      "beta": [
+        0.3,
+        0.03888,
+        0.06479999999999998,
+        0.108,
+        0.18,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "all_0.6",
+      "beta": [
+        0.023327999999999995,
+        0.03888,
+        0.06479999999999998,
+        0.108,
+        0.18,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "pixels_0.6",
+      "beta": [
+        0.023327999999999995,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "potts_blocks_0.6",
+      "beta": [
+        0.3,
+        0.03888,
+        0.06479999999999998,
+        0.108,
+        0.18,
+        0.3
+      ],
+      "table": "potts",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "blocks_0.4",
+      "beta": [
+        0.3,
+        0.007680000000000001,
+        0.019200000000000005,
+        0.04800000000000001,
+        0.12,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "all_0.4",
+      "beta": [
+        0.0030720000000000005,
+        0.007680000000000001,
+        0.019200000000000005,
+        0.04800000000000001,
+        0.12,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "pixels_0.4",
+      "beta": [
+        0.0030720000000000005,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "potts_blocks_0.4",
+      "beta": [
+        0.3,
+        0.007680000000000001,
+        0.019200000000000005,
+        0.04800000000000001,
+        0.12,
+        0.3
+      ],
+      "table": "potts",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "blocks_0.2",
+      "beta": [
+        0.3,
+        0.00048000000000000007,
+        0.0024000000000000007,
+        0.012000000000000002,
+        0.06,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "all_0.2",
+      "beta": [
+        9.600000000000002e-05,
+        0.00048000000000000007,
+        0.0024000000000000007,
+        0.012000000000000002,
+        0.06,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "pixels_0.2",
+      "beta": [
+        9.600000000000002e-05,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "potts_blocks_0.2",
+      "beta": [
+        0.3,
+        0.00048000000000000007,
+        0.0024000000000000007,
+        0.012000000000000002,
+        0.06,
+        0.3
+      ],
+      "table": "potts",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "uniform_blocks_0.075",
+      "beta": [
+        0.3,
+        0.075,
+        0.075,
+        0.075,
+        0.075,
+        0.075
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "uniform_blocks_0.15",
+      "beta": [
+        0.3,
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "uniform_blocks_0.225",
+      "beta": [
+        0.3,
+        0.225,
+        0.225,
+        0.225,
+        0.225,
+        0.225
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "coarse_boost_0.45",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.45,
+        0.45
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    },
+    {
+      "name": "coarse_boost_0.6",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.6,
+        0.6
+      ],
+      "table": "hybrid",
+      "gamma": 0,
+      "parent": 0.1
+    }
+  ],
+  "objective": "V1 solver with six sibling coefficients, parent 0.10; V2 cross-check gamma 0.30.",
+  "selection": "Max development pooled biological mIoU. Prefer baseline within 0.00005 absolute mIoU; otherwise maximize and break exact ties by candidate order. Try V2 on V1 and highest-scoring nonuniform hybrid decay. Final: one hybrid and one tuned Potts at most plus their controls."
+}

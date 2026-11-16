@@ -1,0 +1,41 @@
+{
+  "checkpoint_sha256": "789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8",
+  "architecture_sha256": {
+    "utils.py": "bba5c0a2eb2af5bd13cb3c19e209e758ca0c0c9e99dc5dbe459796a65147a203",
+    "hovernet.py": "4c004c793069824db12f8d880e4773b9034728c3235328cdaa46897a8a90fa0f"
+  },
+  "patch_ids": [
+    2415,
+    70,
+    1682,
+    907,
+    1265,
+    1093,
+    1911,
+    1140,
+    805,
+    1394,
+    1232,
+    2351
+  ],
+  "tiles": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      92
+    ],
+    [
+      92,
+      0
+    ],
+    [
+      92,
+      92
+    ]
+  ],
+  "reflect_padding": 46,
+  "postprocess": "HoVer-Net watershed after full-patch NP/HV fusion"
+}

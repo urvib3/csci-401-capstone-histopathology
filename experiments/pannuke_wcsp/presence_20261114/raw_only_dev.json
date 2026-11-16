@@ -1,0 +1,312 @@
+[
+  {
+    "config": {
+      "strength": 0,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.47838934489864043,
+    "fixes": 0,
+    "breaks": 0
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 128,
+      "adaptive": false
+    },
+    "bio_miou": 0.47847480066175196,
+    "fixes": 38,
+    "breaks": 27
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 128,
+      "adaptive": true
+    },
+    "bio_miou": 0.4783662498365885,
+    "fixes": 25,
+    "breaks": 31
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.4786010528876471,
+    "fixes": 159,
+    "breaks": 118
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 256,
+      "adaptive": true
+    },
+    "bio_miou": 0.4784673016457203,
+    "fixes": 132,
+    "breaks": 115
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 65536,
+      "adaptive": false
+    },
+    "bio_miou": 0.47872694052765175,
+    "fixes": 722,
+    "breaks": 666
+  },
+  {
+    "config": {
+      "strength": 0.1,
+      "limit": 65536,
+      "adaptive": true
+    },
+    "bio_miou": 0.4785958437720287,
+    "fixes": 674,
+    "breaks": 571
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 128,
+      "adaptive": false
+    },
+    "bio_miou": 0.47872710153478276,
+    "fixes": 107,
+    "breaks": 56
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 128,
+      "adaptive": true
+    },
+    "bio_miou": 0.47834660503956716,
+    "fixes": 66,
+    "breaks": 64
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.4789544978358829,
+    "fixes": 373,
+    "breaks": 260
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 256,
+      "adaptive": true
+    },
+    "bio_miou": 0.4784907112594145,
+    "fixes": 276,
+    "breaks": 256
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 65536,
+      "adaptive": false
+    },
+    "bio_miou": 0.4793165131860081,
+    "fixes": 1695,
+    "breaks": 1532
+  },
+  {
+    "config": {
+      "strength": 0.25,
+      "limit": 65536,
+      "adaptive": true
+    },
+    "bio_miou": 0.4786444133398014,
+    "fixes": 1327,
+    "breaks": 1314
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 128,
+      "adaptive": false
+    },
+    "bio_miou": 0.4791297438292565,
+    "fixes": 202,
+    "breaks": 97
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 128,
+      "adaptive": true
+    },
+    "bio_miou": 0.47847747123082646,
+    "fixes": 113,
+    "breaks": 98
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.4796041773504519,
+    "fixes": 660,
+    "breaks": 427
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 256,
+      "adaptive": true
+    },
+    "bio_miou": 0.4787178711237308,
+    "fixes": 441,
+    "breaks": 381
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 65536,
+      "adaptive": false
+    },
+    "bio_miou": 0.4802484709807726,
+    "fixes": 3030,
+    "breaks": 2679
+  },
+  {
+    "config": {
+      "strength": 0.5,
+      "limit": 65536,
+      "adaptive": true
+    },
+    "bio_miou": 0.4789244446484971,
+    "fixes": 2115,
+    "breaks": 2151
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 128,
+      "adaptive": false
+    },
+    "bio_miou": 0.47968218058953144,
+    "fixes": 333,
+    "breaks": 140
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 128,
+      "adaptive": true
+    },
+    "bio_miou": 0.4784217623515456,
+    "fixes": 145,
+    "breaks": 168
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.4795476659956874,
+    "fixes": 1019,
+    "breaks": 685
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 256,
+      "adaptive": true
+    },
+    "bio_miou": 0.4789405966125207,
+    "fixes": 635,
+    "breaks": 528
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 65536,
+      "adaptive": false
+    },
+    "bio_miou": 0.4803926504402004,
+    "fixes": 4907,
+    "breaks": 4889
+  },
+  {
+    "config": {
+      "strength": 1.0,
+      "limit": 65536,
+      "adaptive": true
+    },
+    "bio_miou": 0.4793745742856511,
+    "fixes": 3141,
+    "breaks": 3039
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 128,
+      "adaptive": false
+    },
+    "bio_miou": 0.4797360589386347,
+    "fixes": 462,
+    "breaks": 256
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 128,
+      "adaptive": true
+    },
+    "bio_miou": 0.478508177135752,
+    "fixes": 207,
+    "breaks": 205
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 256,
+      "adaptive": false
+    },
+    "bio_miou": 0.4795941932442013,
+    "fixes": 1316,
+    "breaks": 959
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 256,
+      "adaptive": true
+    },
+    "bio_miou": 0.4792451892590851,
+    "fixes": 822,
+    "breaks": 665
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 65536,
+      "adaptive": false
+    },
+    "bio_miou": 0.4814595972014176,
+    "fixes": 7576,
+    "breaks": 7684
+  },
+  {
+    "config": {
+      "strength": 2.0,
+      "limit": 65536,
+      "adaptive": true
+    },
+    "bio_miou": 0.479502481647169,
+    "fixes": 4009,
+    "breaks": 4146
+  }
+]

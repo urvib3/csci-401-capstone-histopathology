@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "patches": 100,
+  "exact_fixed_masks": true,
+  "dev_selection": true,
+  "bootstrap_pairs": 5
+}

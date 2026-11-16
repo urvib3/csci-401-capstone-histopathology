@@ -1,0 +1,401 @@
+{
+  "primary": "Pooled five-class mIoU vs. Raw TP; matched fixed-mask vote tests added value of WCSP.",
+  "development": "112 previous instance patches explicitly reused for selection; 100 different patch IDs for final.",
+  "selection": "Freeze the best type-set WCSP and best count WCSP on development mIoU. Within .0001 prefer smaller strength, then input grid order.",
+  "controls": [
+    {
+      "name": "vote",
+      "mode": "instance_vote",
+      "unary": "vote",
+      "strength": 0
+    },
+    {
+      "name": "prior_potts",
+      "mode": "pairwise",
+      "unary": "vote",
+      "strength": 2
+    }
+  ],
+  "grid": [
+    {
+      "name": "vote_unary",
+      "mode": "unary",
+      "unary": "vote",
+      "strength": 0
+    },
+    {
+      "name": "mean_unary",
+      "mode": "unary",
+      "unary": "mean",
+      "strength": 0
+    },
+    {
+      "name": "log_mean_unary",
+      "mode": "unary",
+      "unary": "log_mean",
+      "strength": 0
+    },
+    {
+      "name": "vote_presence_0.25",
+      "mode": "presence",
+      "unary": "vote",
+      "strength": 0.25
+    },
+    {
+      "name": "vote_presence_0.5",
+      "mode": "presence",
+      "unary": "vote",
+      "strength": 0.5
+    },
+    {
+      "name": "vote_presence_1",
+      "mode": "presence",
+      "unary": "vote",
+      "strength": 1.0
+    },
+    {
+      "name": "vote_presence_2",
+      "mode": "presence",
+      "unary": "vote",
+      "strength": 2.0
+    },
+    {
+      "name": "vote_presence_4",
+      "mode": "presence",
+      "unary": "vote",
+      "strength": 4.0
+    },
+    {
+      "name": "vote_presence_evidence_0.25",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 0.25
+    },
+    {
+      "name": "vote_presence_evidence_0.5",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 0.5
+    },
+    {
+      "name": "vote_presence_evidence_1",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 1.0
+    },
+    {
+      "name": "vote_presence_evidence_2",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 2.0
+    },
+    {
+      "name": "vote_presence_evidence_4",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 4.0
+    },
+    {
+      "name": "vote_count_model_0.25",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 0.25
+    },
+    {
+      "name": "vote_count_model_0.5",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 0.5
+    },
+    {
+      "name": "vote_count_model_1",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 1.0
+    },
+    {
+      "name": "vote_count_model_2",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 2.0
+    },
+    {
+      "name": "vote_count_model_4",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 4.0
+    },
+    {
+      "name": "vote_count_blend_0.25",
+      "mode": "count_blend",
+      "unary": "vote",
+      "strength": 0.25
+    },
+    {
+      "name": "vote_count_blend_0.5",
+      "mode": "count_blend",
+      "unary": "vote",
+      "strength": 0.5
+    },
+    {
+      "name": "vote_count_blend_1",
+      "mode": "count_blend",
+      "unary": "vote",
+      "strength": 1.0
+    },
+    {
+      "name": "vote_count_blend_2",
+      "mode": "count_blend",
+      "unary": "vote",
+      "strength": 2.0
+    },
+    {
+      "name": "vote_count_blend_4",
+      "mode": "count_blend",
+      "unary": "vote",
+      "strength": 4.0
+    },
+    {
+      "name": "mean_presence_0.25",
+      "mode": "presence",
+      "unary": "mean",
+      "strength": 0.25
+    },
+    {
+      "name": "mean_presence_0.5",
+      "mode": "presence",
+      "unary": "mean",
+      "strength": 0.5
+    },
+    {
+      "name": "mean_presence_1",
+      "mode": "presence",
+      "unary": "mean",
+      "strength": 1.0
+    },
+    {
+      "name": "mean_presence_2",
+      "mode": "presence",
+      "unary": "mean",
+      "strength": 2.0
+    },
+    {
+      "name": "mean_presence_4",
+      "mode": "presence",
+      "unary": "mean",
+      "strength": 4.0
+    },
+    {
+      "name": "mean_presence_evidence_0.25",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 0.25
+    },
+    {
+      "name": "mean_presence_evidence_0.5",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 0.5
+    },
+    {
+      "name": "mean_presence_evidence_1",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 1.0
+    },
+    {
+      "name": "mean_presence_evidence_2",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 2.0
+    },
+    {
+      "name": "mean_presence_evidence_4",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 4.0
+    },
+    {
+      "name": "mean_count_model_0.25",
+      "mode": "count_model",
+      "unary": "mean",
+      "strength": 0.25
+    },
+    {
+      "name": "mean_count_model_0.5",
+      "mode": "count_model",
+      "unary": "mean",
+      "strength": 0.5
+    },
+    {
+      "name": "mean_count_model_1",
+      "mode": "count_model",
+      "unary": "mean",
+      "strength": 1.0
+    },
+    {
+      "name": "mean_count_model_2",
+      "mode": "count_model",
+      "unary": "mean",
+      "strength": 2.0
+    },
+    {
+      "name": "mean_count_model_4",
+      "mode": "count_model",
+      "unary": "mean",
+      "strength": 4.0
+    },
+    {
+      "name": "mean_count_blend_0.25",
+      "mode": "count_blend",
+      "unary": "mean",
+      "strength": 0.25
+    },
+    {
+      "name": "mean_count_blend_0.5",
+      "mode": "count_blend",
+      "unary": "mean",
+      "strength": 0.5
+    },
+    {
+      "name": "mean_count_blend_1",
+      "mode": "count_blend",
+      "unary": "mean",
+      "strength": 1.0
+    },
+    {
+      "name": "mean_count_blend_2",
+      "mode": "count_blend",
+      "unary": "mean",
+      "strength": 2.0
+    },
+    {
+      "name": "mean_count_blend_4",
+      "mode": "count_blend",
+      "unary": "mean",
+      "strength": 4.0
+    },
+    {
+      "name": "log_mean_presence_0.25",
+      "mode": "presence",
+      "unary": "log_mean",
+      "strength": 0.25
+    },
+    {
+      "name": "log_mean_presence_0.5",
+      "mode": "presence",
+      "unary": "log_mean",
+      "strength": 0.5
+    },
+    {
+      "name": "log_mean_presence_1",
+      "mode": "presence",
+      "unary": "log_mean",
+      "strength": 1.0
+    },
+    {
+      "name": "log_mean_presence_2",
+      "mode": "presence",
+      "unary": "log_mean",
+      "strength": 2.0
+    },
+    {
+      "name": "log_mean_presence_4",
+      "mode": "presence",
+      "unary": "log_mean",
+      "strength": 4.0
+    },
+    {
+      "name": "log_mean_presence_evidence_0.25",
+      "mode": "presence_evidence",
+      "unary": "log_mean",
+      "strength": 0.25
+    },
+    {
+      "name": "log_mean_presence_evidence_0.5",
+      "mode": "presence_evidence",
+      "unary": "log_mean",
+      "strength": 0.5
+    },
+    {
+      "name": "log_mean_presence_evidence_1",
+      "mode": "presence_evidence",
+      "unary": "log_mean",
+      "strength": 1.0
+    },
+    {
+      "name": "log_mean_presence_evidence_2",
+      "mode": "presence_evidence",
+      "unary": "log_mean",
+      "strength": 2.0
+    },
+    {
+      "name": "log_mean_presence_evidence_4",
+      "mode": "presence_evidence",
+      "unary": "log_mean",
+      "strength": 4.0
+    },
+    {
+      "name": "log_mean_count_model_0.25",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 0.25
+    },
+    {
+      "name": "log_mean_count_model_0.5",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 0.5
+    },
+    {
+      "name": "log_mean_count_model_1",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 1.0
+    },
+    {
+      "name": "log_mean_count_model_2",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 2.0
+    },
+    {
+      "name": "log_mean_count_model_4",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 4.0
+    },
+    {
+      "name": "log_mean_count_blend_0.25",
+      "mode": "count_blend",
+      "unary": "log_mean",
+      "strength": 0.25
+    },
+    {
+      "name": "log_mean_count_blend_0.5",
+      "mode": "count_blend",
+      "unary": "log_mean",
+      "strength": 0.5
+    },
+    {
+      "name": "log_mean_count_blend_1",
+      "mode": "count_blend",
+      "unary": "log_mean",
+      "strength": 1.0
+    },
+    {
+      "name": "log_mean_count_blend_2",
+      "mode": "count_blend",
+      "unary": "log_mean",
+      "strength": 2.0
+    },
+    {
+      "name": "log_mean_count_blend_4",
+      "mode": "count_blend",
+      "unary": "log_mean",
+      "strength": 4.0
+    }
+  ],
+  "threshold": 0.0001,
+  "inference": "Existing frozen checkpoint, full 256x256 HoVer-Net masks and probabilities."
+}

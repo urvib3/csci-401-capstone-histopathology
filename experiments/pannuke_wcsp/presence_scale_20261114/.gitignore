@@ -1,0 +1,5 @@
+cache/
+*.log
+__pycache__/
+
+/output/pdf/pannuke_idiots_guide.pdf

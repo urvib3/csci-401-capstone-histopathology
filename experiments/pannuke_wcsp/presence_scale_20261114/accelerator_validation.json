@@ -1,0 +1,5 @@
+{
+  "patches": 12,
+  "exact_frozen_wcsp_labels": true,
+  "exact_raw_argmax_and_instance_masks": true
+}
