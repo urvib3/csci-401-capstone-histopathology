@@ -77,3 +77,7 @@ three CPU worker commands.
 - [Random sample per-patch scores](primary_patches.csv)
 - [Dead-positive per-patch scores](dead_stress_patches.csv)
 - [Comparison figure](comparison.png)
+
+## Deliverable 6 diagnostics
+
+Run `../../../.venv/bin/python diagnostics.py` in this directory with the saved inference cache and nucleus labels. It verifies the frozen outputs and pooled confusions, then regenerates the gain chart, example patch, and [error and timing audit](diagnostics.json). Runtime measures cost construction and exact solving from in-memory predictions. The boundary audit uses four-neighbor transitions in the annotated instance IDs and a two-pixel Euclidean radius.

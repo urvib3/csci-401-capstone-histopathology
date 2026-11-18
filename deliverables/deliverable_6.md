@@ -9,7 +9,7 @@
 | PanNuke | BCSS-style area / boundary cost scaling | Matched scaling adds +0.0017 pp vs. V2; 95% CI includes zero |
 | PanNuke | Sibling ablation: none / generic Potts / biological | Potts highest numerically (0.472480); no established biological advantage |
 | PanNuke | Sibling decay and nucleus-level neighbor constraints | No clear gain over their matched controls |
-| **PanNuke** | **Frozen patch-wide type-set WCSP, 300 new patches** | **+0.53 pp vs. Raw TP and +0.25 pp vs. fixed-mask voting. Both paired intervals exclude zero** |
+| **PanNuke** | **Frozen patch-wide type-set WCSP, 300 new patches** | **+0.00534 mIoU vs. Raw TP and +0.00249 vs. fixed-mask voting. Both paired intervals exclude zero** |
 | BCSS | Retrain the U-Net with cross-entropy | Dev mIoU 0.6362 → 0.6679 |
 | BCSS | Full-resolution head + backbone | Dev mIoU 0.6797, **the best result this week** |
 | BCSS | Add a pairwise loss during training | No gain over cross-entropy |
@@ -86,22 +86,74 @@
 <!-- END PANNUKE HIERARCHY 20261109 -->
 
 <!-- BEGIN PANNUKE FOLLOWUP 20261114 -->
-## PanNuke follow-up: patch-wide type-set WCSP
+## PanNuke follow-up: from decay to patch-wide WCSP
 
-- **What changed:** keep HoVer-Net’s nucleus outlines and assign one type per nucleus. The solver combines local type votes, the frequency of each type set in the fitting data, and the model's support for those types in the patch. It tests all 31 nonempty sets of five biological types.
-- **Earlier controls:** block-only decay scored −0.005 pp versus V1. Nucleus-neighbor WCSP scored −0.18 pp versus fixed-mask voting. Type counts did not beat voting. The Raw TP-only component WCSP gained +0.34 pp over Raw TP, with an interval that included zero.
-- **Why test patch context:** copying correct types onto matched nuclei raised mIoU from 0.4533 to 0.7020 on the earlier instance sample. This ground-truth diagnostic measured room for improvement. The actual WCSP uses model evidence and frozen fitted costs.
+**Scroll order:** [First decay](#1-first-decay-sibling-weights) → [Separate schedules](#2-follow-up-separate-weights-for-each-constraint) → [Nucleus controls](#3-one-type-per-nucleus) → [Patch-wide WCSP](#4-patch-wide-wcsp-the-final-result) → [Real patch and errors](#5-what-changed-and-where-errors-remain)
 
-| Run | Raw TP | Fixed-mask vote | Type-set WCSP | Δ vs. Raw TP [95% paired CI], pp | Δ vs. vote [95% paired CI], pp |
+### 1. First decay: sibling weights
+
+- **Question:** does giving coarse neighbors a stronger say help? V1 had a sibling coefficient of 0.30 at every level. We kept 32×32 at 0.30, multiplied by **0.60** for each step down to a smaller block, and left the pixel sibling coefficient at 0.30.
+
+| Level | 1×1 | 2×2 | 4×4 | 8×8 | 16×16 | 32×32 |
+|---|---:|---:|---:|---:|---:|---:|
+| Sibling coefficient | 0.30 | 0.03888 | 0.06480 | 0.10800 | 0.18000 | 0.30000 |
+
+- **Result on 100 patches:** **−0.000047 mIoU** vs. equal-weight V1 [−0.000136, +0.000015]. On dev, weaker uniform block weights tied the best decay setting. Boosting only the largest blocks left the score unchanged. [First decay sweep](../experiments/pannuke_wcsp/decay_20261114/README.md)
+
+### 2. Follow-up: separate weights for each constraint
+
+- **Question:** would a different schedule work better? We screened 24 configurations on 48 development patches, then froze the top choice in each family and a combination of the three. We show this alongside the first decay test for comparison. The follow-up ran after the patch-wide experiment and reused its 300 comparison patches.
+
+| Level | Sibling coefficient | Parent–child penalty (this level as child) | Fidelity weight |
+|---|---:|---:|---:|
+| 1×1 pixel | 0.300000 | 0.016129 | 1.00 |
+| 2×2 block | 0.774194 | 0.032258 | 0.30 × confidence factor |
+| 4×4 block | 0.387097 | 0.064516 | 0.30 × confidence factor |
+| 8×8 block | 0.193548 | 0.129032 | 0.30 × confidence factor |
+| 16×16 block | 0.096774 | 0.258065 | 0.30 × confidence factor |
+| 32×32 block | 0.048387 | — | 0.30 × confidence factor |
+
+- **Fidelity factor:** `0.25 + 0.75 × margin`, where margin is the gap between the block’s two highest mean HoVer-Net probabilities. Low-margin blocks have less influence. The parent penalty is for a label mismatch from this child to its immediate parent.
+
+| Schedule | Compared with | Δ mIoU on 300 patches |
+|---|---|---:|
+| Parent–child stronger for larger children | V1 | −0.000021 |
+| Siblings stronger for smaller blocks | V1 | −0.000006 |
+| Confidence-weighted block fidelity | V2 | +0.000005 |
+| All three together | V1 | −0.000020 |
+
+- **Why it might not have helped:** a PanNuke block can contain several tiny nuclei, different cell types, and a lot of background. One label per block loses that mix. Changing the weight may just make the solver listen more or less to the same coarse summary. The data show that these weight schedules gave no clear gain. They do not establish the cause. [Exact weights and paired intervals](../experiments/pannuke_wcsp/family_decay_20261117/README.md)
+
+### 3. One type per nucleus
+
+- **Change of approach:** keep HoVer-Net’s detected outlines. Use the pixel votes inside each outline to assign one type to the whole nucleus.
+- **Controls:** nucleus-neighbor Potts lost 0.00176 mIoU versus voting on the same masks. Count penalties also fell short of voting. The Raw TP-only component WCSP gained 0.00345 versus Raw TP, with an interval that included zero.
+- **Why keep working on typing?** An answer-key check copied the correct types onto matched nuclei and raised mIoU from 0.4533 to 0.7020 on the earlier instance sample. This measured how much typing could change the score on the existing outlines. [Nucleus-level runs](../experiments/pannuke_wcsp/instances_20261114/README.md)
+
+### 4. Patch-wide WCSP: the final result
+
+- **What changed:** keep those same outlines and votes. Also ask which types the patch supports. The solver checks feasible sets of the five nucleus types and picks the assignment with the lowest total cost.
+- **What helped:** compare WCSP with **fixed-mask voting** to isolate the patch rule. The change versus Raw TP includes both the move to one type per outline and the patch rule.
+
+| Run | Raw TP | Fixed-mask vote | Type-set WCSP | Δ vs. Raw TP [95% paired CI] | Δ vs. vote [95% paired CI] |
 |---|---:|---:|---:|---:|---:|
-| Initial comparison, 100 patches | 0.45436 | 0.46331 | 0.47297 | +1.86 [+0.34, +6.17] | +0.97 [+0.14, +4.71] |
-| **Frozen replication, 300 new patches** | **0.39474** | **0.39758** | **0.40007** | **+0.53 [+0.19, +0.85]** | **+0.25 [+0.09, +0.42]** |
+| Initial comparison, 100 patches | 0.45436 | 0.46331 | 0.47297 | +0.01861 [+0.00341, +0.06169] | +0.00966 [+0.00144, +0.04715] |
+| **Frozen replication, 300 patches** | **0.39474** | **0.39758** | **0.40007** | **+0.00534 [+0.00186, +0.00849]** | **+0.00249 [+0.00094, +0.00421]** |
 
-![Paired differences on the replication and Dead-positive stress samples](../experiments/pannuke_wcsp/presence_scale_20261114/comparison.png)
+![PanNuke gains versus Raw TP and matched controls. The dashed line marks zero gain.](../experiments/pannuke_wcsp/presence_scale_20261114/gains_across_experiments.png)
 
-- **Replication:** fixed 22 matched nucleus types and broke 3 compared with voting. Excluding Dead, mIoU still rose **+0.67 pp** versus Raw TP [+0.23, +1.06].
-- **Rare-class limit:** in the separate 21-patch Dead-positive stress set, overall mIoU rose +2.30 pp versus Raw TP [−0.54, +4.39], while Dead IoU fell 3.46 pp. Patch IDs were held out from documented prior uses. Patient and slide independence are unverified.
-- [Review PDF](../experiments/pannuke_wcsp/presence_scale_20261114/output/pdf/pannuke_review.pdf) · [Replication protocol and per-class results](../experiments/pannuke_wcsp/presence_scale_20261114/README.md) · [Decay](../experiments/pannuke_wcsp/decay_20261114/README.md) · [Fixed-mask WCSP](../experiments/pannuke_wcsp/instances_20261114/README.md) · [Type-set and count experiments](../experiments/pannuke_wcsp/presence_20261114/README.md)
+- **How to read the chart:** left compares to raw predictions, right compares to each experiment’s matched control. Each row uses its own cohort. The first type-set gain was larger numerically. The 300-patch run confirmed a smaller gain with frozen settings. [Type-set experiments](../experiments/pannuke_wcsp/presence_20261114/README.md)
+
+### 5. What changed and where errors remain
+
+![Patch 1071. The lower-right nucleus changes type and keeps its outline.](../experiments/pannuke_wcsp/presence_scale_20261114/type_set_example.png)
+
+- **Read the example:** the lower-right nucleus goes from purple (Non-neoplastic epithelial) to red (Neoplastic). This is the median positive change among improved patches.
+- **What improved:** 22 matched nucleus types fixed and 3 broken versus voting. WCSP corrected pixels both near boundaries (3,644 fixed / 490 broken) and farther away (6,701 / 1,132). Wrong pixels assigned a type absent from the annotated patch dropped from 265,180 to 252,043. Of the remaining 1,376,016 wrong WCSP pixels, 717,071 were more than two pixels from a nucleus boundary.
+- **What still needs work:** excluding Dead, mIoU rose 0.00667 versus Raw TP. In the separate 21-patch Dead-positive set, Dead IoU fell 0.03465. Only 2 of 200 fitting patches contained Dead. Patient and slide independence are unverified.
+- **Diagnostic and timing:** correcting every absent-type voting error with ground truth would raise mIoU from 0.39758 to 0.48741. This answer-key check can change masks. The actual solver reproduced its 300 saved outputs in an audit and took a median 2.0 ms per patch for cached-input cost construction and solving, excluding HoVer-Net inference.
+
+- [Teammate review PDF](../experiments/pannuke_wcsp/presence_scale_20261114/output/pdf/pannuke_review.pdf) · [Replication, per-class results and error audit](../experiments/pannuke_wcsp/presence_scale_20261114/README.md)
 <!-- END PANNUKE FOLLOWUP 20261114 -->
 
 ## BCSS
@@ -326,5 +378,3 @@ Each 256 × 256 tile (65,536 px) is solved as 5 blocks: four 100 × 100 corners 
 | Ryan, dev | None | — | 14 tiles in 8 h before the job limit |
 
 At 20 s per block, toulbar2 ends 75% of tiles after one round, with *higher* energy than ICM: it runs out of time before matching ICM. A per-block benchmark of search nodes, backtracks and proved optima at 2 / 20 / 120 s is running.
-
-<!-- BEGIN PANNUKE HIERARCHY 20261109 -->

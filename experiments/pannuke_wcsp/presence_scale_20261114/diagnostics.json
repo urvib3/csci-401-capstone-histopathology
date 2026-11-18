@@ -1,0 +1,44 @@
+{
+  "n_patches": 300,
+  "errors": {
+    "raw_tp": {
+      "errors": 1398134,
+      "absent": 251640,
+      "far": 730853
+    },
+    "vote": {
+      "errors": 1384739,
+      "absent": 265180,
+      "far": 722640
+    },
+    "wcsp": {
+      "errors": 1376016,
+      "absent": 252043,
+      "far": 717071
+    }
+  },
+  "edits": {
+    "within_2px": {
+      "fixes": 3644,
+      "breaks": 490
+    },
+    "farther": {
+      "fixes": 6701,
+      "breaks": 1132
+    }
+  },
+  "vote_absent_type_oracle": 0.4874114265885707,
+  "fit_support": [
+    104,
+    114,
+    163,
+    2,
+    39
+  ],
+  "median_cached_seconds": 0.0020444999972824007,
+  "p95_cached_seconds": 0.0040492045049177255,
+  "example": [
+    0.007139441093617402,
+    1071
+  ]
+}

@@ -1,0 +1,2054 @@
+{
+  "original_dev": [
+    {
+      "image_index": 2415,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 70,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1682,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 907,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1265,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1093,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1911,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1140,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 805,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 1394,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1232,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2351,
+      "tissue": "Stomach"
+    }
+  ],
+  "additional_dev": [
+    {
+      "image_index": 32,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 176,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 225,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 328,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 455,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 466,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 491,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 497,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 708,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 711,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 784,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 842,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 879,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 902,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 920,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 1018,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1084,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1133,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 1150,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1185,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1236,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1285,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1323,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1372,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1444,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1447,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1470,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1513,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1604,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1612,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1726,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1927,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1929,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2269,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2325,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 2514,
+      "tissue": "Colon"
+    }
+  ],
+  "comparison": [
+    {
+      "image_index": 22,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 41,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 56,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 83,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 101,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 109,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 113,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 114,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 132,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 143,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 149,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 167,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 177,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 185,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 191,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 204,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 208,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 214,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 217,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 218,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 234,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 260,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 264,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 267,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 280,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 295,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 330,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 337,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 338,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 343,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 346,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 349,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 352,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 375,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 379,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 390,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 399,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 403,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 404,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 428,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 443,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 448,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 460,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 464,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 468,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 472,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 501,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 502,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 508,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 510,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 512,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 518,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 527,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 542,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 544,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 545,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 553,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 563,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 569,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 581,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 588,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 589,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 592,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 593,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 623,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 646,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 650,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 672,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 675,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 679,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 695,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 702,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 722,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 746,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 747,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 757,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 777,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 779,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 790,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 798,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 799,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 801,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 810,
+      "tissue": "Kidney"
+    },
+    {
+      "image_index": 813,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 878,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 913,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 918,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 928,
+      "tissue": "Lung"
+    },
+    {
+      "image_index": 935,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 944,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 950,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 962,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 965,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 966,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 967,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 968,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 970,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 975,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 976,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 980,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 982,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 985,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 986,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 1002,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1015,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1030,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1032,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1033,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1035,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1038,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1041,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1044,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1046,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1060,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1071,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1081,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1087,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1104,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1114,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1119,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1121,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1131,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 1141,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 1155,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1161,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1165,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1177,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1180,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1187,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1199,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1209,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1225,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1231,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1262,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 1270,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1284,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1286,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1288,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1307,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1314,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1321,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1325,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1330,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1333,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1334,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1355,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1362,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1363,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1364,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1365,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1374,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1375,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1383,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1395,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1406,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1414,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1423,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1435,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1436,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1449,
+      "tissue": "Bile-duct"
+    },
+    {
+      "image_index": 1455,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1460,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1463,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1468,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1471,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1475,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1483,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1484,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1485,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1496,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1499,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1501,
+      "tissue": "Bladder"
+    },
+    {
+      "image_index": 1508,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1524,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1541,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1542,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1545,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1546,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1549,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1556,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1557,
+      "tissue": "Breast"
+    },
+    {
+      "image_index": 1564,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1567,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1570,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1574,
+      "tissue": "Cervix"
+    },
+    {
+      "image_index": 1589,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1593,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1598,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1615,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1617,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1626,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1627,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1634,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1637,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1639,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1646,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1647,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1700,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1706,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1714,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1716,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1718,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1719,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1734,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1737,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1738,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1739,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1742,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1743,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1772,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1777,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1784,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1800,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 1811,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1815,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1818,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1829,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1836,
+      "tissue": "Esophagus"
+    },
+    {
+      "image_index": 1855,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1859,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1867,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1874,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1888,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1900,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1901,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1903,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1928,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1930,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1931,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1933,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1936,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1940,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1946,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1955,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1970,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1971,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1975,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1984,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 1995,
+      "tissue": "HeadNeck"
+    },
+    {
+      "image_index": 2043,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2044,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2075,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2092,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2097,
+      "tissue": "Liver"
+    },
+    {
+      "image_index": 2133,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 2141,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 2142,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 2146,
+      "tissue": "Ovarian"
+    },
+    {
+      "image_index": 2163,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2165,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2169,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2172,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2178,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2181,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2211,
+      "tissue": "Pancreatic"
+    },
+    {
+      "image_index": 2215,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 2229,
+      "tissue": "Prostate"
+    },
+    {
+      "image_index": 2254,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2256,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2262,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2267,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2280,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2282,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2284,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2290,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2291,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2297,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2298,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2299,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2303,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2315,
+      "tissue": "Skin"
+    },
+    {
+      "image_index": 2323,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 2327,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 2346,
+      "tissue": "Stomach"
+    },
+    {
+      "image_index": 2355,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2356,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2362,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2365,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2368,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2378,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2380,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2381,
+      "tissue": "Testis"
+    },
+    {
+      "image_index": 2383,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2386,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2392,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2398,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2402,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2408,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2411,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2413,
+      "tissue": "Thyroid"
+    },
+    {
+      "image_index": 2432,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2454,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2466,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2468,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2473,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2494,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2501,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2516,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2520,
+      "tissue": "Colon"
+    },
+    {
+      "image_index": 2521,
+      "tissue": "Colon"
+    }
+  ],
+  "one_family": [
+    {
+      "name": "v1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "v2",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "old_decay",
+      "beta": [
+        0.3,
+        0.03888,
+        0.0648,
+        0.108,
+        0.18,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "potts",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "potts"
+    },
+    {
+      "name": "parent_-1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.25806451612903225,
+        0.12903225806451613,
+        0.06451612903225806,
+        0.03225806451612903,
+        0.016129032258064516
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "sibling_-1",
+      "beta": [
+        0.3,
+        0.7741935483870968,
+        0.3870967741935484,
+        0.1935483870967742,
+        0.0967741935483871,
+        0.04838709677419355
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_-1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.7741935483870968,
+        0.3870967741935484,
+        0.1935483870967742,
+        0.0967741935483871,
+        0.04838709677419355
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_-0.5",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.17789414921811064,
+        0.1257901592455376,
+        0.08894707460905532,
+        0.0628950796227688,
+        0.04447353730452766
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "sibling_-0.5",
+      "beta": [
+        0.3,
+        0.5336824476543319,
+        0.3773704777366128,
+        0.26684122382716596,
+        0.1886852388683064,
+        0.13342061191358298
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_-0.5",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.5336824476543319,
+        0.3773704777366128,
+        0.26684122382716596,
+        0.1886852388683064,
+        0.13342061191358298
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_0.5",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.04447353730452766,
+        0.0628950796227688,
+        0.08894707460905532,
+        0.1257901592455376,
+        0.17789414921811064
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "sibling_0.5",
+      "beta": [
+        0.3,
+        0.13342061191358295,
+        0.18868523886830638,
+        0.2668412238271659,
+        0.37737047773661275,
+        0.5336824476543318
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_0.5",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.13342061191358295,
+        0.18868523886830638,
+        0.2668412238271659,
+        0.37737047773661275,
+        0.5336824476543318
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.016129032258064516,
+        0.03225806451612903,
+        0.06451612903225806,
+        0.12903225806451613,
+        0.25806451612903225
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "sibling_1",
+      "beta": [
+        0.3,
+        0.04838709677419355,
+        0.0967741935483871,
+        0.1935483870967742,
+        0.3870967741935484,
+        0.7741935483870968
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_1",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.04838709677419355,
+        0.0967741935483871,
+        0.1935483870967742,
+        0.3870967741935484,
+        0.7741935483870968
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_area",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.001466275659824047,
+        0.005865102639296188,
+        0.02346041055718475,
+        0.093841642228739,
+        0.375366568914956
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_low",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.03,
+        0.03,
+        0.03,
+        0.03,
+        0.03
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "parent_high",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "sibling_low",
+      "beta": [
+        0.3,
+        0.075,
+        0.075,
+        0.075,
+        0.075,
+        0.075
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_low",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.15,
+        0.15,
+        0.15,
+        0.15,
+        0.15
+      ],
+      "adaptive": false,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_adaptive",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "adaptive": true,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_adaptive_fine",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.5336824476543319,
+        0.3773704777366128,
+        0.26684122382716596,
+        0.1886852388683064,
+        0.13342061191358298
+      ],
+      "adaptive": true,
+      "table": "hybrid"
+    },
+    {
+      "name": "unary_adaptive_coarse",
+      "beta": [
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "parent": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "gamma": [
+        0.13342061191358295,
+        0.18868523886830638,
+        0.2668412238271659,
+        0.37737047773661275,
+        0.5336824476543318
+      ],
+      "adaptive": true,
+      "table": "hybrid"
+    }
+  ],
+  "selection": "Within each family select highest dev pooled mIoU with stable ties. Test the combined schedule and its three individual families.",
+  "scope": "Exploratory transfer to 300 existing type-set comparison patches. No hierarchy settings fitted on these IDs. Prior type-set outcomes are already known.",
+  "family_weights": "Block-only sibling schedule preserves pixel beta. Graded schedules hold arithmetic mean coefficient over affected levels fixed, not edge-count-weighted.",
+  "solver": "Original bidirectional ICM sweeps and objective audit. No global optimality claim."
+}
