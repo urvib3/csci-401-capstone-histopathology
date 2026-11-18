@@ -124,6 +124,19 @@
 
 - **Why it might not have helped:** a PanNuke block can contain several tiny nuclei, different cell types, and a lot of background. One label per block loses that mix. Changing the weight may just make the solver listen more or less to the same coarse summary. The data show that these weight schedules gave no clear gain. They do not establish the cause. [Exact weights and paired intervals](../experiments/pannuke_wcsp/family_decay_20261117/README.md)
 
+#### Where combined decay hurt
+
+- **Against equal-weight V1:** 134 patches improved, 137 worsened, and 29 tied. The two examples show the median loss and the largest loss among the worsened patches.
+
+![Two PanNuke patches that worsened after combined decay, with ground truth, V1, and a map of fixes and breaks.](../experiments/pannuke_wcsp/family_decay_20261117/decay_failure_examples.png)
+
+| Patch | Δ mIoU vs. V1 | What changed |
+|---|---:|---|
+| 2133, median loss | −0.00019 | 21 pixels fixed, 36 broke. The most common new error was Background relabeled Neoplastic (20 pixels). |
+| 967, largest loss | −0.00234 | 21 pixels fixed, 24 broke, and 40 changed to a different wrong label. Both predictions leave many annotated epithelial nuclei labeled Neoplastic. |
+
+- **What the examples suggest:** decay moved a few pixel labels but left the bigger typing error largely in place on patch 967. The parent–child schedule alone gave the same mIoU drop as combined decay on both patches. On patch 967, the sibling schedule alone also hurt (−0.00300), while adaptive fidelity tied V2 on both patches. These are two loss cases, so they do not establish which term drove the overall result.
+
 ### 3. One type per nucleus
 
 - **Change of approach:** keep HoVer-Net’s detected outlines. Use the pixel votes inside each outline to assign one type to the whole nucleus.
@@ -149,6 +162,9 @@
 ![Patch 1071. The lower-right nucleus changes type and keeps its outline.](../experiments/pannuke_wcsp/presence_scale_20261114/type_set_example.png)
 
 - **Read the example:** the lower-right nucleus goes from purple (Non-neoplastic epithelial) to red (Neoplastic). This is the median positive change among improved patches.
+- **Why patch context helped:** voting scores each nucleus alone. When one nucleus introduces a new type, it changes the patch-wide cost for the whole assignment. The solver charges that cost once per patch. On patch 1071, the change raised the local vote cost from **0.795 to 2.473**, but lowered the fitted type-set cost from **7.185 to 2.725**. With the model support term included, total cost fell from **8.232 to 5.199**. The ground-truth annotation agrees with the resulting type in this example.
+- **Evidence across the 300 patches:** the type-set rule cut **13,137** wrong pixels assigned to a type missing from the annotation. It gained **0.00249 mIoU** over voting on identical masks. A patch prior can still penalize a real but unusual type, so this is an overall gain with class-specific limits.
+
 - **What improved:** 22 matched nucleus types fixed and 3 broken versus voting. WCSP corrected pixels both near boundaries (3,644 fixed / 490 broken) and farther away (6,701 / 1,132). Wrong pixels assigned a type absent from the annotated patch dropped from 265,180 to 252,043. Of the remaining 1,376,016 wrong WCSP pixels, 717,071 were more than two pixels from a nucleus boundary.
 - **What still needs work:** excluding Dead, mIoU rose 0.00667 versus Raw TP. In the separate 21-patch Dead-positive set, Dead IoU fell 0.03465. Only 2 of 200 fitting patches contained Dead. Patient and slide independence are unverified.
 - **Diagnostic and timing:** correcting every absent-type voting error with ground truth would raise mIoU from 0.39758 to 0.48741. This answer-key check can change masks. The actual solver reproduced its 300 saved outputs in an audit and took a median 2.0 ms per patch for cached-input cost construction and solving, excluding HoVer-Net inference.

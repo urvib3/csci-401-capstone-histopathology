@@ -1,0 +1,37 @@
+{
+  "wins": 134,
+  "losses": 137,
+  "ties": 29,
+  "examples": [
+    {
+      "patch_id": 2133,
+      "case": "Median loss",
+      "v1": 0.1465731404354815,
+      "decay": 0.14638241950792144,
+      "delta": -0.00019072092756006187,
+      "fixed": 21,
+      "broken": 36,
+      "wrong_to_wrong": 1,
+      "main_break": [
+        "Background",
+        "Neoplastic",
+        20
+      ]
+    },
+    {
+      "patch_id": 967,
+      "case": "Largest loss",
+      "v1": 0.1880105644616424,
+      "decay": 0.18566585428948765,
+      "delta": -0.0023447101721547625,
+      "fixed": 21,
+      "broken": 24,
+      "wrong_to_wrong": 40,
+      "main_break": [
+        "Background",
+        "Neoplastic",
+        20
+      ]
+    }
+  ]
+}

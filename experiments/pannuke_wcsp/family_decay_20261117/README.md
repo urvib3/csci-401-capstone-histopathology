@@ -61,3 +61,5 @@ and [paired results](evaluation.json).
 On the 300-patch comparison, all graded and adaptive hierarchy gains versus
 Raw TP had paired intervals including zero. The joint schedule changed mIoU
 by -0.00001953 versus V1, with interval [-0.00008729, +0.00004660].
+
+- [Decay failure images](decay_failure_examples.png) and [per-example counts](decay_failures.json). Rebuild with `../../../.venv/bin/python failure_examples.py` using the local comparison confusions and prediction cache.
