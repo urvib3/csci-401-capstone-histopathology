@@ -161,7 +161,7 @@
 
 ![Patch 1071. The lower-right nucleus changes type and keeps its outline.](../experiments/pannuke_wcsp/presence_scale_20261114/type_set_example.png)
 
-- **Read the example:** the lower-right nucleus goes from purple (Non-neoplastic epithelial) to red (Neoplastic). This is the median positive change among improved patches.
+- **Read the example:** point to the dashed box in the last three panels. The annotation is red (Neoplastic), ordinary voting is purple (Non-neoplastic epithelial), and WCSP changes it back to red while keeping the outline. Patch mIoU rose from **0.08151 to 0.08865** (Δ **+0.00714**). This is the median change among improved patches.
 - **Why patch context helped:** voting scores each nucleus alone. When one nucleus introduces a new type, it changes the patch-wide cost for the whole assignment. The solver charges that cost once per patch. On patch 1071, the change raised the local vote cost from **0.795 to 2.473**, but lowered the fitted type-set cost from **7.185 to 2.725**. With the model support term included, total cost fell from **8.232 to 5.199**. The ground-truth annotation agrees with the resulting type in this example.
 - **Evidence across the 300 patches:** the type-set rule cut **13,137** wrong pixels assigned to a type missing from the annotation. It gained **0.00249 mIoU** over voting on identical masks. A patch prior can still penalize a real but unusual type, so this is an overall gain with class-specific limits.
 

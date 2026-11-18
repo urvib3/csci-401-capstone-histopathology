@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-from matplotlib.patches import Patch
+from matplotlib.patches import Patch, Rectangle
 import numpy as np
 from scipy.ndimage import distance_transform_edt
 
@@ -139,16 +139,28 @@ def example_figure(example):
     vote, winner = [np.load(CACHE / "outputs" / key / f"{idx:04d}.npy")
                     for key in ("vote", "vote_presence_evidence_1")]
     base, refined = np.r_[0, vote][mask], np.r_[0, winner][mask]
-    fig, axes = plt.subplots(1, 4, figsize=(11.5, 3.45))
-    for ax, title, im in zip(axes, ("H&E", "Ground truth", "Fixed-mask voting", "Type-set WCSP"),
-                            (np.load(CACHE / f"rgb_{idx:04d}.npy"), gt, base, refined)):
-        ax.imshow(im, cmap=ListedColormap(COLORS), vmin=0, vmax=5, interpolation="nearest")
+    module = load_previous()
+    score = lambda labels: module.nucleus.score(module.nucleus.confusion(gt, labels))
+    before, after = score(base), score(refined)
+    np.testing.assert_allclose(after - before, delta, atol=1e-12)
+    y, x = np.nonzero(base != refined)
+    assert len(x), "Selected patch must show a changed nucleus."
+    left, right = max(0, x.min() - 8), min(gt.shape[1] - 1, x.max() + 8)
+    top, bottom = max(0, y.min() - 8), min(gt.shape[0] - 1, y.max() + 8)
+    titles = ("H&E", "Ground truth", f"Fixed-mask voting\nmIoU {before:.5f}",
+              f"Type-set WCSP\nmIoU {after:.5f}")
+    images = (np.load(CACHE / f"rgb_{idx:04d}.npy"), gt, base, refined)
+    fig, axes = plt.subplots(1, 4, figsize=(11.5, 3.75))
+    for ax, title, image in zip(axes, titles, images):
+        ax.imshow(image, cmap=ListedColormap(COLORS), vmin=0, vmax=5, interpolation="nearest")
+        ax.add_patch(Rectangle((left, top), right-left, bottom-top, fill=False,
+                               edgecolor="white", linewidth=1.8, linestyle="--"))
         ax.set_title(title)
         ax.axis("off")
-    fig.subplots_adjust(left=.02, right=.98, top=.8, bottom=.13, wspace=.08)
+    fig.subplots_adjust(left=.02, right=.98, top=.76, bottom=.13, wspace=.08)
     fig.legend(handles=[Patch(color=c, label=l) for c, l in zip(COLORS, LABELS)], ncol=6,
                loc="lower center", frameon=False, fontsize=9)
-    fig.suptitle(f"Patch {idx} · median positive change vs. voting ({delta:+.5f} mIoU)")
+    fig.suptitle(f"Patch {idx} · median improvement vs. voting ({delta:+.5f} mIoU)")
     fig.savefig(HERE / "type_set_example.png", dpi=155)
     plt.close(fig)
 
