@@ -148,6 +148,19 @@
 - **What changed:** keep those same outlines and votes. Also ask which types the patch supports. The solver checks feasible sets of the five nucleus types and picks the assignment with the lowest total cost.
 - **What helped:** compare WCSP with **fixed-mask voting** to isolate the patch rule. The change versus Raw TP includes both the move to one type per outline and the patch rule.
 
+<details>
+<summary><strong>Optional walkthrough: which scores and which patches does the solver use?</strong></summary>
+
+- **One patch at a time.** The solver sees the detected outlines and type probabilities inside the current 256×256 patch. Other nuclei anywhere **inside that patch** can affect a decision through the shared type set. The solver has no links to nearby patches on the slide and does not read their predictions at inference time.
+- **Local cost for each nucleus.** Every pixel inside the outline votes for its highest-probability label. We tally non-background votes. For candidate type **c**, the nucleus pays `−log((votes(c) + 0.5) / (total foreground votes + 2.5))`. More votes make a type cheaper. If every vote is Background, the method uses the summed foreground probability scores instead. The outline is fixed and must receive one of the five nucleus types.
+- **What comes from other patches.** Before inference, we used **200 annotated fitting patches** to count which *sets* of nucleus types occurred. We grouped patches by nucleus count (0–7, 8–19, 20–39, 40 or more) and smoothed the frequencies so unseen sets still have finite cost. Each group gets 16 pseudo-counts spread across sets according to the overall fitted frequencies. On a new patch, its number of **detected** nuclei selects one group. The assignment pays `−log(fitted probability of the proposed type set)` **once for the entire patch**. At inference, the solver uses this frozen table. It does not look up individual fitting patches.
+- **Probability support inside the current patch.** The solver also uses the full HoVer-Net scores. For each nucleus, it sums the pixel probabilities by type inside its outline and normalizes over the five foreground types. For each proposed type, it takes the **strongest** such support from any detected nucleus. Each type in the set pays `−log(strongest support)`. A rare type can still win when its local votes and probability support justify it.
+- **How the solver chooses.** For every feasible nonempty type set, find the cheapest local assignment that uses every type in that set at least once. Add the fitted set cost and the support costs, then keep the lowest total. There are at most **31** sets. Human annotations on the comparison patches enter only when we score the results.
+
+**What to say at the figure:** “Other patches taught us which type combinations are common. On this patch, we use HoVer-Net’s own votes and scores to decide if that combination fits. We keep the outlines and change only the type labels.”
+
+</details>
+
 | Run | Raw TP | Fixed-mask vote | Type-set WCSP | Δ vs. Raw TP [95% paired CI] | Δ vs. vote [95% paired CI] |
 |---|---:|---:|---:|---:|---:|
 | Initial comparison, 100 patches | 0.45436 | 0.46331 | 0.47297 | +0.01861 [+0.00341, +0.06169] | +0.00966 [+0.00144, +0.04715] |
