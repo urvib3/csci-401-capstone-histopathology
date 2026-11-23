@@ -1,0 +1,14 @@
+{
+  "stage": "Pilot type-set WCSP, gated expansion per user's last instruction.",
+  "seed": 20261122,
+  "checkpoint_sha256": "789b2be8bdaf532627f584a009f83b3ba06e04c0e55c1635252ff12785ef57e8",
+  "selection": "Highest pooled five-class dev mIoU. Within 0.0001 prefer smaller strength, plain presence, then vote/mean/log_mean.",
+  "pilot_gate": "Expand if the tuned type-set winner has positive 95% paired intervals vs Raw TP and vote, and a positive 95% paired interval vs the frozen global type-set model. A fixed-family Holm adjustment is reported when all eight families exist.",
+  "exposure": "Test GT extraction supports cache preparation only. Test predictions and metrics wait for frozen.json.",
+  "environment": "Reuse existing Python 3.12 virtual environment and installed dependencies. uv executable unavailable.",
+  "sources": {
+    "experiments/pannuke_wcsp/presence_20261114/run.py": "a8429f1ee4311e2c4d8b5fb0408c1faa72d5799b7ac68962254bdb5984e0d1d9",
+    "experiments/pannuke_wcsp/instances_20261114/prepare.py": "a5ee9405aee767cadae18125d201efb4644ebcb95b62d228ef5115adf6ddc12e",
+    "experiments/pannuke_wcsp/instances_20261114/run.py": "caef3ffadfd56c706c5ba99ebddba61f918c697b66c7e205f323a49d60612f1a"
+  }
+}

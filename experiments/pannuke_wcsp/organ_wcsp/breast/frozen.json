@@ -1,0 +1,210 @@
+{
+  "type_set": {
+    "name": "mean_presence_evidence_4",
+    "mode": "presence_evidence",
+    "unary": "mean",
+    "strength": 4
+  },
+  "boundaries": [
+    8,
+    20,
+    40
+  ],
+  "best_dev_bio_miou": 0.4180723030893138,
+  "chosen_dev_bio_miou": 0.4180723030893138,
+  "test_used": false,
+  "families": {
+    "pixel": {
+      "name": "pixel_beta_0.05",
+      "kind": "flat",
+      "beta": 0.05
+    },
+    "hierarchy": {
+      "name": "hierarchy_s0.3_p0.1_g0",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.1,
+      "gamma": 0.0,
+      "scaled": false
+    },
+    "scaling_siblings": {
+      "name": "scale_False_none_0.1",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.1,
+      "gamma": 0.1,
+      "scaled": false,
+      "siblings": "none"
+    },
+    "decay": {
+      "name": "decay_0.4",
+      "kind": "decay",
+      "schedule": {
+        "name": "decay_0.4",
+        "beta": [
+          0.3,
+          0.007680000000000001,
+          0.019200000000000005,
+          0.04800000000000001,
+          0.12,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    "nucleus_pairwise": {
+      "name": "log_mean_hybrid_0.25",
+      "unary": "log_mean",
+      "table": "hybrid",
+      "beta": 0.25,
+      "area_weight": 0
+    },
+    "type_counts": {
+      "name": "log_mean_count_model_0.5",
+      "mode": "count_model",
+      "unary": "log_mean",
+      "strength": 0.5
+    },
+    "type_set": {
+      "name": "mean_presence_evidence_4",
+      "mode": "presence_evidence",
+      "unary": "mean",
+      "strength": 4
+    },
+    "raw_component": {
+      "strength": 2.0,
+      "limit": 65536,
+      "adaptive": false
+    }
+  },
+  "controls": {
+    "pixel": "raw_tp",
+    "v1": {
+      "name": "hierarchy_s0.3_p0.1_g0",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.1,
+      "gamma": 0.0,
+      "scaled": false
+    },
+    "v2": {
+      "name": "hierarchy_s0.3_p0.1_g0.1",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.1,
+      "gamma": 0.1,
+      "scaled": false
+    },
+    "hierarchy": "raw_tp",
+    "scaling_siblings": "v2",
+    "decay": "decay_v1",
+    "nucleus_pairwise": "vote",
+    "type_counts": "vote",
+    "type_set": "vote",
+    "raw_component": "raw_tp"
+  },
+  "global_configs": {
+    "pixel": {
+      "name": "global_pixel",
+      "kind": "flat",
+      "beta": 0.3
+    },
+    "hierarchy": {
+      "name": "global_hierarchy",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.1,
+      "gamma": 0.0,
+      "scaled": false
+    },
+    "scaling_siblings": {
+      "name": "global_scaled_calibrated",
+      "kind": "hierarchy",
+      "sibling": 0.3,
+      "parent": 0.01,
+      "gamma": 0.3,
+      "scaled": true,
+      "siblings": "biological"
+    },
+    "decay": {
+      "name": "global_combined",
+      "kind": "decay",
+      "schedule": {
+        "name": "combined",
+        "beta": [
+          0.3,
+          0.7741935483870968,
+          0.3870967741935484,
+          0.1935483870967742,
+          0.0967741935483871,
+          0.04838709677419355
+        ],
+        "parent": [
+          0.016129032258064516,
+          0.03225806451612903,
+          0.06451612903225806,
+          0.12903225806451613,
+          0.25806451612903225
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": true,
+        "table": "hybrid"
+      }
+    },
+    "nucleus_pairwise": {
+      "name": "vote_potts_2",
+      "unary": "vote",
+      "table": "potts",
+      "beta": 2.0,
+      "area_weight": 0
+    },
+    "type_counts": {
+      "name": "vote_count_model_0.25",
+      "mode": "count_model",
+      "unary": "vote",
+      "strength": 0.25
+    },
+    "type_set": {
+      "name": "vote_presence_evidence_1",
+      "mode": "presence_evidence",
+      "unary": "vote",
+      "strength": 1.0
+    },
+    "raw_component": {
+      "strength": 2.0,
+      "limit": 65536,
+      "adaptive": false
+    }
+  },
+  "all_families_frozen_before_expansion_test": true,
+  "expansion_development_seconds": 151.92417679200298,
+  "historical_objective_sha256": {
+    "presence_20261114+raw_star.py": "5f7f6ca44e9bb739295cf9a06090f7e4d660683b453827924de1b729b88148d4",
+    "scaling_siblings_20261109+core.py": "ebd3919f5d1a17da008ebf65f67ee6ddc56fe6dd68cd2a066dde614dcbda8a89",
+    "family_decay_20261117+run.py": "b3b888ac1bf09509c95641183998d9a5d42b48889a64651e57adf5209f7f61ab",
+    "pannuke_d5+core.py": "ba07c7ef2a197efca738ec7556d2d6dd5463298208a4162eeabad6bd0bca78a3",
+    "hierarchy_20261109+core.py": "f1975f12fcf1a527c2f7b68ae3c5b15918fd277f3fc6ddddec6f530b7772bba1"
+  },
+  "decay_matched_control_definition": "Original constant sibling 0.3, parent 0.1; gamma 0 or 0.3 according to V1/V2. Uses Breast-fit tables. Fixed before expansion test."
+}

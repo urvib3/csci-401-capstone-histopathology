@@ -1,0 +1,16 @@
+{
+  "type_set": {
+    "name": "mean_presence_evidence_4",
+    "mode": "presence_evidence",
+    "unary": "mean",
+    "strength": 4
+  },
+  "boundaries": [
+    8,
+    20,
+    40
+  ],
+  "best_dev_bio_miou": 0.4180723030893138,
+  "chosen_dev_bio_miou": 0.4180723030893138,
+  "test_used": false
+}

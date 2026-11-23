@@ -1,0 +1,18 @@
+{
+  "packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.17.1",
+    "torch": "2.12.0",
+    "scikit-image": "0.26.0",
+    "opencv-python-headless": "5.0.0.93",
+    "tqdm": "4.70.1",
+    "pyyaml": "6.0.4",
+    "numba": "0.65.1",
+    "matplotlib": "3.10.9",
+    "tiatoolbox": "2.1.2"
+  },
+  "source": "Temporary local copies of core package versions bypass stalled iCloud. Isolated Python 3.12 with -S.",
+  "architecture": "tiatoolbox 2.1.2 utils.py and hovernet.py restored from wheel and checked against original inference hashes.",
+  "import_path": "/tmp/breast-pilot-runtime",
+  "model_device": "Apple MPS"
+}

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "counts": {
+    "fit": 168,
+    "dev": 84,
+    "test": 169
+  },
+  "all_eight_selections_checked": true,
+  "pilot_confusions_unchanged": true,
+  "fit_only_prior_reconstructed": true,
+  "breast_archive_split_reconstructed": true,
+  "all_scores_and_intervals_reproduced": true,
+  "test_receipt_matches_frozen": true,
+  "original_objective_sources_unchanged": true,
+  "code_variable_naming_checked": true
+}

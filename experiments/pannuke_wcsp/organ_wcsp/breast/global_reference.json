@@ -1,0 +1,13 @@
+{
+  "config": {
+    "name": "vote_presence_evidence_1",
+    "mode": "presence_evidence",
+    "unary": "vote",
+    "strength": 1.0
+  },
+  "source_commit": "19e8df5",
+  "sha256": {
+    "frozen.json": "cbf27038826e490d0f6567edf38dc94f8a7ca672bda5e1e548802851b956a7f2",
+    "priors.json": "88073ce4f7794bd6da4522e005e1f9e3d85f917e1d33a1e6cce1acf08fdfe4fb"
+  }
+}
