@@ -23,6 +23,8 @@
 | Pixel table, hierarchy, scaling, decay | −0.01 to +0.01 |
 | Nucleus pairwise, type counts | −0.09, −0.38 |
 | **Patch-wide type set** (PanNuke's presence rule) | **+1.41** (Holm-corrected, 8 families) |
+| Type set, wider sweep (1,584 settings; all organs, 600 fresh test patches from folds 1 and 3) | **+1.24** vs. voting (Holm p = 0.034); +0.81 vs. the original setting, not significant |
+| Per-organ tuning, Colon / Adrenal | +0.19 / +0.26, not significant |
 
 Both datasets agree: local smoothing adds almost nothing, while a rule over **which classes a tile contains** adds 1–1.5 points.
 
@@ -72,6 +74,50 @@ All on Ryan's full-resolution U-Net (the strongest model; dev 0.6797 on the 256 
 | + presence + WCSP (prior from the old tiling; γ scaled by area) | 0.6610 | +0.86 |
 | **Oracle: true class set + WCSP** (perfect presence) | — | — |
 | **Oracle: each true region predicted coherently** (perfect grouping) | — | — |
+
+### 3d. PanNuke: the same tests on HoVer-Net
+
+Frozen HoVer-Net, 400 dev patches from PanNuke folds 1 and 3 (every organ except Adrenal), rules counted on 4,089 separate patches. No training. Details: `experiments/pannuke_wcsp/prelim_20261123/README.md`.
+
+**Which kinds are wrong.** Errors drift toward "Neoplastic": 18% of connective, 20% of dead and 15% of normal epithelial nuclei are called neoplastic. Immune and connective also swap (15% / 8%).
+
+![PanNuke confusion matrix](../experiments/pannuke_wcsp/prelim_20261123/prelim_confusion.png)
+
+**Outline or kind?** This is PanNuke's version of grouping vs. labeling.
+
+| Measure | Value | Reading |
+|---|---:|---|
+| Pixel error rate | 7.4% | |
+| **Outline errors** (missed / extra nuclei, outlines too small / too big) | **69%** | WCSP can't fix; only HoVer-Net's outline training can |
+| **Kind errors** (right nucleus, wrong kind) | **31%** | WCSP can fix by relabeling whole nuclei |
+| True nuclei HoVer-Net found | 80% | |
+| Found nuclei with the right kind (voting → type-set WCSP) | 80.7% → 82.8% | |
+
+**Ceilings.**
+
+| Setting | mIoU | Δ vs. voting |
+|---|---:|---:|
+| HoVer-Net, voting | 0.454 | — |
+| Type-set WCSP, swept setting | 0.480 | +2.6 |
+| **Oracle: true kind set** (perfect presence) | **0.526** | **+7.2** |
+| **Oracle: every found nucleus the right kind** (outlines unchanged) | **0.690** | **+23.6** |
+
+Kind errors are 31% of wrong pixels but most of the lost score, because small kinds count equally in the mean. Type-set WCSP captures about a third of the perfect-presence ceiling. Most of the remaining gap is immune vs. connective, which share images, so no image-level rule can separate them.
+
+**Rule check** (share of patches breaking the pattern):
+
+| Pattern | Truth | HoVer-Net | Type-set WCSP |
+|---|---:|---:|---:|
+| Rare kind combination (under 1% of patches) | 3–5% | **33%** | 2% |
+| Neoplastic and normal epithelial together | 0–0.6% | **22%** | 0.5% |
+| Contains Dead | 3–4% | **19%** | 3% |
+| Contains Inflammatory | 55–56% | 55% | **48%** (over-corrected) |
+
+**Breast examples.** Rows 2–3 show the main fix: HoVer-Net scatters "neoplastic" nuclei through normal breast epithelium, and the presence rule relabels them. Row 4 is the biggest loss. Of 120 Breast dev patches, 28 improve, 16 get worse and 76 are unchanged.
+
+![PanNuke Breast examples](../experiments/pannuke_wcsp/prelim_20261123/breast_examples.png)
+
+**Same picture as BCSS:** the segmenter invents classes that shouldn't be in the image (BCSS "other" and necrosis; PanNuke neoplastic and dead), and a presence rule removes them. But most PanNuke pixel errors are outlines, which only a better segmenter can fix.
 
 ## 4. Current experiments: fixing the U-Net itself
 
