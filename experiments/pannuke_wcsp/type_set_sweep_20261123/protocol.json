@@ -1,0 +1,78 @@
+{
+  "question": "Does a wider sweep of the type-set WCSP beat the original frozen setting on fresh images?",
+  "data": "PanNuke folds 1 and 3, all organs except Adrenal_gland. Fit: ground truth only. Dev and test: frozen HoVer-Net, full 256x256 patches, same inference as instances_20261114.",
+  "knobs": {
+    "strength": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      12.0,
+      16.0,
+      24.0,
+      32.0
+    ],
+    "unary": [
+      "vote",
+      "mean",
+      "log_mean"
+    ],
+    "mode": [
+      "presence",
+      "presence_evidence"
+    ],
+    "bands": {
+      "none": [],
+      "original": [
+        8,
+        20,
+        40
+      ],
+      "finer": [
+        5,
+        10,
+        15,
+        20,
+        30,
+        40,
+        60
+      ]
+    },
+    "smoothing": [
+      1,
+      4,
+      16,
+      64
+    ],
+    "organ_specific": [
+      false,
+      true
+    ]
+  },
+  "grid_size": 1584,
+  "original_setting": {
+    "mode": "presence_evidence",
+    "unary": "vote",
+    "strength": 1.0,
+    "bands": "original",
+    "smoothing": 16,
+    "organ_specific": false
+  },
+  "organ_specific_rule": "Counts per organ, smoothed toward the all-organ count for the same nucleus-count group with the same smoothing weight. Organs missing from fit use all-organ counts.",
+  "selection": "Highest pooled five-class biological mIoU on dev. Within 0.0001, the simplest setting wins: all-organ before per-organ, original groups before others, weaker strength, original mode, then vote/mean/log_mean, then smoothing closest to 16.",
+  "primary": [
+    "sweep winner vs. fixed-mask vote",
+    "sweep winner vs. original setting with original counts"
+  ],
+  "primary_test": "Two-sided paired bootstrap over whole images, 5000 replicates, seed 20261123, confusion matrices pooled before IoU; Holm across the two primary comparisons; 'works' means Holm p < 0.05 with a positive gain.",
+  "exploratory": [
+    "original setting refit on the new fit images vs. original counts (more data)",
+    "sweep winner vs. original setting refit (better knobs)",
+    "Breast-only and Colon-only test images",
+    "test curve over strength with the winner's other knobs fixed"
+  ],
+  "written": "Before any dev or test scoring."
+}
