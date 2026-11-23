@@ -137,6 +137,8 @@ def development(presence):
     assert 'families' not in frozen, 'Family selection is immutable.'
     for name in ['frozen.json', 'evaluation.json', 'development.json', 'confusions.npz', 'per_patch.csv']:
         shutil.copyfile(HERE / name, HERE / ('pilot_' + name))
+    # Keep the immutable pilot archive; the intermediate copy is redundant.
+    (HERE / 'confusions.npz').unlink()
     split = read(HERE / 'split.json')
     hierarchy = Hierarchy()
     flat = imported('breast_flat_core', 'pannuke_d5/core.py')

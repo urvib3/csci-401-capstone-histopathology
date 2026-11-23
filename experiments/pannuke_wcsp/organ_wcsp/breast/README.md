@@ -11,6 +11,8 @@
 
 # Breast-only WCSP: controlled eight-family comparison
 
+- **Presentation:** [PanNuke organ overview](../../README.md). **Team review:** [22 November update](../../TEAM_UPDATE_20261122.md).
+
 ![Gain against matched controls](summary.png)
 
 - **Split:** 168 fit / 84 dev / 169 test; seed 20261122; 1,235 previously used IDs excluded.

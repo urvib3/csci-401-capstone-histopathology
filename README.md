@@ -12,7 +12,8 @@ optimization techniques.
 - `experiments/` - code, configs and results behind the deliverables:
   - `bcss_wcsp/` - BCSS U-Net + WCSP experiments (configs, b tables, sweeps, SLURM scripts, figures).
   - `pannuke_wcsp/` - PanNuke WCSP experiments, including [D4 checks](experiments/pannuke_wcsp/pannuke_d4/) and the [D5 learned-table evaluation](experiments/pannuke_wcsp/pannuke_d5/).
-  - Latest PanNuke update: [learned-table beta sweep](experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/) selects **beta 0.15** on 20 development patches (biological mIoU 42.5791% → 42.7366%). This is a development-selected candidate; a new final evaluation is pending. The earlier beta 0.30 test results remain unchanged.
+  - Latest PanNuke update: [organ-specific presentation and results](experiments/pannuke_wcsp/README.md). Eight Breast-only WCSP families evaluated; type-set WCSP reaches **0.44844 biological mIoU**, versus **0.43840** for the previous global model on the same 169 Breast test patches. Colon and Adrenal are pending. See the [teammate review](experiments/pannuke_wcsp/TEAM_UPDATE_20261122.md).
+  - Earlier PanNuke experiments remain available, including the [learned-table beta sweep](experiments/pannuke_wcsp/pannuke_learned_table_beta_dev/).
 - BCSS overnight experiments (full 512 output, pairwise training loss, sparse distant relations, hybrid solvers): [runbook](experiments/bcss_wcsp/TONIGHT.md).
 - `benchmarks/` - classifier baselines on PanNuke and BCSS (Deliverable 3), plus the BCSS
   loader package `benchmarks/bcss/loader` (dataset, classes, grid, stats, metrics).

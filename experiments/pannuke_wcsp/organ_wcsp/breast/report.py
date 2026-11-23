@@ -139,6 +139,7 @@ def document(results, methods, frozen, split):
         control = methods[comparison['method']]['bio_miou']
         lines.append(f"| {NAMES[family]} | {row['bio_miou']:.6f} | {control:.6f} | {comparison['delta']:+.6f} | [{lower:+.6f}, {upper:+.6f}] | {'Yes' if row['works'] else 'No'} | {'Yes' if row['beats_global'] else 'No'} |")
     lines += ['', '# Breast-only WCSP: controlled eight-family comparison', '',
+        '- **Presentation:** [PanNuke organ overview](../../README.md). **Team review:** [22 November update](../../TEAM_UPDATE_20261122.md).', '',
         '![Gain against matched controls](summary.png)', '',
         f"- **Split:** {len(split['fit'])} fit / {len(split['dev'])} dev / {len(split['test'])} test; seed 20261122; 1,235 previously used IDs excluded.",
         '- Breast only, PanNuke fold 2; full 256×256 patches. Split saved before metrics. Previous experiment directories unchanged.',
