@@ -1,5 +1,7 @@
 # Deliverable 7
 
+**Web version:** https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/
+
 *November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)*
 
 ---
@@ -10,14 +12,16 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 | Method | PanNuke · Breast test | BCSS · dev | BCSS · val |
 |---|:---:|:---:|:---:|
-| Base model (HoVer-Net / U-Net) | 0.4323 | 0.7067 | 0.6489 |
-| Pixel WCSP, handwritten table | — | 0.7097 (+0.0030) | 0.6507 (+0.0019) |
-| Pixel WCSP, data-learned table | 0.4324 (+0.0001) | 0.7090 (+0.0023) | 0.6506 (+0.0018) |
-| Hierarchical (multi-scale blocks) | 0.4323 (0.0000) | 0.7107 (+0.0040) | 0.6517 (+0.0028) |
-| Hierarchical + decay | 0.4323 (0.0000) | 0.7108 (+0.0041) | *running* |
-| Cluster (nucleus / SLIC superpixel) | 0.4344 (+0.0020) | 0.7163 (+0.0095) | *running* |
+| Base | 0.4323 | 0.7067 | 0.6489 |
+| Pair (HW) | — | 0.7097 (+0.0030) | 0.6507 (+0.0019) |
+| Pair (DD) | 0.4324 (+0.0001) | 0.7090 (+0.0023) | 0.6506 (+0.0018) |
+| Hier | 0.4323 (0.0000) | 0.7107 (+0.0040) | 0.6517 (+0.0028) |
+| Hier+Decay | 0.4323 (0.0000) | 0.7108 (+0.0041) | *running* |
+| Cluster | 0.4344 (+0.0020) | 0.7163 (+0.0095) | *running* |
 | **Presence** | — | **0.7229 (+0.0162)** | **0.6550 (+0.0061)** |
-| **Presence + cluster** | **0.4484 (+0.0161)** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** |
+| **Pres+Clust** | **0.4484 (+0.0161)** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** |
+
+**Base** HoVer-Net / U-Net · **Pair (HW / DD)** pixel WCSP, handwritten / data-derived table · **Hier** multi-scale blocks · **Hier+Decay** with level decay · **Cluster** one label per nucleus (PanNuke) or SLIC superpixel (BCSS) · **Presence** drop classes that shouldn't be in the tile · **Pres+Clust** both
 
 ![Results by method](figures_20261123/gains_both_datasets.png)
 

@@ -24,54 +24,49 @@ plt.rcParams.update({
 # One row per method family, same rows for both datasets (None = not run).
 # PanNuke: organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast), Breast test, 169 patches.
 # BCSS: runs/*/dev/summary.csv, dev, 185 tiles (lambda = 8): the only split with every family.
-FAMILIES = [  # (label, PanNuke Breast test, BCSS dev, BCSS val, is presence); None = not run yet
-    ("Base model", 0.432348, 0.706720, 0.648852, None),
-    ("Pixel WCSP, handwritten table", None, 0.709734, 0.650712, False),
-    ("Pixel WCSP, data-learned table", 0.432412, 0.708998, 0.650602, False),
-    ("Hierarchical (multi-scale blocks)", 0.432328, 0.710750, 0.651698, False),
-    ("Hierarchical + decay", 0.432305, 0.710783, None, False),
-    ("Cluster (nucleus / SLIC superpixel)", 0.434374, 0.716253, None, False),
+FAMILIES = [  # (short name, PanNuke Breast test, BCSS dev, BCSS val, is presence); None = not run yet
+    ("Base", 0.432348, 0.706720, 0.648852, None),
+    ("Pair (HW)", None, 0.709734, 0.650712, False),
+    ("Pair (DD)", 0.432412, 0.708998, 0.650602, False),
+    ("Hier", 0.432328, 0.710750, 0.651698, False),
+    ("Hier+Decay", 0.432305, 0.710783, None, False),
+    ("Cluster", 0.434374, 0.716253, None, False),
     ("Presence", None, 0.722877, 0.654962, True),
-    ("Presence + cluster", 0.448441, 0.724218, 0.656387, True),
+    ("Pres+Clust", 0.448441, 0.724218, 0.656387, True),
 ]
 
 
-def family_panel(ax, title, col, base):
-    """Horizontal bars on the raw mIoU scale; the axis starts just below the lowest value."""
-    labels = [f[0] for f in FAMILIES]
-    ys = list(range(len(FAMILIES)))[::-1]
-    vals = [f[col] for f in FAMILIES if f[col] is not None]
+def family_panel(ax, title, col):
+    """Vertical bars, one per method that was run, on this panel's own mIoU axis."""
+    rows = [(f[0], f[col], f[4]) for f in FAMILIES if f[col] is not None]
+    base = rows[0][1]
+    vals = [r[1] for r in rows]
     lo = round(min(vals) - 0.006, 2)
-    for y, f in zip(ys, FAMILIES):
-        v, rule = f[col], f[4]
-        if v is None:
-            ax.text(lo + 0.0008, y, "—", va="center", color=MUTED, fontsize=9)
-            continue
+    xs = range(len(rows))
+    for x, (name, v, rule) in zip(xs, rows):
         color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
-        ax.barh(y, v - lo, left=lo, color=color, height=0.62, edgecolor=SURFACE, linewidth=2)
-        d = v - base
-        text = f"{v:.4f}" if rule is None else f"{v:.4f}  ({'0.0000' if abs(d) < 5e-5 else f'{d:+.4f}'})"
-        ax.text(v + 0.0007, y, text, va="center", color=INK, fontsize=9)
-    ax.axvline(base, color=INK, linewidth=1, linestyle="--", zorder=3)
-    ax.set_yticks(ys, labels)
-    ax.tick_params(axis="y", length=0)
-    ax.set_xlim(lo, max(vals) + 0.012)
-    ax.grid(axis="x", color=GRID, linewidth=0.8)
+        ax.bar(x, v - lo, bottom=lo, color=color, width=0.65, edgecolor=SURFACE, linewidth=2)
+        ax.text(x, v + 0.0004, f"{v:.4f}", ha="center", va="bottom", color=INK, fontsize=7.5)
+    ax.axhline(base, color=INK, linewidth=1, linestyle="--")
+    ax.set_xticks(list(xs), [r[0] for r in rows], rotation=35, ha="right")
+    ax.tick_params(axis="x", length=0, colors=INK)
+    ax.set_ylim(lo, max(vals) + 0.004)
+    ax.set_ylabel("mIoU")
+    ax.grid(axis="y", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    ax.set_xlabel(f"mIoU (axis from {lo:.2f})")
+    ax.spines["left"].set_visible(False)
     ax.set_title(title, loc="left", color=INK, fontsize=11, fontweight="bold")
 
 
 def fig_gains():
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.3), sharey=True, gridspec_kw={"wspace": 0.1})
-    family_panel(axes[0], "PanNuke · Breast test", 1, 0.432348)
-    family_panel(axes[1], "BCSS · dev", 2, 0.706720)
-    family_panel(axes[2], "BCSS · val", 3, 0.648852)
-    for ax in axes[1:]:
-        ax.tick_params(axis="y", labelleft=False)
+    fig, axes = plt.subplots(1, 3, figsize=(17, 4.4), gridspec_kw={"wspace": 0.28})
+    family_panel(axes[0], "PanNuke · Breast test", 1)
+    family_panel(axes[1], "BCSS · dev", 2)
+    family_panel(axes[2], "BCSS · val", 3)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (MUTED, LOCAL, SET_RULE)]
-    fig.legend(handles, ["Base model (HoVer-Net / U-Net)", "Smoothing / local structure", "Presence"],
-               loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.55, -0.12))
+    handles.append(plt.Line2D([], [], color=INK, linestyle="--"))
+    fig.legend(handles, ["Base model", "Smoothing", "Presence", "Base level"],
+               loc="lower center", ncol=4, frameon=False, bbox_to_anchor=(0.5, -0.14))
     fig.savefig(OUT / "gains_both_datasets.png", dpi=200, bbox_inches="tight")
 
 

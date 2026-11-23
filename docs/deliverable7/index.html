@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deliverable 7 · Histopathology WCSP</title>
+<style>
+  :root { --ink:#0b0b0b; --muted:#52514e; --line:#e4e3df; --bg:#fcfcfb; --accent:#2a78d6; --soft:#f3f2ee; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 8px; }
+  h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0; }
+  h2 { font-size: 22px; margin: 48px 0 12px; padding-top: 8px; }
+  p { margin: 10px 0; }
+  .note { color: var(--muted); font-size: 14px; }
+  .take { background: var(--soft); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 4px; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 15px; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.hl td { font-weight: 600; }
+  .d { color: var(--muted); font-weight: 400; }
+  .dash { color: #a9a8a2; }
+  img { width: 100%; height: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  .abbr { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+  .abbr b { color: var(--ink); }
+  nav { display: flex; gap: 18px; font-size: 14px; margin-top: 14px; }
+  nav a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Deliverable 7</h1>
+  <p class="sub">November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)</p>
+  <nav><a href="#recap">Recap</a><a href="#hypothesis">Hypothesis</a><a href="#prelim">Preliminary tests</a><a href="#current">Current experiments</a></nav>
+</header>
+
+<section id="recap">
+<h2>Recap of results</h2>
+<p class="note">mIoU, change vs. the base model in brackets. <span class="dash">—</span> = not run (yet).</p>
+
+<table>
+  <tr><th>Method</th><th class="num">PanNuke · Breast test</th><th class="num">BCSS · dev</th><th class="num">BCSS · val</th></tr>
+  <tr><td>Base</td><td class="num">0.4323</td><td class="num">0.7067</td><td class="num">0.6489</td></tr>
+  <tr><td>Pair (HW)</td><td class="num dash">—</td><td class="num">0.7097 <span class="d">(+0.0030)</span></td><td class="num">0.6507 <span class="d">(+0.0019)</span></td></tr>
+  <tr><td>Pair (DD)</td><td class="num">0.4324 <span class="d">(+0.0001)</span></td><td class="num">0.7090 <span class="d">(+0.0023)</span></td><td class="num">0.6506 <span class="d">(+0.0018)</span></td></tr>
+  <tr><td>Hier</td><td class="num">0.4323 <span class="d">(0.0000)</span></td><td class="num">0.7107 <span class="d">(+0.0040)</span></td><td class="num">0.6517 <span class="d">(+0.0028)</span></td></tr>
+  <tr><td>Hier+Decay</td><td class="num">0.4323 <span class="d">(0.0000)</span></td><td class="num">0.7108 <span class="d">(+0.0041)</span></td><td class="num dash">running</td></tr>
+  <tr><td>Cluster</td><td class="num">0.4344 <span class="d">(+0.0020)</span></td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num dash">running</td></tr>
+  <tr class="hl"><td>Presence</td><td class="num dash">—</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td><td class="num">0.6550 <span class="d">(+0.0061)</span></td></tr>
+  <tr class="hl"><td>Pres+Clust</td><td class="num">0.4484 <span class="d">(+0.0161)</span></td><td class="num">0.7242 <span class="d">(+0.0175)</span></td><td class="num">0.6564 <span class="d">(+0.0075)</span></td></tr>
+</table>
+
+<div class="abbr">
+  <span><b>Base</b> HoVer-Net / U-Net</span>
+  <span><b>Pair (HW / DD)</b> pixel WCSP, handwritten / data-derived table</span>
+  <span><b>Hier</b> multi-scale blocks</span>
+  <span><b>Hier+Decay</b> with level decay</span>
+  <span><b>Cluster</b> one label per nucleus (PanNuke) or SLIC superpixel (BCSS)</span>
+  <span><b>Presence</b> drop classes that shouldn't be in the tile</span>
+  <span><b>Pres+Clust</b> both</span>
+</div>
+
+<img src="gains_both_datasets.png" alt="mIoU per method on PanNuke Breast test, BCSS dev and BCSS val">
+
+<div class="take"><b>Takeaway:</b> smoothing (Pair, Hier, Decay) barely moves either dataset. Presence, which removes classes that shouldn't be in a tile, is the only clear gain on both.</div>
+<p class="note">Sources: PanNuke <code>experiments/pannuke_wcsp/organ_wcsp/breast/evaluation.json</code> (branch <code>organ-wcsp-breast</code>, Nov 22); BCSS run summaries (λ = 8).</p>
+</section>
+
+<section id="hypothesis">
+<h2>Hypothesis</h2>
+<p>The segmenter makes two kinds of mistakes, and smoothing fixes neither.</p>
+<table>
+  <tr><th>Mistake</th><th>Example</th><th>What would fix it</th></tr>
+  <tr><td><b>Grouping</b></td><td>One stroma region is predicted as ~10 scattered pieces</td><td>Coherent regions</td></tr>
+  <tr><td><b>Labeling</b></td><td>A whole region is called "other" when it's stroma</td><td>Knowing which classes belong in the tile</td></tr>
+</table>
+</section>
+
+<section id="prelim">
+<h2>Preliminary tests</h2>
+<p class="note">Ryan's full-resolution U-Net · 185 dev tiles · no training.</p>
+<table>
+  <tr><th>Test</th><th class="num">Result</th></tr>
+  <tr><td>Wrong pixels that are <b>grouping</b> mistakes</td><td class="num"><b>48%</b></td></tr>
+  <tr><td>Wrong pixels that are <b>labeling</b> mistakes</td><td class="num"><b>52%</b></td></tr>
+  <tr><td>Predicted pieces per true region</td><td class="num"><b>~10</b> <span class="d">(should be 1)</span></td></tr>
+  <tr><td>Presence + smoothing on this model</td><td class="num">0.6524 → <b>0.6610</b> <span class="d">(+0.0086)</span></td></tr>
+  <tr><td>Upper bound: true classes given per tile</td><td class="num dash">running</td></tr>
+  <tr><td>Upper bound: every true region coherent</td><td class="num dash">running</td></tr>
+</table>
+
+<img src="prelim_error_split.png" alt="Wrong pixels per class, split into grouping and labeling errors">
+
+<div class="take"><b>Worst classes:</b> "other" (36% wrong) and stroma (25%), both mostly <b>labeling</b> mistakes. Inflammatory and necrosis errors are mostly <b>grouping</b>.</div>
+</section>
+
+<section id="current">
+<h2>Current experiments: fixing the U-Net itself</h2>
+<p>Same training as Ryan's model; only the loss changes. Score = raw U-Net, no post-processing.</p>
+<table>
+  <tr><th>Model</th><th>Added loss</th><th>Fixes</th><th class="num">Dev mIoU</th></tr>
+  <tr><td>A (Ryan)</td><td>none</td><td class="dash">—</td><td class="num">0.6679</td></tr>
+  <tr><td>B</td><td>Region loss: pixels in the same true region should agree</td><td>Grouping</td><td class="num dash">—</td></tr>
+  <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Labeling</td><td class="num dash">—</td></tr>
+</table>
+<div class="take"><b>Success</b> = B or C beats A.</div>
+</section>
+
+</main>
+</body>
+</html>
