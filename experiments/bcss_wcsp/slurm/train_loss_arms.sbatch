@@ -22,7 +22,7 @@ source /scratch1/$USER/envs/train/bin/activate
 export TMPDIR=/scratch1/$USER/tmp OMP_NUM_THREADS=4
 mkdir -p "$TMPDIR"
 
-arms=("A_ce" "B_ce_cluster" "C_ce_presence")
+arms=("A_ce" "B_ce_region" "C_ce_presence")
 extra=("" "--cluster-weight 1" "--presence-weight 1")
 arm=${arms[$SLURM_ARRAY_TASK_ID]}
 
@@ -30,5 +30,5 @@ cd "$SLURM_SUBMIT_DIR"
 nvidia-smi --query-gpu=name,memory.total --format=csv
 # shellcheck disable=SC2086
 python benchmarks/bcss/scripts/train_experiments.py --architecture baseline --field center \
-    --epochs 10 --batch 4 --seed 0 --root /scratch1/$USER/data/bcss_v2 \
-    --out /scratch1/$USER/wcsp/train_arms/$arm ${extra[$SLURM_ARRAY_TASK_ID]}
+    --epochs ${EPOCHS:-10} --batch 4 --seed 0 --root /scratch1/$USER/data/bcss_v2 \
+    --out /scratch1/$USER/wcsp/train_arms/${PREFIX:-}$arm ${extra[$SLURM_ARRAY_TASK_ID]} "$@"
