@@ -24,15 +24,15 @@ plt.rcParams.update({
 # One row per method family, same rows for both datasets (None = not run).
 # PanNuke: organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast), Breast test, 169 patches.
 # BCSS: runs/*/dev/summary.csv, dev, 185 tiles (lambda = 8): the only split with every family.
-FAMILIES = [  # (label, PanNuke Breast test, BCSS dev, is presence)
-    ("Base model", 0.432348, 0.706720, None),
-    ("Pixel WCSP, handwritten table", None, 0.709734, False),
-    ("Pixel WCSP, data-learned table", 0.432412, 0.708998, False),
-    ("Hierarchical (multi-scale blocks)", 0.432328, 0.710750, False),
-    ("Hierarchical + decay", 0.432305, 0.710783, False),
-    ("Cluster (nucleus / SLIC superpixel)", 0.434374, 0.716253, False),
-    ("Presence", None, 0.722877, True),
-    ("Presence + cluster", 0.448441, 0.724218, True),
+FAMILIES = [  # (label, PanNuke Breast test, BCSS dev, BCSS val, is presence); None = not run yet
+    ("Base model", 0.432348, 0.706720, 0.648852, None),
+    ("Pixel WCSP, handwritten table", None, 0.709734, 0.650712, False),
+    ("Pixel WCSP, data-learned table", 0.432412, 0.708998, 0.650602, False),
+    ("Hierarchical (multi-scale blocks)", 0.432328, 0.710750, 0.651698, False),
+    ("Hierarchical + decay", 0.432305, 0.710783, None, False),
+    ("Cluster (nucleus / SLIC superpixel)", 0.434374, 0.716253, None, False),
+    ("Presence", None, 0.722877, 0.654962, True),
+    ("Presence + cluster", 0.448441, 0.724218, 0.656387, True),
 ]
 
 
@@ -43,9 +43,9 @@ def family_panel(ax, title, col, base):
     vals = [f[col] for f in FAMILIES if f[col] is not None]
     lo = round(min(vals) - 0.006, 2)
     for y, f in zip(ys, FAMILIES):
-        v, rule = f[col], f[3]
+        v, rule = f[col], f[4]
         if v is None:
-            ax.text(lo + 0.0008, y, "not run", va="center", color=MUTED, fontsize=8, style="italic")
+            ax.text(lo + 0.0008, y, "—", va="center", color=MUTED, fontsize=9)
             continue
         color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
         ax.barh(y, v - lo, left=lo, color=color, height=0.62, edgecolor=SURFACE, linewidth=2)
@@ -58,16 +58,17 @@ def family_panel(ax, title, col, base):
     ax.set_xlim(lo, max(vals) + 0.012)
     ax.grid(axis="x", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    ax.set_xlabel(f"mIoU (axis starts at {lo:.2f}; dashed line = base model)")
+    ax.set_xlabel(f"mIoU (axis from {lo:.2f})")
     ax.set_title(title, loc="left", color=INK, fontsize=11, fontweight="bold")
 
 
 def fig_gains():
-    fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharey=True, gridspec_kw={"wspace": 0.08})
-    family_panel(axes[0], "PanNuke · Breast test (169 patches)", 1, 0.432348)
-    family_panel(axes[1], "BCSS · dev (185 tiles)", 2, 0.706720)
-    axes[1].tick_params(axis="y", labelleft=False)
-    handles = [plt.Line2D([], [], marker="o", linestyle="", color=c, markersize=9) for c in (MUTED, LOCAL, SET_RULE)]
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.3), sharey=True, gridspec_kw={"wspace": 0.1})
+    family_panel(axes[0], "PanNuke · Breast test", 1, 0.432348)
+    family_panel(axes[1], "BCSS · dev", 2, 0.706720)
+    family_panel(axes[2], "BCSS · val", 3, 0.648852)
+    for ax in axes[1:]:
+        ax.tick_params(axis="y", labelleft=False)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (MUTED, LOCAL, SET_RULE)]
     fig.legend(handles, ["Base model (HoVer-Net / U-Net)", "Smoothing / local structure", "Presence"],
                loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.55, -0.12))
