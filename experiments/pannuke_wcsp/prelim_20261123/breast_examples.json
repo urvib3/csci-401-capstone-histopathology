@@ -1,0 +1,13 @@
+{
+  "chosen_image_ids": [
+    30532,
+    10252,
+    10225,
+    10172
+  ],
+  "rule": "Breast images in the 400 dev images: the 3 with the largest per-image mIoU gain of the swept type-set WCSP over voting, and the 1 with the largest loss.",
+  "breast_dev_images": 120,
+  "improved": 28,
+  "worse": 16,
+  "unchanged": 76
+}
