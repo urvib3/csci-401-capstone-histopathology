@@ -6,13 +6,14 @@
 
 ## 1. What we've tried
 
-Gain in mIoU points over the base model, on held-out data.
+mIoU on held-out data; change vs. the base model in brackets. Sources: PanNuke `organ_wcsp/breast/evaluation.json` (branch `organ-wcsp-breast`); BCSS val run summaries.
 
-| Method | BCSS (val) | PanNuke (Breast test) |
+| Method | PanNuke (Breast test) | BCSS (val) |
 |---|:---:|:---:|
-| Smoothing (WCSP, blocks, decay) | +0.2 | ≈ 0 |
-| **Presence rule** | **+0.6** | **+1.4** |
-| **Presence + cluster smoothing** | **+0.75** | — |
+| Base model | 0.4323 (HoVer-Net) | 0.6489 (U-Net) |
+| Smoothing (WCSP, blocks, decay) | 0.4324 (+0.0001) | 0.6506 (+0.0018) |
+| **Presence rule** | **0.4484 (+0.0161)** | **0.6550 (+0.0061)** |
+| **Presence + cluster smoothing** | — | **0.6564 (+0.0075)** |
 
 ![Gains](figures_20261123/gains_both_datasets.png)
 
@@ -36,7 +37,7 @@ On Ryan's full-resolution U-Net, 185 dev tiles, with no training.
 | Share of wrong pixels that are **grouping** mistakes | **48%** |
 | Share that are **labeling** mistakes | **52%** |
 | Pieces per true region | **~10** (should be 1) |
-| Presence + smoothing on this model | 0.6524 → **0.6610** (+0.9) |
+| Presence + smoothing on this model | 0.6524 → **0.6610** (+0.0086) |
 | If we knew the **true classes** per tile (upper bound) | — |
 | If every true region were **coherent** (upper bound) | — |
 

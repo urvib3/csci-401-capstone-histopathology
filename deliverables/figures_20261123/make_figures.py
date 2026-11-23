@@ -21,50 +21,47 @@ plt.rcParams.update({
 })
 
 
-def gain_panel(ax, title, rows, xlabel):
-    """rows: (label, gain in mIoU points, is_set_rule). Horizontal bars from 0."""
-    labels = [r[0] for r in rows][::-1]
-    values = [r[1] for r in rows][::-1]
-    colors = [SET_RULE if r[2] else LOCAL for r in rows][::-1]
-    bars = ax.barh(labels, values, color=colors, height=0.62, edgecolor=SURFACE, linewidth=2)
-    ax.axvline(0, color=MUTED, linewidth=1)
+def miou_panel(ax, title, base_label, base, rows):
+    """Dot plot on the raw mIoU scale; the base model is the first dot and a dashed line."""
+    rows = [(base_label, base, None)] + rows
+    ys = list(range(len(rows)))[::-1]
+    ax.axvline(base, color=MUTED, linewidth=1, linestyle="--", zorder=1)
+    for y, (label, v, rule) in zip(ys, rows):
+        color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
+        ax.plot([base, v], [y, y], color=GRID, linewidth=2, zorder=1)
+        ax.plot(v, y, "o", color=color, markersize=9, markeredgecolor=SURFACE, markeredgewidth=2, zorder=3)
+        d = v - base
+        text = f"{v:.4f}" if rule is None else f"{v:.4f}  ({'0.0000' if abs(d) < 5e-5 else f'{d:+.4f}'})"
+        ax.text(max(v, base) + 0.0012, y, text, va="center", color=INK, fontsize=9)
+    ax.set_yticks(ys, [r[0] for r in rows])
+    ax.tick_params(axis="y", length=0)
+    lo, hi = min(r[1] for r in rows), max(r[1] for r in rows)
+    ax.set_xlim(lo - 0.004, hi + 0.012)
     ax.grid(axis="x", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    ax.tick_params(axis="y", length=0)
-    lo, hi = min(0, min(values)), max(values)
-    ax.set_xlim(lo - 0.15 * (hi - lo) - 0.05, hi * 1.22)
-    for bar, v in zip(bars, values):
-        ax.text(v + (0.03 if v >= 0 else -0.03) * (hi - lo + 0.5), bar.get_y() + bar.get_height() / 2,
-                ("0.00" if abs(v) < 0.005 else f"{v:+.2f}"), va="center", ha="left" if v >= 0 else "right", color=INK, fontsize=9)
+    ax.set_xlabel("mIoU")
     ax.set_title(title, loc="left", color=INK, fontsize=11, fontweight="bold")
-    ax.set_xlabel(xlabel)
 
 
 def fig_gains():
-    bcss = [  # dev, 185 tiles, gain over the U-Net (0.7067)
-        ("Pixel WCSP (pair table)", 0.23, False),
-        ("Multi-scale block WCSP", 0.41, False),
-        ("Best block decay schedule", 0.41, False),
-        ("Cluster WCSP (SLIC + refine)", 0.96, False),
-        ("Class presence", 1.62, True),
-        ("Cluster WCSP + class presence", 1.75, True),
-    ]
-    pannuke = [  # Breast test, 169 patches, gain over each family's matched control
-        ("Pixel learned table", 0.01, False),
-        ("Hierarchy V1/V2", 0.00, False),
-        ("Scaling / siblings", -0.01, False),
-        ("Hierarchical decay", 0.00, False),
-        ("Nucleus pairwise", -0.09, False),
-        ("Type counts", -0.38, False),
-        ("Raw TP components", 0.32, False),
-        ("Patch-wide type set", 1.41, True),
-    ]
-    fig, axes = plt.subplots(1, 2, figsize=(11, 3.9), gridspec_kw={"wspace": 0.75})
-    gain_panel(axes[0], "BCSS: gain over the U-Net (dev)", bcss, "mIoU points")
-    gain_panel(axes[1], "PanNuke Breast: gain over matched control (test)", pannuke, "mIoU points")
-    handles = [plt.Rectangle((0, 0), 1, 1, color=SET_RULE), plt.Rectangle((0, 0), 1, 1, color=LOCAL)]
-    fig.legend(handles, ["Tile / patch-level class-set rule", "Local or pairwise structure"],
-               loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.13))
+    # exact values: BCSS runs/*/val/summary.csv; PanNuke organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast)
+    bcss = [("Pixel WCSP", 0.650602, False),
+            ("WCSP + presence", 0.654962, True),
+            ("Cluster WCSP + presence", 0.656387, True)]
+    pannuke = [("Pixel learned table", 0.432412, False),
+               ("Hierarchy", 0.432328, False),
+               ("Scaling / siblings", 0.432258, False),
+               ("Decay", 0.432305, False),
+               ("Nucleus pairwise", 0.433482, False),
+               ("Type counts", 0.430543, False),
+               ("Raw TP components", 0.435567, False),
+               ("Patch-wide type set", 0.448441, True)]
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.2), gridspec_kw={"wspace": 0.85, "width_ratios": [1.1, 1]})
+    miou_panel(axes[0], "PanNuke Breast test (169 patches)", "HoVer-Net", 0.432348, pannuke)
+    miou_panel(axes[1], "BCSS val (2,124 tiles)", "U-Net", 0.648852, bcss)
+    handles = [plt.Line2D([], [], marker="o", linestyle="", color=c, markersize=9) for c in (MUTED, LOCAL, SET_RULE)]
+    fig.legend(handles, ["Base model", "Smoothing / local structure", "Presence (class-set rule)"],
+               loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.12))
     fig.savefig(OUT / "gains_both_datasets.png", dpi=200, bbox_inches="tight")
 
 
