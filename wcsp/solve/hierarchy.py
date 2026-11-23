@@ -72,12 +72,18 @@ class HierarchySolver:
     block_alpha, block_lam, block_types, eta:
         Block unary weight, block neighbor weight (same b table as the
         pixels) and the block neighborhood (types as in wcsp.model.neighborhood).
+    level_lam:
+        Optional block neighbor weight per level (finest first), replacing
+        block_lam; used for decay schedules, e.g. [8 d^2, 8 d, 8].
     """
 
     def __init__(self, pixel, levels=3, size=4, mu=1.0, block_alpha=1.0, block_lam=8.0,
-                 block_types=(1, 2), eta=1.0, max_rounds=4, tol=1e-9):
+                 block_types=(1, 2), eta=1.0, max_rounds=4, tol=1e-9, level_lam=None):
         if levels < 1:
             raise ValueError("levels must be >= 1.")
+        if level_lam is not None and len(level_lam) != levels:
+            raise ValueError("level_lam needs one weight per block level.")
+        self.level_lam = None if level_lam is None else [float(v) for v in level_lam]
         self.pixel = pixel
         self.levels = levels
         self.size = size
@@ -107,14 +113,15 @@ class HierarchySolver:
         offsets = forward_offsets(self.block_types)
         base = distance_weights(offsets, self.eta, normalize=True)
         out = []
-        for side in self.sides():
+        for l, side in enumerate(self.sides()):
             mean = pool(probs, side) / side ** 2
             unary = -np.log(np.clip(mean, 1e-6, 1.0))
             unary -= unary.min(-1, keepdims=True)
+            lam = self.block_lam if self.level_lam is None else self.level_lam[l]
             out.append(GridProblem(
                 unary=self.block_alpha * side ** 2 * unary,
                 offsets=offsets,
-                weights=self.block_lam * side * base,
+                weights=lam * side * base,
                 table=problem.table,
             ))
         return out
@@ -176,15 +183,20 @@ class HierarchySolver:
         for round_ in range(1, self.max_rounds + 1):
             round_start = current
             for level in range(self.levels + 1):
+                before = current
                 if level == 0:
                     sub = replace(problem, unary=problem.unary + self._link_costs(0, k, labels, block_labels))
-                    labels = self.pixel.solve(sub, labels).labels
+                    new = self.pixel.solve(sub, labels).labels
+                    changed, labels = int((new != labels).sum()), new
                 else:
                     base = blocks[level - 1]
                     sub = replace(base, unary=base.unary + self._link_costs(level, k, labels, block_labels))
-                    block_labels[level - 1] = self.block_solver.solve(sub, block_labels[level - 1]).labels
+                    new = self.block_solver.solve(sub, block_labels[level - 1]).labels
+                    changed, block_labels[level - 1] = int((new != block_labels[level - 1]).sum()), new
                 current = self.total_energy(problem, blocks, labels, block_labels)
+                # changed: variables (pixels or blocks) of this level that switched label in this step
                 trace.append({"round": round_, "level": level, "energy": current,
+                              "energy_drop": before - current, "changed": changed,
                               "seconds": time.perf_counter() - start})
             if current >= round_start - self.tol:
                 break

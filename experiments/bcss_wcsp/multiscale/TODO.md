@@ -48,7 +48,17 @@ Deliverable 5's set is the one we can reproduce exactly.
 - [x] Presence solver (`wcsp/solve/presence.py`): choose the tile's class set exactly from the U-Net evidence
       + γ · −log P(set) from fit counts, then the usual WCSP with other classes forbidden. 6 tests pass.
 - [x] Exclusion tables: necrosis–inflammatory and necrosis–other b raised to 15 and 50.
-- [ ] **Running:** fit-split prior (job 13892100) → presence dev sweep γ ∈ {0, 10, 30, 100, 300, 1000, 3000}
-      (13892101); exclusion dev runs (13892102)
+- [x] Prior from 4,588 fit tiles. Presence dev (current WCSP 0.7090): γ 0 0.7090 (exact control) · 10 0.7090 ·
+      30 0.7091 · 100 0.7102 · 300 0.7117 · 1000 0.7139 · **3000 0.7229**. Still rising.
+- [x] Exclusion dev: b = 15 0.7095, b = 50 0.7094 (≈ +0.0005)
+- [x] toulbar2 benchmark at 2 / 20 / 120 s per block (nodes, backtracks, proved optima, vs. ICM)
+- [x] Presence γ 10k 0.7094 · 30k 0.6887 · 100k 0.5449: peak at **γ = 3000** (dev +0.0162 [+0.0045, +0.0275] vs. U-Net).
+      Tumor–other exclusion 0.7096.
+- [x] Three-rule data check (`rules/check_rules.py`): neighbor-tile continuity, inflammatory-in-stroma, large necrosis regions
+- [x] 2026-11-16: Deliverable 7 draft dropped; results added to the bottom of Deliverable 6 instead (not pushed)
+- [ ] **Running (14289041):** decay sweep mirroring PanNuke's sibling decay: `solver.level_lam` per-level
+      neighbor weights anchored at 16 px = 8; blocks / all / pixels decay d ∈ {0.8, 0.6, 0.4, 0.2},
+      matched Potts (b = 4.0), uniform blocks {2, 4, 6}, coarse boost {12, 16}. 23 dev runs
+      (`configs/sweeps/bcss_decay_dev.txt`). Smoke-tested on 2 tiles; `test_level_lam_schedule` passes.
 - [ ] Combine the best rule with multi-scale; freeze; one val run
 - [ ] Charts + concise rewrite of my Deliverable 6 sections; push

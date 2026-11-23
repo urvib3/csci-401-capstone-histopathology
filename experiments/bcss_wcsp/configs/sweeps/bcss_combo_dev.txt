@@ -1,0 +1,10 @@
+k_g_other3000 --set solver.inner.gamma=3000 --set solver.inner.label_cost.4=3000
+k_g_other10000 --set solver.inner.gamma=3000 --set solver.inner.label_cost.4=10000
+k_g_necro3000 --set solver.inner.gamma=3000 --set solver.inner.label_cost.3=3000
+k_g_lc --set solver.inner.gamma=3000 --set solver.inner.label_cost.4=3000 --set solver.inner.label_cost.3=3000 --set solver.inner.label_cost.1=1000
+k_g_share5 --set solver.inner.gamma=3000 --set solver.min_share.4=0.05
+k_g_infl50 --set solver.inner.gamma=3000 --set solver.border.infl_stroma.min_share=0.5
+k_g_regions --set solver.inner.gamma=3000 --set solver.min_area.3=1024 --set solver.min_share.4=0.05 --set solver.border.infl_stroma.min_share=0.5
+k_g_lc_regions --set solver.inner.gamma=3000 --set solver.inner.label_cost.4=3000 --set solver.inner.label_cost.3=3000 --set solver.inner.label_cost.1=1000 --set solver.min_area.3=1024 --set solver.min_share.4=0.05 --set solver.border.infl_stroma.min_share=0.5
+q_lc_other30000 --set solver.inner.label_cost.4=30000
+q_lc_necro10000 --set solver.inner.label_cost.3=10000

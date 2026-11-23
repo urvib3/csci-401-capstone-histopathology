@@ -1,0 +1,3 @@
+pr_g10000 --set solver.gamma=10000
+pr_g30000 --set solver.gamma=30000
+pr_g100000 --set solver.gamma=100000

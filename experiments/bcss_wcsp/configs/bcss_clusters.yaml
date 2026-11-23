@@ -1,0 +1,29 @@
+# WCSP on clusters (wcsp/solve/clusters.py): SLIC superpixels on colour + U-Net probabilities,
+# one label per cluster, same pixel WCSP costs summed per cluster. Deliverable 5 setup otherwise.
+name: bcss_clusters
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+classifier:
+  name: tia_unet
+  temperature: 1.0
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: experiments/bcss_wcsp/configs/tables/bcss_elicited.csv   # data-derived (PMI) b
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: clusters
+  n_segments: 256      # roughly how many clusters per 256 x 256 tile
+  compactness: 10.0
+  features: both       # image | probs | both
+  prob_weight: 30.0    # probability channels x 30 vs Lab 0-100
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

@@ -12,6 +12,11 @@ class ChainSolver:
             raise ValueError("a solver chain needs at least one stage.")
         self.stages = stages
 
+    def prepare(self, sample, prediction):
+        for stage in self.stages:
+            if hasattr(stage, "prepare"):
+                stage.prepare(sample, prediction)
+
     def solve(self, problem, init):
         start = time.perf_counter()
         labels, trace, result = init, [], None
