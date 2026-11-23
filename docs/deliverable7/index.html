@@ -91,9 +91,13 @@
   <tr><td>Wrong pixels that are <b>labeling</b> mistakes</td><td class="num"><b>52%</b></td></tr>
   <tr><td>Predicted pieces per true region</td><td class="num"><b>~10</b> <span class="d">(should be 1)</span></td></tr>
   <tr><td>Presence + smoothing on this model</td><td class="num">0.6524 → <b>0.6610</b> <span class="d">(+0.0086)</span></td></tr>
-  <tr><td>Upper bound: true classes given per tile</td><td class="num dash">running</td></tr>
-  <tr><td>Upper bound: every true region coherent</td><td class="num dash">running</td></tr>
+  <tr><td>Upper bound: true classes given per tile</td><td class="num"><b>0.7163</b> <span class="d">(+0.0639)</span></td></tr>
+  <tr><td>Upper bound: every true region coherent</td><td class="num"><b>0.7768</b> <span class="d">(+0.1244)</span></td></tr>
 </table>
+
+<img src="prelim_ladder.png" alt="Gain from presence vs. the two upper bounds">
+
+<div class="take"><b>Our presence rule gets only +0.0086 of a possible +0.0639</b>, so knowing the right classes is worth far more than the rule currently recovers. Coherent regions are worth even more (+0.1244). Both are what training arms B and C target.</div>
 
 <img src="prelim_error_split.png" alt="Wrong pixels per class, split into grouping and labeling errors">
 

@@ -37,18 +37,25 @@ FAMILIES = [  # (short name, PanNuke Breast test, BCSS dev, BCSS val, is presenc
 
 
 def family_panel(ax, title, col):
-    """Vertical bars, one per method that was run, on this panel's own mIoU axis."""
-    rows = [(f[0], f[col], f[4]) for f in FAMILIES if f[col] is not None]
-    base = rows[0][1]
-    vals = [r[1] for r in rows]
+    """Vertical bars for every method on this panel's own mIoU axis; methods not run yet are
+    drawn as empty dashed outlines up to the base level, labelled 'not run'."""
+    base = FAMILIES[0][col]
+    vals = [f[col] for f in FAMILIES if f[col] is not None]
     lo = round(min(vals) - 0.006, 2)
-    xs = range(len(rows))
-    for x, (name, v, rule) in zip(xs, rows):
+    xs = range(len(FAMILIES))
+    for x, f in zip(xs, FAMILIES):
+        v, rule = f[col], f[4]
+        if v is None:
+            ax.bar(x, base - lo, bottom=lo, facecolor="none", edgecolor=LOCAL, linewidth=1.2,
+                   linestyle="--", width=0.65)
+            ax.text(x, base + 0.0004, "running" if col == 3 else "not run", ha="center", va="bottom", color=MUTED, fontsize=7.5,
+                    style="italic")
+            continue
         color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
         ax.bar(x, v - lo, bottom=lo, color=color, width=0.65, edgecolor=SURFACE, linewidth=2)
         ax.text(x, v + 0.0004, f"{v:.4f}", ha="center", va="bottom", color=INK, fontsize=7.5)
     ax.axhline(base, color=INK, linewidth=1, linestyle="--")
-    ax.set_xticks(list(xs), [r[0] for r in rows], rotation=35, ha="right")
+    ax.set_xticks(list(xs), [f[0] for f in FAMILIES], rotation=35, ha="right")
     ax.tick_params(axis="x", length=0, colors=INK)
     ax.set_ylim(lo, max(vals) + 0.004)
     ax.set_ylabel("mIoU")
