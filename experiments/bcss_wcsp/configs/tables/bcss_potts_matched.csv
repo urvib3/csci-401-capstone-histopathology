@@ -1,0 +1,6 @@
+label,neoplastic,inflammatory,connective,dead,healthy
+neoplastic,0,4,4,4,4
+inflammatory,4,0,4,4,4
+connective,4,4,0,4,4
+dead,4,4,4,0,4
+healthy,4,4,4,4,0

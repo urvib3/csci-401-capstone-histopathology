@@ -1,0 +1,13 @@
+q_lc_other1000 --set solver.inner.label_cost.4=1000
+q_lc_other3000 --set solver.inner.label_cost.4=3000
+q_lc_other10000 --set solver.inner.label_cost.4=10000
+q_lc_necro3000 --set solver.inner.label_cost.3=3000
+q_lc_infl3000 --set solver.inner.label_cost.1=3000
+q_share_other2 --set solver.min_share.4=0.02
+q_share_other5 --set solver.min_share.4=0.05
+q_share_all2 --set solver.min_share.0=0.02 --set solver.min_share.1=0.02 --set solver.min_share.2=0.02 --set solver.min_share.3=0.02 --set solver.min_share.4=0.02
+q_frag64 --set solver.min_area.0=64 --set solver.min_area.1=64 --set solver.min_area.2=64 --set solver.min_area.3=64 --set solver.min_area.4=64
+q_frag256 --set solver.min_area.0=256 --set solver.min_area.1=256 --set solver.min_area.2=256 --set solver.min_area.3=256 --set solver.min_area.4=256
+q_infl_stroma30 --set solver.border.infl_stroma.min_share=0.3
+q_infl_stroma50 --set solver.border.infl_stroma.min_share=0.5
+q_share_necro2 --set solver.min_share.3=0.02
