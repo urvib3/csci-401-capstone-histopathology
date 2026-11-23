@@ -21,47 +21,56 @@ plt.rcParams.update({
 })
 
 
-def miou_panel(ax, title, base_label, base, rows):
-    """Dot plot on the raw mIoU scale; the base model is the first dot and a dashed line."""
-    rows = [(base_label, base, None)] + rows
-    ys = list(range(len(rows)))[::-1]
-    ax.axvline(base, color=MUTED, linewidth=1, linestyle="--", zorder=1)
-    for y, (label, v, rule) in zip(ys, rows):
+# One row per method family, same rows for both datasets (None = not run).
+# PanNuke: organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast), Breast test, 169 patches.
+# BCSS: runs/*/dev/summary.csv, dev, 185 tiles (lambda = 8): the only split with every family.
+FAMILIES = [  # (label, PanNuke Breast test, BCSS dev, is presence)
+    ("Base model", 0.432348, 0.706720, None),
+    ("Pixel WCSP, handwritten table", None, 0.709734, False),
+    ("Pixel WCSP, data-learned table", 0.432412, 0.708998, False),
+    ("Hierarchical (multi-scale blocks)", 0.432328, 0.710750, False),
+    ("Hierarchical + decay", 0.432305, 0.710783, False),
+    ("Cluster (nucleus / SLIC superpixel)", 0.434374, 0.716253, False),
+    ("Presence", None, 0.722877, True),
+    ("Presence + cluster", 0.448441, 0.724218, True),
+]
+
+
+def family_panel(ax, title, col, base):
+    """Horizontal bars on the raw mIoU scale; the axis starts just below the lowest value."""
+    labels = [f[0] for f in FAMILIES]
+    ys = list(range(len(FAMILIES)))[::-1]
+    vals = [f[col] for f in FAMILIES if f[col] is not None]
+    lo = round(min(vals) - 0.006, 2)
+    for y, f in zip(ys, FAMILIES):
+        v, rule = f[col], f[3]
+        if v is None:
+            ax.text(lo + 0.0008, y, "not run", va="center", color=MUTED, fontsize=8, style="italic")
+            continue
         color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
-        ax.plot([base, v], [y, y], color=GRID, linewidth=2, zorder=1)
-        ax.plot(v, y, "o", color=color, markersize=9, markeredgecolor=SURFACE, markeredgewidth=2, zorder=3)
+        ax.barh(y, v - lo, left=lo, color=color, height=0.62, edgecolor=SURFACE, linewidth=2)
         d = v - base
         text = f"{v:.4f}" if rule is None else f"{v:.4f}  ({'0.0000' if abs(d) < 5e-5 else f'{d:+.4f}'})"
-        ax.text(max(v, base) + 0.0012, y, text, va="center", color=INK, fontsize=9)
-    ax.set_yticks(ys, [r[0] for r in rows])
+        ax.text(v + 0.0007, y, text, va="center", color=INK, fontsize=9)
+    ax.axvline(base, color=INK, linewidth=1, linestyle="--", zorder=3)
+    ax.set_yticks(ys, labels)
     ax.tick_params(axis="y", length=0)
-    lo, hi = min(r[1] for r in rows), max(r[1] for r in rows)
-    ax.set_xlim(lo - 0.004, hi + 0.012)
+    ax.set_xlim(lo, max(vals) + 0.012)
     ax.grid(axis="x", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    ax.set_xlabel("mIoU")
+    ax.set_xlabel(f"mIoU (axis starts at {lo:.2f}; dashed line = base model)")
     ax.set_title(title, loc="left", color=INK, fontsize=11, fontweight="bold")
 
 
 def fig_gains():
-    # exact values: BCSS runs/*/val/summary.csv; PanNuke organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast)
-    bcss = [("Pixel WCSP", 0.650602, False),
-            ("WCSP + presence", 0.654962, True),
-            ("Cluster WCSP + presence", 0.656387, True)]
-    pannuke = [("Pixel learned table", 0.432412, False),
-               ("Hierarchy", 0.432328, False),
-               ("Scaling / siblings", 0.432258, False),
-               ("Decay", 0.432305, False),
-               ("Nucleus pairwise", 0.433482, False),
-               ("Type counts", 0.430543, False),
-               ("Raw TP components", 0.435567, False),
-               ("Patch-wide type set", 0.448441, True)]
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.2), gridspec_kw={"wspace": 0.85, "width_ratios": [1.1, 1]})
-    miou_panel(axes[0], "PanNuke Breast test (169 patches)", "HoVer-Net", 0.432348, pannuke)
-    miou_panel(axes[1], "BCSS val (2,124 tiles)", "U-Net", 0.648852, bcss)
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4.2), sharey=True, gridspec_kw={"wspace": 0.08})
+    family_panel(axes[0], "PanNuke · Breast test (169 patches)", 1, 0.432348)
+    family_panel(axes[1], "BCSS · dev (185 tiles)", 2, 0.706720)
+    axes[1].tick_params(axis="y", labelleft=False)
     handles = [plt.Line2D([], [], marker="o", linestyle="", color=c, markersize=9) for c in (MUTED, LOCAL, SET_RULE)]
-    fig.legend(handles, ["Base model", "Smoothing / local structure", "Presence (class-set rule)"],
-               loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.12))
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (MUTED, LOCAL, SET_RULE)]
+    fig.legend(handles, ["Base model (HoVer-Net / U-Net)", "Smoothing / local structure", "Presence"],
+               loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.55, -0.12))
     fig.savefig(OUT / "gains_both_datasets.png", dpi=200, bbox_inches="tight")
 
 
