@@ -113,6 +113,10 @@ Unseen sets get a small floor probability, so nothing is strictly forbidden, onl
 | Cluster WCSP + presence + region rules¹ | 0.7235 | +0.06 |
 | Presence alone | 0.7229 | — |
 | + necrosis minimum size 1,024 px | 0.7231 | +0.02 |
+| + region rules¹ | 0.7231 | +0.02 |
+| + per-class cost on necrosis, 3,000 | 0.7253 | +0.24, hand-tuned on dev: not adopted |
+| + per-class costs² | 0.7220 | −0.09 |
+| + per-class costs² + region rules¹ | 0.7221 | −0.08 |
 | + "other" ≥ 5% of tile | 0.7229 | 0 |
 | + inflammatory borders stroma (50%) | 0.7228 | −0.01 |
 | Cluster WCSP + presence + per-class costs² + region rules¹ | 0.7218 | −0.11 |
@@ -121,7 +125,7 @@ Unseen sets get a small floor probability, so nothing is strictly forbidden, onl
 
 ¹ Necrosis ≥ 1,024 px, "other" ≥ 5% of tile, inflammatory borders stroma (50%). ² Other 3,000, necrosis 3,000, inflammatory 1,000.
 
-Four runs were still pending when this was written: presence + per-class necrosis cost; presence + all per-class costs, with and without the region rules; presence + region rules.
+**Per-class costs are not adopted.** Each value was picked on the same 185 dev tiles we report on, and the best gain (+0.24, necrosis) is well inside the noise (the ROI bootstrap interval of presence alone is about ±1.1 points). The principled version derives the per-class trust from the fit split instead (how often the U-Net claims a class the truth lacks), with nothing tuned on dev.
 
 **Why stacking stops helping:** every rule that helps alone removes false "other" or necrosis. Presence already does that, so extra rules start deleting real "other".
 

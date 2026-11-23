@@ -19,6 +19,8 @@ from benchmarks.bcss.loader.classes import IGNORE_INDEX
 from benchmarks.bcss.loader.metrics import confusion_matrix
 from wcsp.classifiers.fullres_unet import FullResUNet, MODEL_NAME
 from wcsp.classifiers.training_loss import expected_pairwise_cost
+from benchmarks.bcss.scripts.structure_losses import (PresencePrior, cluster_consistency, gt_regions,
+                                                       presence_bce, slic_segments, soft_presence)
 from wcsp.data.bcss import WINDOW
 
 
@@ -51,6 +53,13 @@ def main():
     parser.add_argument("--field", choices=["center", "full"], default="center")
     parser.add_argument("--pairwise-weight", type=float, default=0.0)
     parser.add_argument("--table", default="handwritten")
+    # structure losses (benchmarks/bcss/scripts/structure_losses.py); 0 = off, as before
+    parser.add_argument("--cluster-weight", type=float, default=0.0)
+    parser.add_argument("--cluster-source", choices=["gt", "slic"], default="gt",
+                        help="regions for the cluster loss: ground-truth components or SLIC superpixels")
+    parser.add_argument("--presence-weight", type=float, default=0.0)
+    parser.add_argument("--prior-weight", type=float, default=0.0)
+    parser.add_argument("--presence-prior", default="experiments/bcss_wcsp/configs/tables/bcss_presence_prior.json")
     parser.add_argument("--epochs", type=int, default=10)
     parser.add_argument("--batch", type=int, default=4)
     parser.add_argument("--workers", type=int, default=8)
@@ -66,8 +75,10 @@ def main():
     parser.add_argument("--limit-steps", type=int, default=0)
     parser.add_argument("--limit-dev", type=int, default=0)
     args = parser.parse_args()
-    if args.pairwise_weight < 0 or args.epochs < 1 or args.batch < 1:
-        parser.error("pairwise weight must be nonnegative; epochs and batch must be positive")
+    if min(args.pairwise_weight, args.cluster_weight, args.presence_weight, args.prior_weight) < 0 \
+            or args.epochs < 1 or args.batch < 1:
+        parser.error("loss weights must be nonnegative; epochs and batch must be positive")
+    prior = PresencePrior(REPO / args.presence_prior) if args.prior_weight else None
     torch.set_num_threads(args.threads)
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -113,7 +124,8 @@ def main():
                     "epoch": epoch, **extra}, tmp)
         tmp.replace(path)
     if not log:
-        row = {"epoch": 0, "ce": float("nan"), "pairwise": float("nan"), "loss": float("nan"),
+        row = {"epoch": 0, "ce": float("nan"), "pairwise": float("nan"), "cluster": float("nan"),
+               "presence": float("nan"), "prior": float("nan"), "loss": float("nan"),
                "seconds": 0.0, **evaluate(model, dev_loader, args, window)}
         best = row["dev_mIoU"]
         log.append(row)
@@ -121,7 +133,7 @@ def main():
         print(json.dumps(row), flush=True)
     for epoch in range(first, args.epochs):
         model.train()
-        start, totals, steps = time.perf_counter(), np.zeros(3), 0
+        start, totals, steps = time.perf_counter(), np.zeros(6), 0
         for step, (images, masks) in enumerate(train_loader):
             if args.limit_steps and step >= args.limit_steps:
                 break
@@ -136,18 +148,27 @@ def main():
             ce = F.nll_loss(probs.clamp_min(1e-7).log(), target, ignore_index=IGNORE_INDEX)
             pairwise = (expected_pairwise_cost(probs, target, args.table)
                         if args.pairwise_weight else ce * 0.0)
-            loss = ce + args.pairwise_weight * pairwise
+            zero = ce * 0.0
+            regions = ((gt_regions(target, valid) if args.cluster_source == "gt"
+                        else slic_segments(x[(...,) + window])) if args.cluster_weight else None)
+            cluster = cluster_consistency(probs, regions, valid) if args.cluster_weight else zero
+            presence = presence_bce(probs, target, valid) if args.presence_weight else zero
+            prior_cost = prior.expected_cost(soft_presence(probs, valid)) if prior is not None else zero
+            loss = (ce + args.pairwise_weight * pairwise + args.cluster_weight * cluster
+                    + args.presence_weight * presence + args.prior_weight * prior_cost)
             opt.zero_grad(set_to_none=True)
             loss.backward()
             opt.step()
-            totals += [ce.item(), pairwise.item(), loss.item()]
+            totals += [ce.item(), pairwise.item(), cluster.item(), presence.item(), prior_cost.item(), loss.item()]
             steps += 1
             if step % 50 == 0:
-                print(f"epoch {epoch+1} step {step}: CE={ce.item():.4f} pair={pairwise.item():.4f}", flush=True)
+                print(f"epoch {epoch+1} step {step}: CE={ce.item():.4f} pair={pairwise.item():.4f} "
+                      f"cluster={cluster.item():.4f} presence={presence.item():.4f} prior={prior_cost.item():.4f}",
+                      flush=True)
         if not steps:
             raise RuntimeError("no labeled training batches")
         sched.step()
-        row = {"epoch": epoch+1, **dict(zip(("ce", "pairwise", "loss"), totals/steps)),
+        row = {"epoch": epoch+1, **dict(zip(("ce", "pairwise", "cluster", "presence", "prior", "loss"), totals/steps)),
                "seconds": time.perf_counter()-start, **evaluate(model, dev_loader, args, window)}
         log.append(row)
         if row["dev_mIoU"] > best:
