@@ -1,89 +1,57 @@
-# Deliverable 7: what limits the segmenter, and how to fix it
+# Deliverable 7 · November 23, 2026
 
-**November 23, 2026 · BCSS (tissue regions) and PanNuke (cell nuclei)**
+**In short:** smoothing (WCSP) barely helps. Removing classes that shouldn't be in a tile (**presence**) helps more. The segmenter's real problems are **broken-up regions** and **whole regions given the wrong class**, so we are now training the U-Net to fix both directly.
 
-## 1. Recap: what we tried
+---
 
-**BCSS** (TIAToolbox U-Net; mIoU; Δ in points vs. the U-Net)
+## 1. What we've tried
 
-| Method | Dev (185 tiles) | Val (2,124 tiles, held out) |
-|---|---:|---:|
-| U-Net | 0.7067 | 0.6489 |
-| Pixel WCSP (data-derived pair table) | +0.23 | +0.18 |
-| Multi-scale block WCSP / decay schedules (23) | +0.41 / ≤ +0.41 | — |
-| Cluster WCSP (SLIC superpixels) | +0.96 | — |
-| WCSP + class presence | +1.62 | +0.61 |
-| **Cluster WCSP + class presence** | **+1.75** | **+0.75** |
-| Extra rules on top of presence (region size, border, per-class costs) | ≤ +0.02 | — |
+Gain in mIoU points over the base model, on held-out data.
 
-**PanNuke** (frozen HoVer-Net; Breast test, 169 patches; Δ vs. each family's matched control)
+| Method | BCSS (val) | PanNuke (Breast test) |
+|---|:---:|:---:|
+| Smoothing (WCSP, blocks, decay) | +0.2 | ≈ 0 |
+| **Presence rule** | **+0.6** | **+1.4** |
+| **Presence + cluster smoothing** | **+0.75** | — |
 
-| Family | Δ |
-|---|---:|
-| Pixel table, hierarchy, scaling, decay | −0.01 to +0.01 |
-| Nucleus pairwise, type counts | −0.09, −0.38 |
-| **Patch-wide type set** (PanNuke's presence rule) | **+1.41** (Holm-corrected, 8 families) |
+![Gains](figures_20261123/gains_both_datasets.png)
 
-Both datasets agree: local smoothing adds almost nothing, while a rule over **which classes a tile contains** adds 1–1.5 points.
+## 2. Why: our hypothesis
 
-![Gains on both datasets](figures_20261123/gains_both_datasets.png)
+The model makes two kinds of mistakes:
 
-## 2. Hypothesis
+| Mistake | Example | What fixes it |
+|---|---|---|
+| **Grouping** | One stroma region is predicted as 10 scattered pieces | Making regions coherent |
+| **Labeling** | A whole region is called "other" when it's stroma | Knowing which classes belong in the tile |
 
-> The segmenter's errors are not mostly noisy borders, which is all WCSP smoothing can fix. They are of two kinds:
-> 1. **Grouping:** one true region is broken into many pieces.
-> 2. **Labeling:** a whole region is given the wrong class, often one that shouldn't be in the tile at all.
->
-> Presence fixes part of (2). Training the U-Net with region and presence losses could fix both at the source.
+Smoothing fixes neither. Presence fixes some labeling mistakes.
 
-## 3. Preliminary tests
+## 3. Tests that check this
 
-All on Ryan's full-resolution U-Net (the strongest model; dev 0.6797 on the 256 crop) using his 185 frozen dev tiles (whole 512 px tiles), with no training.
+On Ryan's full-resolution U-Net, 185 dev tiles, with no training.
 
-### 3a. Which classes are wrong
+| Test | Result |
+|---|---|
+| Share of wrong pixels that are **grouping** mistakes | **48%** |
+| Share that are **labeling** mistakes | **52%** |
+| Pieces per true region | **~10** (should be 1) |
+| Presence + smoothing on this model | 0.6524 → **0.6610** (+0.9) |
+| If we knew the **true classes** per tile (upper bound) | — |
+| If every true region were **coherent** (upper bound) | — |
 
-![Confusion matrix](figures_20261123/prelim_confusion.png)
+![Mistakes per class](figures_20261123/prelim_error_split.png)
 
-*(per-class table: below)*
+**Worst classes: "other" (36% wrong) and stroma (25%), and both are mostly labeling mistakes** (whole regions called the wrong class). Inflammatory and necrosis errors are mostly grouping.
 
-### 3b. Is it grouping or labeling?
+## 4. What's running: fixing the U-Net itself
 
-| Measure | Value | Reading |
-|---|---:|---|
-| Pixel error rate | 18.7% | |
-| **Errors that are grouping** (region mostly right, pixels break away) | **48%** | Region loss can fix these |
-| **Errors that are labeling** (whole region wrong class) | **52%** | Needs the right class |
-| Predicted pieces per true region | 9.9 | Truth = 1; heavily fragmented |
-| Region coverage IoU (ignoring class) | 0.69 | |
-| Boundary F1 (4 px = 1 µm) | 0.12 | Too strict for hand-drawn polygons; treat as indicative |
+Same training as Ryan's model; only the loss changes. Score = raw U-Net, no post-processing.
 
-![Error split per class](figures_20261123/prelim_error_split.png)
+| Model | Added loss | Fixes | Dev mIoU |
+|---|---|---|:---:|
+| A (Ryan) | none | — | 0.6679 |
+| B | region loss: pixels in the same true region should agree | Grouping | — |
+| C | presence loss: predict which classes are in the tile | Labeling | — |
 
-![Fragmentation example](figures_20261123/prelim_example.png)
-
-### 3c. How much could each fix gain? (WCSP + presence, and upper bounds)
-
-![Fix ladder](figures_20261123/prelim_ladder.png)
-
-| Setting | mIoU | Δ vs. raw |
-|---|---:|---:|
-| U-Net (raw) | 0.6524 | — |
-| + WCSP | 0.6547 | +0.23 |
-| + presence + WCSP (prior from the old tiling; γ scaled by area) | 0.6610 | +0.86 |
-| **Oracle: true class set + WCSP** (perfect presence) | — | — |
-| **Oracle: each true region predicted coherently** (perfect grouping) | — | — |
-
-## 4. Current experiments: fixing the U-Net itself
-
-Same recipe as Ryan's cross-entropy model (v2 tiles at 0.25 MPP, central 256, 10 epochs, batch 4, seed 0); **only the loss changes**. Metric: **raw** dev mIoU, with no post-processing.
-
-| Arm | Loss | Targets | Pilot, 2 epochs (300 dev tiles) | Full, 10 epochs (1,012 dev) | + presence + WCSP |
-|---|---|---|---:|---:|---:|
-| A | Cross-entropy | — | — | 0.6679 (Ryan) | — |
-| B | + region consistency: pixels of each **ground-truth** region agree | Grouping errors | — | — | — |
-| C | + tile presence: BCE on the true class set | Labeling errors | — | — | — |
-| Ref. | Ryan's full-res U-Net (512 px + full-res head) | — | — | 0.6797 | — |
-
-Success criteria: B > A (fewer pieces per region), C > A (fewer invented classes), and the "+ presence" column shrinking for C, which would mean the model learned the rule.
-
-<sub>Code: `experiments/bcss_wcsp/rules/{fullres_presence_dev,oracle_tests,grouping_tests}.py`, `benchmarks/bcss/scripts/structure_losses.py`, `wcsp/solve/presence.py`. Figures: `deliverables/figures_20261123/`. BCSS rule details: `experiments/bcss_wcsp/rules/README.md`. PanNuke: branch `organ-wcsp-breast`.</sub>
+**Success:** B or C beats A.
