@@ -1,0 +1,2873 @@
+{
+  "git_commit": "86c6752ee1ebd85b872e92d87d4a3023c26c0cd5",
+  "split": "dev",
+  "limit_before_ignored_filter": 200,
+  "samples": [
+    {
+      "index": 0,
+      "position": 0,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_0_0_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "8d192091cdc7d3de869ea314fd11db1cb8aab6ce0a9baf6e280997ae254ca248"
+    },
+    {
+      "index": 1,
+      "position": 5,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_0_3072_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "68e40327b5a3d4fd921ebb66e6249b02534dfc88861adda3546bf65ea48fe6d9"
+    },
+    {
+      "index": 2,
+      "position": 10,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1024_2048_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "b5f98439990b8368006a720ffb168d64eca392cf7a5e7c3f0447dafd8acd2253"
+    },
+    {
+      "index": 3,
+      "position": 15,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1536_1024_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "6fa98efcfdb54c11b193b9c7d9bcad0a8640f4491359860068c3e43b2b6a0438"
+    },
+    {
+      "index": 4,
+      "position": 20,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1536_512_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "75b26fb9e654112b40ab3ab055907d6342eac1df5ed12e9450316de4958a1a13"
+    },
+    {
+      "index": 5,
+      "position": 25,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_2048_2560_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "0055e41d99c8a334101a6fe2214f4d1f30ecf3089a12d4876e4690c0d1ff7cb6"
+    },
+    {
+      "index": 6,
+      "position": 30,
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_512_1536_size512",
+      "roi": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055",
+      "hospital": "A1",
+      "sha256": "8bf077d55d8eeaeb9360579cffc903699cb8f09516d172fc874da5f600638ef3"
+    },
+    {
+      "index": 7,
+      "position": 36,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_1024_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "5ed76994ec0c76b6929c8beea255f96b83614ee1854e2024289e31c03ff96710"
+    },
+    {
+      "index": 8,
+      "position": 41,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_3584_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "be0f6cdc44ab197ad8f5ee19749888fda1a71ecbbec0f467c9e77ab60cae86f9"
+    },
+    {
+      "index": 9,
+      "position": 46,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_5632_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "0615f20bf9680b84d4e3ea0ae14017867e043ed7ac0cf199afebc63dc183e1dc"
+    },
+    {
+      "index": 10,
+      "position": 51,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1024_2560_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "66844a41ec1ab4be8632d185be1ba53f300337e989f3f93b247c7c238167abea"
+    },
+    {
+      "index": 11,
+      "position": 56,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1024_5120_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "71a48b29559ae353b865e969f18f80ed85862c3b9b8ca2f21ac4c76c816b244f"
+    },
+    {
+      "index": 12,
+      "position": 61,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1536_1536_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "0643e1fd1eaf194970067689a34a9b3b7c75f707a53602ca0ca7f9dfee841445"
+    },
+    {
+      "index": 13,
+      "position": 66,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1536_4096_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "2595d0aff8a0094c2cc6666ba7e46dd0950e1c177a0e6469f0a2f2fdc0825b03"
+    },
+    {
+      "index": 14,
+      "position": 71,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_0_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "70c3a2cd4290b6aceb36e07e1277911d2877c219ab474f783768e36c849ca5db"
+    },
+    {
+      "index": 15,
+      "position": 76,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_3072_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "a6d4a760ab998dae4c49e8b013c2b00eee99f45ba64386b17c698f86d19bd6b8"
+    },
+    {
+      "index": 16,
+      "position": 81,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_512_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "44f09fb925bd6e31698cf0469bf96f08394aad0afc71886c37389509a8d42f6a"
+    },
+    {
+      "index": 17,
+      "position": 86,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2560_2048_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "a55c0e4f7f9913e386e195fc8caba2214068ea0d87db683f10bb704ce6c45003"
+    },
+    {
+      "index": 18,
+      "position": 91,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2560_4608_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "5b1f04a9e8fcb57230ba02d806705f327947e6f31020a4c5f1f0e0649adf8f15"
+    },
+    {
+      "index": 19,
+      "position": 97,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3072_1536_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "4ac6f8a153b48fa6d02bb0f01b6b49cca80b8a4cbaed9058775d5660b348dfdc"
+    },
+    {
+      "index": 20,
+      "position": 102,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3072_4096_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "69534a2a3532474f6344b57300b8d80eae69f050e1e34f8421ef1977815d9e75"
+    },
+    {
+      "index": 21,
+      "position": 107,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_0_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "2de24596dd931d702dd4ff65646abac6b8e48316401dff06327dec3ef9e1cf65"
+    },
+    {
+      "index": 22,
+      "position": 112,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_3072_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "5804b118958aa01ac537cd48f03e79c263f7c86a2741a0262fd22aa57398c4b8"
+    },
+    {
+      "index": 23,
+      "position": 117,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_512_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "f9da899af517070e4d554d515e3b53029143bb43ba48217e7d7ca7cd5488a5e7"
+    },
+    {
+      "index": 24,
+      "position": 122,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4096_2048_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "27f167d26567892e50c053e95291f1cd179464812256c29e9c0e209083290302"
+    },
+    {
+      "index": 25,
+      "position": 127,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4096_4608_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "682cdc14b7533af9dd6a8bd9a75d6ff123352f9b5ae07c9d20585f8104923320"
+    },
+    {
+      "index": 26,
+      "position": 132,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_1024_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "4adebcbc61553357b890a0d62c7969a42fba4f6d9b4809d91a797164b7ba8c93"
+    },
+    {
+      "index": 27,
+      "position": 137,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_3584_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "ccfd1c2af6836835df48ab6a23b18fc32ba4e235a91b785d3fa3d26d7183b850"
+    },
+    {
+      "index": 28,
+      "position": 142,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_5632_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "7afa4785b79c0c4eb4445e78d2b6784fa6dbd06965afcd0862f16c6f34d983e1"
+    },
+    {
+      "index": 29,
+      "position": 147,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_512_2560_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "9ea5d902aeebf3943b811878530d27ec7268b2687b207c864b036b2b94e8aee7"
+    },
+    {
+      "index": 30,
+      "position": 152,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_512_5120_size512",
+      "roi": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274",
+      "hospital": "A2",
+      "sha256": "228719e6d44b3fc104542d0d51c5d363c56da472f831f96a76c23b3e23d6f91d"
+    },
+    {
+      "index": 31,
+      "position": 157,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_0_1536_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "3093881060220bcfe98a380b4e778df893043ead98ed20a23d75e9fdb52c9ba6"
+    },
+    {
+      "index": 32,
+      "position": 163,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_0_4608_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "4f7b520b2fbb522b91503fdb2ea891c5ca31376a6f3dc238649941b791e62203"
+    },
+    {
+      "index": 33,
+      "position": 168,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1024_1536_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "a4e840fc8a19c81a0e1e95990e66817b35b4de32a9ca7e54079b7f4fdef30cc3"
+    },
+    {
+      "index": 34,
+      "position": 173,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1024_4096_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "4ba41a8103e8a547e8c798a1ffc77a866ffba8cf7779c2fd288aed40b8e6e0a4"
+    },
+    {
+      "index": 35,
+      "position": 178,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1536_1024_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "1c01823859f62184fdce614f8531b5a5c1af900896be4e38c6b5d0b0bfc0be3d"
+    },
+    {
+      "index": 36,
+      "position": 183,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1536_3584_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "52b2fc9484c3e98cb9c891e0447acd362eab2ee83c522a36759a9b86558793d6"
+    },
+    {
+      "index": 37,
+      "position": 188,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_0_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "8f1606b32516790175a6556258348ce120d36e6fe257d8021988114612b0ff94"
+    },
+    {
+      "index": 38,
+      "position": 193,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_3072_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "c95335c6796472f8012b2e5839f44ddfa960844a1d40603f9c70092b0d7c168f"
+    },
+    {
+      "index": 39,
+      "position": 198,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_512_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "48b2f154fa80a34c339685706514d6c8ff37d7e861751ace26a14c870c04a895"
+    },
+    {
+      "index": 40,
+      "position": 203,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2560_2560_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "8c8d91456fbb9abaceaf5b5ac4c74f3097eb22a550f9af5c410174d307d1cdce"
+    },
+    {
+      "index": 41,
+      "position": 208,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2560_5120_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "480029602bf68a0999e27e3f67fdb0038813264d93abcc5a6958e2725750e2e2"
+    },
+    {
+      "index": 42,
+      "position": 213,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_512_2048_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "b3785043e6324ea51d816aa2eeabf852901bf09fd0138718d22d02105f298d9a"
+    },
+    {
+      "index": 43,
+      "position": 218,
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_512_4608_size512",
+      "roi": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931",
+      "hospital": "A2",
+      "sha256": "cb6fd983992c5099f5807fca047896b332166e7053e0ece372eb17db6932c856"
+    },
+    {
+      "index": 44,
+      "position": 224,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_0_2048_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "817f4f9bbf35be3a708e1d68cb0541d5abb644a1b47dcf6117a029f630d89a18"
+    },
+    {
+      "index": 45,
+      "position": 229,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1024_1024_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "cbd3d9a36266f0737c75abc8b0819ae883b3ed1a51796800fe5dd8fb687dad29"
+    },
+    {
+      "index": 46,
+      "position": 234,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1024_512_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "876a0518b42844a8dd7b0e9687467ceba02ecef721656a557ba5add707cde137"
+    },
+    {
+      "index": 47,
+      "position": 239,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1536_2560_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "42d1d38ea3c039794552b1b4e2c3582524dc5d2e17dfb060f0934983308210af"
+    },
+    {
+      "index": 48,
+      "position": 244,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_2048_1536_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "caf1844d3de2b59f5af166da796415343bab638f5b058bd32b8d2de2c041c95e"
+    },
+    {
+      "index": 49,
+      "position": 249,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_512_0_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "d6f1c20fccf164db1f1286a7b383dea1c2a0630bbc27f33fe995c7caeed0550e"
+    },
+    {
+      "index": 50,
+      "position": 254,
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_512_3072_size512",
+      "roi": "TCGA-A7-A26I-DX1_xmin9689_ymin25668",
+      "hospital": "A7",
+      "sha256": "45b5593902e0c785d53ea84fd2c0261426fbfcb11975893182a1ed18d47610b6"
+    },
+    {
+      "index": 51,
+      "position": 259,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_0_2048_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "b2e6c877afb838fc7a0ed168ce9b461b1f299bbfeaacf6bb6292690f757a764b"
+    },
+    {
+      "index": 52,
+      "position": 264,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_0_4608_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "159d3feda53645af0b2ab9935c8cba786b983eadf779eba9ef93429a5ccd3816"
+    },
+    {
+      "index": 53,
+      "position": 269,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1024_1536_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "98e08b7ca9b24371cba096ca376e4306168d51ed1969d7903297da8142b04ca4"
+    },
+    {
+      "index": 54,
+      "position": 274,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1024_4096_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "031092a60346d5b396819e8c863a8283167fdb6b6ae261e426cdc38f6202533e"
+    },
+    {
+      "index": 55,
+      "position": 279,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1536_1024_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "d9924b1545760a683061ac315abaa9b303c6aaf0aa01b008b33932c911f192df"
+    },
+    {
+      "index": 56,
+      "position": 285,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1536_4096_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "dd933a527e85fb49d4336d4d804ce9cdfff06c907dbeca080408811cb64e7ca1"
+    },
+    {
+      "index": 57,
+      "position": 290,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_2048_1024_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "50a138af5bdc5eee16a54b9f129bef0cf170ca4d283ad29729ccd19e9557b994"
+    },
+    {
+      "index": 58,
+      "position": 295,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_2048_3584_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "2108d87cd6936ae55264df081241fba89bb03083120046e67da2dfd56fa50654"
+    },
+    {
+      "index": 59,
+      "position": 300,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_0_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "2410600215ca657db739810e9ed96de0175edfe651fe3854c807e7d154c54dc2"
+    },
+    {
+      "index": 60,
+      "position": 305,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_3072_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "c732cd5d31dba1138942c78a52c78eea52ed961287334d614cf400c35222ec8b"
+    },
+    {
+      "index": 61,
+      "position": 310,
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_512_size512",
+      "roi": "TCGA-A8-A07O-DX1_xmin11777_ymin16227",
+      "hospital": "A8",
+      "sha256": "ffab5ebf9f6a37775eb26c70f8d7ffe6ab8874066aecf813fcb84fd8c3780dd7"
+    },
+    {
+      "index": 62,
+      "position": 315,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_0_2560_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "d72d70e60cceeaae44939402ff655fa4cb95d7ad29cd0257094f9597edb45110"
+    },
+    {
+      "index": 63,
+      "position": 320,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_0_5120_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "ce14eb9fa6f9cc05447f28e5d0d7c61c155c88903514b80623727468f2b74b5e"
+    },
+    {
+      "index": 64,
+      "position": 325,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_0_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "28ce43660881a7a13ece86791103e449a2adbd3ab29a82de5e327d52bc237d7a"
+    },
+    {
+      "index": 65,
+      "position": 330,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_3072_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "283b3d4711811aaa528ccfd509b937312cd0acbd0b59cc0ea53d012aab26cc48"
+    },
+    {
+      "index": 66,
+      "position": 335,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_512_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "57b5ffc7658b5632f3db6ec080fc1fb585158733f7a6c0f03bf69ca295c89df2"
+    },
+    {
+      "index": 67,
+      "position": 340,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_1024_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "7f1e85c52ebfe5e5fcd60cf3cff0dc4c8f29304ae6fbc6f7ecb5f3dbcbab7b3e"
+    },
+    {
+      "index": 68,
+      "position": 345,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_3584_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "7f7aba588ebc39de39a69647303af2ac3099893ab2c3f8896dbe77fb87998c0e"
+    },
+    {
+      "index": 69,
+      "position": 351,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_6144_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "73a8577d896ca674bff6538021efec29eaf2a7534f99a37d83789249f40138ef"
+    },
+    {
+      "index": 70,
+      "position": 356,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_2048_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "75c7040e89e6e1c92428fe18da3330fa5b2c4bc9704a2c2bc26dfef72fb1da70"
+    },
+    {
+      "index": 71,
+      "position": 361,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_4608_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "fa38933d1bfefbe48ee9339b0a3f4772ef4df5184842e93be71acb00087a3920"
+    },
+    {
+      "index": 72,
+      "position": 366,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_6656_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "1ba9124f0d880044356af34b59829caf390bf89b4ede3730dfa1e78be76e97b3"
+    },
+    {
+      "index": 73,
+      "position": 371,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_512_2560_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "4352603fb1b202a5fd089ab19c35a6317fc87a88c4ebec96c2c9924ec989d6d4"
+    },
+    {
+      "index": 74,
+      "position": 376,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_512_5120_size512",
+      "roi": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806",
+      "hospital": "AN",
+      "sha256": "cac83a6c7bf4550dc22e3e7afdeb2fe11de44799ff297305a5553508d0e0a66f"
+    },
+    {
+      "index": 75,
+      "position": 381,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_0_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "ae9ba5ee2ed0d7c320bc51f1a5f59b166f8967d7c6fb3903a53201ea2edc914c"
+    },
+    {
+      "index": 76,
+      "position": 386,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_3072_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "56c7087c87b57f551b8ce9f2bcac037fb641a9d87ef1fa4940251db2a253f0f2"
+    },
+    {
+      "index": 77,
+      "position": 391,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_512_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "e1108b0dbad046c5ace01ed7d6d2c800be99fb0ee83431b66a7f1ee326cc41c9"
+    },
+    {
+      "index": 78,
+      "position": 396,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_1536_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "5703e5ec3c125733fbc896ca0340d66de4c9aec82701b8b5f619796cdd86a394"
+    },
+    {
+      "index": 79,
+      "position": 401,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_4096_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "46fec492cc9a8af7ab7a73ccb0162bd480e4478d83b6b4ad37567a5aa0759ad5"
+    },
+    {
+      "index": 80,
+      "position": 406,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_6144_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "e0728099cc0b6a59ec471fcff774048cda27872e63a9065ac809ef6f91c48241"
+    },
+    {
+      "index": 81,
+      "position": 412,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1536_3072_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "627f907878067b977096e4364ba093f6bd17fa5ab76abde8c5f21e24b661975e"
+    },
+    {
+      "index": 82,
+      "position": 417,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1536_512_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "91852f4e88bfae99e6109cd0d305ddb13d79ce2b90b03f15c7a335857fc81d60"
+    },
+    {
+      "index": 83,
+      "position": 422,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_1536_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "a362d5ace175ef55eaad402ed42ae47026f86eaced45f1e9bfaa96c15be45eea"
+    },
+    {
+      "index": 84,
+      "position": 427,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_4096_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "f1289338e9c1f6ac47203bed5a67148d77414029d54f83589df86b75ac617be6"
+    },
+    {
+      "index": 85,
+      "position": 432,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_6144_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "20ee5df141a6a1a8755e498e3e98fa450f79bde975e09426e8a8d54c469923e7"
+    },
+    {
+      "index": 86,
+      "position": 437,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2560_2560_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "07d15f3a9eaea3a62ac42da849b9abe159cf02399f0fa3abea04987fda55ed57"
+    },
+    {
+      "index": 87,
+      "position": 442,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2560_5120_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "b10a73e3dc3dd91233e26dc325107e138d9928438ec717532fccfaec4673e131"
+    },
+    {
+      "index": 88,
+      "position": 447,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_1024_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "dcc324576fe9dc70dc0854be7952c226ebe98fd46e2f737274c7f836e0c5a45c"
+    },
+    {
+      "index": 89,
+      "position": 452,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_3584_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "b2f6f21d3fb7ea06ef93acdc957be4645ff38b2005125c17ecd0f23cc7a1fd4c"
+    },
+    {
+      "index": 90,
+      "position": 457,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_5632_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "e804a62e31ef7898a3f81740eb5df9e28facb33ba632e8298f2c8834407c7548"
+    },
+    {
+      "index": 91,
+      "position": 462,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_512_2048_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "bae1f9829baaf2264db9cb6acd65104f84bcde858099f1c6453e427a47bfd503"
+    },
+    {
+      "index": 92,
+      "position": 467,
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_512_4608_size512",
+      "roi": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135",
+      "hospital": "AO",
+      "sha256": "f2d6cf4cfeeedc2af82cba950822d0e4b11a871bdbaf2ef55fdcdc458081fd81"
+    },
+    {
+      "index": 93,
+      "position": 472,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_0_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "8616f67332a2c51e61fd43099cba739eba8c910b6847694ed58eb3b353e67b35"
+    },
+    {
+      "index": 94,
+      "position": 478,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_3584_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "30b405d47e37dddcef75b6bcebe794cb23c9fe4878a8b8af918ac7365f91bcb6"
+    },
+    {
+      "index": 95,
+      "position": 483,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_5632_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "8ff7f04f5fe7e21a0fbc612ff01f3d60d38788a841159185f10b4d89edb930d9"
+    },
+    {
+      "index": 96,
+      "position": 488,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1024_2560_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "e5c47ee4e3c1400e85635b5e0ee7f76c7aa9aa7ee637bc69818ec98308cbfef5"
+    },
+    {
+      "index": 97,
+      "position": 493,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1024_5120_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "4d82a3acdc97b742b12223ce7eff4447e1a22f3bc471314157a03c891ebcec15"
+    },
+    {
+      "index": 98,
+      "position": 498,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1536_1536_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "51ed45d4aa00a6badfc7d159f2d39defa53298f9d732770673281bd30c04b387"
+    },
+    {
+      "index": 99,
+      "position": 503,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1536_4096_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "e08c54b226f39e6a90e94d3d28db25afc2bc179440ee8455c2fdf51a4b29779d"
+    },
+    {
+      "index": 100,
+      "position": 508,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_0_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "90d3326bbe9a0bb4121e6a3ff42fe6a36d281d8f4ad951f15715d3b1c9286b04"
+    },
+    {
+      "index": 101,
+      "position": 513,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_3072_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "3c025a51ddf9a3846c3b66da8fd073c2e51f1f17bdd36a36adf749edd628caf7"
+    },
+    {
+      "index": 102,
+      "position": 518,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_512_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "b00cbea07985d64fd8bc1990a026af9065fe5ad670e2333574154930eb6c232d"
+    },
+    {
+      "index": 103,
+      "position": 523,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_512_2048_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "0c3dfecdcba43407d5ca2281cb80a7133ab4e38d6f306f2e310706a68eaaf813"
+    },
+    {
+      "index": 104,
+      "position": 528,
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_512_4608_size512",
+      "roi": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812",
+      "hospital": "AR",
+      "sha256": "ce0fc66c54a21968094b9ea8c2719462c81f36e72a47d71008984e16f59eb6f4"
+    },
+    {
+      "index": 105,
+      "position": 533,
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_0_1024_size512",
+      "roi": "TCGA-AR-A256-DX1_xmin41577_ymin17076",
+      "hospital": "AR",
+      "sha256": "86df6cc47a48f2223ecd73b5c3287af4f85fb31af1eb2cd60a9d1a79b8e1bf63"
+    },
+    {
+      "index": 106,
+      "position": 539,
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_1024_1536_size512",
+      "roi": "TCGA-AR-A256-DX1_xmin41577_ymin17076",
+      "hospital": "AR",
+      "sha256": "24c5adf34d6db5b9a298ad49f4f0ef13be4521a8f492c2d9cbf6f688cc01e63e"
+    },
+    {
+      "index": 107,
+      "position": 544,
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_1536_1536_size512",
+      "roi": "TCGA-AR-A256-DX1_xmin41577_ymin17076",
+      "hospital": "AR",
+      "sha256": "796050dc0be21717d657bbb4e70f3556a632c67b38499bc64c0bdffc870c983c"
+    },
+    {
+      "index": 108,
+      "position": 549,
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_2048_1536_size512",
+      "roi": "TCGA-AR-A256-DX1_xmin41577_ymin17076",
+      "hospital": "AR",
+      "sha256": "4998768a4d855ac82d16d07216a28d6665c02bd61d508d243d3bf67f7d8bc79e"
+    },
+    {
+      "index": 109,
+      "position": 554,
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_512_1536_size512",
+      "roi": "TCGA-AR-A256-DX1_xmin41577_ymin17076",
+      "hospital": "AR",
+      "sha256": "f42375a19667d5f100b0e79d1c5ff5b74545e45ccc6d7cba6e384419563efeee"
+    },
+    {
+      "index": 110,
+      "position": 559,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_0_1536_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "7949d80583276a73465037497564a77e64bf7eb5f360e7b2a815a669dd19c7cb"
+    },
+    {
+      "index": 111,
+      "position": 564,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_0_4096_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "c88c51da2aa0cf5b5f6f4f56b62b3a862022771c3b4a86c95eea95ea0138fa9d"
+    },
+    {
+      "index": 112,
+      "position": 569,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1024_1024_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "07824183b2ebaed9d33ee5dc3ec4d3aa7fa1a59e453c16581a765d4a9214ecb5"
+    },
+    {
+      "index": 113,
+      "position": 574,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1024_3584_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "4c4eb1d9ecba4f4dc8c129fba96c9ec5cb5fb618ce158389ae2b7ae37ae90651"
+    },
+    {
+      "index": 114,
+      "position": 579,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_0_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "f5f080481277c9b3ca522c21803e1c5cfa0d523a7eb3825f976055aea2fbe193"
+    },
+    {
+      "index": 115,
+      "position": 584,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_3072_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "56c2c017a04b8bc7ecc53a8ddbbc302539e5ae2dc97e581f30a10b77519d8e77"
+    },
+    {
+      "index": 116,
+      "position": 589,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_512_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "d669d46b3a046d294b0d0aea732d59c971e619745f2f0a532d7c83a0a2733b07"
+    },
+    {
+      "index": 117,
+      "position": 594,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_2048_2560_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "535ed48fd36ac157ad48b3d828b81f9aeb60528240cf7acf437f66466c3e4e82"
+    },
+    {
+      "index": 118,
+      "position": 599,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_2048_5120_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "c6a6628f4535fce90775ca911ae6c7df02684c96f93f384f3f3f9327f44f8b77"
+    },
+    {
+      "index": 119,
+      "position": 605,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_512_2560_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "3843e9bdb338c692b2a9391675acdda1851475b2b2d73394fe4d1725556890a4"
+    },
+    {
+      "index": 120,
+      "position": 610,
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_512_5120_size512",
+      "roi": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847",
+      "hospital": "BH",
+      "sha256": "b1872baea9c2fc1de03dfd9f13d3737e9b41f098e27207453a7818a202553f7b"
+    },
+    {
+      "index": 121,
+      "position": 615,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_0_2048_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "71d1caa7d73cd21a324659217ef5d6a7ec79ad6f96d783e22a5c709100c0447f"
+    },
+    {
+      "index": 122,
+      "position": 620,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_0_4608_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "e9d40c54f9f2e7bfe8ea5362133298305ba20a4b1e30c58155fe9c4dc8e94496"
+    },
+    {
+      "index": 123,
+      "position": 625,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1024_2048_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "e8d06cb2fff6e8a1fbad3a393b4b08aa41a5eb5e58eb7ee5bf65fa782f36ecc9"
+    },
+    {
+      "index": 124,
+      "position": 630,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1024_4608_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "099eb440b954eb4afbb53fab1dcdf008bdff64e1e633e99740d9aef3f11239d9"
+    },
+    {
+      "index": 125,
+      "position": 635,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1536_2048_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "067f3b0afe5bc7aeff9af85ef7a2351dd499f790e02a0fee72eb91246821a329"
+    },
+    {
+      "index": 126,
+      "position": 640,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1536_4608_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "d8e3a236f31bccf62d263377bd3d9b564c12288be9592b43f39a1fa540af1cfe"
+    },
+    {
+      "index": 127,
+      "position": 645,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2048_2048_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "baf9b1a0545c59b074380454850f252712ce4b96f6c3331b3ab66874f97ef2c6"
+    },
+    {
+      "index": 128,
+      "position": 650,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2048_4608_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "e529860e282862216759ba39193f84a2be3525eab0ffb4409b90f5935dce63fb"
+    },
+    {
+      "index": 129,
+      "position": 655,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2560_2048_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "fd77a87d90577a4634a0fb950b7b29eb84f427c2fb3f2cc40d63265b8c0484a2"
+    },
+    {
+      "index": 130,
+      "position": 660,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2560_4608_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "f3cddc5cb304ad042862342eedd3f08c1fd721bfa43788cfbae874578efc13bf"
+    },
+    {
+      "index": 131,
+      "position": 666,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_3072_2560_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "44c1dba4ba29d975bbb9096b0f23dd854c64b619b07932b627e4da130a2dbace"
+    },
+    {
+      "index": 132,
+      "position": 671,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_3072_512_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "19f2786d5805032ff0b44f94359ead5346dc36fd0a3f3ddf818d429084d3dbe9"
+    },
+    {
+      "index": 133,
+      "position": 676,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_512_2560_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "e78978e60c0bc1af22fe1c0aa3e60e91db2fb904a005d24640d3972386ae6cb7"
+    },
+    {
+      "index": 134,
+      "position": 681,
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_512_512_size512",
+      "roi": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706",
+      "hospital": "BH",
+      "sha256": "b1ec335615ce832eb5cf14037490ed06732cb6f49fa628e608abec2a99f9218b"
+    },
+    {
+      "index": 135,
+      "position": 696,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_1024_2048_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "0d8e22922b52a0cf8f8e99d49c865ab512ac44f610590aa915fa2a55fe07bf47"
+    },
+    {
+      "index": 136,
+      "position": 706,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_1536_1536_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "3bb3ecb3e28815eecd9c9e2fadfacf40cd552018d96dbe6ff44839ab0adacd52"
+    },
+    {
+      "index": 137,
+      "position": 716,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2048_1024_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "324d99ef30966917ee8347df2523400b1b3e0226774cdc6dd75775bc42012fad"
+    },
+    {
+      "index": 138,
+      "position": 721,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2048_3584_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "ca838ba6f6a2053ba6ea29dc529fc9f5ff434e59318fd4c37a485b878eb1ed54"
+    },
+    {
+      "index": 139,
+      "position": 732,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2560_3584_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "c209a5f0d3812220924d0e66317d76034001e31debf440c345858d8726679b97"
+    },
+    {
+      "index": 140,
+      "position": 742,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3072_3072_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "bb33ff3bd3dc8818d5a425b7e6f314d4c2e1035a71f57fcf076c7dea530f5593"
+    },
+    {
+      "index": 141,
+      "position": 752,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3584_2560_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "9b99be213625918f38dfff0a17c11d0c1615c2cdbde2ea4b95b5d324ffbb801a"
+    },
+    {
+      "index": 142,
+      "position": 757,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3584_5120_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "5ab13f7a0e118199fea25209eb3f99b5b4eca4a712d862c7cc9a7e0a65f3ad48"
+    },
+    {
+      "index": 143,
+      "position": 767,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_4096_4608_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "23dca0a25fea6396e9752882132af53f16099cab6fec73833d84099a1c41836c"
+    },
+    {
+      "index": 144,
+      "position": 777,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_4608_4096_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "d0b621d1c90d6ebbc45f90fb78b271ce2b2712bb5b497212880a14dfa5d86c52"
+    },
+    {
+      "index": 145,
+      "position": 782,
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_512_1024_size512",
+      "roi": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769",
+      "hospital": "C8",
+      "sha256": "1796bb69da2a3a045e20ac5379da3bdd318ed2a588bf0b21c035dcd5b4b1d064"
+    },
+    {
+      "index": 146,
+      "position": 793,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_0_1024_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "15af44053fec93675b46bf9cb0cf2fc9aa04b65d445f8415f5cbbb1455ba62c0"
+    },
+    {
+      "index": 147,
+      "position": 798,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_0_3584_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "35cc1811a7cc35952d43f7c44b216ea83b4b4ad3380dcfffa392112054193f18"
+    },
+    {
+      "index": 148,
+      "position": 808,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1024_2560_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "a6d71308e2824174182b8299cadd190238dca42fa65deab763e00d076595131d"
+    },
+    {
+      "index": 149,
+      "position": 813,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1024_5120_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "d104cb7eb3952c4cda8d21c7c14b661a3e2c32974b01e748a1c6302a8f2ecaff"
+    },
+    {
+      "index": 150,
+      "position": 818,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1536_1536_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "ceedbc7e3f77cf7a689d2df9b54b23fd1200490fefd288a4109b68a3d1843838"
+    },
+    {
+      "index": 151,
+      "position": 823,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1536_4096_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "9cc85a76ed3f18df351fe671e333850e782c8953fa02ad1d5ea93ac1ed22139b"
+    },
+    {
+      "index": 152,
+      "position": 833,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2048_3072_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "bca5afc1d0ac096a47f19f76f42b418e2732f7415822caa7e18c8002bb827cf7"
+    },
+    {
+      "index": 153,
+      "position": 838,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2048_512_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "5cf5f2aed854a652c75f4e4ea6644746105d9facbe24017c4b16dd07a9c5f9cf"
+    },
+    {
+      "index": 154,
+      "position": 843,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2560_2048_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "6c00bbdad73fa05baa3ecb1c162bdb1fcbc7de3b1a548d541125779e0a5e3050"
+    },
+    {
+      "index": 155,
+      "position": 848,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2560_4608_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "5ce0b930cea5e3c8cee69c65cfca2639e258b3cada3d1671df4d6c954131002f"
+    },
+    {
+      "index": 156,
+      "position": 854,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3072_1536_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "da42a26b82706b781ef332cfa939133e371a9eddfb8cad571d9cd8c2b95adc63"
+    },
+    {
+      "index": 157,
+      "position": 859,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3072_4096_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "5faef918ec77481f09bbb3688bb93ee7d840fa88e802ebe60adc65c583642ca6"
+    },
+    {
+      "index": 158,
+      "position": 869,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3584_3072_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "a710ef278b30afeca2996236062c4705db65d97bf3676cb3e8fef49b43d102f1"
+    },
+    {
+      "index": 159,
+      "position": 874,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3584_512_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "813bbd49db9c02cd3b5ab60cfed92b23d32999eb9649c603ac81329012f6ff0d"
+    },
+    {
+      "index": 160,
+      "position": 879,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4096_2048_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "126211dbaf014b775dcb5ec8fbf2e19b969593c28f3491445424802d88161654"
+    },
+    {
+      "index": 161,
+      "position": 884,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4096_4608_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "dbc8814ad25442a932b94e104ffccd528c6c835a937f28b7c06a5dde529b00f1"
+    },
+    {
+      "index": 162,
+      "position": 889,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_1024_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "bc6084422cbfbf88234382b6d45a6ebbcfb9d257b2e43a3917fd3fee9393cdb2"
+    },
+    {
+      "index": 163,
+      "position": 894,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_3584_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "2503b700a30055e7b1d1b8083cbfcc6a059be6598c8da888f6fa61066f522be7"
+    },
+    {
+      "index": 164,
+      "position": 899,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_5632_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "d7162cebb9aa54edd58466b89dd074f30cdb10231e87b4239ef8677c8d57653a"
+    },
+    {
+      "index": 165,
+      "position": 904,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5120_2560_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "216c93ec88ea98fdf095baa8ef4c68cd3dceca3e64805a4988383924bb12e471"
+    },
+    {
+      "index": 166,
+      "position": 909,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5120_5120_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "0b7c0016c822cd53ad3805d8d0d5730339b785d43ccd2c1912ab8a02de90d27f"
+    },
+    {
+      "index": 167,
+      "position": 914,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_512_1536_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "68ab64def75a1c18eb45ee639b4fd024986d21905330a571a2e782531cba56fa"
+    },
+    {
+      "index": 168,
+      "position": 920,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_512_4608_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "25474a0fcfc906dcf730d61c49413e8119c10a92a6e314afed078db4f0054ff2"
+    },
+    {
+      "index": 169,
+      "position": 925,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5632_1024_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "b49bf20a892519c98f744ea1787924ecd6d9935e23edf708e05ef946a50b9db0"
+    },
+    {
+      "index": 170,
+      "position": 930,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5632_3584_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "9cd5f2b7f369a926f5e23077f4269adfeb9a66dd466bb62e69289d7aaf096e95"
+    },
+    {
+      "index": 171,
+      "position": 940,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6144_2560_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "865d94f79dec51abc801f2cba0813505d9c150a848e552758c54599d43cf0563"
+    },
+    {
+      "index": 172,
+      "position": 945,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6144_5120_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "543a174517ea1cab4df34fa858033a2947edb9ae46c428d069ee20be49837206"
+    },
+    {
+      "index": 173,
+      "position": 950,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6656_1536_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "432fc1478e384482da38831d5423633494b5fac0689bccedb74ed2a163444739"
+    },
+    {
+      "index": 174,
+      "position": 955,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6656_4096_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "c1818ff22410f5bd72b2b534d888b74346c392c06f4548cb4ecee1988a729917"
+    },
+    {
+      "index": 175,
+      "position": 960,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_0_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "49bb0f43c4f19476fdfcd0474daa22c644d4cf9240d8443f851b16658d02a1ea"
+    },
+    {
+      "index": 176,
+      "position": 965,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_3072_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "8543d168d81601205111af0dcdb254934f46d29ac8dcb9c91b2b0466a0cd42ef"
+    },
+    {
+      "index": 177,
+      "position": 970,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_512_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "7c6d3f6273ab3aa0c71b339f67a0b1b4d84371b314e6f1c191c31e9a8e04dd2f"
+    },
+    {
+      "index": 178,
+      "position": 975,
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7680_2048_size512",
+      "roi": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205",
+      "hospital": "D8",
+      "sha256": "34700fffea9a4b4ef19f30e7bbafe52370e455cf64ec888e1bc7444bf127ad1e"
+    },
+    {
+      "index": 179,
+      "position": 986,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_0_1536_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "479bacf3a6857958daed55288c604bb378dc4347c4ef79676299675645d249c2"
+    },
+    {
+      "index": 180,
+      "position": 991,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1024_0_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "b4b23159726964a58ea9ea29bbc1a13e14da6841bc83794a8a69f203fd4b3530"
+    },
+    {
+      "index": 181,
+      "position": 996,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1024_3072_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "0b758092bed3b476353ad01956f023a033c22f1f5cd6146f4fa485fa4e633512"
+    },
+    {
+      "index": 182,
+      "position": 1001,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1536_2048_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "433c1158a069e0329c911587ba70eaf800c7580425a6989c0fb49c72aa5dc289"
+    },
+    {
+      "index": 183,
+      "position": 1006,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_512_1024_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "fb8e55590732baa5a3e08c607c056a3268b73036f52fdaa1abfc76cc5d11bd02"
+    },
+    {
+      "index": 184,
+      "position": 1011,
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_512_512_size512",
+      "roi": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843",
+      "hospital": "GI",
+      "sha256": "f5f36aea99859fd5130be7b43a4db7f6bc1b3f084c968a677e5d9c6a766a9102"
+    }
+  ],
+  "baseline": {
+    "pixel_acc": 0.8129701092028636,
+    "mIoU": 0.6524144074620204,
+    "mDice": 0.7868558708511879,
+    "IoU_neoplastic": 0.7333700373801986,
+    "Dice_neoplastic": 0.8461782788037667,
+    "Prec_neoplastic": 0.8093071981304752,
+    "Rec_neoplastic": 0.8865693310560456,
+    "IoU_inflammatory": 0.6795650425000165,
+    "Dice_inflammatory": 0.8092155115213525,
+    "Prec_inflammatory": 0.7914182020338698,
+    "Rec_inflammatory": 0.8278316826193345,
+    "IoU_connective": 0.6548505116158793,
+    "Dice_connective": 0.7914316211878865,
+    "Prec_connective": 0.8350626767370153,
+    "Rec_connective": 0.7521335179255078,
+    "IoU_dead": 0.6876833024973079,
+    "Dice_dead": 0.8149435400347037,
+    "Prec_dead": 0.8106759572544558,
+    "Rec_dead": 0.819256291648418,
+    "IoU_healthy": 0.5066031433166999,
+    "Dice_healthy": 0.6725104027082305,
+    "Prec_healthy": 0.7126172138462583,
+    "Rec_healthy": 0.6366775518697826
+  },
+  "files": {
+    "experiments/bcss_wcsp/configs/bcss_multiscale_full512.yaml": "3360e994d7348b2053b6ef28286cbaf585acae2f3140dc12237a79e98134ab53",
+    "data/outputs/tonight/full512/best.pt": "9cceca988b77f0b08b276a7dac0d8ee83e9574e922fe93bfdddb8d6759fd8e17",
+    "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv": "aa63aebd5e39217395fddd2c923d9352882458485c6f42839ad7d51b3378e3b5",
+    "data/bcss/manifest.json": "2fd7de972c0a3c3cabbff7c65f99358282918c82c6b24eaca35209cfcd052fd3",
+    "wcsp/solve/__init__.py": "1b69242163cebd2915ca5d563fc0b36a24958ced328ba959f3129adadc77071c",
+    "wcsp/solve/argmax.py": "b298fa1ba4a183bc27363a555f21a3343fff74ae5ac3043693bf18eff93a4c4f",
+    "wcsp/solve/base.py": "acb443cc6060a0234713ddf7eac1b385067f45008cbbf8e7159a22a7cccae841",
+    "wcsp/solve/blocks.py": "4e07e0cd12b15a7ac0cc7be1f358c4b4f05f582ffed7664a103420a1cfa0af89",
+    "wcsp/solve/chain.py": "e796e779796c390318359c9650efdcb8f6650cd7464f26cd57e98d5abc0d358e",
+    "wcsp/solve/condition.py": "8a59c6f6c2c530d30422c84921b91ef4ba06e2c0bb10ed49e99d91b419a85a88",
+    "wcsp/solve/energy.py": "accdc4eb2d5bc599308e21bb8c764255d397ff6ff41b8ef873311044433a6269",
+    "wcsp/solve/factory.py": "72b59b4cd3da584d39f38829269347adba3dbc9ac667639aaf1921743cc1b1a5",
+    "wcsp/solve/hierarchy.py": "c053b6b07be9a77b6d6dc235db79b38cd56fd0167624f4cc6823cdc79b56ef55",
+    "wcsp/solve/icm.py": "094826ace3dffa6d1e42d66fb9f1125506e4cac6925aefd3453fd44f268b2f00",
+    "wcsp/solve/instrumentation.py": "ee0695fda809b64622313606d800b7eef11714dbae05cbf4caa7c61082e0bc8f",
+    "wcsp/solve/presence.py": "1ce26437698496c56c6264299a68f4e11cbb05b4ea67cf7a54da3ccfb4995ec7",
+    "wcsp/solve/toulbar2.py": "3a20d92db91b404e52a05d742a8dc33d0bb24d0d6d82bb27c0b12eeee643e091",
+    "wcsp/model/problem.py": "2362ad09bf85814d2089a4acd4562c0ed74a1242af739f236acbc05f031e1651",
+    "wcsp/model/unary.py": "6c27a5b85aa85a232c905f5a9aa8a37ff7f3f8fce8d9eb7387a9332107a87275",
+    "experiments/bcss_wcsp/multiscale/fullres_sweep.py": "70a4dd5bda46e3cd4b4157acdb7a5fc2a3f9f98ebf15ecf3025cbab3447c6e60"
+  },
+  "cache": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/tonight/cache/bcss/tonight_full512/dev",
+  "cache_files": {
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0000_of_0008.npz": "262ebcae540cba4b9e4bb6c330119480f33201452f32f57d6a06d8bdf62637dc",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0001_of_0008.npz": "0ff3300710fee0d43117d9777495e7abb333442cac7b972d0135cb159b4f7c4d",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0002_of_0008.npz": "7fb6aed17071d48ce08a8799a90ac446230ac6f06edba514e54f4f30c88a0e56",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0003_of_0008.npz": "5e5ae1c7faf8d7d637775261a4df8be1bcd9b81fb9d9e84cb6c2bb026c830c0f",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0004_of_0008.npz": "9a9a8ab897a533162c76440c6ddd6f351edf001d2ee48fb5b4e11590dd794a44",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0005_of_0008.npz": "248ad30faa0eef3bf916ddc666f04b2cdd72545966306d938131e47d67dc34de",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0006_of_0008.npz": "adcadda5ee9e7b1bda0ecf7cbf68e65f3677bc0d334c339a33d611c952dbfa87",
+    "data/tonight/cache/bcss/tonight_full512/dev/shard_0007_of_0008.npz": "c16bb9fcd74acb11b02f8901a42ef67820f3fb79d049e791610d75c6f2426a2c"
+  },
+  "treatments": [
+    {
+      "name": "full512_ms_icm_mu0",
+      "method": "icm",
+      "mu": 0,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_icm_mu0.05",
+      "method": "icm",
+      "mu": 0.05,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.05,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_icm_mu0.1",
+      "method": "icm",
+      "mu": 0.1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_icm_mu0.2",
+      "method": "icm",
+      "mu": 0.2,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.2,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_icm_mu0.5",
+      "method": "icm",
+      "mu": 0.5,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.5,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_icm_mu1",
+      "method": "icm",
+      "mu": 1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "icm",
+              "max_sweeps": 50
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu0",
+      "method": "toulbar2",
+      "mu": 0,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu0.05",
+      "method": "toulbar2",
+      "mu": 0.05,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.05,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu0.1",
+      "method": "toulbar2",
+      "mu": 0.1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu0.2",
+      "method": "toulbar2",
+      "mu": 0.2,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.2,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu0.5",
+      "method": "toulbar2",
+      "mu": 0.5,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.5,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_toulbar2_mu1",
+      "method": "toulbar2",
+      "mu": 1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "toulbar2",
+              "time_limit": 2,
+              "resolution": 3
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu0",
+      "method": "hybrid",
+      "mu": 0,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu0.05",
+      "method": "hybrid",
+      "mu": 0.05,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.05,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu0.1",
+      "method": "hybrid",
+      "mu": 0.1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu0.2",
+      "method": "hybrid",
+      "mu": 0.2,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.2,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu0.5",
+      "method": "hybrid",
+      "mu": 0.5,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 0.5,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    },
+    {
+      "name": "full512_ms_hybrid_mu1",
+      "method": "hybrid",
+      "mu": 1,
+      "config": {
+        "name": "bcss_multiscale_full512",
+        "dataset": {
+          "name": "bcss",
+          "root": "/scratch2/rnene/rnene/csci401/csci-401-capstone-histopathology/data/bcss",
+          "split": "dev",
+          "full_tile": true
+        },
+        "classifier": {
+          "name": "tia_unet_fullres",
+          "checkpoint": "data/outputs/tonight/full512/best.pt",
+          "weights": "data/tiatoolbox/models/fcn_resnet50_unet-bcss.pth",
+          "temperature": 1.0,
+          "cache_tag": "tonight_full512"
+        },
+        "problem": {
+          "alpha": 1.0,
+          "lam": 8.0,
+          "eta": 1.0,
+          "types": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "normalize": true,
+          "table": "experiments/bcss_wcsp/configs/tables/bcss_elicited.csv",
+          "temperature": 1.0,
+          "contrast_beta": 0.0,
+          "contrast_sigma": 0.1,
+          "color_space": "rgb",
+          "instance_gamma": 0.0,
+          "long_distance": 8.0,
+          "long_probability": 0.0,
+          "long_seed": 0,
+          "long_max_edges": 2000000
+        },
+        "solver": {
+          "name": "hierarchy",
+          "levels": 3,
+          "size": 4,
+          "mu": 1,
+          "block_alpha": 1.0,
+          "block_lam": 8.0,
+          "block_types": [
+            1,
+            2
+          ],
+          "max_rounds": 4,
+          "pixel": {
+            "name": "blocks",
+            "block": 100,
+            "max_rounds": 4,
+            "inner": {
+              "name": "chain",
+              "stages": [
+                {
+                  "name": "icm",
+                  "max_sweeps": 50
+                },
+                {
+                  "name": "toulbar2",
+                  "time_limit": 2,
+                  "resolution": 3
+                }
+              ]
+            }
+          }
+        },
+        "paths": {
+          "cache": "$WCSP_FULLRES_CACHE",
+          "runs": "$WCSP_FULLRES_OUT/runs"
+        }
+      }
+    }
+  ]
+}

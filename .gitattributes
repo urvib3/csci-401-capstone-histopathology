@@ -1,0 +1,2 @@
+models/bcss_fullres_unet/best.pt filter=lfs diff=lfs merge=lfs -text
+data/fullres_multiscale_20261115/inputs/*.npz filter=lfs diff=lfs merge=lfs -text
