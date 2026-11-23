@@ -52,8 +52,12 @@ The segmenter makes two kinds of mistakes, and smoothing fixes neither.
 | Wrong pixels that are **labeling** mistakes | **52%** |
 | Predicted pieces per true region | **~10** (should be 1) |
 | Presence + smoothing on this model | 0.6524 → **0.6610** (+0.0086) |
-| Upper bound: true classes given per tile | — |
-| Upper bound: every true region coherent | — |
+| Upper bound: true classes given per tile | **0.7163** (+0.0639) |
+| Upper bound: every true region coherent | **0.7768** (+0.1244) |
+
+![Upper bounds](figures_20261123/prelim_ladder.png)
+
+**Our presence rule gets only +0.0086 of a possible +0.0639**, so knowing the right classes is worth far more than the rule currently recovers. Coherent regions are worth even more (+0.1244). Both are what training arms B and C target.
 
 ![Mistakes per class](figures_20261123/prelim_error_split.png)
 

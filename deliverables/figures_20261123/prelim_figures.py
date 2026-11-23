@@ -99,12 +99,12 @@ def fig_split(group, label, conf):
 
 def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
     rows = [("U-Net (raw)", raw, GRAY), ("+ WCSP", wcsp, GRAY), ("+ presence + WCSP", presence, BLUE),
-            ("Oracle: true class set + WCSP", p_oracle, BLUE), ("Oracle: coherent true regions", r_oracle, ORANGE)]
+            ("Upper bound: true classes + WCSP", p_oracle, BLUE), ("Upper bound: coherent regions", r_oracle, ORANGE)]
     fig, ax = plt.subplots(figsize=(6.4, 2.8))
     ys = np.arange(len(rows))[::-1]
     for y, (name, v, c) in zip(ys, rows):
         ax.barh(y, v, color=c, height=0.6, edgecolor=SURFACE, linewidth=2)
-        ax.text(v + 0.004, y, f"{v:.4f}  ({100 * (v - raw):+.1f})", va="center", color=INK, fontsize=9)
+        ax.text(v + 0.004, y, f"{v:.4f}" if v == raw else f"{v:.4f}  ({v - raw:+.4f})", va="center", color=INK, fontsize=9)
     ax.set_yticks(ys, [r[0] for r in rows])
     ax.tick_params(axis="y", length=0)
     lo = raw - 0.02
@@ -112,7 +112,7 @@ def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
     ax.set_xlabel("mIoU (axis starts at %.2f)" % lo)
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)
-    title(ax, "How much each fix could gain (185 dev tiles)")
+    title(ax, "How much each fix could gain")
     fig.savefig(OUT / "prelim_ladder.png", dpi=200, bbox_inches="tight")
 
 
