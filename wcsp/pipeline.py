@@ -165,6 +165,8 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
         prediction = store.load(sample.id)
         problem = problem_for(cfg, sample, prediction, temperature)
         init = ArgmaxSolver().solve(problem, np.zeros(problem.shape, dtype=np.int64))
+        if hasattr(solver, "prepare"):   # solvers that need the tile itself (image, id)
+            solver.prepare(sample, prediction)
         result = solver.solve(problem, init.labels)
         scores["argmax"].append(_score(sample, prediction, init.labels))
         scores["wcsp"].append(_score(sample, prediction, result.labels))
@@ -179,6 +181,9 @@ def solve(cfg, split, shard=(0, 1), run_dir=None, limit=0, save_labels=True):
             "rounds": max((t.get("round") or 0) if isinstance(t, dict) else 0 for t in result.trace) if result.trace else 0,
             **getattr(result, "info", {}),
         })
+        if result.trace and isinstance(result.trace[0], dict):   # per-step trace, e.g. per hierarchy level
+            with (run_dir / f"trace_{index:04d}_of_{count:04d}.jsonl").open("a") as stream:
+                stream.write(json.dumps({"id": sample.id, "trace": result.trace}, default=float) + "\n")
         arrays["ids"].append(sample.id)
         arrays["argmax"].append(init.labels.astype(np.uint8))
         arrays["wcsp"].append(result.labels.astype(np.uint8))

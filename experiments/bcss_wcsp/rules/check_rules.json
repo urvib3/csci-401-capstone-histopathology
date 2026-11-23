@@ -1,0 +1,130 @@
+{
+  "fit_truth": {
+    "R1_P(class in tile)": {
+      "no_neighbor_has": {
+        "Tumor": 0.03393939393939394,
+        "Inflammatory": 0.023828435266084195,
+        "Stroma": 0.09433962264150944,
+        "Necrosis": 0.00685910260074307,
+        "Other": 0.03878195920712439
+      },
+      "all": {
+        "Tumor": 0.6394943330427202,
+        "Inflammatory": 0.2792066259808195,
+        "Stroma": 0.709895379250218,
+        "Necrosis": 0.12423714036617263,
+        "Other": 0.10723626852659111
+      },
+      "neighbor_has": {
+        "Tumor": 0.7722561785809194,
+        "Inflammatory": 0.5898550724637681,
+        "Stroma": 0.7725744476464937,
+        "Necrosis": 0.5013774104683195,
+        "Other": 0.3224932249322493
+      }
+    },
+    "R2_inflammatory_regions": 2330,
+    "R2_median_stroma_share_of_border": 1.0,
+    "R2_share_regions_mostly_stroma(>=0.5)": 0.9583690987124464,
+    "R3_necrosis_regions": 694,
+    "R3_median_necrosis_region_px": 26575.0,
+    "R3_share_necrosis_px_in_regions_<1024": 0.0014329682739268653,
+    "R3_share_necrosis_px_in_regions_<4096": 0.008718151221767407
+  },
+  "val_truth": {
+    "R1_P(class in tile)": {
+      "no_neighbor_has": {
+        "Tumor": 0.022727272727272728,
+        "Inflammatory": 0.02457956015523933,
+        "Stroma": 0.2647058823529412,
+        "Necrosis": 0.006983240223463687,
+        "Other": 0.06399132321041215
+      },
+      "all": {
+        "Tumor": 0.5817055740828966,
+        "Inflammatory": 0.3268222963315865,
+        "Stroma": 0.753692234397332,
+        "Necrosis": 0.09051929490233444,
+        "Other": 0.12196283944735588
+      },
+      "neighbor_has": {
+        "Tumor": 0.6778336125069794,
+        "Inflammatory": 0.5030165912518854,
+        "Stroma": 0.7786680020030045,
+        "Necrosis": 0.2698650674662669,
+        "Other": 0.16737468139337297
+      }
+    },
+    "R2_inflammatory_regions": 1172,
+    "R2_median_stroma_share_of_border": 1.0,
+    "R2_share_regions_mostly_stroma(>=0.5)": 0.976962457337884,
+    "R3_necrosis_regions": 244,
+    "R3_median_necrosis_region_px": 12696.0,
+    "R3_share_necrosis_px_in_regions_<1024": 0.0019397123042575364,
+    "R3_share_necrosis_px_in_regions_<4096": 0.0165970490067195
+  },
+  "val_unet": {
+    "R1_P(class in tile)": {
+      "no_neighbor_has": {
+        "Tumor": 0.06818181818181818,
+        "Inflammatory": 0.04398447606727038,
+        "Stroma": 0.21568627450980393,
+        "Necrosis": 0.030027932960893854,
+        "Other": 0.09652928416485901
+      },
+      "all": {
+        "Tumor": 0.6131491186279181,
+        "Inflammatory": 0.36255359695092904,
+        "Stroma": 0.7575035731300619,
+        "Necrosis": 0.12482134349690328,
+        "Other": 0.2020009528346832
+      },
+      "neighbor_has": {
+        "Tumor": 0.7068676716917923,
+        "Inflammatory": 0.548265460030166,
+        "Stroma": 0.785177766649975,
+        "Necrosis": 0.328335832083958,
+        "Other": 0.28462192013593884
+      }
+    },
+    "R2_inflammatory_regions": 1778,
+    "R2_median_stroma_share_of_border": 1.0,
+    "R2_share_regions_mostly_stroma(>=0.5)": 0.8419572553430821,
+    "R3_necrosis_regions": 1359,
+    "R3_median_necrosis_region_px": 31.0,
+    "R3_share_necrosis_px_in_regions_<1024": 0.014884319192241676,
+    "R3_share_necrosis_px_in_regions_<4096": 0.046693614504182746
+  },
+  "val_wcsp": {
+    "R1_P(class in tile)": {
+      "no_neighbor_has": {
+        "Tumor": 0.05844155844155844,
+        "Inflammatory": 0.03880983182406209,
+        "Stroma": 0.18627450980392157,
+        "Necrosis": 0.027932960893854747,
+        "Other": 0.08459869848156182
+      },
+      "all": {
+        "Tumor": 0.606955693187232,
+        "Inflammatory": 0.3515959980943306,
+        "Stroma": 0.7498808956646021,
+        "Necrosis": 0.12053358742258218,
+        "Other": 0.19056693663649357
+      },
+      "neighbor_has": {
+        "Tumor": 0.701284198771636,
+        "Inflammatory": 0.5339366515837104,
+        "Stroma": 0.7786680020030045,
+        "Necrosis": 0.3193403298350825,
+        "Other": 0.2735768903993203
+      }
+    },
+    "R2_inflammatory_regions": 1307,
+    "R2_median_stroma_share_of_border": 1.0,
+    "R2_share_regions_mostly_stroma(>=0.5)": 0.9005355776587605,
+    "R3_necrosis_regions": 432,
+    "R3_median_necrosis_region_px": 2173.5,
+    "R3_share_necrosis_px_in_regions_<1024": 0.008963123647221806,
+    "R3_share_necrosis_px_in_regions_<4096": 0.04101252078267814
+  }
+}

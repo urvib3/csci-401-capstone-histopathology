@@ -88,32 +88,40 @@ def error_location():
 
 
 def rule_check():
+    """Every class pair, both statistics, sorted by how common it is in the val ground truth."""
     r = json.loads((ANALYSIS / "region_stats.json").read_text())
-    checks = [
-        ("Inflammatory in tile | necrosis", "p_b_given_a", "Necrosis", "Inflammatory"),
-        ("Other in tile | necrosis", "p_b_given_a", "Necrosis", "Other"),
-        ("Other in tile | tumor", "p_b_given_a", "Tumor", "Other"),
-        ("Other's border touching tumor", "border_share", "Other", "Tumor"),
-        ("Necrosis border touching other", "border_share", "Necrosis", "Other"),
+    panels = [
+        ("p_b_given_a", "Same tile:  P(B in tile | A in tile), row = B | A", "{b} | {a}"),
+        ("border_share", "Borders:  share of A's border touching B, row = A → B", "{a} → {b}"),
     ]
-    series = [("Ground truth (fit tiles)", "truth_fit", INK, "o"), ("U-Net (val)", "unet_val", BASE, "s"),
-              ("After current WCSP (val)", "wcsp_val", SECOND, "D")]
-    fig, ax = plt.subplots(figsize=(8, 3.6), facecolor=SURFACE)
-    style(ax)
-    for name, key, color, marker in series:
-        xs = [r[key][kind][a][b] for _, kind, a, b in checks]
-        ax.scatter(xs, range(len(checks)), s=60, color=color, marker=marker, label=name, zorder=3,
-                   edgecolor=SURFACE, linewidth=1.5)
-    for y, (_, kind, a, b) in enumerate(checks):
-        xs = [r[key][kind][a][b] for _, key, _, _ in series]
-        ax.plot([min(xs), max(xs)], [y, y], color=GRID, lw=2, zorder=1)
-    ax.set_yticks(range(len(checks)), [c[0] for c in checks], fontsize=9, color=INK)
-    ax.invert_yaxis()
-    ax.set_xlabel("Probability / share", fontsize=9, color=MUTED)
-    ax.legend(frameon=False, fontsize=8.5, loc="upper center", bbox_to_anchor=(0.4, -0.2), ncol=3)
-    ax.set_title("The WCSP keeps class combinations that the ground truth almost never has",
-                 fontsize=10, color=INK, loc="left")
-    fig.tight_layout()
+    series = [("U-Net", "unet_val", BASE, "s", 34), ("After current WCSP", "wcsp_val", SECOND, "D", 30),
+              ("Ground truth", "truth_val", INK, "o", 70)]
+    fig, axes = plt.subplots(1, 2, figsize=(14, 9.2), facecolor=SURFACE)
+    for ax, (kind, title, fmt) in zip(axes, panels):
+        style(ax)
+        pairs = [(a, b) for a in r["truth_val"][kind] for b in r["truth_val"][kind][a]]
+        pairs.sort(key=lambda ab: r["truth_val"][kind][ab[0]][ab[1]])
+        for y, (a, b) in enumerate(pairs):
+            xs = [r[key][kind][a][b] for _, key, *_ in series]
+            ax.plot([min(xs), max(xs)], [y, y], color=GRID, lw=2.2, zorder=1)
+        for name, key, color, marker, size in series:
+            xs = [r[key][kind][a][b] for a, b in pairs]
+            if key == "truth_val":   # hollow ring on top, so it shows even when a marker sits under it
+                ax.scatter(xs, range(len(pairs)), s=size, facecolor="none", edgecolor=color, marker=marker,
+                           linewidth=1.8, label=name, zorder=4)
+            else:
+                ax.scatter(xs, range(len(pairs)), s=size, color=color, marker=marker, label=name, zorder=3,
+                           edgecolor=SURFACE, linewidth=1.2)
+        ax.set_yticks(range(len(pairs)), [fmt.format(a=a, b=b) for a, b in pairs], fontsize=8.5, color=INK)
+        ax.set_ylim(len(pairs) - 0.3, -0.7)   # least common at the top
+        ax.set_xlim(-0.02, 1.02)
+        ax.set_title(title, fontsize=10, color=INK, loc="left")
+        ax.set_xlabel("↓ rows run from least to most common in the ground truth", fontsize=8.5, color=MUTED)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=3, frameon=False, fontsize=9.5)
+    fig.suptitle("Class combinations on val (2,124 tiles): ground truth vs. U-Net vs. WCSP, sorted by ground truth",
+                 fontsize=11, color=INK, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0.04, 1, 0.96))
     fig.savefig(OUT / "rule_check.png", dpi=130, facecolor=SURFACE)
     plt.close(fig)
 

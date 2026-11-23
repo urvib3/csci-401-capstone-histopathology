@@ -1,0 +1,23 @@
+dec_control --set solver.mu=0.5
+dec_potts --set solver.mu=0.5 --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_potts_matched.csv
+dec_blocks_0.8 --set solver.mu=0.5 --set solver.level_lam=[5.12,6.4,8]
+dec_all_0.8 --set solver.mu=0.5 --set solver.level_lam=[5.12,6.4,8] --set problem.lam=4.096
+dec_pixels_0.8 --set solver.mu=0.5 --set problem.lam=4.096
+dec_potts_blocks_0.8 --set solver.mu=0.5 --set solver.level_lam=[5.12,6.4,8] --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_potts_matched.csv
+dec_blocks_0.6 --set solver.mu=0.5 --set solver.level_lam=[2.88,4.8,8]
+dec_all_0.6 --set solver.mu=0.5 --set solver.level_lam=[2.88,4.8,8] --set problem.lam=1.728
+dec_pixels_0.6 --set solver.mu=0.5 --set problem.lam=1.728
+dec_potts_blocks_0.6 --set solver.mu=0.5 --set solver.level_lam=[2.88,4.8,8] --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_potts_matched.csv
+dec_blocks_0.4 --set solver.mu=0.5 --set solver.level_lam=[1.28,3.2,8]
+dec_all_0.4 --set solver.mu=0.5 --set solver.level_lam=[1.28,3.2,8] --set problem.lam=0.512
+dec_pixels_0.4 --set solver.mu=0.5 --set problem.lam=0.512
+dec_potts_blocks_0.4 --set solver.mu=0.5 --set solver.level_lam=[1.28,3.2,8] --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_potts_matched.csv
+dec_blocks_0.2 --set solver.mu=0.5 --set solver.level_lam=[0.32,1.6,8]
+dec_all_0.2 --set solver.mu=0.5 --set solver.level_lam=[0.32,1.6,8] --set problem.lam=0.064
+dec_pixels_0.2 --set solver.mu=0.5 --set problem.lam=0.064
+dec_potts_blocks_0.2 --set solver.mu=0.5 --set solver.level_lam=[0.32,1.6,8] --set problem.table=experiments/bcss_wcsp/configs/tables/bcss_potts_matched.csv
+dec_uniform_blocks_2 --set solver.mu=0.5 --set solver.level_lam=[2,2,2]
+dec_uniform_blocks_4 --set solver.mu=0.5 --set solver.level_lam=[4,4,4]
+dec_uniform_blocks_6 --set solver.mu=0.5 --set solver.level_lam=[6,6,6]
+dec_coarse_boost_12 --set solver.mu=0.5 --set solver.level_lam=[8,12,12]
+dec_coarse_boost_16 --set solver.mu=0.5 --set solver.level_lam=[8,16,16]
