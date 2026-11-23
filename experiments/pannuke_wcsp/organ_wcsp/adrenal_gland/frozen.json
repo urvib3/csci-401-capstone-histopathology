@@ -1,0 +1,255 @@
+{
+  "winners": {
+    "pixel_table": {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.5",
+      "kind": "pixel_table",
+      "tables": "organ",
+      "params": {
+        "beta": 0.5
+      }
+    },
+    "hierarchy": {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.3_par0.1_gamma0",
+      "kind": "hierarchy",
+      "tables": "organ",
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    "scaling_siblings": {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.3",
+      "kind": "hierarchy",
+      "tables": "organ",
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.3,
+          1.2,
+          4.8,
+          19.2,
+          76.8
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    "decay": {
+      "family": "decay",
+      "name": "parent_-1",
+      "kind": "hierarchy",
+      "tables": "organ",
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.25806451612903225,
+          0.12903225806451613,
+          0.06451612903225806,
+          0.03225806451612903,
+          0.016129032258064516
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    "nucleus_pairwise": {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_2",
+      "kind": "nucleus_pairwise",
+      "tables": "organ",
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    "type_counts": {
+      "family": "type_counts",
+      "name": "vote_count_model_0.25",
+      "kind": "presence",
+      "tables": "organ",
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 0.25
+      }
+    },
+    "type_set": {
+      "family": "type_set",
+      "name": "vote_presence_4",
+      "kind": "presence",
+      "tables": "organ",
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 4.0
+      }
+    },
+    "raw_component": {
+      "family": "raw_component",
+      "name": "component_s2_limit65536_flat",
+      "kind": "component",
+      "tables": "organ",
+      "params": {
+        "strength": 2.0,
+        "limit": 65536,
+        "adaptive": false
+      }
+    }
+  },
+  "controls": {
+    "raw": {
+      "family": "control",
+      "name": "raw_tp",
+      "kind": "raw",
+      "tables": "organ",
+      "params": {}
+    },
+    "vote": {
+      "family": "control",
+      "name": "fixed_mask_vote",
+      "kind": "vote",
+      "tables": "organ",
+      "params": {}
+    },
+    "v1": {
+      "family": "control",
+      "name": "organ_v1",
+      "kind": "hierarchy",
+      "tables": "organ",
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    "v2": {
+      "family": "control",
+      "name": "organ_v2",
+      "kind": "hierarchy",
+      "tables": "organ",
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    }
+  },
+  "family_control": {
+    "pixel_table": "raw",
+    "hierarchy": "raw",
+    "scaling_siblings": "v2",
+    "decay": "v1",
+    "nucleus_pairwise": "vote",
+    "type_counts": "vote",
+    "type_set": "vote",
+    "raw_component": "raw"
+  },
+  "selection": "Highest dev pooled five-class biological mIoU; within 0.0001 the earlier (simpler or weaker) grid entry wins.",
+  "dev_scores": {
+    "pixel_table": 0.3325516674440021,
+    "hierarchy": 0.3321113100104827,
+    "scaling_siblings": 0.33221415394760834,
+    "decay": 0.33213661949528656,
+    "nucleus_pairwise": 0.3365053531253841,
+    "type_counts": 0.33518209823641315,
+    "type_set": 0.34659083239933564,
+    "raw_component": 0.3368598681447388
+  }
+}

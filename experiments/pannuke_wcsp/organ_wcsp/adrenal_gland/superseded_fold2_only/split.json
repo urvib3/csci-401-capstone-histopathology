@@ -1,0 +1,489 @@
+{
+  "organ": "Adrenal_gland",
+  "seed": 20261122,
+  "fractions": {
+    "fit": 0.4,
+    "dev": 0.2,
+    "test": 0.4
+  },
+  "organ_patches_in_fold_2": 148,
+  "previously_used_removed": 75,
+  "fit": [
+    {
+      "image_index": 1036,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1039,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1048,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1050,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1053,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1055,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1058,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1063,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1064,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1066,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1068,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1069,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1118,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1122,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1154,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1156,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1158,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1170,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1337,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1338,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1339,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1348,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1358,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1359,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1361,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1373,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1379,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1386,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1389,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "dev": [
+    {
+      "image_index": 1037,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1045,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1047,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1051,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1056,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1062,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1072,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1163,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1336,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1343,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1354,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1376,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1390,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1393,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "test": [
+    {
+      "image_index": 1040,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1049,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1067,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1070,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1074,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1153,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1159,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1160,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1162,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1164,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1167,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1335,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1340,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1342,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1344,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1345,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1346,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1353,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1356,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1366,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1367,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1369,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1381,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1384,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1387,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1392,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "scored": [
+    {
+      "image_index": 1037,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1045,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1047,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1051,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1056,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1062,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1072,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1163,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1336,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1343,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1354,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1376,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1390,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1393,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1040,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1049,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1067,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1070,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1074,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1153,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1159,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1160,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1162,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1164,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1167,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1335,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1340,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1342,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1344,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1345,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1346,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1353,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1356,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1366,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1367,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1369,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1381,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1384,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1387,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1392,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "excluded_source": "excluded_ids plus every test ID in presence_scale_20261114/split.json",
+  "independence": "Patch-disjoint only. PanNuke has no patient or slide IDs; HoVer-Net checkpoint exposure to fold 2 is unknown."
+}

@@ -1,0 +1,3523 @@
+{
+  "organ": "Adrenal_gland",
+  "folds": [
+    2,
+    1,
+    3
+  ],
+  "seed": 20261122,
+  "fractions": {
+    "fit": 0.4,
+    "dev": 0.2,
+    "test": 0.4
+  },
+  "per_fold": {
+    "2": {
+      "organ_patches": 148,
+      "previously_used_removed": 75,
+      "fit": 29,
+      "dev": 15,
+      "test": 29
+    },
+    "1": {
+      "organ_patches": 134,
+      "previously_used_removed": 0,
+      "fit": 54,
+      "dev": 27,
+      "test": 53
+    },
+    "3": {
+      "organ_patches": 155,
+      "previously_used_removed": 0,
+      "fit": 62,
+      "dev": 31,
+      "test": 62
+    }
+  },
+  "fit": [
+    {
+      "image_index": 1036,
+      "fold": 2,
+      "index_in_fold": 1036,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1039,
+      "fold": 2,
+      "index_in_fold": 1039,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1048,
+      "fold": 2,
+      "index_in_fold": 1048,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1050,
+      "fold": 2,
+      "index_in_fold": 1050,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1053,
+      "fold": 2,
+      "index_in_fold": 1053,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1055,
+      "fold": 2,
+      "index_in_fold": 1055,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1058,
+      "fold": 2,
+      "index_in_fold": 1058,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1063,
+      "fold": 2,
+      "index_in_fold": 1063,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1064,
+      "fold": 2,
+      "index_in_fold": 1064,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1066,
+      "fold": 2,
+      "index_in_fold": 1066,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1068,
+      "fold": 2,
+      "index_in_fold": 1068,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1069,
+      "fold": 2,
+      "index_in_fold": 1069,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1118,
+      "fold": 2,
+      "index_in_fold": 1118,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1122,
+      "fold": 2,
+      "index_in_fold": 1122,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1154,
+      "fold": 2,
+      "index_in_fold": 1154,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1156,
+      "fold": 2,
+      "index_in_fold": 1156,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1158,
+      "fold": 2,
+      "index_in_fold": 1158,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1170,
+      "fold": 2,
+      "index_in_fold": 1170,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1337,
+      "fold": 2,
+      "index_in_fold": 1337,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1338,
+      "fold": 2,
+      "index_in_fold": 1338,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1339,
+      "fold": 2,
+      "index_in_fold": 1339,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1348,
+      "fold": 2,
+      "index_in_fold": 1348,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1358,
+      "fold": 2,
+      "index_in_fold": 1358,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1359,
+      "fold": 2,
+      "index_in_fold": 1359,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1361,
+      "fold": 2,
+      "index_in_fold": 1361,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1373,
+      "fold": 2,
+      "index_in_fold": 1373,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1379,
+      "fold": 2,
+      "index_in_fold": 1379,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1386,
+      "fold": 2,
+      "index_in_fold": 1386,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1389,
+      "fold": 2,
+      "index_in_fold": 1389,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11173,
+      "fold": 1,
+      "index_in_fold": 1173,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11178,
+      "fold": 1,
+      "index_in_fold": 1178,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11181,
+      "fold": 1,
+      "index_in_fold": 1181,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11183,
+      "fold": 1,
+      "index_in_fold": 1183,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11189,
+      "fold": 1,
+      "index_in_fold": 1189,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11193,
+      "fold": 1,
+      "index_in_fold": 1193,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11194,
+      "fold": 1,
+      "index_in_fold": 1194,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11195,
+      "fold": 1,
+      "index_in_fold": 1195,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11196,
+      "fold": 1,
+      "index_in_fold": 1196,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11197,
+      "fold": 1,
+      "index_in_fold": 1197,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11201,
+      "fold": 1,
+      "index_in_fold": 1201,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11202,
+      "fold": 1,
+      "index_in_fold": 1202,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11203,
+      "fold": 1,
+      "index_in_fold": 1203,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11206,
+      "fold": 1,
+      "index_in_fold": 1206,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11212,
+      "fold": 1,
+      "index_in_fold": 1212,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11214,
+      "fold": 1,
+      "index_in_fold": 1214,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11266,
+      "fold": 1,
+      "index_in_fold": 1266,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11272,
+      "fold": 1,
+      "index_in_fold": 1272,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11273,
+      "fold": 1,
+      "index_in_fold": 1273,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11276,
+      "fold": 1,
+      "index_in_fold": 1276,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11303,
+      "fold": 1,
+      "index_in_fold": 1303,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11304,
+      "fold": 1,
+      "index_in_fold": 1304,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11305,
+      "fold": 1,
+      "index_in_fold": 1305,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11307,
+      "fold": 1,
+      "index_in_fold": 1307,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11309,
+      "fold": 1,
+      "index_in_fold": 1309,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11316,
+      "fold": 1,
+      "index_in_fold": 1316,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11317,
+      "fold": 1,
+      "index_in_fold": 1317,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11521,
+      "fold": 1,
+      "index_in_fold": 1521,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11523,
+      "fold": 1,
+      "index_in_fold": 1523,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11525,
+      "fold": 1,
+      "index_in_fold": 1525,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11526,
+      "fold": 1,
+      "index_in_fold": 1526,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11527,
+      "fold": 1,
+      "index_in_fold": 1527,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11528,
+      "fold": 1,
+      "index_in_fold": 1528,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11530,
+      "fold": 1,
+      "index_in_fold": 1530,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11531,
+      "fold": 1,
+      "index_in_fold": 1531,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11533,
+      "fold": 1,
+      "index_in_fold": 1533,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11538,
+      "fold": 1,
+      "index_in_fold": 1538,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11539,
+      "fold": 1,
+      "index_in_fold": 1539,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11541,
+      "fold": 1,
+      "index_in_fold": 1541,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11543,
+      "fold": 1,
+      "index_in_fold": 1543,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11547,
+      "fold": 1,
+      "index_in_fold": 1547,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11548,
+      "fold": 1,
+      "index_in_fold": 1548,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11550,
+      "fold": 1,
+      "index_in_fold": 1550,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11552,
+      "fold": 1,
+      "index_in_fold": 1552,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11553,
+      "fold": 1,
+      "index_in_fold": 1553,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11555,
+      "fold": 1,
+      "index_in_fold": 1555,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11558,
+      "fold": 1,
+      "index_in_fold": 1558,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11559,
+      "fold": 1,
+      "index_in_fold": 1559,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11564,
+      "fold": 1,
+      "index_in_fold": 1564,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11565,
+      "fold": 1,
+      "index_in_fold": 1565,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11567,
+      "fold": 1,
+      "index_in_fold": 1567,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11568,
+      "fold": 1,
+      "index_in_fold": 1568,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11569,
+      "fold": 1,
+      "index_in_fold": 1569,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11570,
+      "fold": 1,
+      "index_in_fold": 1570,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31097,
+      "fold": 3,
+      "index_in_fold": 1097,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31098,
+      "fold": 3,
+      "index_in_fold": 1098,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31101,
+      "fold": 3,
+      "index_in_fold": 1101,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31109,
+      "fold": 3,
+      "index_in_fold": 1109,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31112,
+      "fold": 3,
+      "index_in_fold": 1112,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31115,
+      "fold": 3,
+      "index_in_fold": 1115,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31119,
+      "fold": 3,
+      "index_in_fold": 1119,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31121,
+      "fold": 3,
+      "index_in_fold": 1121,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31125,
+      "fold": 3,
+      "index_in_fold": 1125,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31127,
+      "fold": 3,
+      "index_in_fold": 1127,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31129,
+      "fold": 3,
+      "index_in_fold": 1129,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31131,
+      "fold": 3,
+      "index_in_fold": 1131,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31134,
+      "fold": 3,
+      "index_in_fold": 1134,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31138,
+      "fold": 3,
+      "index_in_fold": 1138,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31141,
+      "fold": 3,
+      "index_in_fold": 1141,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31142,
+      "fold": 3,
+      "index_in_fold": 1142,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31143,
+      "fold": 3,
+      "index_in_fold": 1143,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31144,
+      "fold": 3,
+      "index_in_fold": 1144,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31145,
+      "fold": 3,
+      "index_in_fold": 1145,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31146,
+      "fold": 3,
+      "index_in_fold": 1146,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31147,
+      "fold": 3,
+      "index_in_fold": 1147,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31186,
+      "fold": 3,
+      "index_in_fold": 1186,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31189,
+      "fold": 3,
+      "index_in_fold": 1189,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31190,
+      "fold": 3,
+      "index_in_fold": 1190,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31192,
+      "fold": 3,
+      "index_in_fold": 1192,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31195,
+      "fold": 3,
+      "index_in_fold": 1195,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31197,
+      "fold": 3,
+      "index_in_fold": 1197,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31214,
+      "fold": 3,
+      "index_in_fold": 1214,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31221,
+      "fold": 3,
+      "index_in_fold": 1221,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31398,
+      "fold": 3,
+      "index_in_fold": 1398,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31399,
+      "fold": 3,
+      "index_in_fold": 1399,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31401,
+      "fold": 3,
+      "index_in_fold": 1401,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31407,
+      "fold": 3,
+      "index_in_fold": 1407,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31408,
+      "fold": 3,
+      "index_in_fold": 1408,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31409,
+      "fold": 3,
+      "index_in_fold": 1409,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31410,
+      "fold": 3,
+      "index_in_fold": 1410,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31412,
+      "fold": 3,
+      "index_in_fold": 1412,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31413,
+      "fold": 3,
+      "index_in_fold": 1413,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31415,
+      "fold": 3,
+      "index_in_fold": 1415,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31417,
+      "fold": 3,
+      "index_in_fold": 1417,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31418,
+      "fold": 3,
+      "index_in_fold": 1418,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31420,
+      "fold": 3,
+      "index_in_fold": 1420,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31421,
+      "fold": 3,
+      "index_in_fold": 1421,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31422,
+      "fold": 3,
+      "index_in_fold": 1422,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31423,
+      "fold": 3,
+      "index_in_fold": 1423,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31426,
+      "fold": 3,
+      "index_in_fold": 1426,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31427,
+      "fold": 3,
+      "index_in_fold": 1427,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31433,
+      "fold": 3,
+      "index_in_fold": 1433,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31434,
+      "fold": 3,
+      "index_in_fold": 1434,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31435,
+      "fold": 3,
+      "index_in_fold": 1435,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31436,
+      "fold": 3,
+      "index_in_fold": 1436,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31439,
+      "fold": 3,
+      "index_in_fold": 1439,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31440,
+      "fold": 3,
+      "index_in_fold": 1440,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31445,
+      "fold": 3,
+      "index_in_fold": 1445,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31446,
+      "fold": 3,
+      "index_in_fold": 1446,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31452,
+      "fold": 3,
+      "index_in_fold": 1452,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31454,
+      "fold": 3,
+      "index_in_fold": 1454,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31458,
+      "fold": 3,
+      "index_in_fold": 1458,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31460,
+      "fold": 3,
+      "index_in_fold": 1460,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31464,
+      "fold": 3,
+      "index_in_fold": 1464,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31465,
+      "fold": 3,
+      "index_in_fold": 1465,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31466,
+      "fold": 3,
+      "index_in_fold": 1466,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "dev": [
+    {
+      "image_index": 1037,
+      "fold": 2,
+      "index_in_fold": 1037,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1045,
+      "fold": 2,
+      "index_in_fold": 1045,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1047,
+      "fold": 2,
+      "index_in_fold": 1047,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1051,
+      "fold": 2,
+      "index_in_fold": 1051,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1056,
+      "fold": 2,
+      "index_in_fold": 1056,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1062,
+      "fold": 2,
+      "index_in_fold": 1062,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1072,
+      "fold": 2,
+      "index_in_fold": 1072,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1111,
+      "fold": 2,
+      "index_in_fold": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1163,
+      "fold": 2,
+      "index_in_fold": 1163,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1336,
+      "fold": 2,
+      "index_in_fold": 1336,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1343,
+      "fold": 2,
+      "index_in_fold": 1343,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1354,
+      "fold": 2,
+      "index_in_fold": 1354,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1376,
+      "fold": 2,
+      "index_in_fold": 1376,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1390,
+      "fold": 2,
+      "index_in_fold": 1390,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1393,
+      "fold": 2,
+      "index_in_fold": 1393,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11172,
+      "fold": 1,
+      "index_in_fold": 1172,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11176,
+      "fold": 1,
+      "index_in_fold": 1176,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11184,
+      "fold": 1,
+      "index_in_fold": 1184,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11187,
+      "fold": 1,
+      "index_in_fold": 1187,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11190,
+      "fold": 1,
+      "index_in_fold": 1190,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11191,
+      "fold": 1,
+      "index_in_fold": 1191,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11192,
+      "fold": 1,
+      "index_in_fold": 1192,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11207,
+      "fold": 1,
+      "index_in_fold": 1207,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11208,
+      "fold": 1,
+      "index_in_fold": 1208,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11215,
+      "fold": 1,
+      "index_in_fold": 1215,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11264,
+      "fold": 1,
+      "index_in_fold": 1264,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11267,
+      "fold": 1,
+      "index_in_fold": 1267,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11270,
+      "fold": 1,
+      "index_in_fold": 1270,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11275,
+      "fold": 1,
+      "index_in_fold": 1275,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11278,
+      "fold": 1,
+      "index_in_fold": 1278,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11311,
+      "fold": 1,
+      "index_in_fold": 1311,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11312,
+      "fold": 1,
+      "index_in_fold": 1312,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11524,
+      "fold": 1,
+      "index_in_fold": 1524,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11532,
+      "fold": 1,
+      "index_in_fold": 1532,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11534,
+      "fold": 1,
+      "index_in_fold": 1534,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11535,
+      "fold": 1,
+      "index_in_fold": 1535,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11540,
+      "fold": 1,
+      "index_in_fold": 1540,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11551,
+      "fold": 1,
+      "index_in_fold": 1551,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11563,
+      "fold": 1,
+      "index_in_fold": 1563,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11566,
+      "fold": 1,
+      "index_in_fold": 1566,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11571,
+      "fold": 1,
+      "index_in_fold": 1571,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11572,
+      "fold": 1,
+      "index_in_fold": 1572,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31093,
+      "fold": 3,
+      "index_in_fold": 1093,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31095,
+      "fold": 3,
+      "index_in_fold": 1095,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31099,
+      "fold": 3,
+      "index_in_fold": 1099,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31100,
+      "fold": 3,
+      "index_in_fold": 1100,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31107,
+      "fold": 3,
+      "index_in_fold": 1107,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31113,
+      "fold": 3,
+      "index_in_fold": 1113,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31114,
+      "fold": 3,
+      "index_in_fold": 1114,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31124,
+      "fold": 3,
+      "index_in_fold": 1124,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31193,
+      "fold": 3,
+      "index_in_fold": 1193,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31194,
+      "fold": 3,
+      "index_in_fold": 1194,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31213,
+      "fold": 3,
+      "index_in_fold": 1213,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31215,
+      "fold": 3,
+      "index_in_fold": 1215,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31220,
+      "fold": 3,
+      "index_in_fold": 1220,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31223,
+      "fold": 3,
+      "index_in_fold": 1223,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31402,
+      "fold": 3,
+      "index_in_fold": 1402,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31404,
+      "fold": 3,
+      "index_in_fold": 1404,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31414,
+      "fold": 3,
+      "index_in_fold": 1414,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31419,
+      "fold": 3,
+      "index_in_fold": 1419,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31425,
+      "fold": 3,
+      "index_in_fold": 1425,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31429,
+      "fold": 3,
+      "index_in_fold": 1429,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31442,
+      "fold": 3,
+      "index_in_fold": 1442,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31444,
+      "fold": 3,
+      "index_in_fold": 1444,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31448,
+      "fold": 3,
+      "index_in_fold": 1448,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31449,
+      "fold": 3,
+      "index_in_fold": 1449,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31450,
+      "fold": 3,
+      "index_in_fold": 1450,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31455,
+      "fold": 3,
+      "index_in_fold": 1455,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31456,
+      "fold": 3,
+      "index_in_fold": 1456,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31457,
+      "fold": 3,
+      "index_in_fold": 1457,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31459,
+      "fold": 3,
+      "index_in_fold": 1459,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31462,
+      "fold": 3,
+      "index_in_fold": 1462,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31463,
+      "fold": 3,
+      "index_in_fold": 1463,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "test": [
+    {
+      "image_index": 1040,
+      "fold": 2,
+      "index_in_fold": 1040,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1049,
+      "fold": 2,
+      "index_in_fold": 1049,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1067,
+      "fold": 2,
+      "index_in_fold": 1067,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1070,
+      "fold": 2,
+      "index_in_fold": 1070,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1074,
+      "fold": 2,
+      "index_in_fold": 1074,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1110,
+      "fold": 2,
+      "index_in_fold": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1116,
+      "fold": 2,
+      "index_in_fold": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1117,
+      "fold": 2,
+      "index_in_fold": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1153,
+      "fold": 2,
+      "index_in_fold": 1153,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1159,
+      "fold": 2,
+      "index_in_fold": 1159,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1160,
+      "fold": 2,
+      "index_in_fold": 1160,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1162,
+      "fold": 2,
+      "index_in_fold": 1162,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1164,
+      "fold": 2,
+      "index_in_fold": 1164,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1167,
+      "fold": 2,
+      "index_in_fold": 1167,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1335,
+      "fold": 2,
+      "index_in_fold": 1335,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1340,
+      "fold": 2,
+      "index_in_fold": 1340,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1342,
+      "fold": 2,
+      "index_in_fold": 1342,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1344,
+      "fold": 2,
+      "index_in_fold": 1344,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1345,
+      "fold": 2,
+      "index_in_fold": 1345,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1346,
+      "fold": 2,
+      "index_in_fold": 1346,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1353,
+      "fold": 2,
+      "index_in_fold": 1353,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1356,
+      "fold": 2,
+      "index_in_fold": 1356,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1366,
+      "fold": 2,
+      "index_in_fold": 1366,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1367,
+      "fold": 2,
+      "index_in_fold": 1367,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1369,
+      "fold": 2,
+      "index_in_fold": 1369,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1381,
+      "fold": 2,
+      "index_in_fold": 1381,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1384,
+      "fold": 2,
+      "index_in_fold": 1384,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1387,
+      "fold": 2,
+      "index_in_fold": 1387,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1392,
+      "fold": 2,
+      "index_in_fold": 1392,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11171,
+      "fold": 1,
+      "index_in_fold": 1171,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11174,
+      "fold": 1,
+      "index_in_fold": 1174,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11175,
+      "fold": 1,
+      "index_in_fold": 1175,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11177,
+      "fold": 1,
+      "index_in_fold": 1177,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11179,
+      "fold": 1,
+      "index_in_fold": 1179,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11180,
+      "fold": 1,
+      "index_in_fold": 1180,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11182,
+      "fold": 1,
+      "index_in_fold": 1182,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11185,
+      "fold": 1,
+      "index_in_fold": 1185,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11186,
+      "fold": 1,
+      "index_in_fold": 1186,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11188,
+      "fold": 1,
+      "index_in_fold": 1188,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11198,
+      "fold": 1,
+      "index_in_fold": 1198,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11199,
+      "fold": 1,
+      "index_in_fold": 1199,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11200,
+      "fold": 1,
+      "index_in_fold": 1200,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11204,
+      "fold": 1,
+      "index_in_fold": 1204,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11205,
+      "fold": 1,
+      "index_in_fold": 1205,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11209,
+      "fold": 1,
+      "index_in_fold": 1209,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11210,
+      "fold": 1,
+      "index_in_fold": 1210,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11211,
+      "fold": 1,
+      "index_in_fold": 1211,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11213,
+      "fold": 1,
+      "index_in_fold": 1213,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11216,
+      "fold": 1,
+      "index_in_fold": 1216,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11217,
+      "fold": 1,
+      "index_in_fold": 1217,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11218,
+      "fold": 1,
+      "index_in_fold": 1218,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11265,
+      "fold": 1,
+      "index_in_fold": 1265,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11268,
+      "fold": 1,
+      "index_in_fold": 1268,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11269,
+      "fold": 1,
+      "index_in_fold": 1269,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11271,
+      "fold": 1,
+      "index_in_fold": 1271,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11274,
+      "fold": 1,
+      "index_in_fold": 1274,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11277,
+      "fold": 1,
+      "index_in_fold": 1277,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11306,
+      "fold": 1,
+      "index_in_fold": 1306,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11308,
+      "fold": 1,
+      "index_in_fold": 1308,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11310,
+      "fold": 1,
+      "index_in_fold": 1310,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11313,
+      "fold": 1,
+      "index_in_fold": 1313,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11314,
+      "fold": 1,
+      "index_in_fold": 1314,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11315,
+      "fold": 1,
+      "index_in_fold": 1315,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11318,
+      "fold": 1,
+      "index_in_fold": 1318,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11520,
+      "fold": 1,
+      "index_in_fold": 1520,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11522,
+      "fold": 1,
+      "index_in_fold": 1522,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11529,
+      "fold": 1,
+      "index_in_fold": 1529,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11536,
+      "fold": 1,
+      "index_in_fold": 1536,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11537,
+      "fold": 1,
+      "index_in_fold": 1537,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11542,
+      "fold": 1,
+      "index_in_fold": 1542,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11544,
+      "fold": 1,
+      "index_in_fold": 1544,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11545,
+      "fold": 1,
+      "index_in_fold": 1545,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11546,
+      "fold": 1,
+      "index_in_fold": 1546,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11549,
+      "fold": 1,
+      "index_in_fold": 1549,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11554,
+      "fold": 1,
+      "index_in_fold": 1554,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11556,
+      "fold": 1,
+      "index_in_fold": 1556,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11557,
+      "fold": 1,
+      "index_in_fold": 1557,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11560,
+      "fold": 1,
+      "index_in_fold": 1560,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11561,
+      "fold": 1,
+      "index_in_fold": 1561,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11562,
+      "fold": 1,
+      "index_in_fold": 1562,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11573,
+      "fold": 1,
+      "index_in_fold": 1573,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11574,
+      "fold": 1,
+      "index_in_fold": 1574,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31094,
+      "fold": 3,
+      "index_in_fold": 1094,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31096,
+      "fold": 3,
+      "index_in_fold": 1096,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31102,
+      "fold": 3,
+      "index_in_fold": 1102,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31103,
+      "fold": 3,
+      "index_in_fold": 1103,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31104,
+      "fold": 3,
+      "index_in_fold": 1104,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31105,
+      "fold": 3,
+      "index_in_fold": 1105,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31106,
+      "fold": 3,
+      "index_in_fold": 1106,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31108,
+      "fold": 3,
+      "index_in_fold": 1108,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31110,
+      "fold": 3,
+      "index_in_fold": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31111,
+      "fold": 3,
+      "index_in_fold": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31116,
+      "fold": 3,
+      "index_in_fold": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31117,
+      "fold": 3,
+      "index_in_fold": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31118,
+      "fold": 3,
+      "index_in_fold": 1118,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31120,
+      "fold": 3,
+      "index_in_fold": 1120,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31122,
+      "fold": 3,
+      "index_in_fold": 1122,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31123,
+      "fold": 3,
+      "index_in_fold": 1123,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31126,
+      "fold": 3,
+      "index_in_fold": 1126,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31128,
+      "fold": 3,
+      "index_in_fold": 1128,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31130,
+      "fold": 3,
+      "index_in_fold": 1130,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31132,
+      "fold": 3,
+      "index_in_fold": 1132,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31133,
+      "fold": 3,
+      "index_in_fold": 1133,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31135,
+      "fold": 3,
+      "index_in_fold": 1135,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31136,
+      "fold": 3,
+      "index_in_fold": 1136,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31137,
+      "fold": 3,
+      "index_in_fold": 1137,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31139,
+      "fold": 3,
+      "index_in_fold": 1139,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31140,
+      "fold": 3,
+      "index_in_fold": 1140,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31187,
+      "fold": 3,
+      "index_in_fold": 1187,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31188,
+      "fold": 3,
+      "index_in_fold": 1188,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31191,
+      "fold": 3,
+      "index_in_fold": 1191,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31196,
+      "fold": 3,
+      "index_in_fold": 1196,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31198,
+      "fold": 3,
+      "index_in_fold": 1198,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31199,
+      "fold": 3,
+      "index_in_fold": 1199,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31200,
+      "fold": 3,
+      "index_in_fold": 1200,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31201,
+      "fold": 3,
+      "index_in_fold": 1201,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31202,
+      "fold": 3,
+      "index_in_fold": 1202,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31203,
+      "fold": 3,
+      "index_in_fold": 1203,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31212,
+      "fold": 3,
+      "index_in_fold": 1212,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31216,
+      "fold": 3,
+      "index_in_fold": 1216,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31217,
+      "fold": 3,
+      "index_in_fold": 1217,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31218,
+      "fold": 3,
+      "index_in_fold": 1218,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31219,
+      "fold": 3,
+      "index_in_fold": 1219,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31222,
+      "fold": 3,
+      "index_in_fold": 1222,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31400,
+      "fold": 3,
+      "index_in_fold": 1400,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31403,
+      "fold": 3,
+      "index_in_fold": 1403,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31405,
+      "fold": 3,
+      "index_in_fold": 1405,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31406,
+      "fold": 3,
+      "index_in_fold": 1406,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31411,
+      "fold": 3,
+      "index_in_fold": 1411,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31416,
+      "fold": 3,
+      "index_in_fold": 1416,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31424,
+      "fold": 3,
+      "index_in_fold": 1424,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31428,
+      "fold": 3,
+      "index_in_fold": 1428,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31430,
+      "fold": 3,
+      "index_in_fold": 1430,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31431,
+      "fold": 3,
+      "index_in_fold": 1431,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31432,
+      "fold": 3,
+      "index_in_fold": 1432,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31437,
+      "fold": 3,
+      "index_in_fold": 1437,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31438,
+      "fold": 3,
+      "index_in_fold": 1438,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31441,
+      "fold": 3,
+      "index_in_fold": 1441,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31443,
+      "fold": 3,
+      "index_in_fold": 1443,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31447,
+      "fold": 3,
+      "index_in_fold": 1447,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31451,
+      "fold": 3,
+      "index_in_fold": 1451,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31453,
+      "fold": 3,
+      "index_in_fold": 1453,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31461,
+      "fold": 3,
+      "index_in_fold": 1461,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31467,
+      "fold": 3,
+      "index_in_fold": 1467,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "scored": [
+    {
+      "image_index": 1037,
+      "fold": 2,
+      "index_in_fold": 1037,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1045,
+      "fold": 2,
+      "index_in_fold": 1045,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1047,
+      "fold": 2,
+      "index_in_fold": 1047,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1051,
+      "fold": 2,
+      "index_in_fold": 1051,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1056,
+      "fold": 2,
+      "index_in_fold": 1056,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1062,
+      "fold": 2,
+      "index_in_fold": 1062,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1072,
+      "fold": 2,
+      "index_in_fold": 1072,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1111,
+      "fold": 2,
+      "index_in_fold": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1163,
+      "fold": 2,
+      "index_in_fold": 1163,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1336,
+      "fold": 2,
+      "index_in_fold": 1336,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1343,
+      "fold": 2,
+      "index_in_fold": 1343,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1354,
+      "fold": 2,
+      "index_in_fold": 1354,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1376,
+      "fold": 2,
+      "index_in_fold": 1376,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1390,
+      "fold": 2,
+      "index_in_fold": 1390,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1393,
+      "fold": 2,
+      "index_in_fold": 1393,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11172,
+      "fold": 1,
+      "index_in_fold": 1172,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11176,
+      "fold": 1,
+      "index_in_fold": 1176,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11184,
+      "fold": 1,
+      "index_in_fold": 1184,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11187,
+      "fold": 1,
+      "index_in_fold": 1187,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11190,
+      "fold": 1,
+      "index_in_fold": 1190,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11191,
+      "fold": 1,
+      "index_in_fold": 1191,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11192,
+      "fold": 1,
+      "index_in_fold": 1192,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11207,
+      "fold": 1,
+      "index_in_fold": 1207,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11208,
+      "fold": 1,
+      "index_in_fold": 1208,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11215,
+      "fold": 1,
+      "index_in_fold": 1215,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11264,
+      "fold": 1,
+      "index_in_fold": 1264,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11267,
+      "fold": 1,
+      "index_in_fold": 1267,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11270,
+      "fold": 1,
+      "index_in_fold": 1270,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11275,
+      "fold": 1,
+      "index_in_fold": 1275,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11278,
+      "fold": 1,
+      "index_in_fold": 1278,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11311,
+      "fold": 1,
+      "index_in_fold": 1311,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11312,
+      "fold": 1,
+      "index_in_fold": 1312,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11524,
+      "fold": 1,
+      "index_in_fold": 1524,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11532,
+      "fold": 1,
+      "index_in_fold": 1532,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11534,
+      "fold": 1,
+      "index_in_fold": 1534,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11535,
+      "fold": 1,
+      "index_in_fold": 1535,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11540,
+      "fold": 1,
+      "index_in_fold": 1540,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11551,
+      "fold": 1,
+      "index_in_fold": 1551,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11563,
+      "fold": 1,
+      "index_in_fold": 1563,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11566,
+      "fold": 1,
+      "index_in_fold": 1566,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11571,
+      "fold": 1,
+      "index_in_fold": 1571,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11572,
+      "fold": 1,
+      "index_in_fold": 1572,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31093,
+      "fold": 3,
+      "index_in_fold": 1093,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31095,
+      "fold": 3,
+      "index_in_fold": 1095,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31099,
+      "fold": 3,
+      "index_in_fold": 1099,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31100,
+      "fold": 3,
+      "index_in_fold": 1100,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31107,
+      "fold": 3,
+      "index_in_fold": 1107,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31113,
+      "fold": 3,
+      "index_in_fold": 1113,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31114,
+      "fold": 3,
+      "index_in_fold": 1114,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31124,
+      "fold": 3,
+      "index_in_fold": 1124,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31193,
+      "fold": 3,
+      "index_in_fold": 1193,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31194,
+      "fold": 3,
+      "index_in_fold": 1194,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31213,
+      "fold": 3,
+      "index_in_fold": 1213,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31215,
+      "fold": 3,
+      "index_in_fold": 1215,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31220,
+      "fold": 3,
+      "index_in_fold": 1220,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31223,
+      "fold": 3,
+      "index_in_fold": 1223,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31402,
+      "fold": 3,
+      "index_in_fold": 1402,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31404,
+      "fold": 3,
+      "index_in_fold": 1404,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31414,
+      "fold": 3,
+      "index_in_fold": 1414,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31419,
+      "fold": 3,
+      "index_in_fold": 1419,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31425,
+      "fold": 3,
+      "index_in_fold": 1425,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31429,
+      "fold": 3,
+      "index_in_fold": 1429,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31442,
+      "fold": 3,
+      "index_in_fold": 1442,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31444,
+      "fold": 3,
+      "index_in_fold": 1444,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31448,
+      "fold": 3,
+      "index_in_fold": 1448,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31449,
+      "fold": 3,
+      "index_in_fold": 1449,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31450,
+      "fold": 3,
+      "index_in_fold": 1450,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31455,
+      "fold": 3,
+      "index_in_fold": 1455,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31456,
+      "fold": 3,
+      "index_in_fold": 1456,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31457,
+      "fold": 3,
+      "index_in_fold": 1457,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31459,
+      "fold": 3,
+      "index_in_fold": 1459,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31462,
+      "fold": 3,
+      "index_in_fold": 1462,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31463,
+      "fold": 3,
+      "index_in_fold": 1463,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1040,
+      "fold": 2,
+      "index_in_fold": 1040,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1049,
+      "fold": 2,
+      "index_in_fold": 1049,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1067,
+      "fold": 2,
+      "index_in_fold": 1067,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1070,
+      "fold": 2,
+      "index_in_fold": 1070,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1074,
+      "fold": 2,
+      "index_in_fold": 1074,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1110,
+      "fold": 2,
+      "index_in_fold": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1116,
+      "fold": 2,
+      "index_in_fold": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1117,
+      "fold": 2,
+      "index_in_fold": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1153,
+      "fold": 2,
+      "index_in_fold": 1153,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1159,
+      "fold": 2,
+      "index_in_fold": 1159,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1160,
+      "fold": 2,
+      "index_in_fold": 1160,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1162,
+      "fold": 2,
+      "index_in_fold": 1162,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1164,
+      "fold": 2,
+      "index_in_fold": 1164,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1167,
+      "fold": 2,
+      "index_in_fold": 1167,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1335,
+      "fold": 2,
+      "index_in_fold": 1335,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1340,
+      "fold": 2,
+      "index_in_fold": 1340,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1342,
+      "fold": 2,
+      "index_in_fold": 1342,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1344,
+      "fold": 2,
+      "index_in_fold": 1344,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1345,
+      "fold": 2,
+      "index_in_fold": 1345,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1346,
+      "fold": 2,
+      "index_in_fold": 1346,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1353,
+      "fold": 2,
+      "index_in_fold": 1353,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1356,
+      "fold": 2,
+      "index_in_fold": 1356,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1366,
+      "fold": 2,
+      "index_in_fold": 1366,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1367,
+      "fold": 2,
+      "index_in_fold": 1367,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1369,
+      "fold": 2,
+      "index_in_fold": 1369,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1381,
+      "fold": 2,
+      "index_in_fold": 1381,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1384,
+      "fold": 2,
+      "index_in_fold": 1384,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1387,
+      "fold": 2,
+      "index_in_fold": 1387,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 1392,
+      "fold": 2,
+      "index_in_fold": 1392,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11171,
+      "fold": 1,
+      "index_in_fold": 1171,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11174,
+      "fold": 1,
+      "index_in_fold": 1174,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11175,
+      "fold": 1,
+      "index_in_fold": 1175,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11177,
+      "fold": 1,
+      "index_in_fold": 1177,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11179,
+      "fold": 1,
+      "index_in_fold": 1179,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11180,
+      "fold": 1,
+      "index_in_fold": 1180,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11182,
+      "fold": 1,
+      "index_in_fold": 1182,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11185,
+      "fold": 1,
+      "index_in_fold": 1185,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11186,
+      "fold": 1,
+      "index_in_fold": 1186,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11188,
+      "fold": 1,
+      "index_in_fold": 1188,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11198,
+      "fold": 1,
+      "index_in_fold": 1198,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11199,
+      "fold": 1,
+      "index_in_fold": 1199,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11200,
+      "fold": 1,
+      "index_in_fold": 1200,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11204,
+      "fold": 1,
+      "index_in_fold": 1204,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11205,
+      "fold": 1,
+      "index_in_fold": 1205,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11209,
+      "fold": 1,
+      "index_in_fold": 1209,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11210,
+      "fold": 1,
+      "index_in_fold": 1210,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11211,
+      "fold": 1,
+      "index_in_fold": 1211,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11213,
+      "fold": 1,
+      "index_in_fold": 1213,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11216,
+      "fold": 1,
+      "index_in_fold": 1216,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11217,
+      "fold": 1,
+      "index_in_fold": 1217,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11218,
+      "fold": 1,
+      "index_in_fold": 1218,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11265,
+      "fold": 1,
+      "index_in_fold": 1265,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11268,
+      "fold": 1,
+      "index_in_fold": 1268,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11269,
+      "fold": 1,
+      "index_in_fold": 1269,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11271,
+      "fold": 1,
+      "index_in_fold": 1271,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11274,
+      "fold": 1,
+      "index_in_fold": 1274,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11277,
+      "fold": 1,
+      "index_in_fold": 1277,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11306,
+      "fold": 1,
+      "index_in_fold": 1306,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11308,
+      "fold": 1,
+      "index_in_fold": 1308,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11310,
+      "fold": 1,
+      "index_in_fold": 1310,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11313,
+      "fold": 1,
+      "index_in_fold": 1313,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11314,
+      "fold": 1,
+      "index_in_fold": 1314,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11315,
+      "fold": 1,
+      "index_in_fold": 1315,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11318,
+      "fold": 1,
+      "index_in_fold": 1318,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11520,
+      "fold": 1,
+      "index_in_fold": 1520,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11522,
+      "fold": 1,
+      "index_in_fold": 1522,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11529,
+      "fold": 1,
+      "index_in_fold": 1529,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11536,
+      "fold": 1,
+      "index_in_fold": 1536,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11537,
+      "fold": 1,
+      "index_in_fold": 1537,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11542,
+      "fold": 1,
+      "index_in_fold": 1542,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11544,
+      "fold": 1,
+      "index_in_fold": 1544,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11545,
+      "fold": 1,
+      "index_in_fold": 1545,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11546,
+      "fold": 1,
+      "index_in_fold": 1546,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11549,
+      "fold": 1,
+      "index_in_fold": 1549,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11554,
+      "fold": 1,
+      "index_in_fold": 1554,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11556,
+      "fold": 1,
+      "index_in_fold": 1556,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11557,
+      "fold": 1,
+      "index_in_fold": 1557,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11560,
+      "fold": 1,
+      "index_in_fold": 1560,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11561,
+      "fold": 1,
+      "index_in_fold": 1561,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11562,
+      "fold": 1,
+      "index_in_fold": 1562,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11573,
+      "fold": 1,
+      "index_in_fold": 1573,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 11574,
+      "fold": 1,
+      "index_in_fold": 1574,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31094,
+      "fold": 3,
+      "index_in_fold": 1094,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31096,
+      "fold": 3,
+      "index_in_fold": 1096,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31102,
+      "fold": 3,
+      "index_in_fold": 1102,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31103,
+      "fold": 3,
+      "index_in_fold": 1103,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31104,
+      "fold": 3,
+      "index_in_fold": 1104,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31105,
+      "fold": 3,
+      "index_in_fold": 1105,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31106,
+      "fold": 3,
+      "index_in_fold": 1106,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31108,
+      "fold": 3,
+      "index_in_fold": 1108,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31110,
+      "fold": 3,
+      "index_in_fold": 1110,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31111,
+      "fold": 3,
+      "index_in_fold": 1111,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31116,
+      "fold": 3,
+      "index_in_fold": 1116,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31117,
+      "fold": 3,
+      "index_in_fold": 1117,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31118,
+      "fold": 3,
+      "index_in_fold": 1118,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31120,
+      "fold": 3,
+      "index_in_fold": 1120,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31122,
+      "fold": 3,
+      "index_in_fold": 1122,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31123,
+      "fold": 3,
+      "index_in_fold": 1123,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31126,
+      "fold": 3,
+      "index_in_fold": 1126,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31128,
+      "fold": 3,
+      "index_in_fold": 1128,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31130,
+      "fold": 3,
+      "index_in_fold": 1130,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31132,
+      "fold": 3,
+      "index_in_fold": 1132,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31133,
+      "fold": 3,
+      "index_in_fold": 1133,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31135,
+      "fold": 3,
+      "index_in_fold": 1135,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31136,
+      "fold": 3,
+      "index_in_fold": 1136,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31137,
+      "fold": 3,
+      "index_in_fold": 1137,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31139,
+      "fold": 3,
+      "index_in_fold": 1139,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31140,
+      "fold": 3,
+      "index_in_fold": 1140,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31187,
+      "fold": 3,
+      "index_in_fold": 1187,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31188,
+      "fold": 3,
+      "index_in_fold": 1188,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31191,
+      "fold": 3,
+      "index_in_fold": 1191,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31196,
+      "fold": 3,
+      "index_in_fold": 1196,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31198,
+      "fold": 3,
+      "index_in_fold": 1198,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31199,
+      "fold": 3,
+      "index_in_fold": 1199,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31200,
+      "fold": 3,
+      "index_in_fold": 1200,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31201,
+      "fold": 3,
+      "index_in_fold": 1201,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31202,
+      "fold": 3,
+      "index_in_fold": 1202,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31203,
+      "fold": 3,
+      "index_in_fold": 1203,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31212,
+      "fold": 3,
+      "index_in_fold": 1212,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31216,
+      "fold": 3,
+      "index_in_fold": 1216,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31217,
+      "fold": 3,
+      "index_in_fold": 1217,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31218,
+      "fold": 3,
+      "index_in_fold": 1218,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31219,
+      "fold": 3,
+      "index_in_fold": 1219,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31222,
+      "fold": 3,
+      "index_in_fold": 1222,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31400,
+      "fold": 3,
+      "index_in_fold": 1400,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31403,
+      "fold": 3,
+      "index_in_fold": 1403,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31405,
+      "fold": 3,
+      "index_in_fold": 1405,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31406,
+      "fold": 3,
+      "index_in_fold": 1406,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31411,
+      "fold": 3,
+      "index_in_fold": 1411,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31416,
+      "fold": 3,
+      "index_in_fold": 1416,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31424,
+      "fold": 3,
+      "index_in_fold": 1424,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31428,
+      "fold": 3,
+      "index_in_fold": 1428,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31430,
+      "fold": 3,
+      "index_in_fold": 1430,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31431,
+      "fold": 3,
+      "index_in_fold": 1431,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31432,
+      "fold": 3,
+      "index_in_fold": 1432,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31437,
+      "fold": 3,
+      "index_in_fold": 1437,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31438,
+      "fold": 3,
+      "index_in_fold": 1438,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31441,
+      "fold": 3,
+      "index_in_fold": 1441,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31443,
+      "fold": 3,
+      "index_in_fold": 1443,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31447,
+      "fold": 3,
+      "index_in_fold": 1447,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31451,
+      "fold": 3,
+      "index_in_fold": 1451,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31453,
+      "fold": 3,
+      "index_in_fold": 1453,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31461,
+      "fold": 3,
+      "index_in_fold": 1461,
+      "tissue": "Adrenal_gland"
+    },
+    {
+      "image_index": 31467,
+      "fold": 3,
+      "index_in_fold": 1467,
+      "tissue": "Adrenal_gland"
+    }
+  ],
+  "patch_id_rule": "image_index = fold offset + index within fold; offsets {\"1\": 10000, \"2\": 0, \"3\": 30000}",
+  "excluded_source": "Fold 2 only: excluded_ids plus every test ID in presence_scale_20261114/split.json",
+  "stratification": "Each fold is shuffled and split 40/20/40 separately, then pooled.",
+  "independence": "Patch-disjoint only. PanNuke has no patient or slide IDs. The folds HoVer-Net was trained on are unknown."
+}
