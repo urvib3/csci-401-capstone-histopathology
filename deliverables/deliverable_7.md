@@ -141,9 +141,11 @@ Take each true region (one connected piece of one class in the ground truth) and
 
 ### Results
 
-One fix per error type: **presence** for class identification, and a **segmentation loss** in training for segmentation.
+Two kinds of fix: **WCSP fixes** correct the U-Net's output afterwards; **U-Net training losses** change the model itself.
 
-#### Fixing class identification: presence
+#### 1 · WCSP fixes (after the U-Net): presence and clusters
+
+*Targets class identification. The U-Net is unchanged; WCSP corrects its output.*
 
 1. From the training ground truth, count how often each **set of classes** appears together in a tile (e.g. tumor + stroma is common; necrosis + "other" is rare).
 2. For a new tile, score every possible class set: the U-Net's confidence in the classes it would keep, plus a penalty for how rare that set is.
@@ -163,7 +165,9 @@ One fix per error type: **presence** for class identification, and a **segmentat
 
 **Presence works but recovers little:** +0.0075 on held-out val, against about +0.12 possible from perfect class identification.
 
-#### Fixing the U-Net itself: training losses
+#### 2 · U-Net training losses (changing the model itself)
+
+*Targets both errors at the source. No WCSP afterwards.*
 
 Instead of correcting the output afterwards, add a term to the U-Net's training loss. Same recipe for every model (10 epochs, same seed); only the loss changes.
 

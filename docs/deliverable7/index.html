@@ -225,9 +225,10 @@
 
 
 <h3 id="bcss-results">Results</h3>
-<p>One fix per error type: <b>presence</b> for class identification, and a <b>segmentation loss</b> in training for segmentation.</p>
+<p>Two kinds of fix: <b>WCSP fixes</b> correct the U-Net's output afterwards; <b>U-Net training losses</b> change the model itself.</p>
 
-<h4>Fixing class identification: presence</h4>
+<h4>1 · WCSP fixes (after the U-Net): presence and clusters</h4>
+<p class="note">Targets class identification. The U-Net is unchanged; WCSP corrects its output.</p>
 <ol>
   <li>From the training ground truth, count how often each <b>set of classes</b> appears together in a tile (e.g. tumor + stroma is common; necrosis + "other" is rare).</li>
   <li>For a new tile, score every possible class set: the U-Net's confidence in the classes it would keep, plus a penalty for how rare that set is.</li>
@@ -245,7 +246,8 @@
 <img src="bcss_fixes.png" alt="BCSS mIoU for U-Net, WCSP, WCSP + cluster, WCSP + presence and WCSP + presence + cluster, dev and val">
 <div class="take"><b>Presence works but recovers little:</b> +0.0075 on held-out val, against about +0.12 possible from perfect class identification (preliminary Test 2).</div>
 
-<h4>Fixing the U-Net itself: training losses</h4>
+<h4>2 · U-Net training losses (changing the model itself)</h4>
+<p class="note">Targets both errors at the source. No WCSP afterwards.</p>
 <p>Instead of correcting the output afterwards, add a term to the U-Net's training loss. Same recipe for every model (10 epochs, same seed); only the loss changes.</p>
 <ul>
   <li><b>Segmentation loss (B):</b> for every true region in a training tile, compute the average prediction over its pixels and penalize pixels that stray from it. A region predicted as one coherent class costs nothing; a patchwork costs a lot, even when cross-entropy rates the two the same.</li>
