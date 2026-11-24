@@ -78,10 +78,15 @@
 <table>
   <tr><th>Problem</th><th>What goes wrong</th><th>Evidence</th><th>What could fix it</th></tr>
   <tr><td><b>Segmentation</b></td><td>One true region is broken into many pieces</td><td>~10 predicted pieces per true region; 48% of wrong pixels</td><td>Training the U-Net to keep regions whole (region loss)</td></tr>
-  <tr><td><b>Class identification</b></td><td>A whole region is given the wrong class</td><td>52% of wrong pixels; "other" 36% wrong, stroma 25%</td><td>Strong data-derived rules, not light smoothing; a better classifier</td></tr>
-  <tr><td><b>Too many tissue types</b></td><td>The model predicts classes that aren't in the tile</td><td>U-Net: "other" in 20% of tiles vs 11% in truth. PanNuke: extra cell types in a patch</td><td>The presence rule (a data-derived class-set prior)</td></tr>
+  <tr><td><b>Class identification</b></td><td>A whole region is given the wrong class, or a class that isn't in the tile</td><td>52% of wrong pixels; "other" 36% wrong, stroma 25%; "other" predicted in 20% of tiles vs 11% in truth</td><td>Strong data-derived rules (e.g. presence), not light smoothing; a better classifier</td></tr>
+  <tr><td><b>Too many tissue types</b> <span class="d">(PanNuke only)</span></td><td>Patches from all organs share one model and prior, so cell types from other organs leak in</td><td>Breast-only prior beats the all-organ prior by +0.0100 on the same Breast patches</td><td>Run per tissue type: fit and tune on one organ at a time</td></tr>
 </table>
-<p class="note">PanNuke example of too many types: in a tumor patch, one nucleus is labeled non-neoplastic (purple). The type-set rule removes the extra type.</p>
+<p><b>How a wrong pixel is assigned to a problem:</b> take each true region (one connected piece of one class in the ground truth) and find the class the U-Net predicts for most of its pixels.</p>
+<ul>
+  <li><b>Majority correct:</b> the U-Net identified the region's class, so its wrong pixels are <b>segmentation</b> errors (stray pieces and borders).</li>
+  <li><b>Majority wrong:</b> the U-Net called the whole region the wrong class, so its wrong pixels are <b>class identification</b> errors.</li>
+</ul>
+<p class="note">PanNuke example: in a tumor patch, one nucleus is given a type that doesn't belong (non-neoplastic, purple). The type-set rule removes it.</p>
 <img src="pannuke_type_set_example.png" alt="PanNuke patch where an extra cell type is predicted and removed by the type-set rule">
 </section>
 

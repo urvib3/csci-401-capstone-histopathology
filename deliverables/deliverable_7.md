@@ -38,10 +38,14 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 | Problem | What goes wrong | Evidence | What could fix it |
 |---|---|---|---|
 | **Segmentation** | One true region is broken into many pieces | ~10 predicted pieces per true region; 48% of wrong pixels | Training the U-Net to keep regions whole (region loss) |
-| **Class identification** | A whole region is given the wrong class | 52% of wrong pixels; "other" 36% wrong, stroma 25% | Strong data-derived rules, not light smoothing; a better classifier |
-| **Too many tissue types** | The model predicts classes that aren't in the tile | U-Net: "other" in 20% of tiles vs 11% in truth. PanNuke: extra cell types in a patch | The presence rule (a data-derived class-set prior) |
+| **Class identification** | A whole region is given the wrong class, or a class that isn't in the tile | 52% of wrong pixels; "other" 36% wrong, stroma 25%; "other" predicted in 20% of tiles vs 11% in truth | Strong data-derived rules (e.g. presence), not light smoothing; a better classifier |
+| **Too many tissue types** (PanNuke only) | Patches from all organs share one model and prior, so cell types from other organs leak in | Breast-only prior beats the all-organ prior by +0.0100 on the same Breast patches | Run per tissue type: fit and tune on one organ at a time |
 
-*PanNuke example of too many types: in a tumor patch, one nucleus is labeled non-neoplastic (purple). The type-set rule removes the extra type.*
+**How a wrong pixel is assigned to a problem:** take each true region (one connected piece of one class in the ground truth) and find the class the U-Net predicts for most of its pixels.
+- **Majority correct:** the U-Net identified the region's class, so its wrong pixels are **segmentation** errors (stray pieces and borders).
+- **Majority wrong:** the U-Net called the whole region the wrong class, so its wrong pixels are **class identification** errors.
+
+*PanNuke example: in a tumor patch, one nucleus is given a type that doesn't belong (non-neoplastic, purple). The type-set rule removes it.*
 
 ![PanNuke too many types](../docs/deliverable7/pannuke_type_set_example.png)
 
