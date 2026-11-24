@@ -1,0 +1,1243 @@
+{
+  "by_fold": {
+    "1": {
+      "n_patches": 53,
+      "raw_tp_bio_miou": 0.34922910935680807,
+      "vote_bio_miou": 0.3480762254927913,
+      "organ_minus_control": {
+        "pixel_table": -0.0008566762818770224,
+        "hierarchy": -0.00012632145329460887,
+        "scaling_siblings": -7.528349690311131e-06,
+        "decay": 3.250784389602357e-05,
+        "nucleus_pairwise": -0.0031456246643773444,
+        "type_counts": -0.0018479419792412077,
+        "type_set": 0.007136403288344584,
+        "raw_component": -0.001122919988631843
+      }
+    },
+    "2": {
+      "n_patches": 29,
+      "raw_tp_bio_miou": 0.36567348438471353,
+      "vote_bio_miou": 0.36398517277404885,
+      "organ_minus_control": {
+        "pixel_table": 0.00034044974962160746,
+        "hierarchy": -4.06491648374252e-05,
+        "scaling_siblings": -1.414243419706196e-05,
+        "decay": -0.00017482386157396945,
+        "nucleus_pairwise": -7.576033204248489e-05,
+        "type_counts": 0.0,
+        "type_set": 0.0023802399703450883,
+        "raw_component": 0.0001535988331053395
+      }
+    },
+    "3": {
+      "n_patches": 62,
+      "raw_tp_bio_miou": 0.3380429607517989,
+      "vote_bio_miou": 0.32772856402604367,
+      "organ_minus_control": {
+        "pixel_table": -0.0004794865630363132,
+        "hierarchy": 0.00021357915030661978,
+        "scaling_siblings": -0.00022186409911389982,
+        "decay": -6.550174791997154e-05,
+        "nucleus_pairwise": -0.0013203881778335869,
+        "type_counts": 0.0,
+        "type_set": 0.0013076096112505375,
+        "raw_component": -0.0038432369288174395
+      }
+    }
+  },
+  "organ": "Adrenal_gland",
+  "n_test_patches": 144,
+  "hovernet_raw_tp": {
+    "bio_miou": 0.34474666254946695,
+    "per_class_iou": {
+      "Background": 0.9609607840869147,
+      "Neoplastic": 0.6237408765315552,
+      "Inflammatory": 0.2916805992108607,
+      "Connective": 0.30916081847758864,
+      "Dead": 0.0,
+      "Non-neoplastic epithelial": 0.4991510185273302
+    }
+  },
+  "fixed_mask_vote_bio_miou": 0.34037977325567165,
+  "families": {
+    "pixel_table": {
+      "organ_winner": {
+        "family": "pixel_table",
+        "name": "pixel_table_beta0.5",
+        "kind": "pixel_table",
+        "tables": "organ",
+        "params": {
+          "beta": 0.5
+        }
+      },
+      "global_config": {
+        "family": "pixel_table",
+        "name": "global_pixel_table_beta0.3",
+        "kind": "pixel_table",
+        "tables": "global",
+        "params": {
+          "beta": 0.3
+        }
+      },
+      "control": "raw_tp",
+      "organ_bio_miou": 0.34429040824376506,
+      "global_bio_miou": 0.3443122868180239,
+      "control_bio_miou": 0.34474666254946695,
+      "organ_vs_control": {
+        "delta": -0.00045625430570191974,
+        "ci95": [
+          -0.0016535354412769326,
+          0.000732633910769791
+        ],
+        "bootstrap_p": 0.4396,
+        "no_dead_delta": -0.0005703178821273996,
+        "no_dead_ci95": [
+          -0.0020669193015961655,
+          0.0009157923884622387
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.00019151896482139108,
+          "Inflammatory": -0.00038355620010799285,
+          "Connective": -0.0016089564824364189,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.00048027781078657794
+        },
+        "wins_losses_ties": [
+          57,
+          82,
+          5
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -0.00045625430570191974,
+        "ci95": [
+          -0.0016535354412769326,
+          0.000732633910769791
+        ],
+        "bootstrap_p": 0.4396,
+        "no_dead_delta": -0.0005703178821273996,
+        "no_dead_ci95": [
+          -0.0020669193015961655,
+          0.0009157923884622387
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.00019151896482139108,
+          "Inflammatory": -0.00038355620010799285,
+          "Connective": -0.0016089564824364189,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.00048027781078657794
+        },
+        "wins_losses_ties": [
+          57,
+          82,
+          5
+        ]
+      },
+      "organ_vs_global": {
+        "delta": -2.1878574258882288e-05,
+        "ci95": [
+          -0.0005189397806556592,
+          0.00047856193027922774
+        ],
+        "bootstrap_p": 0.9156,
+        "no_dead_delta": -2.734821782360286e-05,
+        "no_dead_ci95": [
+          -0.000648674725819574,
+          0.0005982024128490347
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.00010779033094543422,
+          "Inflammatory": 0.0005915709077484177,
+          "Connective": -0.0009972386313776282,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0001884845213893649
+        },
+        "wins_losses_ties": [
+          62,
+          76,
+          6
+        ]
+      },
+      "global_vs_control": {
+        "delta": -0.0004343757314430374,
+        "ci95": [
+          -0.001441846699873832,
+          0.0005406956710459576
+        ],
+        "bootstrap_p": 0.3804,
+        "no_dead_delta": -0.0005429696643037968,
+        "no_dead_ci95": [
+          -0.0018023083748422899,
+          0.000675869588807447
+        ],
+        "per_class_delta": {
+          "Neoplastic": 8.372863387595686e-05,
+          "Inflammatory": -0.0009751271078564105,
+          "Connective": -0.0006117178510587906,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0006687623321759428
+        },
+        "wins_losses_ties": [
+          60,
+          78,
+          6
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "hierarchy": {
+      "organ_winner": {
+        "family": "hierarchy",
+        "name": "hierarchy_sib0.3_par0.1_gamma0",
+        "kind": "hierarchy",
+        "tables": "organ",
+        "params": {
+          "beta": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "parent": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          "gamma": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "adaptive": false,
+          "table": "hybrid"
+        }
+      },
+      "global_config": {
+        "family": "hierarchy",
+        "name": "global_v1",
+        "kind": "hierarchy",
+        "tables": "global",
+        "params": {
+          "beta": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "parent": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          "gamma": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "adaptive": false,
+          "table": "hybrid"
+        }
+      },
+      "control": "raw_tp",
+      "organ_bio_miou": 0.3447705201848093,
+      "global_bio_miou": 0.3447616801562746,
+      "control_bio_miou": 0.34474666254946695,
+      "organ_vs_control": {
+        "delta": 2.3857635342328097e-05,
+        "ci95": [
+          -0.00021139839236573838,
+          0.0002682609404668952
+        ],
+        "bootstrap_p": 0.86,
+        "no_dead_delta": 2.9822044177910123e-05,
+        "no_dead_ci95": [
+          -0.000264247990457173,
+          0.000335326175583619
+        ],
+        "per_class_delta": {
+          "Neoplastic": 8.06234619551427e-05,
+          "Inflammatory": 0.0001771030079405489,
+          "Connective": -2.541880385292794e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.00011301948933112316
+        },
+        "wins_losses_ties": [
+          72,
+          66,
+          6
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": 2.3857635342328097e-05,
+        "ci95": [
+          -0.00021139839236573838,
+          0.0002682609404668952
+        ],
+        "bootstrap_p": 0.86,
+        "no_dead_delta": 2.9822044177910123e-05,
+        "no_dead_ci95": [
+          -0.000264247990457173,
+          0.000335326175583619
+        ],
+        "per_class_delta": {
+          "Neoplastic": 8.06234619551427e-05,
+          "Inflammatory": 0.0001771030079405489,
+          "Connective": -2.541880385292794e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.00011301948933112316
+        },
+        "wins_losses_ties": [
+          72,
+          66,
+          6
+        ]
+      },
+      "organ_vs_global": {
+        "delta": 8.84002853466237e-06,
+        "ci95": [
+          -2.1858419352871333e-05,
+          4.258316635758677e-05
+        ],
+        "bootstrap_p": 0.6196,
+        "no_dead_delta": 1.1050035668327962e-05,
+        "no_dead_ci95": [
+          -2.7323024191089164e-05,
+          5.322895794698346e-05
+        ],
+        "per_class_delta": {
+          "Neoplastic": 2.225433978686464e-05,
+          "Inflammatory": 2.9299059920218085e-05,
+          "Connective": 3.267468269951834e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -4.002793973328922e-05
+        },
+        "wins_losses_ties": [
+          45,
+          48,
+          51
+        ]
+      },
+      "global_vs_control": {
+        "delta": 1.5017606807665729e-05,
+        "ci95": [
+          -0.00022116111985565344,
+          0.0002574055265810732
+        ],
+        "bootstrap_p": 0.9184,
+        "no_dead_delta": 1.877200850958216e-05,
+        "no_dead_ci95": [
+          -0.0002764513998195668,
+          0.00032175690822634155
+        ],
+        "per_class_delta": {
+          "Neoplastic": 5.8369122168278054e-05,
+          "Inflammatory": 0.0001478039480203308,
+          "Connective": -5.809348655244628e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -7.299154959783394e-05
+        },
+        "wins_losses_ties": [
+          71,
+          67,
+          6
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "scaling_siblings": {
+      "organ_winner": {
+        "family": "scaling_siblings",
+        "name": "scaled_parent0.3",
+        "kind": "hierarchy",
+        "tables": "organ",
+        "params": {
+          "beta": [
+            0.3,
+            0.6,
+            1.2,
+            2.4,
+            4.8,
+            9.6
+          ],
+          "parent": [
+            0.3,
+            1.2,
+            4.8,
+            19.2,
+            76.8
+          ],
+          "gamma": [
+            1.2,
+            4.8,
+            19.2,
+            76.8,
+            307.2
+          ],
+          "adaptive": false,
+          "table": "hybrid"
+        }
+      },
+      "global_config": {
+        "family": "scaling_siblings",
+        "name": "global_scaled",
+        "kind": "hierarchy",
+        "tables": "global",
+        "params": {
+          "beta": [
+            0.3,
+            0.6,
+            1.2,
+            2.4,
+            4.8,
+            9.6
+          ],
+          "parent": [
+            0.01,
+            0.04,
+            0.16,
+            0.64,
+            2.56
+          ],
+          "gamma": [
+            1.2,
+            4.8,
+            19.2,
+            76.8,
+            307.2
+          ],
+          "adaptive": false,
+          "table": "hybrid"
+        }
+      },
+      "control": "organ_v2",
+      "organ_bio_miou": 0.3446625354837826,
+      "global_bio_miou": 0.34474041558495755,
+      "control_bio_miou": 0.3447675256723242,
+      "organ_vs_control": {
+        "delta": -0.00010499018854159825,
+        "ci95": [
+          -0.0003491348236153681,
+          0.00013265666806420306
+        ],
+        "bootstrap_p": 0.4236,
+        "no_dead_delta": -0.0001312377356769978,
+        "no_dead_ci95": [
+          -0.0004364185295192101,
+          0.00016582083508025384
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.00010819491614921795,
+          "Inflammatory": 0.00044687215835104155,
+          "Connective": -0.0002690176392792232,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0005946105456305917
+        },
+        "wins_losses_ties": [
+          58,
+          81,
+          5
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -8.412706568432516e-05,
+        "ci95": [
+          -0.0004188858753532088,
+          0.00026468963905662687
+        ],
+        "bootstrap_p": 0.636,
+        "no_dead_delta": -0.00010515883210540644,
+        "no_dead_ci95": [
+          -0.000523607344191511,
+          0.0003308620488207836
+        ],
+        "per_class_delta": {
+          "Neoplastic": -4.177738385313656e-05,
+          "Inflammatory": 0.0006142081593235593,
+          "Connective": -0.00032303738966849016,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0006700287142235584
+        },
+        "wins_losses_ties": [
+          61,
+          79,
+          4
+        ]
+      },
+      "organ_vs_global": {
+        "delta": -7.788010117495414e-05,
+        "ci95": [
+          -0.0003653630255377907,
+          0.00022335502666374552
+        ],
+        "bootstrap_p": 0.6128,
+        "no_dead_delta": -9.735012646869268e-05,
+        "no_dead_ci95": [
+          -0.00045670378192223836,
+          0.0002791937833296819
+        ],
+        "per_class_delta": {
+          "Neoplastic": -6.367240372950889e-05,
+          "Inflammatory": 0.0006601952017392665,
+          "Connective": -0.0002584249045052833,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.000727498399379245
+        },
+        "wins_losses_ties": [
+          65,
+          74,
+          5
+        ]
+      },
+      "global_vs_control": {
+        "delta": -2.7110087366644108e-05,
+        "ci95": [
+          -0.00023438072440128507,
+          0.00018956293145361945
+        ],
+        "bootstrap_p": 0.8048,
+        "no_dead_delta": -3.3887609208305136e-05,
+        "no_dead_ci95": [
+          -0.0002929759055016063,
+          0.00023695366431702433
+        ],
+        "per_class_delta": {
+          "Neoplastic": -4.452251241970906e-05,
+          "Inflammatory": -0.00021332304338822494,
+          "Connective": -1.059273477393985e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0001328878537486533
+        },
+        "wins_losses_ties": [
+          69,
+          68,
+          7
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "decay": {
+      "organ_winner": {
+        "family": "decay",
+        "name": "parent_-1",
+        "kind": "hierarchy",
+        "tables": "organ",
+        "params": {
+          "beta": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "parent": [
+            0.25806451612903225,
+            0.12903225806451613,
+            0.06451612903225806,
+            0.03225806451612903,
+            0.016129032258064516
+          ],
+          "gamma": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "adaptive": false,
+          "table": "hybrid"
+        }
+      },
+      "global_config": {
+        "family": "decay",
+        "name": "global_combined_decay",
+        "kind": "hierarchy",
+        "tables": "global",
+        "params": {
+          "beta": [
+            0.3,
+            0.7741935483870968,
+            0.3870967741935484,
+            0.1935483870967742,
+            0.0967741935483871,
+            0.04838709677419355
+          ],
+          "parent": [
+            0.016129032258064516,
+            0.03225806451612903,
+            0.06451612903225806,
+            0.12903225806451613,
+            0.25806451612903225
+          ],
+          "gamma": [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          "adaptive": true,
+          "table": "hybrid"
+        }
+      },
+      "control": "organ_v1",
+      "organ_bio_miou": 0.3447305421301998,
+      "global_bio_miou": 0.34480421413729523,
+      "control_bio_miou": 0.3447705201848093,
+      "organ_vs_control": {
+        "delta": -3.997805460942416e-05,
+        "ci95": [
+          -0.0002209393487272357,
+          0.00014154993755508325
+        ],
+        "bootstrap_p": 0.6912,
+        "no_dead_delta": -4.9972568261780204e-05,
+        "no_dead_ci95": [
+          -0.00027617418590904463,
+          0.00017693742194385407
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.00012374713740304077,
+          "Inflammatory": 0.00013654354079195574,
+          "Connective": -2.025695827245766e-06,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.00021066098060879002
+        },
+        "wins_losses_ties": [
+          69,
+          68,
+          7
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -1.6120419267096066e-05,
+        "ci95": [
+          -0.0002652605829807053,
+          0.0002555289535501478
+        ],
+        "bootstrap_p": 0.8756,
+        "no_dead_delta": -2.015052408387008e-05,
+        "no_dead_ci95": [
+          -0.00033157572872588164,
+          0.00031941119193768474
+        ],
+        "per_class_delta": {
+          "Neoplastic": -4.312367544789808e-05,
+          "Inflammatory": 0.00031364654873250464,
+          "Connective": -2.7444499680173706e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0003236804699399132
+        },
+        "wins_losses_ties": [
+          65,
+          74,
+          5
+        ]
+      },
+      "organ_vs_global": {
+        "delta": -7.367200709539335e-05,
+        "ci95": [
+          -0.0002920552104639981,
+          0.00014355120763676334
+        ],
+        "bootstrap_p": 0.4984,
+        "no_dead_delta": -9.209000886924168e-05,
+        "no_dead_ci95": [
+          -0.0003650690130799977,
+          0.00017943900954595416
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.00010200257799719559,
+          "Inflammatory": 9.059905500974352e-05,
+          "Connective": 9.13261312707192e-06,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0003660891256165866
+        },
+        "wins_losses_ties": [
+          65,
+          72,
+          7
+        ]
+      },
+      "global_vs_control": {
+        "delta": 3.3693952485969184e-05,
+        "ci95": [
+          -0.0001455841518595735,
+          0.0002291511719188849
+        ],
+        "bootstrap_p": 0.7064,
+        "no_dead_delta": 4.2117440607461476e-05,
+        "no_dead_ci95": [
+          -0.0001819801898244669,
+          0.00028643896489860614
+        ],
+        "per_class_delta": {
+          "Neoplastic": -2.1744559405845187e-05,
+          "Inflammatory": 4.594448578221222e-05,
+          "Connective": -1.1158308954317686e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.00015542814500779656
+        },
+        "wins_losses_ties": [
+          69,
+          69,
+          6
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "nucleus_pairwise": {
+      "organ_winner": {
+        "family": "nucleus_pairwise",
+        "name": "nucleus_mean_potts_2",
+        "kind": "nucleus_pairwise",
+        "tables": "organ",
+        "params": {
+          "unary": "mean",
+          "table": "potts",
+          "beta": 2.0,
+          "area_weight": 0
+        }
+      },
+      "global_config": {
+        "family": "nucleus_pairwise",
+        "name": "global_vote_potts_2",
+        "kind": "nucleus_pairwise",
+        "tables": "global",
+        "params": {
+          "unary": "vote",
+          "table": "potts",
+          "beta": 2.0,
+          "area_weight": 0
+        }
+      },
+      "control": "fixed_mask_vote",
+      "organ_bio_miou": 0.33891357668980304,
+      "global_bio_miou": 0.3391665442051822,
+      "control_bio_miou": 0.34037977325567165,
+      "organ_vs_control": {
+        "delta": -0.0014661965658686383,
+        "ci95": [
+          -0.005967135252444737,
+          0.002579149461221471
+        ],
+        "bootstrap_p": 0.5316,
+        "no_dead_delta": -0.0018327457073357978,
+        "no_dead_ci95": [
+          -0.007458919065555922,
+          0.003223936826526839
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0009614979641939803,
+          "Inflammatory": 0.0007715851758877124,
+          "Connective": -8.279001869265779e-05,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0070582800223442654
+        },
+        "wins_losses_ties": [
+          11,
+          12,
+          121
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -0.005833085859663889,
+        "ci95": [
+          -0.01158496729474187,
+          -0.00021987344229035269
+        ],
+        "bootstrap_p": 0.0412,
+        "no_dead_delta": -0.007291357324579861,
+        "no_dead_ci95": [
+          -0.014481209118427337,
+          -0.00027484180286294085
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0074191282895677,
+          "Inflammatory": -0.013600556485803106,
+          "Connective": -0.006981502609540169,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0011642419134084703
+        },
+        "wins_losses_ties": [
+          57,
+          83,
+          4
+        ]
+      },
+      "organ_vs_global": {
+        "delta": -0.0002529675153791322,
+        "ci95": [
+          -0.0033763893473130724,
+          0.002318683379506565
+        ],
+        "bootstrap_p": 0.9236,
+        "no_dead_delta": -0.00031620939422391525,
+        "no_dead_ci95": [
+          -0.004220486684141341,
+          0.002898354224383206
+        ],
+        "per_class_delta": {
+          "Neoplastic": -7.114336903635277e-05,
+          "Inflammatory": -0.00039101947401876114,
+          "Connective": -0.0004452037842255785,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0003574709496149686
+        },
+        "wins_losses_ties": [
+          7,
+          4,
+          133
+        ]
+      },
+      "global_vs_control": {
+        "delta": -0.001213229050489506,
+        "ci95": [
+          -0.004921591040342478,
+          0.0017119052721065566
+        ],
+        "bootstrap_p": 0.5108,
+        "no_dead_delta": -0.0015165363131118825,
+        "no_dead_ci95": [
+          -0.006151988800428097,
+          0.0021398815901331955
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0008903545951576275,
+          "Inflammatory": 0.0011626046499064735,
+          "Connective": 0.0003624137655329207,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.006700809072729297
+        },
+        "wins_losses_ties": [
+          5,
+          8,
+          131
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "type_counts": {
+      "organ_winner": {
+        "family": "type_counts",
+        "name": "vote_count_model_0.25",
+        "kind": "presence",
+        "tables": "organ",
+        "params": {
+          "mode": "count_model",
+          "unary": "vote",
+          "strength": 0.25
+        }
+      },
+      "global_config": {
+        "family": "type_counts",
+        "name": "global_vote_count_model_0.25",
+        "kind": "presence",
+        "tables": "global",
+        "params": {
+          "mode": "count_model",
+          "unary": "vote",
+          "strength": 0.25
+        }
+      },
+      "control": "fixed_mask_vote",
+      "organ_bio_miou": 0.3397339009659769,
+      "global_bio_miou": 0.3397339009659769,
+      "control_bio_miou": 0.34037977325567165,
+      "organ_vs_control": {
+        "delta": -0.0006458722896948377,
+        "ci95": [
+          -0.0021381284582640873,
+          0.0
+        ],
+        "bootstrap_p": 0.736,
+        "no_dead_delta": -0.0008073403621185471,
+        "no_dead_ci95": [
+          -0.002672660572830109,
+          0.0
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.000359282913964476,
+          "Inflammatory": 0.0,
+          "Connective": 0.0,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0028700785345097124
+        },
+        "wins_losses_ties": [
+          0,
+          1,
+          143
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -0.005012761583490089,
+        "ci95": [
+          -0.010057052264973202,
+          -0.0001856823658684331
+        ],
+        "bootstrap_p": 0.0408,
+        "no_dead_delta": -0.006265951979362611,
+        "no_dead_ci95": [
+          -0.012571315331216503,
+          -0.00023210295733554136
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.006816913239338196,
+          "Inflammatory": -0.014372141661690818,
+          "Connective": -0.006898712590847511,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0030239595744260828
+        },
+        "wins_losses_ties": [
+          59,
+          81,
+          4
+        ]
+      },
+      "organ_vs_global": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_p": 1.0,
+        "no_dead_delta": 0.0,
+        "no_dead_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.0,
+          "Inflammatory": 0.0,
+          "Connective": 0.0,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0
+        },
+        "wins_losses_ties": [
+          0,
+          0,
+          144
+        ]
+      },
+      "global_vs_control": {
+        "delta": -0.0006458722896948377,
+        "ci95": [
+          -0.0021381284582640873,
+          0.0
+        ],
+        "bootstrap_p": 0.736,
+        "no_dead_delta": -0.0008073403621185471,
+        "no_dead_ci95": [
+          -0.002672660572830109,
+          0.0
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.000359282913964476,
+          "Inflammatory": 0.0,
+          "Connective": 0.0,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": -0.0028700785345097124
+        },
+        "wins_losses_ties": [
+          0,
+          1,
+          143
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "type_set": {
+      "organ_winner": {
+        "family": "type_set",
+        "name": "vote_presence_4",
+        "kind": "presence",
+        "tables": "organ",
+        "params": {
+          "mode": "presence",
+          "unary": "vote",
+          "strength": 4.0
+        }
+      },
+      "global_config": {
+        "family": "type_set",
+        "name": "global_vote_presence_evidence_1",
+        "kind": "presence",
+        "tables": "global",
+        "params": {
+          "mode": "presence_evidence",
+          "unary": "vote",
+          "strength": 1.0
+        }
+      },
+      "control": "fixed_mask_vote",
+      "organ_bio_miou": 0.3429247916275037,
+      "global_bio_miou": 0.3452452345594542,
+      "control_bio_miou": 0.34037977325567165,
+      "organ_vs_control": {
+        "delta": 0.0025450183718320916,
+        "ci95": [
+          -0.00518814775807666,
+          0.011130994933383598
+        ],
+        "bootstrap_p": 0.4964,
+        "no_dead_delta": 0.0031812729647901147,
+        "no_dead_ci95": [
+          -0.0064851846975958255,
+          0.013913743666729497
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.008692059516071993,
+          "Inflammatory": -0.03354165236706283,
+          "Connective": 0.0032601055979680216,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.034314579112183274
+        },
+        "wins_losses_ties": [
+          22,
+          15,
+          107
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -0.001821870921963159,
+        "ci95": [
+          -0.010344301214442376,
+          0.006649559437508476
+        ],
+        "bootstrap_p": 0.6756,
+        "no_dead_delta": -0.002277338652453949,
+        "no_dead_ci95": [
+          -0.01293037651805297,
+          0.008311949296885595
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.0022344291906982727,
+          "Inflammatory": -0.04791379402875365,
+          "Connective": -0.0036386069928794895,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.04020861722111907
+        },
+        "wins_losses_ties": [
+          66,
+          74,
+          4
+        ]
+      },
+      "organ_vs_global": {
+        "delta": -0.0023204429319504337,
+        "ci95": [
+          -0.010333304922586911,
+          0.006200099502414945
+        ],
+        "bootstrap_p": 0.5688,
+        "no_dead_delta": -0.0029005536649380423,
+        "no_dead_ci95": [
+          -0.012916631153233637,
+          0.007750124378018682
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.003751153343406699,
+          "Inflammatory": -0.03321641684102375,
+          "Connective": -0.007040453624230059,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.02490350246209494
+        },
+        "wins_losses_ties": [
+          14,
+          14,
+          116
+        ]
+      },
+      "global_vs_control": {
+        "delta": 0.004865461303782526,
+        "ci95": [
+          0.0015482582444127369,
+          0.008886394992147292
+        ],
+        "bootstrap_p": 0.0012,
+        "no_dead_delta": 0.006081826629728157,
+        "no_dead_ci95": [
+          0.001935322805515921,
+          0.011107993740184114
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.004940906172665294,
+          "Inflammatory": -0.00032523552603908046,
+          "Connective": 0.01030055922219808,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.009411076650088335
+        },
+        "wins_losses_ties": [
+          13,
+          6,
+          125
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    },
+    "raw_component": {
+      "organ_winner": {
+        "family": "raw_component",
+        "name": "component_s2_limit65536_flat",
+        "kind": "component",
+        "tables": "organ",
+        "params": {
+          "strength": 2.0,
+          "limit": 65536,
+          "adaptive": false
+        }
+      },
+      "global_config": {
+        "family": "raw_component",
+        "name": "global_component",
+        "kind": "component",
+        "tables": "global",
+        "params": {
+          "strength": 2.0,
+          "limit": 65536,
+          "adaptive": false
+        }
+      },
+      "control": "raw_tp",
+      "organ_bio_miou": 0.3432157586441634,
+      "global_bio_miou": 0.3432157586441634,
+      "control_bio_miou": 0.34474666254946695,
+      "organ_vs_control": {
+        "delta": -0.00153090390530356,
+        "ci95": [
+          -0.0046876114630147086,
+          0.0016066529474174415
+        ],
+        "bootstrap_p": 0.3128,
+        "no_dead_delta": -0.00191362988162945,
+        "no_dead_ci95": [
+          -0.005859514328768386,
+          0.002008316184271802
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0012545019774244937,
+          "Inflammatory": -0.0026256894986425583,
+          "Connective": -0.006150746070964497,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0023764180205137486
+        },
+        "wins_losses_ties": [
+          39,
+          66,
+          39
+        ],
+        "holm_p": 1.0
+      },
+      "organ_vs_raw": {
+        "delta": -0.00153090390530356,
+        "ci95": [
+          -0.0046876114630147086,
+          0.0016066529474174415
+        ],
+        "bootstrap_p": 0.3128,
+        "no_dead_delta": -0.00191362988162945,
+        "no_dead_ci95": [
+          -0.005859514328768386,
+          0.002008316184271802
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0012545019774244937,
+          "Inflammatory": -0.0026256894986425583,
+          "Connective": -0.006150746070964497,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0023764180205137486
+        },
+        "wins_losses_ties": [
+          39,
+          66,
+          39
+        ]
+      },
+      "organ_vs_global": {
+        "delta": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_p": 1.0,
+        "no_dead_delta": 0.0,
+        "no_dead_ci95": [
+          0.0,
+          0.0
+        ],
+        "per_class_delta": {
+          "Neoplastic": 0.0,
+          "Inflammatory": 0.0,
+          "Connective": 0.0,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0
+        },
+        "wins_losses_ties": [
+          0,
+          0,
+          144
+        ]
+      },
+      "global_vs_control": {
+        "delta": -0.00153090390530356,
+        "ci95": [
+          -0.0046876114630147086,
+          0.0016066529474174415
+        ],
+        "bootstrap_p": 0.3128,
+        "no_dead_delta": -0.00191362988162945,
+        "no_dead_ci95": [
+          -0.005859514328768386,
+          0.002008316184271802
+        ],
+        "per_class_delta": {
+          "Neoplastic": -0.0012545019774244937,
+          "Inflammatory": -0.0026256894986425583,
+          "Connective": -0.006150746070964497,
+          "Dead": 0.0,
+          "Non-neoplastic epithelial": 0.0023764180205137486
+        },
+        "wins_losses_ties": [
+          39,
+          66,
+          39
+        ]
+      },
+      "works": false,
+      "beats_global": false
+    }
+  },
+  "works_definition": "Holm-adjusted (8 families) two-sided paired-bootstrap p < 0.05 against the matched control, with a positive gain.",
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 20261122,
+    "unit": "whole patches; matrices pooled before IoU"
+  }
+}

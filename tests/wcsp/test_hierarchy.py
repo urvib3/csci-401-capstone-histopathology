@@ -23,7 +23,8 @@ def brute_total(solver, problem, probs, labels, block_labels):
     total = energy(problem, labels)
     table = problem.table
     below, below_side = labels, 1
-    for side, z in zip(solver.sides(), block_labels):
+    lams = solver.level_lam or [solver.block_lam] * solver.levels
+    for side, z, lam in zip(solver.sides(), block_labels, lams):
         h, w = z.shape
         for by, bx in itertools.product(range(h), range(w)):
             window = probs[:, by * side:(by + 1) * side, bx * side:(bx + 1) * side]
@@ -38,7 +39,7 @@ def brute_total(solver, problem, probs, labels, block_labels):
         for a, b in itertools.combinations(itertools.product(range(h), range(w)), 2):
             d2 = (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2
             if d2 <= 2:
-                total += solver.block_lam * side * table[z[a], z[b]] / np.sqrt(d2) / norm
+                total += lam * side * table[z[a], z[b]] / np.sqrt(d2) / norm
         below, below_side = z, side
     return total
 
@@ -88,3 +89,20 @@ def test_factory_and_size_check():
     problem, _, _ = random_problem(shape=(12, 12))
     with pytest.raises(ValueError):
         solver.block_problems(problem)
+
+
+def test_level_lam_schedule():
+    # Per-level neighbor weights (decay schedules) match the formula; equal weights = block_lam.
+    problem, probs, rng = random_problem()
+    labels = rng.integers(0, NUM_LABELS, problem.shape)
+    block_labels = [rng.integers(0, NUM_LABELS, (4, 4)), rng.integers(0, NUM_LABELS, (2, 2))]
+    decayed = HierarchySolver(ICMSolver(), levels=2, size=4, mu=0.7, level_lam=[1.5, 6.0])
+    blocks = decayed.block_problems(problem)
+    got = decayed.total_energy(problem, blocks, labels, block_labels)
+    assert got == pytest.approx(brute_total(decayed, problem, probs, labels, block_labels))
+    flat = HierarchySolver(ICMSolver(), levels=2, size=4, mu=0.7, block_lam=3.0)
+    same = HierarchySolver(ICMSolver(), levels=2, size=4, mu=0.7, level_lam=[3.0, 3.0])
+    assert flat.total_energy(problem, flat.block_problems(problem), labels, block_labels) == pytest.approx(
+        same.total_energy(problem, same.block_problems(problem), labels, block_labels))
+    with pytest.raises(ValueError):
+        HierarchySolver(ICMSolver(), levels=3, level_lam=[1.0, 2.0])

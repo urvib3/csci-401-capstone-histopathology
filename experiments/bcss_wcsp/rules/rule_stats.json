@@ -1,0 +1,214 @@
+{
+  "fit_truth": {
+    "tiles": 4588,
+    "presence_rare_set_share_of_tiles": 0.03073234524847428,
+    "per_class_share_of_tiles_present": {
+      "Tumor": 0.6395,
+      "Inflammatory": 0.2792,
+      "Stroma": 0.7099,
+      "Necrosis": 0.1242,
+      "Other": 0.1072
+    },
+    "area_share_present_but_under_2pct": {
+      "Tumor": 0.0453,
+      "Inflammatory": 0.0716,
+      "Stroma": 0.081,
+      "Necrosis": 0.0936,
+      "Other": 0.2182
+    },
+    "fragments_pieces_per_tile_with_class": {
+      "Tumor": 1.52,
+      "Inflammatory": 1.93,
+      "Stroma": 1.94,
+      "Necrosis": 1.14,
+      "Other": 1.5
+    },
+    "fragments_share_px_in_pieces_under_256": {
+      "Tumor": 0.0003,
+      "Inflammatory": 0.0008,
+      "Stroma": 0.001,
+      "Necrosis": 0.0002,
+      "Other": 0.0015
+    },
+    "infl_stroma_regions": 2330,
+    "infl_stroma_violation_share(<50%_stroma)": 0.041630901287553645,
+    "necro_tumor_regions": 480,
+    "necro_tumor_violation_share(<10%_tumor)": 0.5104166666666666,
+    "necro_tumor_median_tumor_share": 0.06712505562972852,
+    "roi_P(class|other_ROI_tiles_have)": {
+      "has": {
+        "Tumor": 0.6395,
+        "Inflammatory": 0.3151,
+        "Stroma": 0.7149,
+        "Necrosis": 0.1893,
+        "Other": 0.1286
+      },
+      "none": {
+        "Tumor": 0.0,
+        "Inflammatory": 0.0093,
+        "Stroma": 0.0,
+        "Necrosis": 0.0031,
+        "Other": 0.0119
+      }
+    }
+  },
+  "dev_truth": {
+    "tiles": 183,
+    "presence_rare_set_share_of_tiles": 0.02185792349726776,
+    "per_class_share_of_tiles_present": {
+      "Tumor": 0.612,
+      "Inflammatory": 0.2077,
+      "Stroma": 0.776,
+      "Necrosis": 0.1093,
+      "Other": 0.1093
+    },
+    "area_share_present_but_under_2pct": {
+      "Tumor": 0.0598,
+      "Inflammatory": 0.1628,
+      "Stroma": 0.0414,
+      "Necrosis": 0.05,
+      "Other": 0.2083
+    },
+    "fragments_pieces_per_tile_with_class": {
+      "Tumor": 1.79,
+      "Inflammatory": 2.28,
+      "Stroma": 1.75,
+      "Necrosis": 1.25,
+      "Other": 1.71
+    },
+    "fragments_share_px_in_pieces_under_256": {
+      "Tumor": 0.0004,
+      "Inflammatory": 0.0014,
+      "Stroma": 0.0009,
+      "Necrosis": 0.0,
+      "Other": 0.0014
+    },
+    "infl_stroma_regions": 74,
+    "infl_stroma_violation_share(<50%_stroma)": 0.04054054054054054,
+    "necro_tumor_regions": 20,
+    "necro_tumor_violation_share(<10%_tumor)": 0.6,
+    "necro_tumor_median_tumor_share": 0.0,
+    "roi_P(class|other_ROI_tiles_have)": {
+      "has": {
+        "Tumor": 0.612,
+        "Inflammatory": 0.2235,
+        "Stroma": 0.776,
+        "Necrosis": 0.1136,
+        "Other": 0.1156
+      },
+      "none": {
+        "Tumor": 0.0,
+        "Inflammatory": 0.0,
+        "Stroma": 0.0,
+        "Necrosis": 0.0,
+        "Other": 0.0
+      }
+    }
+  },
+  "dev_unet": {
+    "tiles": 183,
+    "presence_rare_set_share_of_tiles": 0.09836065573770492,
+    "per_class_share_of_tiles_present": {
+      "Tumor": 0.623,
+      "Inflammatory": 0.2514,
+      "Stroma": 0.7486,
+      "Necrosis": 0.153,
+      "Other": 0.2022
+    },
+    "area_share_present_but_under_2pct": {
+      "Tumor": 0.128,
+      "Inflammatory": 0.2881,
+      "Stroma": 0.1293,
+      "Necrosis": 0.2286,
+      "Other": 0.434
+    },
+    "fragments_pieces_per_tile_with_class": {
+      "Tumor": 3.56,
+      "Inflammatory": 4.85,
+      "Stroma": 4.49,
+      "Necrosis": 5.2,
+      "Other": 3.79
+    },
+    "fragments_share_px_in_pieces_under_256": {
+      "Tumor": 0.0021,
+      "Inflammatory": 0.0044,
+      "Stroma": 0.0032,
+      "Necrosis": 0.0071,
+      "Other": 0.0115
+    },
+    "infl_stroma_regions": 115,
+    "infl_stroma_violation_share(<50%_stroma)": 0.19130434782608696,
+    "necro_tumor_regions": 69,
+    "necro_tumor_violation_share(<10%_tumor)": 0.36231884057971014,
+    "necro_tumor_median_tumor_share": 0.3939393939393939,
+    "roi_P(class|other_ROI_tiles_have)": {
+      "has": {
+        "Tumor": 0.623,
+        "Inflammatory": 0.2706,
+        "Stroma": 0.7486,
+        "Necrosis": 0.1591,
+        "Other": 0.2139
+      },
+      "none": {
+        "Tumor": 0.0,
+        "Inflammatory": 0.0,
+        "Stroma": 0.0,
+        "Necrosis": 0.0,
+        "Other": 0.0
+      }
+    }
+  },
+  "dev_wcsp": {
+    "tiles": 183,
+    "presence_rare_set_share_of_tiles": 0.08743169398907104,
+    "per_class_share_of_tiles_present": {
+      "Tumor": 0.612,
+      "Inflammatory": 0.2404,
+      "Stroma": 0.7432,
+      "Necrosis": 0.153,
+      "Other": 0.1967
+    },
+    "area_share_present_but_under_2pct": {
+      "Tumor": 0.1,
+      "Inflammatory": 0.2,
+      "Stroma": 0.0922,
+      "Necrosis": 0.1562,
+      "Other": 0.2955
+    },
+    "fragments_pieces_per_tile_with_class": {
+      "Tumor": 1.5,
+      "Inflammatory": 1.66,
+      "Stroma": 1.66,
+      "Necrosis": 1.75,
+      "Other": 2.0
+    },
+    "fragments_share_px_in_pieces_under_256": {
+      "Tumor": 0.0006,
+      "Inflammatory": 0.0018,
+      "Stroma": 0.0006,
+      "Necrosis": 0.0022,
+      "Other": 0.0026
+    },
+    "infl_stroma_regions": 79,
+    "infl_stroma_violation_share(<50%_stroma)": 0.10126582278481013,
+    "necro_tumor_regions": 49,
+    "necro_tumor_violation_share(<10%_tumor)": 0.3469387755102041,
+    "necro_tumor_median_tumor_share": 0.4227405247813411,
+    "roi_P(class|other_ROI_tiles_have)": {
+      "has": {
+        "Tumor": 0.612,
+        "Inflammatory": 0.2588,
+        "Stroma": 0.7432,
+        "Necrosis": 0.1591,
+        "Other": 0.2081
+      },
+      "none": {
+        "Tumor": 0.0,
+        "Inflammatory": 0.0,
+        "Stroma": 0.0,
+        "Necrosis": 0.0,
+        "Other": 0.0
+      }
+    }
+  }
+}

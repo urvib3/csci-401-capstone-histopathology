@@ -1,0 +1,56 @@
+# bcss_rules.yaml with cluster WCSP as the innermost solver. Clear-cut biological rules on the Deliverable 5 setup, all switchable (defaults = off = current WCSP):
+#   gamma      tile class-set prior (classes that rarely share a tile)
+#   nb_gamma   neighbor-tile rule (a class is in a tile iff adjacent tiles have it)
+#   min_area   necrosis regions smaller than this are relabeled (necrosis is confluent)
+#   border     region must border a class: inflammatory -> stroma, necrosis -> tumor (min_share 0 = off)
+#   min_share  a class covering less than this share of the tile is removed
+#   label_cost extra cost per class in the tile's set (per-class strength)
+#   roi        ROI context: swap neighbors/neighbor_prior to bcss_roi_dev.json / bcss_roi_prior.json
+name: bcss_rules_clusters
+dataset:
+  name: bcss
+  root: $WCSP_DATA/bcss
+  split: dev
+classifier:
+  name: tia_unet
+  temperature: 1.0
+problem:
+  alpha: 1.0
+  lam: 8.0
+  eta: 1.0
+  types: [1, 2, 3, 4, 5]
+  normalize: true
+  table: experiments/bcss_wcsp/configs/tables/bcss_elicited.csv   # data-derived (PMI) b
+  contrast_beta: 0.0
+  contrast_sigma: 0.1
+  color_space: rgb
+solver:
+  name: min_region
+  min_area: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}   # px per class (0 tumor, 1 infl, 2 stroma, 3 necrosis, 4 other); 0 = off
+  border:
+    infl_stroma: {cls: 1, needs: 2, min_share: 0.0}
+    necro_tumor: {cls: 3, needs: 0, min_share: 0.0}
+  min_share: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
+  inner:
+    name: presence
+    prior: experiments/bcss_wcsp/configs/tables/bcss_presence_prior.json
+    gamma: 0.0
+    neighbors: experiments/bcss_wcsp/configs/tables/bcss_neighbors_dev.json   # use _val.json on val
+    neighbor_prior: experiments/bcss_wcsp/configs/tables/bcss_neighbor_prior.json
+    nb_gamma: 0.0
+    label_cost: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0}
+    inner:                 # SLIC clusters (256, colour + U-Net probs), then the usual pixel WCSP
+      name: clusters
+      n_segments: 256
+      compactness: 10.0
+      features: both
+      prob_weight: 30.0
+      refine:
+        name: blocks
+        block: 100
+        max_rounds: 4
+        inner:
+          name: icm
+paths:
+  cache: $WCSP_OUT/cache
+  runs: $WCSP_OUT/runs

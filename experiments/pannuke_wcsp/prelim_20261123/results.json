@@ -1,0 +1,376 @@
+{
+  "n_dev_images": 400,
+  "winner": {
+    "mode": "presence_evidence",
+    "unary": "mean",
+    "strength": 12.0,
+    "bands": "finer",
+    "smoothing": 4,
+    "organ_specific": true,
+    "name": "mean_presence_evidence_12_bands-finer_smooth4_organ"
+  },
+  "mIoU": {
+    "raw": 0.45702131313106265,
+    "vote": 0.45409377619373564,
+    "original": 0.4596085865435426,
+    "winner": 0.47974837212132915,
+    "oracle_set": 0.5262089921589373,
+    "oracle_kind": 0.6902182383479907
+  },
+  "mIoU_without_dead": {
+    "raw": 0.5131868877823842,
+    "vote": 0.5150534036123364,
+    "original": 0.5175775236139418,
+    "winner": 0.5373747742885435,
+    "oracle_set": 0.5861395126551696,
+    "oracle_kind": 0.743275114699942
+  },
+  "per_class_iou": {
+    "raw": {
+      "Neoplastic": 0.6534793081177038,
+      "Inflammatory": 0.4403030781997076,
+      "Connective": 0.4368079225965072,
+      "Dead": 0.23235901452577612,
+      "Normal epithelial": 0.5221572422156184
+    },
+    "vote": {
+      "Neoplastic": 0.6515511302801501,
+      "Inflammatory": 0.453947278742666,
+      "Connective": 0.4285133527178166,
+      "Dead": 0.21025526651933255,
+      "Normal epithelial": 0.526201852708713
+    },
+    "original": {
+      "Neoplastic": 0.6526689728091137,
+      "Inflammatory": 0.45475031373478436,
+      "Connective": 0.4307928114537662,
+      "Dead": 0.22773283826194582,
+      "Normal epithelial": 0.5320979964581029
+    },
+    "winner": {
+      "Neoplastic": 0.6671598100804448,
+      "Inflammatory": 0.45415867960325185,
+      "Connective": 0.4383225875653,
+      "Dead": 0.24924276345247187,
+      "Normal epithelial": 0.5898580199051772
+    },
+    "oracle_kind": {
+      "Neoplastic": 0.7627232600499851,
+      "Inflammatory": 0.791295831650494,
+      "Connective": 0.6865952624996474,
+      "Dead": 0.47799073294018535,
+      "Normal epithelial": 0.7324861045996417
+    },
+    "oracle_set": {
+      "Neoplastic": 0.704653034297405,
+      "Inflammatory": 0.49801311402921855,
+      "Connective": 0.4739790748152226,
+      "Dead": 0.28648691017400846,
+      "Normal epithelial": 0.6679128274788322
+    }
+  },
+  "error_split": {
+    "wrong_pixels": 1940122,
+    "pixel_error_rate": 0.07400978088378907,
+    "missed_nucleus_pixels": 0.3104706817406328,
+    "extra_nucleus_pixels": 0.3833490883562992,
+    "wrong_kind_pixels": 0.3061802299030679,
+    "wrong_kind_fixable_by_relabeling": 0.30505865095081647,
+    "wrong_kind_inside_merged_or_split_nuclei": 0.0011215789522514563,
+    "true_nuclei": 9830,
+    "predicted_nuclei": 10188,
+    "matched_nuclei": 7839,
+    "true_nuclei_found": 0.7974567650050864,
+    "matched_kind_accuracy_vote": 0.8069906875877025,
+    "matched_kind_accuracy_winner": 0.8284219926010971
+  },
+  "nucleus_kind_confusion": {
+    "rows_true_columns_predicted": [
+      "Neoplastic",
+      "Inflammatory",
+      "Connective",
+      "Dead",
+      "Normal epithelial"
+    ],
+    "vote": [
+      [
+        3368,
+        46,
+        130,
+        32,
+        85
+      ],
+      [
+        150,
+        860,
+        205,
+        28,
+        91
+      ],
+      [
+        314,
+        133,
+        1205,
+        25,
+        53
+      ],
+      [
+        24,
+        8,
+        2,
+        88,
+        0
+      ],
+      [
+        146,
+        8,
+        29,
+        4,
+        805
+      ]
+    ],
+    "winner": [
+      [
+        3463,
+        45,
+        130,
+        18,
+        5
+      ],
+      [
+        173,
+        863,
+        223,
+        1,
+        74
+      ],
+      [
+        316,
+        124,
+        1249,
+        10,
+        31
+      ],
+      [
+        32,
+        7,
+        4,
+        79,
+        0
+      ],
+      [
+        104,
+        10,
+        38,
+        0,
+        840
+      ]
+    ]
+  },
+  "pixel_confusion_vote": {
+    "rows_true_columns_predicted": [
+      "Background",
+      "Neoplastic",
+      "Inflammatory",
+      "Connective",
+      "Dead",
+      "Normal epithelial"
+    ],
+    "counts": [
+      [
+        20948410,
+        437580,
+        34468,
+        145079,
+        8209,
+        118408
+      ],
+      [
+        284958,
+        2131687,
+        13254,
+        54614,
+        4753,
+        46811
+      ],
+      [
+        47409,
+        51404,
+        233116,
+        58206,
+        2981,
+        33072
+      ],
+      [
+        177482,
+        159629,
+        36138,
+        504901,
+        4069,
+        26483
+      ],
+      [
+        10740,
+        6067,
+        1363,
+        321,
+        10370,
+        36
+      ],
+      [
+        81762,
+        80954,
+        2120,
+        11340,
+        412,
+        445794
+      ]
+    ]
+  },
+  "rule_check": {
+    "Fit truth (4,089)": {
+      "images": 3903,
+      "rare_kind_combination": 0.046374583653599796,
+      "some_kind_has_a_single_nucleus": 0.27824750192159875,
+      "single_nucleus_by_kind": {
+        "Neoplastic": 0.02126569305662311,
+        "Inflammatory": 0.17140661029976942,
+        "Connective": 0.09941070971047912,
+        "Dead": 0.008455034588777863,
+        "Normal epithelial": 0.0058929028952088135
+      },
+      "kinds_per_image": 2.148347425057648,
+      "images_containing": {
+        "Neoplastic": 0.5490648219318472,
+        "Inflammatory": 0.5541890853189854,
+        "Connective": 0.8101460415065335,
+        "Dead": 0.033051498847040735,
+        "Normal epithelial": 0.2018959774532411
+      },
+      "cancer_and_epithelial_together": 0.0058929028952088135,
+      "breast_cancer_and_epithelial_together": 0.00782472613458529
+    },
+    "Dev truth (400)": {
+      "images": 386,
+      "rare_kind_combination": 0.03367875647668394,
+      "some_kind_has_a_single_nucleus": 0.25647668393782386,
+      "single_nucleus_by_kind": {
+        "Neoplastic": 0.03626943005181347,
+        "Inflammatory": 0.15544041450777202,
+        "Connective": 0.08808290155440414,
+        "Dead": 0.007772020725388601,
+        "Normal epithelial": 0.0051813471502590676
+      },
+      "kinds_per_image": 2.173575129533679,
+      "images_containing": {
+        "Neoplastic": 0.5984455958549223,
+        "Inflammatory": 0.5595854922279793,
+        "Connective": 0.8082901554404145,
+        "Dead": 0.038860103626943004,
+        "Normal epithelial": 0.16839378238341968
+      },
+      "cancer_and_epithelial_together": 0.0,
+      "breast_cancer_and_epithelial_together": 0.0
+    },
+    "HoVer-Net vote": {
+      "images": 389,
+      "rare_kind_combination": 0.3264781491002571,
+      "some_kind_has_a_single_nucleus": 0.4730077120822622,
+      "single_nucleus_by_kind": {
+        "Neoplastic": 0.10025706940874037,
+        "Inflammatory": 0.16195372750642673,
+        "Connective": 0.13367609254498714,
+        "Dead": 0.12339331619537275,
+        "Normal epithelial": 0.07712082262210797
+      },
+      "kinds_per_image": 2.6375321336760926,
+      "images_containing": {
+        "Neoplastic": 0.7686375321336761,
+        "Inflammatory": 0.5475578406169666,
+        "Connective": 0.8200514138817481,
+        "Dead": 0.1928020565552699,
+        "Normal epithelial": 0.30848329048843187
+      },
+      "cancer_and_epithelial_together": 0.2185089974293059,
+      "breast_cancer_and_epithelial_together": 0.23076923076923078
+    },
+    "Type-set WCSP": {
+      "images": 389,
+      "rare_kind_combination": 0.02056555269922879,
+      "some_kind_has_a_single_nucleus": 0.2416452442159383,
+      "single_nucleus_by_kind": {
+        "Neoplastic": 0.03598971722365039,
+        "Inflammatory": 0.10025706940874037,
+        "Connective": 0.11568123393316196,
+        "Dead": 0.002570694087403599,
+        "Normal epithelial": 0.002570694087403599
+      },
+      "kinds_per_image": 2.107969151670951,
+      "images_containing": {
+        "Neoplastic": 0.6478149100257069,
+        "Inflammatory": 0.4755784061696658,
+        "Connective": 0.8174807197943444,
+        "Dead": 0.02570694087403599,
+        "Normal epithelial": 0.14138817480719795
+      },
+      "cancer_and_epithelial_together": 0.005141388174807198,
+      "breast_cancer_and_epithelial_together": 0.008547008547008548
+    }
+  },
+  "most_common_kind_sets_fit": [
+    {
+      "kinds": "Neoplastic + Inflammatory + Connective",
+      "share": 0.20958669601369528
+    },
+    {
+      "kinds": "Neoplastic + Connective",
+      "share": 0.14991440449987772
+    },
+    {
+      "kinds": "Inflammatory + Connective",
+      "share": 0.13768647591098068
+    },
+    {
+      "kinds": "Inflammatory + Connective + Normal epithelial",
+      "share": 0.09562240156517486
+    },
+    {
+      "kinds": "Connective",
+      "share": 0.0929322572756175
+    },
+    {
+      "kinds": "Neoplastic",
+      "share": 0.08437270726338958
+    },
+    {
+      "kinds": "Connective + Normal epithelial",
+      "share": 0.06040596722915138
+    },
+    {
+      "kinds": "Neoplastic + Inflammatory",
+      "share": 0.04817803864025434
+    },
+    {
+      "kinds": "(no nuclei)",
+      "share": 0.04548789435069699
+    },
+    {
+      "kinds": "Normal epithelial",
+      "share": 0.02127659574468085
+    },
+    {
+      "kinds": "Neoplastic + Inflammatory + Connective + Dead",
+      "share": 0.010271460014673514
+    },
+    {
+      "kinds": "Inflammatory",
+      "share": 0.00880410858400587
+    }
+  ],
+  "notes": {
+    "oracle_kind": "Every HoVer-Net nucleus relabeled with the kind most of its pixels have in the truth. Outlines unchanged: the best any relabeling method could do.",
+    "oracle_set": "Exact type-set solver restricted to the true set of kinds, unary mean, no prior: a perfect 'which kinds are here' rule.",
+    "matched": "A true and a predicted nucleus match when their overlap (IoU) exceeds 0.5.",
+    "rare": "A kind combination is rare when under 1% of counting images have exactly it."
+  }
+}

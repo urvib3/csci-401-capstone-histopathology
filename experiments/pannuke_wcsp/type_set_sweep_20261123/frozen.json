@@ -1,0 +1,28 @@
+{
+  "winner": {
+    "mode": "presence_evidence",
+    "unary": "mean",
+    "strength": 12.0,
+    "bands": "finer",
+    "smoothing": 4,
+    "organ_specific": true,
+    "name": "mean_presence_evidence_12_bands-finer_smooth4_organ"
+  },
+  "winner_dev_bio_miou": 0.47974837212132915,
+  "settings_within_tie": 1,
+  "original_setting": {
+    "mode": "presence_evidence",
+    "unary": "vote",
+    "strength": 1.0,
+    "bands": "original",
+    "smoothing": 16,
+    "organ_specific": false
+  },
+  "original_refit_dev_bio_miou": 0.4590920192190719,
+  "dev_controls": {
+    "raw_tp": 0.45702131313106265,
+    "fixed_mask_vote": 0.45409377619373564,
+    "original_setting_original_counts": 0.4596085865435426
+  },
+  "written_before_test": true
+}

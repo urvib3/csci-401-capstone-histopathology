@@ -1,0 +1,9 @@
+c2_image_64 --set solver.features=image --set solver.n_segments=64
+c2_image_256 --set solver.features=image --set solver.n_segments=256
+c2_image_1024 --set solver.features=image --set solver.n_segments=1024
+c2_both_64 --set solver.n_segments=64
+c2_both_256 --set solver.n_segments=256
+c2_both_1024 --set solver.n_segments=1024
+c2_probs_256 --set solver.features=probs --set solver.n_segments=256
+c2_both_256_refine --set solver.n_segments=256 --set solver.refine.name=blocks --set solver.refine.block=100 --set solver.refine.max_rounds=4
+c2_both_1024_refine --set solver.n_segments=1024 --set solver.refine.name=blocks --set solver.refine.block=100 --set solver.refine.max_rounds=4

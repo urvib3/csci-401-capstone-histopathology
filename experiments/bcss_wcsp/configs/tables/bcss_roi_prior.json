@@ -1,0 +1,17 @@
+{
+  "has": [
+    0.6395,
+    0.3151,
+    0.7149,
+    0.1893,
+    0.1286
+  ],
+  "none": [
+    0.0,
+    0.0093,
+    0.0,
+    0.0031,
+    0.0119
+  ],
+  "source": "fit ground truth, rules/rule_stats.py: P(class in tile | another tile of the ROI has it / none does)"
+}

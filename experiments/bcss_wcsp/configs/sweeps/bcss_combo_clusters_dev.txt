@@ -1,0 +1,3 @@
+kc_g --set solver.inner.gamma=3000
+kc_g_regions --set solver.inner.gamma=3000 --set solver.min_area.3=1024 --set solver.min_share.4=0.05 --set solver.border.infl_stroma.min_share=0.5
+kc_g_lc_regions --set solver.inner.gamma=3000 --set solver.inner.label_cost.4=3000 --set solver.inner.label_cost.3=3000 --set solver.inner.label_cost.1=1000 --set solver.min_area.3=1024 --set solver.min_share.4=0.05 --set solver.border.infl_stroma.min_share=0.5

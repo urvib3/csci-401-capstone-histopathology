@@ -407,3 +407,99 @@ Each 256 × 256 tile (65,536 px) is solved as 5 blocks: four 100 × 100 corners 
 | Ryan, dev | None | — | 14 tiles in 8 h before the job limit |
 
 At 20 s per block, toulbar2 ends 75% of tiles after one round, with *higher* energy than ICM: it runs out of time before matching ICM. A per-block benchmark of search nodes, backtracks and proved optima at 2 / 20 / 120 s is running.
+
+
+## November 15–16: BCSS rule results, decay sweep and toulbar2 effort
+
+Same setup as the November 8–9 section: pretrained U-Net, central 256 × 256, data-derived b, λ = 8, dev = 185 tiles (U-Net 0.7067, current WCSP 0.7090).
+
+### Which classes appear in a tile matters most
+
+![Class combinations on val](../experiments/bcss_wcsp/figures/rule_check.png)
+
+All 20 class pairs × 2 statistics on val, sorted from least to most common in the ground truth (black ring). The U-Net over-predicts rare combinations, and the WCSP only moves slightly toward the truth. For example, inflammatory | necrosis is 0.01 in truth, 0.22 from the U-Net and 0.18 after the WCSP.
+
+| Rule tested on dev | Dev mIoU | Δ vs. current WCSP |
+|---|---:|---:|
+| **Class presence, γ = 3000** (choose the tile's class set, then WCSP) | **0.7229** | **+0.0139** |
+| Class presence, γ = 100 / 300 / 1000 | 0.7102 / 0.7117 / 0.7139 | +0.0012 / +0.0027 / +0.0049 |
+| Class presence, γ = 10k / 30k / 100k (too strong) | 0.7094 / 0.6887 / 0.5449 | — |
+| Necrosis–inflammatory and necrosis–other exclusions, b = 15 / 50 | 0.7095 / 0.7094 | +0.0005 / +0.0004 |
+| Same, plus tumor–other b = 15 | 0.7096 | +0.0006 |
+
+- **vs. U-Net:** class presence at γ = 3000 is +0.0162 [+0.0045, +0.0275] (ROI bootstrap). The gain comes mainly from "other" (IoU 0.607 → 0.653) and necrosis (0.652 → 0.666).
+- **γ was chosen on these tiles**, so it still needs one frozen val run.
+- **Exclusions barely matter:** those borders are already rare in the outputs.
+
+### Rules measured in the data, not yet encoded
+
+| Rule | Fit ground truth | Val: truth / U-Net / WCSP |
+|---|---|---|
+| A class is in a tile if a neighboring tile has it | Necrosis: 50% if a neighbor has it, 0.7% if none does | — |
+| Inflammatory regions sit in stroma | 96% of regions mostly bordered by stroma | 98% / 84% / 90% |
+| Necrosis forms large regions | Median 26,575 px | Median 12,696 / 31 / 2,174 px; 244 / 1,359 / 432 regions |
+
+From the literature, worth trying next:
+- Inflammatory needs tumor nearby (TIL scoring, Hendry 2017).
+- Necrosis is enclosed by tumor, and tumor regions are compact (pushing borders in triple-negative tumors).
+
+Not to encode: a tumor–fat exclusion (tumor meets fat at the invasive front, Dirat 2011), or forcing necrosis at the tumor's center (fibrotic foci, Hasebe).
+
+### Decay sweep: no gain
+
+This uses the same design as the PanNuke sibling-decay sweep: neighbor weights are anchored at the coarsest level (16 px blocks, 8), and each finer level is multiplied by d. The base is the frozen multi-scale setting (μ = 0.5, 3 levels).
+
+| Condition | Pixels | 4 px | 8 px | 16 px |
+|---|---:|---:|---:|---:|
+| Control (multi-scale, dev 0.7108) | 8 | 8 | 8 | 8 |
+| Blocks decay, d ∈ {0.8, 0.6, 0.4, 0.2} | 8 | 8d² | 8d | 8 |
+| All levels decay | 8d³ | 8d² | 8d | 8 |
+| Pixels only decay | 8d³ | 8 | 8 | 8 |
+| Uniform blocks, u ∈ {2, 4, 6} | 8 | u | u | u |
+| Coarse boost, c ∈ {12, 16} | 8 | 8 | c | c |
+
+Each condition also has a matched **Potts** control: every off-diagonal b entry is set to 4.0, the mean of the data-derived table. That gives 23 dev runs.
+
+| Condition (dev mIoU) | d = 0.8 | 0.6 | 0.4 | 0.2 |
+|---|---:|---:|---:|---:|
+| Blocks decay | 0.7107 | 0.7106 | 0.7103 | 0.7100 |
+| All levels decay | 0.7105 | 0.7100 | 0.7095 | 0.7081 |
+| Pixels only decay | 0.7107 | 0.7101 | 0.7095 | 0.7092 |
+| Potts + blocks decay | 0.7107 | 0.7104 | 0.7103 | 0.7099 |
+
+Control 0.7108; Potts control 0.7106; uniform blocks 2 / 4 / 6: 0.7100 / 0.7105 / 0.7107; coarse boost 12 / 16: 0.7108 / 0.7108. No schedule beats the control, and stronger decay hurts, as on PanNuke. The data-derived table barely beats Potts (0.7108 vs. 0.7106): neighbor smoothing is saturated.
+
+### toulbar2: search effort per block
+
+Each block is solved once, starting from the U-Net labels, on 8 dev tiles.
+
+| Limit | Block | Mean time | Found a solution | Proved optimal | Energy ≤ ICM's |
+|---|---|---:|---:|---:|---:|
+| 2 s | corner (10,000 px) | 1.1 s | 72% | 56% | 62% |
+| 2 s | cross (25,536 px) | 1.8 s | 25% | 25% | 25% |
+| 20 s | corner | 7.5 s | 84% | 69% | 72% |
+| 20 s | cross | 13.8 s | 62% | 38% | 50% |
+| 120 s | corner | 40.2 s | 100% | 69% | 81% |
+| 120 s | cross | 76.6 s | 88% | 38% | 62% |
+
+ICM takes 0.6 s per corner and about 5 s per cross. Even at 120 s, toulbar2 proves only 38% of cross blocks optimal.
+
+### Full-resolution U-Net
+
+The decay sweep above uses the half-resolution U-Net. Ryan has since shared the frozen full-resolution development inputs (`data/fullres_multiscale_20261115/`, Git LFS), so the rule results below can be rerun at full resolution.
+
+## November 22: every data-derived rule tested, then combined
+
+Full write-up: [experiments/bcss_wcsp/rules/README.md](../experiments/bcss_wcsp/rules/README.md). Dev, 185 tiles; U-Net 0.7067, WCSP 0.7090.
+
+| Setting | Dev mIoU | Δ vs. U-Net |
+|---|---:|---:|
+| WCSP | 0.7090 | +0.0023 |
+| WCSP + class presence (γ = 3000) | 0.7229 | +0.0162 |
+| **Cluster WCSP + class presence** | **0.7242** | **+0.0175** |
+
+- **Only the presence rule matters.** Every other rule that helps alone (a per-class cost on "other" or necrosis, a minimum class share, clusters) removes the same false "other" and necrosis, so on top of presence it adds ≤ 0.001 or hurts.
+- **Two literature rules fail in the data:** necrosis bordering tumor (51% of fit-truth necrosis regions have < 10% tumor border), and ROI-level presence (every ROI contains nearly every class).
+- **Fix:** SLIC clustering ignored the image under skimage 0.26 (float input is rescaled to [0, 1]), so the first cluster runs were plain grids; fixed in `wcsp/solve/clusters.py`.
+- **Still to do:** one frozen val run of cluster WCSP + presence.
+

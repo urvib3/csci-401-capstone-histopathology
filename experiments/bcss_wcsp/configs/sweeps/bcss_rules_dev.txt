@@ -1,0 +1,14 @@
+r_control
+r_nb100 --set solver.inner.nb_gamma=100
+r_nb300 --set solver.inner.nb_gamma=300
+r_nb1000 --set solver.inner.nb_gamma=1000
+r_nb3000 --set solver.inner.nb_gamma=3000
+r_g3000 --set solver.inner.gamma=3000
+r_g3000_nb300 --set solver.inner.gamma=3000 --set solver.inner.nb_gamma=300
+r_g3000_nb1000 --set solver.inner.gamma=3000 --set solver.inner.nb_gamma=1000
+r_g3000_nb3000 --set solver.inner.gamma=3000 --set solver.inner.nb_gamma=3000
+r_min256 --set solver.min_area.3=256
+r_min1024 --set solver.min_area.3=1024
+r_min4096 --set solver.min_area.3=4096
+r_g3000_min1024 --set solver.inner.gamma=3000 --set solver.min_area.3=1024
+r_g3000_nb1000_min1024 --set solver.inner.gamma=3000 --set solver.inner.nb_gamma=1000 --set solver.min_area.3=1024
