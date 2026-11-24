@@ -134,6 +134,18 @@ About even on average (9.4% vs 12.2%). Class identification dominates for "other
 
 Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCSP gain +0.0639, eight times what presence gets now, so **picking the class set is the bottleneck**, not WCSP.
 
+#### What each method means
+
+![Presence rule](figures_20261123/presence_diagram.png)
+
+- **WCSP smoothing:** neighboring pixels pay a cost for disagreeing, which cleans up noisy borders.
+- **Presence rule:** keep only classes likely to appear together in a tile; drop the rest, then smooth.
+- **Cluster (SLIC):** group pixels into ~256 patches of similar colour; each patch gets one label.
+- **WCSP + true class set:** WCSP told the tile's real classes; the best presence could ever do.
+- **Perfect class identification:** keep the U-Net's regions, but give each its true majority class.
+- **Perfect segmentation:** keep the true regions, but give each the U-Net's majority class.
+- **Both perfect:** true regions with true classes, which is the ground truth (1.0).
+
 ### Results
 
 #### 1 · WCSP fixes (after the U-Net)

@@ -213,6 +213,18 @@
 <img src="prelim_ladder.png" alt="mIoU today vs. with each problem made perfect">
 <div class="take">Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCSP gain +0.0639, eight times what presence gets now, so <b>picking the class set is the bottleneck</b>, not WCSP.</div>
 
+<h4>What each method means</h4>
+<img src="presence_diagram.png" alt="Presence rule: U-Net output and its class set, presence picks a set, WCSP within the kept set">
+<ul>
+  <li><b>WCSP smoothing:</b> neighboring pixels pay a cost for disagreeing, which cleans up noisy borders.</li>
+  <li><b>Presence rule:</b> keep only classes likely to appear together in a tile; drop the rest, then smooth.</li>
+  <li><b>Cluster (SLIC):</b> group pixels into ~256 patches of similar colour; each patch gets one label.</li>
+  <li><b>WCSP + true class set:</b> WCSP told the tile's real classes; the best presence could ever do.</li>
+  <li><b>Perfect class identification:</b> keep the U-Net's regions, but give each its true majority class.</li>
+  <li><b>Perfect segmentation:</b> keep the true regions, but give each the U-Net's majority class.</li>
+  <li><b>Both perfect:</b> true regions with true classes, which is the ground truth (1.0).</li>
+</ul>
+
 <h3 id="bcss-results">Results</h3>
 
 <h4>1 · WCSP fixes (after the U-Net)</h4>
