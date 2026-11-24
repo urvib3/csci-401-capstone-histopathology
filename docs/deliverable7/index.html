@@ -211,7 +211,7 @@
 
 <h4>Test 2 · What is fixing each one worth?</h4>
 <img src="prelim_ladder.png" alt="mIoU today vs. with each problem made perfect">
-<div class="take">Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small fraction.</div>
+<div class="take">Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCSP gain +0.0639, eight times what presence gets now, so <b>picking the class set is the bottleneck</b>, not WCSP.</div>
 
 <h3 id="bcss-results">Results</h3>
 
@@ -223,14 +223,11 @@
 <img src="bcss_fixes.png" alt="BCSS mIoU for WCSP, cluster and presence combinations, dev and val">
 <div class="take">Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.</div>
 
-<h5>Is the bottleneck the class set or WCSP?</h5>
-<div class="wrap"><table>
-  <tr><th>Dev (185 tiles)</th><th class="num">Tiles with the exact true class set</th><th class="num">mIoU</th></tr>
-  <tr><td>U-Net</td><td class="num">56.8%</td><td class="num">0.7067</td></tr>
-  <tr><td>WCSP + presence (our class set)</td><td class="num">66.5%</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td></tr>
-  <tr class="hl"><td>WCSP + true class set (upper bound)</td><td class="num">100%</td><td class="num">0.7883 <span class="d">(+0.0816)</span></td></tr>
-</table></div>
-<div class="take"><b>Picking the class set is the bottleneck:</b> with the right set, WCSP gains five times more. Presence still gets a third of tiles' sets wrong.</div>
+<h5>Examples (same 3 dev tiles for every method)</h5>
+<img src="examples_wcsp.png" alt="Examples: WCSP">
+<img src="examples_wcsp_presence.png" alt="Examples: WCSP + presence, with class sets">
+<img src="examples_wcsp_cluster.png" alt="Examples: WCSP + cluster">
+<img src="examples_wcsp_presence_cluster.png" alt="Examples: WCSP + presence + cluster, with class sets">
 
 <h5>Other data-derived rules tried</h5>
 <div class="wrap"><table>

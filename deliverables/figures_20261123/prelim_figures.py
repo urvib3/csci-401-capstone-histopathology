@@ -251,15 +251,17 @@ def fig_split_v2(seg_pct, cls_pct, overall=(48, 52)):
     fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")
 
 
-def fig_ladder_v2(raw, wcsp, presence, class_id, seg):
+def fig_ladder_v2(raw, wcsp, presence, class_id, seg, true_set=None):
     """Test 2: today's methods vs. each problem made perfect, on one mIoU axis up to 1.0."""
     rows = [("U-Net", raw, GRAY, "Today"), ("+ WCSP smoothing", wcsp, GRAY, "Today"),
             ("+ presence rule", presence, GRAY, "Today"),
+            ("WCSP + true class set", true_set, "#f7c891", "If perfect"),
             ("Perfect class identification", class_id, "#f2a65a", "If perfect"),
             ("Perfect segmentation", seg, "#3e7cb1", "If perfect"),
             ("Both perfect (= ground truth)", 1.0, "#d9d8d2", "If perfect")]
-    fig, ax = plt.subplots(figsize=(7.2, 3.4))
-    ys = np.array([6.4, 5.4, 4.4, 2.6, 1.6, 0.6])
+    rows = [r for r in rows if r[1] is not None]
+    fig, ax = plt.subplots(figsize=(7.2, 3.9))
+    ys = np.array([7.4, 6.4, 5.4, 3.6, 2.6, 1.6, 0.6])[-len(rows):] if len(rows) == 7 else np.array([6.4, 5.4, 4.4, 2.6, 1.6, 0.6])
     lo = 0.6
     for y, (name, v, c, _) in zip(ys, rows):
         ax.barh(y, v - lo, left=lo, color=c, height=0.66, edgecolor=SURFACE, linewidth=2)
@@ -269,13 +271,13 @@ def fig_ladder_v2(raw, wcsp, presence, class_id, seg):
         txt = f"{v:.4f}" if name == "U-Net" else f"{v:.4f}  ({v - raw:+.4f})"
         ax.text(v + 0.006, y, txt, va="center", color=INK, fontsize=9)
     ax.axvline(raw, color=INK, linewidth=1, linestyle="--", zorder=2)
-    for y, text in ((7.2, "Today"), (3.4, "If one problem were perfect")):
+    for y, text in ((ys[0] + 0.8, "Today"), (ys[3] + 0.8, "If one problem were perfect")):
         ax.text(lo + 0.002, y, text, color=MUTED, fontsize=9.5, fontweight="bold", va="center", zorder=5,
                 bbox={"facecolor": SURFACE, "edgecolor": "none", "pad": 1.5})
     ax.set_yticks(ys, [r[0] for r in rows])
     ax.tick_params(axis="y", length=0)
     ax.set_xlim(lo, 1.08)
-    ax.set_ylim(0, 7.6)
+    ax.set_ylim(0, ys[0] + 1.2)
     ax.set_xlabel("mIoU (axis starts at 0.60; dashed line = U-Net)")
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)

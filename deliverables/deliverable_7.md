@@ -132,7 +132,7 @@ About even on average (9.4% vs 12.2%). Class identification dominates for "other
 
 ![Test 2](figures_20261123/prelim_ladder.png)
 
-Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small fraction.
+Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCSP gain +0.0639, eight times what presence gets now, so **picking the class set is the bottleneck**, not WCSP.
 
 ### Results
 
@@ -145,15 +145,12 @@ Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small
 
 Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.
 
-##### Is the bottleneck the class set or WCSP?
+##### Examples (same 3 dev tiles for every method)
 
-| Dev (185 tiles) | Tiles with the exact true class set | mIoU |
-|---|---:|---:|
-| U-Net | 56.8% | 0.7067 |
-| WCSP + presence (our class set) | 66.5% | 0.7229 (+0.0162) |
-| **WCSP + true class set (upper bound)** | 100% | **0.7883 (+0.0816)** |
-
-**Picking the class set is the bottleneck:** with the right set, WCSP gains five times more. Presence still gets a third of tiles' sets wrong.
+![WCSP](figures_20261123/examples_wcsp.png)
+![WCSP + presence](figures_20261123/examples_wcsp_presence.png)
+![WCSP + cluster](figures_20261123/examples_wcsp_cluster.png)
+![WCSP + presence + cluster](figures_20261123/examples_wcsp_presence_cluster.png)
 
 ##### Other data-derived rules tried
 
