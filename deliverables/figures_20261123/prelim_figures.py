@@ -81,9 +81,9 @@ def fig_split(group, label, conf):
     g, l = 100 * group / total, 100 * label / total
     fig, ax = plt.subplots(figsize=(6.4, 2.9))
     ys = np.arange(K)[::-1]
-    ax.barh(ys, g, color=BLUE, height=0.6, edgecolor=SURFACE, linewidth=2, label="Grouping error (region mostly right)")
+    ax.barh(ys, g, color=BLUE, height=0.6, edgecolor=SURFACE, linewidth=2, label="Segmentation error (region mostly right, pixels break away)")
     ax.barh(ys, l, left=g, color=ORANGE, height=0.6, edgecolor=SURFACE, linewidth=2,
-            label="Labeling error (whole region wrong class)")
+            label="Class identification error (whole region wrong class)")
     for y, a, b in zip(ys, g, l):
         ax.text(a + b + 0.8, y, f"{a + b:.0f}% wrong", va="center", color=INK, fontsize=9)
     ax.set_yticks(ys, NAMES)
@@ -93,7 +93,7 @@ def fig_split(group, label, conf):
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)
     ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=1)
-    title(ax, "Errors per true class: grouping vs. labeling")
+    title(ax, "Errors per true class: segmentation vs. class identification")
     fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")
 
 

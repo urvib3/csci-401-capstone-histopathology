@@ -33,23 +33,32 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ## Hypothesis
 
-The segmenter makes two kinds of mistakes, and smoothing fixes neither.
+**The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.** Smoothing cleans up noisy borders. The U-Net's real errors are bigger than that:
 
-| Mistake | Example | What would fix it |
-|---|---|---|
-| **Grouping** | One stroma region is predicted as ~10 scattered pieces | Coherent regions |
-| **Labeling** | A whole region is called "other" when it's stroma | Knowing which classes belong in the tile |
+| Problem | What goes wrong | Evidence | What could fix it |
+|---|---|---|---|
+| **Segmentation** | One true region is broken into many pieces | ~10 predicted pieces per true region; 48% of wrong pixels | Training the U-Net to keep regions whole (region loss) |
+| **Class identification** | A whole region is given the wrong class, or a class that isn't in the tile | 52% of wrong pixels; "other" 36% wrong, stroma 25%; "other" predicted in 20% of tiles vs 11% in truth | Strong data-derived rules (e.g. presence), not light smoothing; a better classifier |
+| **Too many tissue types** (PanNuke only) | Patches from all organs share one model and prior, so cell types from other organs leak in | Breast-only prior beats the all-organ prior by +0.0100 on the same Breast patches | Run per tissue type: fit and tune on one organ at a time |
+
+**How a wrong pixel is assigned to a problem:** take each true region (one connected piece of one class in the ground truth) and find the class the U-Net predicts for most of its pixels.
+- **Majority correct:** the U-Net identified the region's class, so its wrong pixels are **segmentation** errors (stray pieces and borders).
+- **Majority wrong:** the U-Net called the whole region the wrong class, so its wrong pixels are **class identification** errors.
+
+*PanNuke example: in a tumor patch, one nucleus is given a type that doesn't belong (non-neoplastic, purple). The type-set rule removes it.*
+
+![PanNuke too many types](../docs/deliverable7/pannuke_type_set_example.png)
 
 ---
 
 ## Preliminary tests
 
-*Ryan's full-resolution U-Net, 185 dev tiles, no training.*
+*Full-resolution U-Net, 185 dev tiles, no training.*
 
 | Test | Result |
 |---|---|
-| Wrong pixels that are **grouping** mistakes | **48%** |
-| Wrong pixels that are **labeling** mistakes | **52%** |
+| Wrong pixels that are **segmentation** errors | **48%** |
+| Wrong pixels that are **class identification** errors | **52%** |
 | Predicted pieces per true region | **~10** (should be 1) |
 | Presence + smoothing on this model | 0.6524 → **0.6610** (+0.0086) |
 | Upper bound: true classes given per tile | **0.7163** (+0.0639) |
@@ -61,18 +70,18 @@ The segmenter makes two kinds of mistakes, and smoothing fixes neither.
 
 ![Mistakes per class](figures_20261123/prelim_error_split.png)
 
-**Worst classes: "other" (36% wrong) and stroma (25%), and both are mostly labeling mistakes.** Inflammatory and necrosis errors are mostly grouping.
+**Worst classes: "other" (36% wrong) and stroma (25%), and both are mostly class identification errors.** Inflammatory and necrosis errors are mostly segmentation.
 
 ---
 
 ## Current experiments: fixing the U-Net itself
 
-Same training as Ryan's model; only the loss changes. Score = raw U-Net, no post-processing.
+Same training recipe as the cross-entropy baseline; only the loss changes. Score = raw U-Net, no post-processing.
 
 | Model | Added loss | Fixes | Dev mIoU |
 |---|---|---|:---:|
-| A (Ryan) | none | — | 0.6679 |
-| B | Region loss: pixels in the same true region should agree | Grouping | — |
-| C | Presence loss: predict which classes are in the tile | Labeling | — |
+| A (baseline) | none | — | 0.6679 |
+| B | Region loss: pixels in the same true region should agree | Segmentation | — |
+| C | Presence loss: predict which classes are in the tile | Class identification | — |
 
 **Success = B or C beats A.**
