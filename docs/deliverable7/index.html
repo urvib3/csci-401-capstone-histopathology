@@ -255,7 +255,7 @@
   <tr><td>C · + presence loss</td><td>Class identification</td><td class="num">0.5608</td><td class="num dash">next</td></tr>
 </table></div>
 <div class="take">The 2-epoch pilot is too short: every arm ends below its starting point. The 10-epoch runs decide whether B or C beats A.</div>
-<h4>3 · Full-resolution corrections</h4>
+<h4 id="full512">3 · Full-resolution corrections</h4>
 <p>WCSP fixes rerun on the <b>full-resolution U-Net</b> (whole 512 px tiles), with a refit presence prior and a new <b>region move</b>: relabel a whole connected region of the current labels at once.</p>
 <div class="wrap"><table>
   <tr><th>Full-res U-Net</th><th class="num">Dev (185)</th><th class="num">Val (3,229 scored tiles)</th></tr>
@@ -265,9 +265,10 @@
   <tr><td>Presence (γ = 4,000) + multi-scale</td><td class="num">0.6648 <span class="d">(+0.0124)</span></td><td class="num dash">next</td></tr>
   <tr class="hl"><td>Region moves</td><td class="num">0.6670 <span class="d">(+0.0146)</span></td><td class="num dash">next</td></tr>
 </table></div>
-<img src="bcss_full512_dev.png" alt="Full-resolution development gains and matched comparisons">
+<img src="bcss_full512_region_examples.png" alt="Translucent masks over tissue showing a region-move improvement and failure">
+<p class="note">Tissue labels are shown at 35% opacity. The final column marks edits against pixel WCSP: green = fixed, red = broken, orange = still wrong. Examples are the median dev improvement and failure, selected after inspection.</p>
 <div class="take">Region moves and presence are the best dev results on the stronger model; neither has run on val yet.</div>
-<p class="note">Full protocol, all 40 settings, intervals and examples: <a href="full512.html">details page</a>.</p>
+<p class="note">Methods, sweep snapshot and intervals: <a href="full512.html">details page</a>.</p>
 
 <p class="note">Settings from dev sweeps: WCSP λ = 8, presence γ = 3,000, 256 SLIC patches. Multi-scale blocks and 23 decay schedules gave no gain.</p>
 </section>
