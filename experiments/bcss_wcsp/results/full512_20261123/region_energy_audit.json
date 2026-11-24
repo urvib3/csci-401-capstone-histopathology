@@ -1,0 +1,1308 @@
+{
+  "control": "temp1_mu0",
+  "candidate": "regions_components_mu0",
+  "samples": 185,
+  "tolerance": 1e-06,
+  "lower_pixel_energy": 154,
+  "tied_pixel_energy": 31,
+  "higher_pixel_energy": 0,
+  "higher_hierarchy_energy": 0,
+  "accepted_proposals": 780,
+  "per_tile": [
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_0_0_size512",
+      "index": 0,
+      "delta_pixel_energy": -1843.73936043301,
+      "delta_hierarchy_energy": -1843.7393604330136,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_0_3072_size512",
+      "index": 1,
+      "delta_pixel_energy": -4694.25035787783,
+      "delta_hierarchy_energy": -6715.101712479786,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1024_2048_size512",
+      "index": 2,
+      "delta_pixel_energy": -2876.3578506084086,
+      "delta_hierarchy_energy": -3609.2136129705614,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1536_1024_size512",
+      "index": 3,
+      "delta_pixel_energy": -3677.884279573388,
+      "delta_hierarchy_energy": -5931.496193549028,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_1536_512_size512",
+      "index": 4,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_2048_2560_size512",
+      "index": 5,
+      "delta_pixel_energy": -2177.8243114571487,
+      "delta_hierarchy_energy": -2995.5377243862313,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-A1-A0SK-DX1_xmin45749_ymin25055_MPP-0_512_1536_size512",
+      "index": 6,
+      "delta_pixel_energy": -5599.550816680403,
+      "delta_hierarchy_energy": -8438.156132421507,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_1024_size512",
+      "index": 7,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_3584_size512",
+      "index": 8,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_0_5632_size512",
+      "index": 9,
+      "delta_pixel_energy": -1852.2949923717485,
+      "delta_hierarchy_energy": -3108.0648226119924,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1024_2560_size512",
+      "index": 10,
+      "delta_pixel_energy": -8898.298962029312,
+      "delta_hierarchy_energy": -10310.722065641166,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1024_5120_size512",
+      "index": 11,
+      "delta_pixel_energy": -3837.4361522499166,
+      "delta_hierarchy_energy": -5537.0502117348515,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1536_1536_size512",
+      "index": 12,
+      "delta_pixel_energy": -3912.959381368699,
+      "delta_hierarchy_energy": -6491.657233899292,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_1536_4096_size512",
+      "index": 13,
+      "delta_pixel_energy": -8884.51931878402,
+      "delta_hierarchy_energy": -13003.653917550037,
+      "accepted_proposals": 8
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_0_size512",
+      "index": 14,
+      "delta_pixel_energy": -3871.9081512471566,
+      "delta_hierarchy_energy": -6231.672796001847,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_3072_size512",
+      "index": 15,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2048_512_size512",
+      "index": 16,
+      "delta_pixel_energy": -2338.854879056191,
+      "delta_hierarchy_energy": -2825.0756065352834,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2560_2048_size512",
+      "index": 17,
+      "delta_pixel_energy": -1373.6536820999786,
+      "delta_hierarchy_energy": -2193.5989518259107,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_2560_4608_size512",
+      "index": 18,
+      "delta_pixel_energy": -17147.73627374794,
+      "delta_hierarchy_energy": -30568.957153981435,
+      "accepted_proposals": 23
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3072_1536_size512",
+      "index": 19,
+      "delta_pixel_energy": -13564.544911345278,
+      "delta_hierarchy_energy": -23724.669638486594,
+      "accepted_proposals": 11
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3072_4096_size512",
+      "index": 20,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_0_size512",
+      "index": 21,
+      "delta_pixel_energy": -5072.1607268421685,
+      "delta_hierarchy_energy": -5957.267486460274,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_3072_size512",
+      "index": 22,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_3584_512_size512",
+      "index": 23,
+      "delta_pixel_energy": -4286.278668152769,
+      "delta_hierarchy_energy": -7494.878014097179,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4096_2048_size512",
+      "index": 24,
+      "delta_pixel_energy": -5622.854933383727,
+      "delta_hierarchy_energy": -8925.936777099982,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4096_4608_size512",
+      "index": 25,
+      "delta_pixel_energy": -30649.60043353009,
+      "delta_hierarchy_energy": -50120.02197933123,
+      "accepted_proposals": 18
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_1024_size512",
+      "index": 26,
+      "delta_pixel_energy": -4824.571610908005,
+      "delta_hierarchy_energy": -8448.547277425678,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_3584_size512",
+      "index": 27,
+      "delta_pixel_energy": -2183.182396343036,
+      "delta_hierarchy_energy": -4299.9194359039975,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4608_5632_size512",
+      "index": 28,
+      "delta_pixel_energy": -2098.27503949908,
+      "delta_hierarchy_energy": -2098.2750394991017,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_512_2560_size512",
+      "index": 29,
+      "delta_pixel_energy": -4919.963824831277,
+      "delta_hierarchy_energy": -8135.755467701842,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_512_5120_size512",
+      "index": 30,
+      "delta_pixel_energy": -903.4880989060862,
+      "delta_hierarchy_energy": -1469.5849548004753,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_0_1536_size512",
+      "index": 31,
+      "delta_pixel_energy": -4431.097896938132,
+      "delta_hierarchy_energy": -6380.766965522838,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_0_4608_size512",
+      "index": 32,
+      "delta_pixel_energy": -7723.084478415076,
+      "delta_hierarchy_energy": -14327.680656389493,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1024_1536_size512",
+      "index": 33,
+      "delta_pixel_energy": -962.9030635933232,
+      "delta_hierarchy_energy": -1400.1926837715873,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1024_4096_size512",
+      "index": 34,
+      "delta_pixel_energy": -11094.737756345981,
+      "delta_hierarchy_energy": -17952.53652591016,
+      "accepted_proposals": 11
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1536_1024_size512",
+      "index": 35,
+      "delta_pixel_energy": -3519.693652545943,
+      "delta_hierarchy_energy": -4829.118952375946,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_1536_3584_size512",
+      "index": 36,
+      "delta_pixel_energy": -775.5156075095128,
+      "delta_hierarchy_energy": -1225.4479376334348,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_0_size512",
+      "index": 37,
+      "delta_pixel_energy": -788.6318033905736,
+      "delta_hierarchy_energy": -1172.7134272997282,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_3072_size512",
+      "index": 38,
+      "delta_pixel_energy": -5564.697753597059,
+      "delta_hierarchy_energy": -9968.53050537563,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2048_512_size512",
+      "index": 39,
+      "delta_pixel_energy": -5882.794547313176,
+      "delta_hierarchy_energy": -7106.7619217521205,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2560_2560_size512",
+      "index": 40,
+      "delta_pixel_energy": -7790.492003667823,
+      "delta_hierarchy_energy": -13917.577993277519,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_2560_5120_size512",
+      "index": 41,
+      "delta_pixel_energy": -4168.395225991389,
+      "delta_hierarchy_energy": -6909.275976815865,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_512_2048_size512",
+      "index": 42,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A2-A3XT-DX1_xmin83566_ymin29931_MPP-0_512_4608_size512",
+      "index": 43,
+      "delta_pixel_energy": -7149.428271531151,
+      "delta_hierarchy_energy": -12212.318768440047,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_0_2048_size512",
+      "index": 44,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1024_1024_size512",
+      "index": 45,
+      "delta_pixel_energy": -2869.204194868187,
+      "delta_hierarchy_energy": -4279.058886491344,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1024_512_size512",
+      "index": 46,
+      "delta_pixel_energy": -284.50957792807094,
+      "delta_hierarchy_energy": -284.50957792807094,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_1536_2560_size512",
+      "index": 47,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_2048_1536_size512",
+      "index": 48,
+      "delta_pixel_energy": -4080.9164549171846,
+      "delta_hierarchy_energy": -6735.221775928188,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_512_0_size512",
+      "index": 49,
+      "delta_pixel_energy": -1772.4016971660458,
+      "delta_hierarchy_energy": -2598.250138852629,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-A7-A26I-DX1_xmin9689_ymin25668_MPP-0_512_3072_size512",
+      "index": 50,
+      "delta_pixel_energy": -715.123640666634,
+      "delta_hierarchy_energy": -1372.1960884690707,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_0_2048_size512",
+      "index": 51,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_0_4608_size512",
+      "index": 52,
+      "delta_pixel_energy": -2514.1168393109197,
+      "delta_hierarchy_energy": -5148.8466277394455,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1024_1536_size512",
+      "index": 53,
+      "delta_pixel_energy": -1997.9590069603819,
+      "delta_hierarchy_energy": -3046.815576072171,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1024_4096_size512",
+      "index": 54,
+      "delta_pixel_energy": -10888.865635790593,
+      "delta_hierarchy_energy": -19494.618769466808,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1536_1024_size512",
+      "index": 55,
+      "delta_pixel_energy": -15214.129039068212,
+      "delta_hierarchy_energy": -24154.886584394684,
+      "accepted_proposals": 11
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_1536_4096_size512",
+      "index": 56,
+      "delta_pixel_energy": -7366.045046227395,
+      "delta_hierarchy_energy": -9769.388683387762,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_2048_1024_size512",
+      "index": 57,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_2048_3584_size512",
+      "index": 58,
+      "delta_pixel_energy": -11859.611287624612,
+      "delta_hierarchy_energy": -19983.329787474526,
+      "accepted_proposals": 10
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_0_size512",
+      "index": 59,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_3072_size512",
+      "index": 60,
+      "delta_pixel_energy": -2059.551028633825,
+      "delta_hierarchy_energy": -3363.4283368824326,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-A8-A07O-DX1_xmin11777_ymin16227_MPP-0_512_512_size512",
+      "index": 61,
+      "delta_pixel_energy": -2474.2271241550466,
+      "delta_hierarchy_energy": -3306.245999201109,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_0_2560_size512",
+      "index": 62,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_0_5120_size512",
+      "index": 63,
+      "delta_pixel_energy": -7319.237028674457,
+      "delta_hierarchy_energy": -12845.748994859925,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_0_size512",
+      "index": 64,
+      "delta_pixel_energy": -19029.080816848975,
+      "delta_hierarchy_energy": -24770.777538293827,
+      "accepted_proposals": 15
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_3072_size512",
+      "index": 65,
+      "delta_pixel_energy": -5665.098510885735,
+      "delta_hierarchy_energy": -6393.878249081346,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_512_size512",
+      "index": 66,
+      "delta_pixel_energy": -13152.188092103599,
+      "delta_hierarchy_energy": -17890.524755273742,
+      "accepted_proposals": 16
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_1024_size512",
+      "index": 67,
+      "delta_pixel_energy": -2462.5365729089644,
+      "delta_hierarchy_energy": -3939.701096322038,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_3584_size512",
+      "index": 68,
+      "delta_pixel_energy": -28822.183688773825,
+      "delta_hierarchy_energy": -42924.890865613444,
+      "accepted_proposals": 20
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1536_6144_size512",
+      "index": 69,
+      "delta_pixel_energy": -3935.8241477778392,
+      "delta_hierarchy_energy": -6177.791262847633,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_2048_size512",
+      "index": 70,
+      "delta_pixel_energy": -613.0028960610716,
+      "delta_hierarchy_energy": -613.0028960610725,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_4608_size512",
+      "index": 71,
+      "delta_pixel_energy": -27419.35105836812,
+      "delta_hierarchy_energy": -44106.25738596184,
+      "accepted_proposals": 17
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_2048_6656_size512",
+      "index": 72,
+      "delta_pixel_energy": -1358.6765622402963,
+      "delta_hierarchy_energy": -1826.5640388550382,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_512_2560_size512",
+      "index": 73,
+      "delta_pixel_energy": -12763.852714997036,
+      "delta_hierarchy_energy": -16920.725114954985,
+      "accepted_proposals": 11
+    },
+    {
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_512_5120_size512",
+      "index": 74,
+      "delta_pixel_energy": -2954.004769851126,
+      "delta_hierarchy_energy": -3622.434171620989,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_0_size512",
+      "index": 75,
+      "delta_pixel_energy": -1884.8374393806046,
+      "delta_hierarchy_energy": -3531.731044135623,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_3072_size512",
+      "index": 76,
+      "delta_pixel_energy": -7442.896775484335,
+      "delta_hierarchy_energy": -12058.677876725655,
+      "accepted_proposals": 11
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_0_512_size512",
+      "index": 77,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_1536_size512",
+      "index": 78,
+      "delta_pixel_energy": -8392.07778801139,
+      "delta_hierarchy_energy": -15512.848787964496,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_4096_size512",
+      "index": 79,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1024_6144_size512",
+      "index": 80,
+      "delta_pixel_energy": -2760.8462255757468,
+      "delta_hierarchy_energy": -5269.12956825346,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1536_3072_size512",
+      "index": 81,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_1536_512_size512",
+      "index": 82,
+      "delta_pixel_energy": -2545.4862447058003,
+      "delta_hierarchy_energy": -3336.8487788485363,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_1536_size512",
+      "index": 83,
+      "delta_pixel_energy": -2102.3622973090714,
+      "delta_hierarchy_energy": -3155.6779116385296,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_4096_size512",
+      "index": 84,
+      "delta_pixel_energy": -2138.726839834755,
+      "delta_hierarchy_energy": -3501.307547376324,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2048_6144_size512",
+      "index": 85,
+      "delta_pixel_energy": -925.3688615428073,
+      "delta_hierarchy_energy": -1775.8926914027688,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2560_2560_size512",
+      "index": 86,
+      "delta_pixel_energy": -1711.3697295677011,
+      "delta_hierarchy_energy": -2616.4801111265697,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_2560_5120_size512",
+      "index": 87,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_1024_size512",
+      "index": 88,
+      "delta_pixel_energy": -307.9726900969472,
+      "delta_hierarchy_energy": -307.9726900969472,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_3584_size512",
+      "index": 89,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_3072_5632_size512",
+      "index": 90,
+      "delta_pixel_energy": -1069.7922813567711,
+      "delta_hierarchy_energy": -1327.4634335565934,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_512_2048_size512",
+      "index": 91,
+      "delta_pixel_energy": -2260.9794024470393,
+      "delta_hierarchy_energy": -2260.9794024470248,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AO-A0J6-DX1_xmin40548_ymin11135_MPP-0_512_4608_size512",
+      "index": 92,
+      "delta_pixel_energy": -1753.333841125671,
+      "delta_hierarchy_energy": -3239.331721990806,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_0_size512",
+      "index": 93,
+      "delta_pixel_energy": -2823.3956710458733,
+      "delta_hierarchy_energy": -5091.2986771225915,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_3584_size512",
+      "index": 94,
+      "delta_pixel_energy": -270.6974887523438,
+      "delta_hierarchy_energy": -270.6974887523447,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_0_5632_size512",
+      "index": 95,
+      "delta_pixel_energy": -2381.043362989909,
+      "delta_hierarchy_energy": -3450.3262037740933,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1024_2560_size512",
+      "index": 96,
+      "delta_pixel_energy": -972.5789305078633,
+      "delta_hierarchy_energy": -1444.4883966045818,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1024_5120_size512",
+      "index": 97,
+      "delta_pixel_energy": -7909.20588318726,
+      "delta_hierarchy_energy": -12813.667225737663,
+      "accepted_proposals": 8
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1536_1536_size512",
+      "index": 98,
+      "delta_pixel_energy": -1043.6065103487417,
+      "delta_hierarchy_energy": -1043.606510348749,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_1536_4096_size512",
+      "index": 99,
+      "delta_pixel_energy": -2615.41394815208,
+      "delta_hierarchy_energy": -3100.3461219723486,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_0_size512",
+      "index": 100,
+      "delta_pixel_energy": -433.85604277039965,
+      "delta_hierarchy_energy": -460.7230964038754,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_3072_size512",
+      "index": 101,
+      "delta_pixel_energy": -977.397488792627,
+      "delta_hierarchy_energy": -1565.7004326458846,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_2048_512_size512",
+      "index": 102,
+      "delta_pixel_energy": -3721.2441256356433,
+      "delta_hierarchy_energy": -6682.277009412894,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_512_2048_size512",
+      "index": 103,
+      "delta_pixel_energy": -5980.757576094255,
+      "delta_hierarchy_energy": -7984.918291346963,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-AR-A0TS-DX1_xmin118843_ymin22812_MPP-0_512_4608_size512",
+      "index": 104,
+      "delta_pixel_energy": -4219.954735268808,
+      "delta_hierarchy_energy": -6410.667391697651,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_0_1024_size512",
+      "index": 105,
+      "delta_pixel_energy": -2135.8877238015884,
+      "delta_hierarchy_energy": -3606.745221401012,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_1024_1536_size512",
+      "index": 106,
+      "delta_pixel_energy": -1167.0111264773386,
+      "delta_hierarchy_energy": -1816.2505901971017,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_1536_1536_size512",
+      "index": 107,
+      "delta_pixel_energy": -4186.317822724153,
+      "delta_hierarchy_energy": -6853.521347757007,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_2048_1536_size512",
+      "index": 108,
+      "delta_pixel_energy": -826.8667840378985,
+      "delta_hierarchy_energy": -1368.907647263084,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-AR-A256-DX1_xmin41577_ymin17076_MPP-0_512_1536_size512",
+      "index": 109,
+      "delta_pixel_energy": -819.424561585849,
+      "delta_hierarchy_energy": -1277.6517248081436,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_0_1536_size512",
+      "index": 110,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_0_4096_size512",
+      "index": 111,
+      "delta_pixel_energy": -3564.6739494643116,
+      "delta_hierarchy_energy": -5717.619763904397,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1024_1024_size512",
+      "index": 112,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1024_3584_size512",
+      "index": 113,
+      "delta_pixel_energy": -11219.90011805944,
+      "delta_hierarchy_energy": -18185.85741375888,
+      "accepted_proposals": 9
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_0_size512",
+      "index": 114,
+      "delta_pixel_energy": -619.0132300992846,
+      "delta_hierarchy_energy": -994.2516965201285,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_3072_size512",
+      "index": 115,
+      "delta_pixel_energy": -2921.0206741276124,
+      "delta_hierarchy_energy": -4492.877538940884,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_1536_512_size512",
+      "index": 116,
+      "delta_pixel_energy": -3732.5247802216218,
+      "delta_hierarchy_energy": -6043.96057200629,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_2048_2560_size512",
+      "index": 117,
+      "delta_pixel_energy": -15622.91518618555,
+      "delta_hierarchy_energy": -24919.27930515373,
+      "accepted_proposals": 12
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_2048_5120_size512",
+      "index": 118,
+      "delta_pixel_energy": -8064.328238276539,
+      "delta_hierarchy_energy": -14273.682437644718,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_512_2560_size512",
+      "index": 119,
+      "delta_pixel_energy": -902.3351978033243,
+      "delta_hierarchy_energy": -1125.2975748908211,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-BH-A0BL-DX1_xmin25219_ymin42847_MPP-0_512_5120_size512",
+      "index": 120,
+      "delta_pixel_energy": -5020.6005894122645,
+      "delta_hierarchy_energy": -7823.460186390686,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_0_2048_size512",
+      "index": 121,
+      "delta_pixel_energy": -505.22412510974027,
+      "delta_hierarchy_energy": -505.2241251097439,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_0_4608_size512",
+      "index": 122,
+      "delta_pixel_energy": -3780.6333226765564,
+      "delta_hierarchy_energy": -5567.958734678992,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1024_2048_size512",
+      "index": 123,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1024_4608_size512",
+      "index": 124,
+      "delta_pixel_energy": -1450.391280501277,
+      "delta_hierarchy_energy": -1926.4965884327976,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1536_2048_size512",
+      "index": 125,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_1536_4608_size512",
+      "index": 126,
+      "delta_pixel_energy": -9857.112143491464,
+      "delta_hierarchy_energy": -18356.65429449959,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2048_2048_size512",
+      "index": 127,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2048_4608_size512",
+      "index": 128,
+      "delta_pixel_energy": -3915.9514988040355,
+      "delta_hierarchy_energy": -6443.206526296373,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2560_2048_size512",
+      "index": 129,
+      "delta_pixel_energy": -532.2033766573768,
+      "delta_hierarchy_energy": -532.2033766573877,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_2560_4608_size512",
+      "index": 130,
+      "delta_pixel_energy": -965.2132609507316,
+      "delta_hierarchy_energy": -1559.8657133990491,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_3072_2560_size512",
+      "index": 131,
+      "delta_pixel_energy": -1339.4386882864019,
+      "delta_hierarchy_energy": -1924.23662715916,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_3072_512_size512",
+      "index": 132,
+      "delta_pixel_energy": -4335.448303819848,
+      "delta_hierarchy_energy": -6994.46126032505,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_512_2560_size512",
+      "index": 133,
+      "delta_pixel_energy": -369.0016364872945,
+      "delta_hierarchy_energy": -515.2746229068835,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-BH-A1EW-DX1_xmin66752_ymin42706_MPP-0_512_512_size512",
+      "index": 134,
+      "delta_pixel_energy": -7969.8147474042635,
+      "delta_hierarchy_energy": -13585.06266942012,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_1024_2048_size512",
+      "index": 135,
+      "delta_pixel_energy": -1624.773829483398,
+      "delta_hierarchy_energy": -2318.0828091427684,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_1536_1536_size512",
+      "index": 136,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2048_1024_size512",
+      "index": 137,
+      "delta_pixel_energy": -4781.982520362555,
+      "delta_hierarchy_energy": -7078.682988519475,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2048_3584_size512",
+      "index": 138,
+      "delta_pixel_energy": -3461.8184362039347,
+      "delta_hierarchy_energy": -6040.482714968843,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_2560_3584_size512",
+      "index": 139,
+      "delta_pixel_energy": -321.6231699406435,
+      "delta_hierarchy_energy": -755.7208482284186,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3072_3072_size512",
+      "index": 140,
+      "delta_pixel_energy": -12434.89989717292,
+      "delta_hierarchy_energy": -21064.762992644115,
+      "accepted_proposals": 12
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3584_2560_size512",
+      "index": 141,
+      "delta_pixel_energy": -9646.87410212597,
+      "delta_hierarchy_energy": -14200.926254359976,
+      "accepted_proposals": 10
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_3584_5120_size512",
+      "index": 142,
+      "delta_pixel_energy": -7091.492082902665,
+      "delta_hierarchy_energy": -11458.568082377707,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_4096_4608_size512",
+      "index": 143,
+      "delta_pixel_energy": -6649.275857598961,
+      "delta_hierarchy_energy": -11003.106106344974,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_4608_4096_size512",
+      "index": 144,
+      "delta_pixel_energy": -1683.8622375251562,
+      "delta_hierarchy_energy": -2635.6789202384516,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-C8-A26Y-DX1_xmin29748_ymin36769_MPP-0_512_1024_size512",
+      "index": 145,
+      "delta_pixel_energy": -10598.550888028465,
+      "delta_hierarchy_energy": -15295.935073542656,
+      "accepted_proposals": 9
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_0_1024_size512",
+      "index": 146,
+      "delta_pixel_energy": -4719.365087462382,
+      "delta_hierarchy_energy": -7887.639227101565,
+      "accepted_proposals": 7
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_0_3584_size512",
+      "index": 147,
+      "delta_pixel_energy": -523.4863863037133,
+      "delta_hierarchy_energy": -568.7072804235777,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1024_2560_size512",
+      "index": 148,
+      "delta_pixel_energy": -7410.640914868192,
+      "delta_hierarchy_energy": -12275.314682024095,
+      "accepted_proposals": 8
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1024_5120_size512",
+      "index": 149,
+      "delta_pixel_energy": -969.0620938743059,
+      "delta_hierarchy_energy": -1940.0364455726776,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1536_1536_size512",
+      "index": 150,
+      "delta_pixel_energy": -18274.688575925436,
+      "delta_hierarchy_energy": -21965.743614346313,
+      "accepted_proposals": 19
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_1536_4096_size512",
+      "index": 151,
+      "delta_pixel_energy": -364.44649670936775,
+      "delta_hierarchy_energy": -364.4464967093678,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2048_3072_size512",
+      "index": 152,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2048_512_size512",
+      "index": 153,
+      "delta_pixel_energy": -7126.949548318769,
+      "delta_hierarchy_energy": -11313.924491390891,
+      "accepted_proposals": 9
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2560_2048_size512",
+      "index": 154,
+      "delta_pixel_energy": -7181.447815708343,
+      "delta_hierarchy_energy": -13239.943384484664,
+      "accepted_proposals": 9
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_2560_4608_size512",
+      "index": 155,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3072_1536_size512",
+      "index": 156,
+      "delta_pixel_energy": -3680.247362069211,
+      "delta_hierarchy_energy": -5451.333482352791,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3072_4096_size512",
+      "index": 157,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3584_3072_size512",
+      "index": 158,
+      "delta_pixel_energy": -3843.9520446779043,
+      "delta_hierarchy_energy": -4432.101936113846,
+      "accepted_proposals": 5
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_3584_512_size512",
+      "index": 159,
+      "delta_pixel_energy": -5308.250504002615,
+      "delta_hierarchy_energy": -8166.566283942593,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4096_2048_size512",
+      "index": 160,
+      "delta_pixel_energy": -3180.4261548919503,
+      "delta_hierarchy_energy": -4738.8222216980685,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4096_4608_size512",
+      "index": 161,
+      "delta_pixel_energy": -1317.2182769111091,
+      "delta_hierarchy_energy": -2390.4859319085444,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_1024_size512",
+      "index": 162,
+      "delta_pixel_energy": -706.057104316832,
+      "delta_hierarchy_energy": -1160.8735589274365,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_3584_size512",
+      "index": 163,
+      "delta_pixel_energy": -495.2052267088329,
+      "delta_hierarchy_energy": -495.2052267088293,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_4608_5632_size512",
+      "index": 164,
+      "delta_pixel_energy": -877.2829902896412,
+      "delta_hierarchy_energy": -1334.9488202067048,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5120_2560_size512",
+      "index": 165,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5120_5120_size512",
+      "index": 166,
+      "delta_pixel_energy": -2161.9378436608113,
+      "delta_hierarchy_energy": -3094.4153514050413,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_512_1536_size512",
+      "index": 167,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_512_4608_size512",
+      "index": 168,
+      "delta_pixel_energy": -464.9172354118873,
+      "delta_hierarchy_energy": -956.0086957549502,
+      "accepted_proposals": 3
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5632_1024_size512",
+      "index": 169,
+      "delta_pixel_energy": -17016.729529145894,
+      "delta_hierarchy_energy": -30329.069646266056,
+      "accepted_proposals": 14
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_5632_3584_size512",
+      "index": 170,
+      "delta_pixel_energy": -335.89731213357925,
+      "delta_hierarchy_energy": -472.41302662323983,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6144_2560_size512",
+      "index": 171,
+      "delta_pixel_energy": -2922.416835534188,
+      "delta_hierarchy_energy": -3757.84189006775,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6144_5120_size512",
+      "index": 172,
+      "delta_pixel_energy": -1233.5908871626398,
+      "delta_hierarchy_energy": -1810.5547402892316,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6656_1536_size512",
+      "index": 173,
+      "delta_pixel_energy": -10471.429419557779,
+      "delta_hierarchy_energy": -13354.564322820705,
+      "accepted_proposals": 10
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_6656_4096_size512",
+      "index": 174,
+      "delta_pixel_energy": -1472.4095876040992,
+      "delta_hierarchy_energy": -2059.0611792454292,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_0_size512",
+      "index": 175,
+      "delta_pixel_energy": -2044.2923212499736,
+      "delta_hierarchy_energy": -2589.867034648414,
+      "accepted_proposals": 4
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_3072_size512",
+      "index": 176,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": 0.0,
+      "accepted_proposals": 0
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7168_512_size512",
+      "index": 177,
+      "delta_pixel_energy": -4916.85083629393,
+      "delta_hierarchy_energy": -7074.977799766137,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-D8-A1JG-DX1_xmin15677_ymin69205_MPP-0_7680_2048_size512",
+      "index": 178,
+      "delta_pixel_energy": -129.10931137098487,
+      "delta_hierarchy_energy": -129.1093113709867,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_0_1536_size512",
+      "index": 179,
+      "delta_pixel_energy": -4721.716359954296,
+      "delta_hierarchy_energy": -7100.100206191833,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1024_0_size512",
+      "index": 180,
+      "delta_pixel_energy": -3682.3595667025875,
+      "delta_hierarchy_energy": -4396.084612037594,
+      "accepted_proposals": 2
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1024_3072_size512",
+      "index": 181,
+      "delta_pixel_energy": -9186.420148270041,
+      "delta_hierarchy_energy": -13633.647399180118,
+      "accepted_proposals": 10
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_1536_2048_size512",
+      "index": 182,
+      "delta_pixel_energy": -4413.256583308081,
+      "delta_hierarchy_energy": -6359.942874872904,
+      "accepted_proposals": 6
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_512_1024_size512",
+      "index": 183,
+      "delta_pixel_energy": 0.0,
+      "delta_hierarchy_energy": -227.55797870398928,
+      "accepted_proposals": 1
+    },
+    {
+      "id": "TCGA-GI-A2C9-DX1_xmin20882_ymin11843_MPP-0_512_512_size512",
+      "index": 184,
+      "delta_pixel_energy": -2967.98261751031,
+      "delta_hierarchy_energy": -5178.272129274948,
+      "accepted_proposals": 3
+    }
+  ]
+}

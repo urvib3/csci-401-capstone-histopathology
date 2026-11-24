@@ -1,0 +1,30 @@
+{
+  "selection": "Median positive and median negative tile-mIoU change vs matched pixel control; selected after inspection, illustrative only.",
+  "positive_tiles": 95,
+  "negative_tiles": 52,
+  "ties": 38,
+  "examples": [
+    {
+      "index": 25,
+      "id": "TCGA-A2-A0ST-DX1_xmin109446_ymin18274_MPP-0_4096_4608_size512",
+      "control_tile_mIoU": 0.18197565221021836,
+      "region_tile_mIoU": 0.26082945647859695,
+      "delta": 0.0788538042683786,
+      "selection": "Median improved tile",
+      "fixes_vs_control": 10568,
+      "breaks_vs_control": 6139,
+      "wrong_to_wrong_vs_control": 7454
+    },
+    {
+      "index": 65,
+      "id": "TCGA-AN-A0AL-DX1_xmin15698_ymin29806_MPP-0_1024_3072_size512",
+      "control_tile_mIoU": 0.26729107547715736,
+      "region_tile_mIoU": 0.24921830742627105,
+      "delta": -0.018072768050886312,
+      "selection": "Median worsened tile",
+      "fixes_vs_control": 534,
+      "breaks_vs_control": 3519,
+      "wrong_to_wrong_vs_control": 470
+    }
+  ]
+}
