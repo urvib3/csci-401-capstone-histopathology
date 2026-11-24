@@ -145,7 +145,9 @@ Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCS
 
 Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.
 
-##### Examples (same 3 dev tiles for every method)
+#### Examples: WCSP, + presence, + cluster, + presence + cluster
+
+*Same 3 dev tiles in every figure. Columns: image · ground truth · U-Net · method · changed pixels.*
 
 ![WCSP](figures_20261123/examples_wcsp.png)
 ![WCSP + presence](figures_20261123/examples_wcsp_presence.png)
