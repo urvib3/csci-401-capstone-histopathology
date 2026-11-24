@@ -205,9 +205,9 @@ def fig_split_diagram():
     grid(axes[4], cls, "U-Net")
     axes[2].axis("off")
     axes[1].text(0.5, -0.12, "Mostly stroma ✓ → the 10 wrong\npixels are SEGMENTATION errors",
-                 transform=axes[1].transAxes, ha="center", va="top", color=BLUE, fontsize=10, fontweight="bold")
+                 transform=axes[1].transAxes, ha="center", va="top", color="#3e7cb1", fontsize=10, fontweight="bold")
     axes[4].text(0.5, -0.12, "Mostly \"other\" ✗ → the 70 wrong\npixels are CLASS IDENTIFICATION errors",
-                 transform=axes[4].transAxes, ha="center", va="top", color=ORANGE, fontsize=10, fontweight="bold")
+                 transform=axes[4].transAxes, ha="center", va="top", color="#d9822b", fontsize=10, fontweight="bold")
     handles = [plt.Rectangle((0, 0), 1, 1, color=col(k)) for k in (stroma, tumor, other)]
     fig.legend(handles, ["Stroma", "Tumor", "Other"], loc="upper center", ncol=3, frameon=False,
                bbox_to_anchor=(0.5, 1.08))
@@ -254,9 +254,9 @@ def fig_split_v2(seg_pct, cls_pct, overall=(48, 52)):
 def fig_ladder_v2(raw, wcsp, presence, class_id, seg):
     """Test 2: today's methods vs. each problem made perfect, on one mIoU axis up to 1.0."""
     rows = [("U-Net", raw, GRAY, "Today"), ("+ WCSP smoothing", wcsp, GRAY, "Today"),
-            ("+ presence rule", presence, BLUE, "Today"),
-            ("Perfect class identification", class_id, BLUE, "If perfect"),
-            ("Perfect segmentation", seg, ORANGE, "If perfect"),
+            ("+ presence rule", presence, GRAY, "Today"),
+            ("Perfect class identification", class_id, "#f2a65a", "If perfect"),
+            ("Perfect segmentation", seg, "#3e7cb1", "If perfect"),
             ("Both perfect (= ground truth)", 1.0, "#d9d8d2", "If perfect")]
     fig, ax = plt.subplots(figsize=(7.2, 3.4))
     ys = np.array([6.4, 5.4, 4.4, 2.6, 1.6, 0.6])
@@ -281,3 +281,39 @@ def fig_ladder_v2(raw, wcsp, presence, class_id, seg):
     ax.set_axisbelow(True)
     ax.spines["left"].set_visible(False)
     fig.savefig(OUT / "prelim_ladder.png", dpi=200, bbox_inches="tight")
+
+
+# ---- v3: calmer colours, numbers in every segment, average row ----------------------------
+SEG_C, CLS_C = "#3e7cb1", "#f2a65a"     # segmentation: soft blue; class identification: amber
+
+
+def fig_split_v3(seg_pct, cls_pct):
+    """Test 1: % of each class's pixels that are wrong, split by error type, plus the average."""
+    names = NAMES + ["Average"]
+    seg = list(seg_pct) + [float(np.mean(seg_pct))]
+    cls = list(cls_pct) + [float(np.mean(cls_pct))]
+    fig, ax = plt.subplots(figsize=(7.4, 3.5))
+    ys = np.array([6.2, 5.2, 4.2, 3.2, 2.2, 0.8])
+    for y, name, g, l in zip(ys, names, seg, cls):
+        avg = name == "Average"
+        ax.barh(y, g, color=SEG_C, height=0.66, edgecolor=SURFACE, linewidth=2, alpha=0.75 if avg else 1)
+        ax.barh(y, l, left=g, color=CLS_C, height=0.66, edgecolor=SURFACE, linewidth=2, alpha=0.75 if avg else 1)
+        ax.text(g / 2, y, f"{g:.1f}", ha="center", va="center", color="#ffffff", fontsize=9, fontweight="bold")
+        ax.text(g + l / 2, y, f"{l:.1f}", ha="center", va="center", color=INK, fontsize=9, fontweight="bold")
+        ax.text(g + l + 0.7, y, f"{g + l:.1f}% wrong", va="center", color=INK, fontsize=9.5,
+                fontweight="bold" if avg else "normal")
+    ax.axhline(1.5, color=GRID, linewidth=1.2)
+    ax.set_yticks(ys, names)
+    for lbl in ax.get_yticklabels():
+        if lbl.get_text() == "Average":
+            lbl.set_fontweight("bold")
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(0, 46)
+    ax.set_xlabel("% of the class's pixels that are wrong")
+    ax.grid(axis="x", color=GRID, linewidth=0.8)
+    ax.set_axisbelow(True)
+    ax.spines["left"].set_visible(False)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (SEG_C, CLS_C)]
+    ax.legend(handles, ["Segmentation error", "Class identification error"], frameon=False, ncol=2,
+              loc="upper center", bbox_to_anchor=(0.45, 1.15))
+    fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")

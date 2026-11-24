@@ -48,28 +48,35 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ## BCSS preliminary tests
 
+**Goal:** find out whether **segmentation** or **class identification** is the bigger problem for the U-Net, so we know what to fix first.
+
 *Full-resolution U-Net · 185 BCSS dev tiles · no training*
 
-### Two kinds of error
+### The two errors
 
-For each **true region** (one connected piece of one class in the ground truth), look at what the U-Net predicts inside it. If its most common label is right, the wrong pixels are **segmentation** errors (the shape is off). If it's wrong, they are **class identification** errors (the region was misread).
+- **Segmentation error:** the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.
+- **Class identification error:** the U-Net gets the shape roughly right, but calls the region the wrong tissue.
 
-![Error types](figures_20261123/prelim_split_diagram.png)
+### Method
 
-### Test 1 · Which error is more common?
+Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. **Right** → its wrong pixels are segmentation errors. **Wrong** → they are class identification errors.
+
+![Method](figures_20261123/prelim_split_diagram.png)
+
+### Test 1 · How much of each class is wrong, and why?
 
 ![Test 1](figures_20261123/prelim_error_split.png)
 
-**About half each.** "Other" and stroma fail mostly by class identification; inflammatory and necrosis mostly by segmentation.
+**Class identification is slightly bigger on average** (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.
 
-### Test 2 · What is fixing each one worth?
+### Test 2 · What would fixing each one be worth?
 
 - **Perfect class identification:** keep the U-Net's regions; give each the class most of its true pixels have.
 - **Perfect segmentation:** keep the true regions; give each the class the U-Net predicts for most of it.
 
 ![Test 2](figures_20261123/prelim_ladder.png)
 
-**Each problem is worth about +0.10 to +0.12.** Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.
+**Both matter about equally:** perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.
 
 ---
 
