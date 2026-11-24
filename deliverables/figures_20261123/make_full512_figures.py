@@ -103,27 +103,34 @@ def examples(cache):
         with np.load(root/'runs/temp1_mu0/dev/samples'/name) as z:raw,control=z['argmax'],z['wcsp']
         with np.load(root/'runs/regions_components_mu0/dev/samples'/name) as z:region=z['wcsp']
         valid=target!=255
-        def colorize(labels):
-            result=COLORS[np.minimum(labels,4)].copy();result[~valid]=235
+        def overlay(labels):
+            result=np.zeros((*labels.shape,4),dtype=float)
+            result[...,:3]=COLORS[np.minimum(labels,4)]/255
+            result[...,3]=np.where(valid,.35,0)
             return result
         changed=valid&(control!=region)
         fixes=changed&(control!=target)&(region==target)
         breaks=changed&(control==target)&(region!=target)
         other=changed&(control!=target)&(region!=target)
-        diff=np.full(image.shape,245,dtype=np.uint8)
-        diff[fixes]=[40,160,70];diff[breaks]=[210,50,45];diff[other]=[235,155,40];diff[~valid]=210
-        panels=[image,colorize(target),colorize(raw),colorize(control),colorize(region),diff]
-        titles=['RGB','Ground truth','U-Net','Pixel WCSP','Region moves','Edits vs. pixel WCSP']
+        diff=np.zeros((*target.shape,4),dtype=float)
+        diff[fixes]=[40/255,160/255,70/255,.6]
+        diff[breaks]=[210/255,50/255,45/255,.6]
+        diff[other]=[235/255,155/255,40/255,.6]
+        panels=[None,overlay(target),overlay(raw),overlay(control),overlay(region),diff]
+        titles=['Tissue','Ground truth','U-Net','Pixel WCSP','Region moves','Edits vs. pixel WCSP']
         for ax,panel,title in zip(axes[y],panels,titles):
-            ax.imshow(panel);ax.set_title(title,fontsize=9);ax.axis('off')
+            ax.imshow(image)
+            if panel is not None:ax.imshow(panel,interpolation='nearest')
+            ax.set_title(title,fontsize=9);ax.axis('off')
         axes[y,0].set_ylabel(row['selection'],fontsize=9)
         axes[y,0].text(0,-.08,f"{row['selection']} — tile {row['index']}; delta tile mIoU {row['delta']:+.4f}",transform=axes[y,0].transAxes,fontsize=8)
         row.update(fixes_vs_control=int(fixes.sum()),breaks_vs_control=int(breaks.sum()),wrong_to_wrong_vs_control=int(other.sum()))
     legend=[Patch(color=COLORS[k]/255,label=label) for k,label in enumerate(['Tumor','Inflammatory','Stroma','Necrosis','Other'])]
     legend += [Patch(color='#28a046',label='Fix'),Patch(color='#d2322d',label='Break'),Patch(color='#eb9b28',label='Wrong to wrong')]
     fig.legend(handles=legend,loc='lower center',ncol=8,frameon=False,fontsize=8)
-    fig.suptitle('Connected-region moves: median gain and median loss among changed dev tiles',fontsize=11)
-    fig.tight_layout(rect=(0,.07,1,.95));fig.savefig(OUT/'bcss_full512_region_examples.png',dpi=170,bbox_inches='tight');plt.close(fig)
+    fig.suptitle('Region moves: median improvement and failure; tissue labels at 35% opacity',fontsize=11)
+    fig.subplots_adjust(left=.01,right=.99,bottom=.13,top=.87,wspace=.03,hspace=.3)
+    fig.savefig(OUT/'bcss_full512_region_examples.png',dpi=170,bbox_inches='tight');plt.close(fig)
     (RESULTS/'region_examples.json').write_text(json.dumps(dict(selection='Median positive and median negative tile-mIoU change vs matched pixel control; selected after inspection, illustrative only.',positive_tiles=len(positive),negative_tiles=len(negative),ties=len(records)-len(positive)-len(negative),examples=selected),indent=2)+'\n')
 
 

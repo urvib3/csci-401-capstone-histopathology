@@ -12,7 +12,7 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 **BCSS protocol in this recap:** the earlier pretrained U-Net / central-256
 evaluation. The trained **full-512** model and its correction experiments are
-reported [separately below](#bcss-full-resolution-correction-experiments);
+reported [separately below](bcss_full512_details.md#bcss-full-resolution-correction-experiments);
 their absolute scores use a different model and prediction field.
 
 | Method | PanNuke · Breast test | BCSS · dev | BCSS · val |
@@ -195,8 +195,10 @@ WCSP fixes rerun on the **full-resolution U-Net** (whole 512 px tiles), with a r
 | Presence (γ = 4,000) + multi-scale | 0.6648 (+0.0124) | next |
 | **Region moves** | **0.6670 (+0.0146)** | next |
 
-![Full-res dev](figures_20261123/bcss_full512_dev.png)
+![Translucent masks over tissue: region-move improvement and failure](figures_20261123/bcss_full512_region_examples.png)
 
-Region moves and presence are the best dev results on the stronger model; neither has run on val yet. Full protocol, all 40 settings and intervals: [details](bcss_full512_details.md).
+Masks show tissue labels at 35% opacity. The final column marks corrections against pixel WCSP: green = fixed, red = broken, orange = still wrong. Examples are the median dev improvement and failure, selected after inspection.
+
+Region moves and presence are the best dev results on the stronger model; neither has run on val yet. Methods, sweep snapshot and intervals: [details](bcss_full512_details.md).
 
 *Settings from dev sweeps: WCSP λ = 8, presence γ = 3,000, 256 SLIC patches. Multi-scale blocks and 23 decay schedules gave no gain.*
