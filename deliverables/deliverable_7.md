@@ -50,11 +50,58 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ### Preliminary experiments
 
-Same two tests on HoVer-Net: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#pannuke-prelim).
+*Frozen HoVer-Net · 400 dev patches (folds 1 and 3, all organs except Adrenal) · no training*
+
+On PanNuke, a **segmentation** error is an outline mistake (a nucleus missed, invented, or drawn the wrong size); a **class identification** error is the right nucleus with the wrong cell type.
+
+| Test | Result |
+|---|---|
+| Wrong pixels that are segmentation errors | **69%** |
+| Wrong pixels that are class identification errors | **31%** |
+| True nuclei HoVer-Net finds | 80% |
+| Found nuclei with the right type (voting → presence) | 80.7% → **82.8%** |
+| Presence on HoVer-Net | 0.4541 → **0.4797** (+0.0256) |
+| Upper bound: true types given per patch | **0.5262** (+0.0721) |
+| Upper bound: every found nucleus the right type | **0.6902** (+0.2361) |
+
+**Most wrong pixels are outlines, which WCSP can't touch**, but type mistakes cost most of the score. Presence recovers about a third of what a perfect presence rule could (+0.0256 of +0.0721).
 
 ### Results
 
-Per-organ fitting (Breast, Colon, Adrenal) and a wider presence sweep: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#pannuke-results).
+#### This week's experiments
+
+| Date | Experiment | Test set | Result (mIoU) |
+|---|---|---|---|
+| Nov 17 | Hierarchy decay: sibling, parent–child and fidelity schedules | 300 mixed-organ patches | All = raw HoVer-Net (0.3947, Δ ≈ 0); presence 0.4001 |
+| **Nov 22** | **Breast: all 8 WCSP families fit and tuned on Breast only** | 169 Breast | **Only presence helps: 0.4344 → 0.4484 (+0.0141)** |
+| Nov 22–23 | Colon: same protocol | 106 Colon | Presence +0.0019 (not significant) |
+| Nov 22 | Adrenal gland: same protocol | 144 Adrenal | Presence +0.0026 (not significant) |
+| **Nov 23** | **Wider presence sweep: 1,584 settings** | 600 fresh patches | **0.4326 → 0.4450 (+0.0124)** |
+| Nov 23 | Preliminary error analysis | 400 dev patches | 69% segmentation, 31% class identification |
+| Nov 23 | BCSS-style presence on Breast | Breast fold 2 | 0.4484 → 0.4519 (exploratory) |
+
+*Gains are vs. fixed-mask voting (one label per detected nucleus), PanNuke's matched control.*
+
+#### Per organ (fit and tuned on one tissue type)
+
+| Organ | Test patches | Voting | Presence | Gain [95% CI] | Works? |
+|---|---:|---:|---:|---:|---|
+| **Breast** | 169 | 0.4344 | 0.4484 | +0.0141 [+0.0078, +0.0213] | **Yes** (Holm p = 0.003) |
+| Colon | 106 | 0.4267 | 0.4286 | +0.0019 [−0.0013, +0.0055] | No |
+| Adrenal gland | 144 | 0.3404 | 0.3429 | +0.0026 [−0.0052, +0.0111] | No |
+
+The other seven families move mIoU by less than ±0.004 on every organ. **Per-organ tuning only paid off on Breast**; on Breast, fitting on Breast alone beats fitting on all tissue types (0.4384 → 0.4484).
+
+#### Wider presence sweep (600 fresh patches, folds 1 and 3)
+
+| Method | mIoU | vs. voting [95% CI] |
+|---|---:|---:|
+| HoVer-Net, raw | 0.4337 | |
+| HoVer-Net, voting | 0.4326 | — |
+| Presence, original setting | 0.4369 | +0.0043 [+0.0020, +0.0072] |
+| **Presence, swept (strength 12, per-organ counts)** | **0.4450** | **+0.0124 [+0.0021, +0.0233]** |
+
+**Stronger presence helps**, mostly on Breast and Colon; the 16 smaller organs see no gain.
 
 ---
 

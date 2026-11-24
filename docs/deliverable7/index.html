@@ -144,6 +144,19 @@
 
 
 <h3 id="pannuke-results">Results</h3>
+<h4>This week's experiments</h4>
+<div class="wrap"><table>
+  <tr><th>Date</th><th>Experiment</th><th>Test set</th><th>Result (mIoU)</th></tr>
+  <tr><td>Nov 17</td><td>Hierarchy decay: sibling, parent–child and fidelity schedules</td><td>300 mixed-organ patches</td><td>All = raw HoVer-Net (0.3947, Δ ≈ 0); presence 0.4001</td></tr>
+  <tr class="hl"><td>Nov 22</td><td>Breast: all 8 WCSP families fit and tuned on Breast only</td><td>169 Breast</td><td>Only presence helps: 0.4344 → 0.4484 (+0.0141)</td></tr>
+  <tr><td>Nov 22–23</td><td>Colon: same protocol</td><td>106 Colon</td><td>Presence +0.0019 (not significant)</td></tr>
+  <tr><td>Nov 22</td><td>Adrenal gland: same protocol</td><td>144 Adrenal</td><td>Presence +0.0026 (not significant)</td></tr>
+  <tr class="hl"><td>Nov 23</td><td>Wider presence sweep: 1,584 settings</td><td>600 fresh patches</td><td>0.4326 → 0.4450 (+0.0124)</td></tr>
+  <tr><td>Nov 23</td><td>Preliminary error analysis</td><td>400 dev patches</td><td>69% segmentation, 31% class identification</td></tr>
+  <tr><td>Nov 23</td><td>BCSS-style presence on Breast</td><td>Breast fold 2</td><td>0.4484 → 0.4519 (exploratory)</td></tr>
+</table></div>
+<p class="note">Gains are vs. fixed-mask voting (one label per detected nucleus), PanNuke's matched control.</p>
+
 <p>Every PanNuke WCSP family was refit and retuned on one organ at a time, then scored once on that organ's held-out test patches. Gain = type set (PanNuke's presence rule) minus fixed-mask voting.</p>
 
 <div class="wrap"><table>
