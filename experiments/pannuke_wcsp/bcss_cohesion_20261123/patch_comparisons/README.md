@@ -2,7 +2,8 @@
 
 - Full 256×256 Breast patches, fold 2. Same frozen HoVer-Net; nucleus outlines fixed for WCSP.
 - Compare raw → previous global → previous Breast → larger sweep → BCSS-style allowed classes.
-- Gold overlay marks pixels changed by BCSS-style presence relative to previous Breast WCSP.
+- Gold overlay marks changed labels, not Dead cells. Changes are relative to previous Breast WCSP.
+- Per-patch mIoU averages the same five biological classes; absent classes have IoU 0. Ground truth is shown without a self-score.
 - Examples are selected illustrations, including failures; use cohort statistics for overall conclusions.
 - Full-cohort mIoU: previous Breast **0.448441**; larger sweep **0.447948**; BCSS-style presence **0.451867**. Fold-2 follow-up is exploratory.
 
