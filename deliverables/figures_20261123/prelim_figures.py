@@ -172,3 +172,112 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ---- cleaner BCSS preliminary-test figures ------------------------------------------------
+
+def fig_split_diagram():
+    """Two toy regions: a segmentation error (region mostly right) and a class identification
+    error (region mostly wrong). Colours: stroma blue, tumor red, other pink (wcsp.labels)."""
+    from wcsp.labels import COLORS
+    col = lambda k: np.asarray(COLORS[k]) / 255  # noqa: E731
+    stroma, tumor, other = 2, 0, 4
+    n = 10
+    truth = np.full((n, n), stroma)
+    seg = truth.copy()
+    seg[6:9, 6:9] = tumor; seg[0, 0] = tumor                               # 10 of 100 wrong
+    cls = np.full((n, n), other)
+    cls[:, :3] = stroma                                                    # 70 of 100 wrong
+    fig, axes = plt.subplots(1, 5, figsize=(11, 2.9), gridspec_kw={"width_ratios": [1, 1, 0.25, 1, 1]})
+    def grid(ax, labels, title_text):
+        for (r, c), k in np.ndenumerate(labels):
+            ax.add_patch(plt.Rectangle((c, n - 1 - r), 1, 1, facecolor=col(k), edgecolor=SURFACE, linewidth=1.5))
+        ax.set_xlim(0, n)
+        ax.set_ylim(0, n)
+        ax.set_aspect("equal")
+        ax.tick_params(which="both", length=0, labelbottom=False, labelleft=False)
+        for s in ax.spines.values():
+            s.set_visible(False)
+        ax.set_title(title_text, color=INK, fontsize=10)
+    grid(axes[0], truth, "True region: stroma")
+    grid(axes[1], seg, "U-Net")
+    grid(axes[3], truth, "True region: stroma")
+    grid(axes[4], cls, "U-Net")
+    axes[2].axis("off")
+    axes[1].text(0.5, -0.12, "Mostly stroma ✓ → the 10 wrong\npixels are SEGMENTATION errors",
+                 transform=axes[1].transAxes, ha="center", va="top", color=BLUE, fontsize=10, fontweight="bold")
+    axes[4].text(0.5, -0.12, "Mostly \"other\" ✗ → the 70 wrong\npixels are CLASS IDENTIFICATION errors",
+                 transform=axes[4].transAxes, ha="center", va="top", color=ORANGE, fontsize=10, fontweight="bold")
+    handles = [plt.Rectangle((0, 0), 1, 1, color=col(k)) for k in (stroma, tumor, other)]
+    fig.legend(handles, ["Stroma", "Tumor", "Other"], loc="upper center", ncol=3, frameon=False,
+               bbox_to_anchor=(0.5, 1.08))
+    fig.savefig(OUT / "prelim_split_diagram.png", dpi=200, bbox_inches="tight")
+
+
+def fig_split_v2(seg_pct, cls_pct, overall=(48, 52)):
+    """Test 1: per class, % of the class's pixels wrong, split by error type; 'All' row on top."""
+    names = ["All classes"] + NAMES
+    rows = [None] + list(zip(seg_pct, cls_pct))
+    fig, ax = plt.subplots(figsize=(7.2, 3.3))
+    ys = np.arange(len(names))[::-1]
+    for y, name, r in zip(ys, names, rows):
+        if r is None:   # overall: share of all wrong pixels, drawn on a 0-100 bar of its own
+            a, b = overall
+            ax.barh(y, a * 0.4, color=BLUE, height=0.62, edgecolor=SURFACE, linewidth=2)
+            ax.barh(y, b * 0.4, left=a * 0.4, color=ORANGE, height=0.62, edgecolor=SURFACE, linewidth=2)
+            ax.text(a * 0.2, y, f"{a}%", ha="center", va="center", color="#ffffff", fontsize=9, fontweight="bold")
+            ax.text(a * 0.4 + b * 0.2, y, f"{b}%", ha="center", va="center", color="#ffffff", fontsize=9, fontweight="bold")
+            ax.text(40.8, y, "of all wrong pixels", va="center", color=MUTED, fontsize=8.5)
+            continue
+        g, l = r
+        ax.barh(y, g, color=BLUE, height=0.62, edgecolor=SURFACE, linewidth=2)
+        ax.barh(y, l, left=g, color=ORANGE, height=0.62, edgecolor=SURFACE, linewidth=2)
+        if g >= 4:
+            ax.text(g / 2, y, f"{g:.0f}", ha="center", va="center", color="#ffffff", fontsize=8.5)
+        if l >= 4:
+            ax.text(g + l / 2, y, f"{l:.0f}", ha="center", va="center", color="#ffffff", fontsize=8.5)
+        ax.text(g + l + 0.8, y, f"{g + l:.0f}% of {name.lower() if name != 'Other' else 'other'} pixels wrong",
+                va="center", color=INK, fontsize=8.5)
+    ax.axhline(ys[0] - 0.5, color=GRID, linewidth=1)
+    ax.set_yticks(ys, names)
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(0, 56)
+    ax.set_xticks([])
+    ax.spines["bottom"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (BLUE, ORANGE)]
+    ax.legend(handles, ["Segmentation error", "Class identification error"], frameon=False, ncol=2,
+              loc="upper center", bbox_to_anchor=(0.45, 1.16))
+    fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")
+
+
+def fig_ladder_v2(raw, wcsp, presence, class_id, seg):
+    """Test 2: today's methods vs. each problem made perfect, on one mIoU axis up to 1.0."""
+    rows = [("U-Net", raw, GRAY, "Today"), ("+ WCSP smoothing", wcsp, GRAY, "Today"),
+            ("+ presence rule", presence, BLUE, "Today"),
+            ("Perfect class identification", class_id, BLUE, "If perfect"),
+            ("Perfect segmentation", seg, ORANGE, "If perfect"),
+            ("Both perfect (= ground truth)", 1.0, "#d9d8d2", "If perfect")]
+    fig, ax = plt.subplots(figsize=(7.2, 3.4))
+    ys = np.array([6.4, 5.4, 4.4, 2.6, 1.6, 0.6])
+    lo = 0.6
+    for y, (name, v, c, _) in zip(ys, rows):
+        ax.barh(y, v - lo, left=lo, color=c, height=0.66, edgecolor=SURFACE, linewidth=2)
+        if v == 1.0:
+            ax.text(0.99, y, "1.0", va="center", ha="right", color=INK, fontsize=9)
+            continue
+        txt = f"{v:.4f}" if name == "U-Net" else f"{v:.4f}  ({v - raw:+.4f})"
+        ax.text(v + 0.006, y, txt, va="center", color=INK, fontsize=9)
+    ax.axvline(raw, color=INK, linewidth=1, linestyle="--", zorder=2)
+    for y, text in ((7.2, "Today"), (3.4, "If one problem were perfect")):
+        ax.text(lo + 0.002, y, text, color=MUTED, fontsize=9.5, fontweight="bold", va="center", zorder=5,
+                bbox={"facecolor": SURFACE, "edgecolor": "none", "pad": 1.5})
+    ax.set_yticks(ys, [r[0] for r in rows])
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(lo, 1.08)
+    ax.set_ylim(0, 7.6)
+    ax.set_xlabel("mIoU (axis starts at 0.60; dashed line = U-Net)")
+    ax.grid(axis="x", color=GRID)
+    ax.set_axisbelow(True)
+    ax.spines["left"].set_visible(False)
+    fig.savefig(OUT / "prelim_ladder.png", dpi=200, bbox_inches="tight")
