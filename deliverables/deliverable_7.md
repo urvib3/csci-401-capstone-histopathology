@@ -10,6 +10,11 @@
 
 mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
+**BCSS protocol in this recap:** the earlier pretrained U-Net / central-256
+evaluation. The trained **full-512** model and its correction experiments are
+reported [separately below](#bcss-full-resolution-correction-experiments);
+their absolute scores use a different model and prediction field.
+
 | Method | PanNuke · Breast test | BCSS · dev | BCSS · val |
 |---|:---:|:---:|:---:|
 | Base | 0.4323 | 0.7067 | 0.6489 |
@@ -152,5 +157,21 @@ Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 av
 | C · + presence loss | Class identification | 0.5608 | next |
 
 The 2-epoch pilot is too short: every arm ends below its starting point. The 10-epoch runs decide whether B or C beats A.
+
+#### 3 · Full-resolution corrections
+
+WCSP fixes rerun on the **full-resolution U-Net** (whole 512 px tiles), with a refit presence prior and a new **region move**: relabel a whole connected region of the current labels at once.
+
+| Full-res U-Net | Dev (185) | Val (3,229 scored tiles) |
+|---|---:|---:|
+| U-Net | 0.6524 | 0.6707 |
+| WCSP | 0.6547 (+0.0023) | 0.6724 (+0.0018) |
+| Multi-scale WCSP | 0.6570 (+0.0046) | 0.6736 (+0.0029) |
+| Presence (γ = 4,000) + multi-scale | 0.6648 (+0.0124) | next |
+| **Region moves** | **0.6670 (+0.0146)** | next |
+
+![Full-res dev](figures_20261123/bcss_full512_dev.png)
+
+Region moves and presence are the best dev results on the stronger model; neither has run on val yet. Full protocol, all 40 settings and intervals: [details](bcss_full512_details.md).
 
 *Settings from dev sweeps: WCSP λ = 8, presence γ = 3,000, 256 SLIC patches. Multi-scale blocks and 23 decay schedules gave no gain.*

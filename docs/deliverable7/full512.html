@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deliverable 7 · Histopathology WCSP</title>
+<style>
+  :root { --ink:#0b0b0b; --muted:#52514e; --line:#e4e3df; --bg:#fcfcfb; --accent:#2a78d6; --soft:#f3f2ee; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 8px; }
+  h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin: 0; }
+  h2 { font-size: 22px; margin: 48px 0 12px; padding-top: 8px; }
+  h3 { font-size: 20px; margin: 36px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+  .wrap { overflow-x: auto; }
+  h4 { font-size: 16px; margin: 22px 0 6px; }
+  h5 { font-size: 15px; margin: 18px 0 6px; color: #52514e; }
+  ul { margin: 6px 0 10px; padding-left: 22px; }
+  p { margin: 10px 0; }
+  .note { color: var(--muted); font-size: 14px; }
+  .take { background: var(--soft); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 4px; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 15px; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { font-weight: 600; color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.hl td { font-weight: 600; }
+  .d { color: var(--muted); font-weight: 400; }
+  .dash { color: #a9a8a2; }
+  img { width: 100%; height: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  .abbr { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+  .abbr b { color: var(--ink); }
+  nav { display: flex; gap: 18px; font-size: 14px; margin-top: 14px; }
+  nav a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>BCSS full-resolution corrections · details</h1>
+  <p class="sub"><a href="./">← Back to Deliverable 7</a></p>
+</header>
+<section id="full512">
+<h2>BCSS full-resolution correction experiments</h2>
+<p><strong>Current finding:</strong> connected-region moves and tile-level class context give
+the strongest completed development results. These new choices have <strong>not</strong>
+yet been evaluated on the full validation set.</p>
+<h5>Data and comparison protocol</h5>
+<ul>
+<li>Official upstream BCSS preparation v2: <strong>151 ROIs</strong>, 0.25 MPP, nonoverlapping
+<strong>512×512</strong> tiles; <strong>7,768 fit / 1,012 dev / 4,028 validation</strong> tiles.</li>
+<li>The full-resolution head and backbone were already trained. Every correction
+arm reuses the <strong>same frozen checkpoint and probability maps</strong> and scores the
+entire 512×512 field. No central crop or new U-Net training is used here.</li>
+<li>Correction selection uses <strong>185 frozen dev tiles from 14 ROIs</strong>, a fixed
+subset of the 1,012 dev tiles. The U-Net baseline on this subset is
+<strong>0.652414 mIoU</strong>. Do not compare it directly with the recap's 0.7067.</li>
+<li>Priors and the independent appearance model use the <strong>fit split only</strong>.
+Aggregate accuracy is reported only after all 185 tiles of an arm finish.
+Paired intervals resample whole ROIs (2,000 replicates, seed 0).</li>
+<li>Snapshot: <strong>34/40 correction configurations complete</strong>, 6,323/7,400 tile
+solves, November 23 at 15:16 PST. The remaining appearance configurations
+are still running. The earlier expanded sweep finished all 3,145 solves.</li>
+</ul>
+<p>The earlier 0.6610 presence pilot used the existing prior and an
+area-scaled fixed gamma. The following sweep refits a full-field fit prior,
+varies gamma on dev, and uses audited convergence with matched controls.</p>
+<h5>What the new methods change</h5>
+<table>
+<thead>
+<tr>
+  <th>Family</th>
+  <th>Change</th>
+  <th style="text-align:right">Configurations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Temperature</td>
+  <td>Soften U-Net probabilities before constructing costs; makes class changes cheaper</td>
+  <td style="text-align:right">T={1,1.5,2,3,4}, mu={0,1}: <strong>10</strong></td>
+</tr>
+<tr>
+  <td>Block fidelity</td>
+  <td>Reduce the coarse blocks' own pooled U-Net costs; retain their neighbor and parent–child links</td>
+  <td style="text-align:right">block_alpha={0,0.25,0.5}, mu=1: <strong>3</strong>; alpha=1 control shared</td>
+</tr>
+<tr>
+  <td>Class presence</td>
+  <td>Choose an allowed class set using fit-split co-occurrence costs plus pixel evidence, then spatially optimize</td>
+  <td style="text-align:right">gamma={40,120,400,1200,4000,12000}, mu={0,1}: <strong>12</strong></td>
+</tr>
+<tr>
+  <td>Region moves</td>
+  <td>Propose changing a connected same-label region or an image-derived SLIC segment together</td>
+  <td style="text-align:right">Two region types, mu={0,1}: <strong>4</strong></td>
+</tr>
+<tr>
+  <td>Image-aware boundaries</td>
+  <td>Add disagreement costs between pixels with similar HED stain features</td>
+  <td style="text-align:right">beta={1,4}, mu={0,1}: <strong>4</strong></td>
+</tr>
+<tr>
+  <td>Independent regional evidence</td>
+  <td>Blend U-Net costs with a fit-only HED/texture classifier pooled within SLIC segments</td>
+  <td style="text-align:right">weights={0.1,0.3,1}, mu={0,1}: <strong>6</strong>, plus <strong>1</strong> appearance-only control</td>
+</tr>
+</tbody>
+</table>
+<p>All 40 arms use lambda=8; mu=0 disables parent–child coupling and mu=1
+enables it. Temperature and appearance also change the evidence reconstructed
+for coarse blocks. Block-alpha isolates their direct fidelity weight.</p>
+<p><strong>Region moves:</strong> first reach an ordinary single-variable local minimum.
+Then test up to two passes over the 32 largest eligible regions (at least
+64 pixels). Try each tissue label for the entire region, alone or together
+with coarse blocks at least half covered by it. Accept a proposal only when
+the <strong>exact full objective decreases</strong>, then resume pixel/coarse descent.
+The final assignment is audited for single-variable stationarity; the bounded
+proposal search does not establish a global or region-wise optimum. This is
+different from the recap's SLIC cluster solver: the strongest new result uses
+<strong>connected components of the current labels</strong>, not SLIC.</p>
+<p><strong>Presence:</strong> the full-field prior uses 6,888 fit tiles with at least 1,000
+labeled pixels; a class is present when it occupies at least 1% of labeled
+area. All 31 nonempty class sets are considered with add-one smoothing.
+Selection is a two-stage approximation: choose an allowed set from unary
+evidence and the prior, then impose a finite 1,000 exclusion cost on other
+labels. Every result checks that excluded labels do not survive. This does
+not jointly optimize class-set selection with the spatial energy.</p>
+<p><strong>Appearance:</strong> a diagonal Gaussian classifier uses HED channels, local
+means and local standard deviations. Of 288 fit tiles, 256 fit its parameters
+and 32 calibrate its temperature. Development RGB and annotations must align
+exactly with the frozen inputs; dev annotations score results but do not
+construct regions or appearance evidence. This is an independent shallow
+appearance model, not another U-Net training arm.</p>
+<h5>Completed development results</h5>
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+  <th style="text-align:right">mIoU</th>
+  <th style="text-align:right">Change vs. U-Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Raw full-resolution U-Net</td>
+  <td style="text-align:right">0.652414</td>
+  <td style="text-align:right">—</td>
+</tr>
+<tr>
+  <td>Ordinary pixel WCSP, mu=0</td>
+  <td style="text-align:right">0.654691</td>
+  <td style="text-align:right">+0.002276</td>
+</tr>
+<tr>
+  <td>Ordinary hierarchy, mu=1</td>
+  <td style="text-align:right">0.657038</td>
+  <td style="text-align:right">+0.004624</td>
+</tr>
+<tr>
+  <td>Best expanded lambda/mu grid: lambda=16, mu=2</td>
+  <td style="text-align:right">0.657713</td>
+  <td style="text-align:right">+0.005299</td>
+</tr>
+<tr>
+  <td>Temperature T=4 + hierarchy</td>
+  <td style="text-align:right">0.658183</td>
+  <td style="text-align:right">+0.005768</td>
+</tr>
+<tr>
+  <td>No block fidelity + hierarchy</td>
+  <td style="text-align:right">0.658301</td>
+  <td style="text-align:right">+0.005886</td>
+</tr>
+<tr>
+  <td><strong>Presence gamma=4000 + hierarchy</strong></td>
+  <td style="text-align:right"><strong>0.664791</strong></td>
+  <td style="text-align:right"><strong>+0.012376</strong></td>
+</tr>
+<tr>
+  <td><strong>Connected-region moves, mu=0</strong></td>
+  <td style="text-align:right"><strong>0.667026</strong></td>
+  <td style="text-align:right"><strong>+0.014611</strong></td>
+</tr>
+<tr>
+  <td>HED boundary beta=1 + hierarchy</td>
+  <td style="text-align:right">0.656998</td>
+  <td style="text-align:right">+0.004584</td>
+</tr>
+<tr>
+  <td>Appearance weight=0.1, mu=0; family incomplete</td>
+  <td style="text-align:right">0.655015</td>
+  <td style="text-align:right">+0.002600</td>
+</tr>
+</tbody>
+</table>
+<p><img src="bcss_full512_dev.png" alt="Full-512 development gains and matched comparisons" /></p>
+<table>
+<thead>
+<tr>
+  <th>Comparison</th>
+  <th style="text-align:right">Change in mIoU</th>
+  <th style="text-align:right">95% paired ROI interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Region moves minus ordinary pixel WCSP</td>
+  <td style="text-align:right">+0.012335</td>
+  <td style="text-align:right">[+0.002673, +0.022119]</td>
+</tr>
+<tr>
+  <td>Presence + hierarchy minus ordinary hierarchy</td>
+  <td style="text-align:right">+0.007752</td>
+  <td style="text-align:right">[+0.003623, +0.012651]</td>
+</tr>
+<tr>
+  <td>T=4 minus T=1, both with hierarchy</td>
+  <td style="text-align:right">+0.001144</td>
+  <td style="text-align:right">[+0.000158, +0.002339]</td>
+</tr>
+<tr>
+  <td>No block fidelity minus ordinary block fidelity</td>
+  <td style="text-align:right">+0.001262</td>
+  <td style="text-align:right">[−0.000969, +0.003266]</td>
+</tr>
+</tbody>
+</table>
+<p>These are <strong>development-selected, exploratory intervals</strong>, without correction
+for selecting settings across the sweep. Removing block fidelity improves
+the point estimate but its interval includes zero. HED boundary terms did
+not consistently improve the hierarchy. The appearance grid is incomplete.</p>
+<p>The convergence experiment adds a small gain: mu=1 reaches <strong>0.657038</strong> at
+convergence versus <strong>0.656822</strong> after four outer rounds. More iterations
+alone do not explain the larger region-move or presence gains.</p>
+<h5>Corrections, failures and region interiors</h5>
+<ul>
+<li>Region moves fix <strong>601,023</strong> previously wrong pixels and break <strong>404,681</strong>
+previously correct pixels, relative to the raw U-Net. The matched pixel
+control fixes 154,373 and breaks 112,729. A separate energy audit found
+lower pixel energy on 154 tiles, ties on 31, and no increases; 780 region
+proposals were accepted across the cohort. See the
+<a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/region_energy_audit.json">per-tile energy audit</a>.</li>
+<li>Presence + hierarchy fixes <strong>425,280</strong> and breaks <strong>231,814</strong> pixels versus
+the raw U-Net. More than 10 pixels from a raw prediction boundary, it fixes
+<strong>34,715</strong> and breaks <strong>3,170</strong> pixels. The ordinary hierarchy fixes 15 and
+breaks 11 in those interiors.</li>
+<li>Region moves also change interiors, but their interior fixes and breaks
+are close (76,898 versus 76,175). Their benefit cannot be summarized as
+uniformly fixing large regions. Report per-class IoU and both fixes and
+breaks alongside pooled mIoU; energy reduction alone is not correctness.</li>
+</ul>
+<p><img src="bcss_full512_region_examples.png" alt="Representative region-move improvement and failure" /></p>
+<p>Examples are the median positive and median negative <strong>per-tile mIoU change
+against the matched pixel control</strong>, selected after inspecting dev outcomes.
+They illustrate behavior, not independent evidence. The edit map is relative
+to that pixel control: green=fix, red=break, orange=wrong-to-wrong. Ignored
+annotation pixels are gray. Exact IDs and selection counts are in
+<a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/region_examples.json">region_examples.json</a>.</p>
+<h5>Established full-validation result</h5>
+<p>The earlier frozen validation protocol accounts for <strong>all 4,028 tiles from
+45 held-out ROIs</strong>, scoring 3,229 with labeled pixels and excluding 799 wholly
+ignored tiles. It uses the trained full-512 checkpoint, lambda=8, T=1 and the
+dev-selected mu=1 setting with the historical four-round limits.</p>
+<table>
+<thead>
+<tr>
+  <th>Full-validation method</th>
+  <th style="text-align:right">mIoU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Raw full-resolution U-Net</td>
+  <td style="text-align:right">0.670665</td>
+</tr>
+<tr>
+  <td>Pixel WCSP, mu=0</td>
+  <td style="text-align:right">0.672414</td>
+</tr>
+<tr>
+  <td><strong>Multiscale WCSP, mu=1</strong></td>
+  <td style="text-align:right"><strong>0.673607</strong></td>
+</tr>
+<tr>
+  <td>New presence / region-move candidates</td>
+  <td style="text-align:right">Not evaluated on full validation yet</td>
+</tr>
+</tbody>
+</table>
+<p><img src="bcss_full512_validation.png" alt="Full-512 validation" /></p>
+<p>The established improvement over the U-Net is <strong>+0.002942 mIoU</strong>, with
+95% ROI interval <strong>[+0.002218, +0.003615]</strong>. The 0.667026 new dev score and
+0.673607 validation score describe different populations and must not be
+ranked against one another.</p>
+<p><strong>Next:</strong> finish the appearance grid, freeze the final development choices,
+and evaluate the region-move and presence candidates with their matched
+controls on the full validation set. Do not select settings using those
+validation outcomes.</p>
+<p>Portable evidence: <a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/corrections_dev.json">correction snapshot</a>,
+<a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/expanded_dev.json">completed expanded sweep</a>,
+<a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/validation.json">validation summary</a>,
+and <a href="https://github.com/urvib3/csci-401-capstone-histopathology/blob/main/experiments/bcss_wcsp/results/full512_20261123/provenance.json">frozen provenance</a>.
+Raw images, probability caches and per-tile predictions remain local.
+Rebuild the charts with <code>python deliverables/figures_20261123/make_full512_figures.py</code>;
+the qualitative figure additionally needs <code>--cache-root</code> pointing to the
+original experiment checkout. The frozen experiment source hashes predate
+the upstream solver updates; existing output roots must retain those sources.
+Sync this section and its figures into the GitHub Pages version with
+<code>python deliverables/figures_20261123/sync_full512_pages.py</code> (requires mistune).</p>
+<p>The training-loss arms in the preceding BCSS section use the original
+central-256 architecture/field, separately from this full-512 post-processing
+protocol (<code>experiments/bcss_wcsp/slurm/train_loss_arms.sbatch</code>).</p>
+</section>
+</main>
+</body>
+</html>
