@@ -136,7 +136,26 @@ Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCS
 
 #### What each method means
 
+##### Presence rule
+
 ![Presence rule](figures_20261123/presence_diagram.png)
+
+- **1 · U-Net output:** read off which classes the U-Net predicts in the tile.
+- **2 · Pick a set:** score every class set by U-Net evidence plus its rarity in training.
+- **3 · WCSP:** dropped classes' pixels take their next-best allowed class, then smooth.
+
+##### Cluster (SLIC superpixels)
+
+![Cluster WCSP](figures_20261123/cluster_diagram.png)
+
+- **1 · U-Net output:** per-pixel class probabilities.
+- **2 · SLIC:** split the tile into ~256 patches of similar colour and prediction.
+- **3 · One label per patch:** each patch is one WCSP variable, so it changes as a whole.
+- **4 · Pixel refine:** a final pixel-level pass lets borders move again.
+
+*Here clusters clean up the regions but keep the wrong "Other": removing a wrong class is what presence does.*
+
+##### All methods
 
 - **WCSP smoothing:** neighboring pixels pay a cost for disagreeing, which cleans up noisy borders.
 - **Presence rule:** keep only classes likely to appear together in a tile; drop the rest, then smooth.

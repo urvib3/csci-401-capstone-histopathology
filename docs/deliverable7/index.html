@@ -214,7 +214,23 @@
 <div class="take">Either fix is worth about +0.10 to +0.12. Even just the right class set lets WCSP gain +0.0639, eight times what presence gets now, so <b>picking the class set is the bottleneck</b>, not WCSP.</div>
 
 <h4>What each method means</h4>
+<h5>Presence rule</h5>
 <img src="presence_diagram.png" alt="Presence rule: U-Net output and its class set, presence picks a set, WCSP within the kept set">
+<ul>
+  <li><b>1 · U-Net output:</b> read off which classes the U-Net predicts in the tile.</li>
+  <li><b>2 · Pick a set:</b> score every class set by U-Net evidence plus its rarity in training.</li>
+  <li><b>3 · WCSP:</b> dropped classes' pixels take their next-best allowed class, then smooth.</li>
+</ul>
+<h5>Cluster (SLIC superpixels)</h5>
+<img src="cluster_diagram.png" alt="Cluster WCSP: U-Net output, SLIC patches, one label per patch, pixel refine">
+<ul>
+  <li><b>1 · U-Net output:</b> per-pixel class probabilities.</li>
+  <li><b>2 · SLIC:</b> split the tile into ~256 patches of similar colour and prediction.</li>
+  <li><b>3 · One label per patch:</b> each patch is one WCSP variable, so it changes as a whole.</li>
+  <li><b>4 · Pixel refine:</b> a final pixel-level pass lets borders move again.</li>
+</ul>
+<p class="note">Here clusters clean up the regions but keep the wrong "Other": removing a wrong class is what presence does.</p>
+<h5>All methods</h5>
 <ul>
   <li><b>WCSP smoothing:</b> neighboring pixels pay a cost for disagreeing, which cleans up noisy borders.</li>
   <li><b>Presence rule:</b> keep only classes likely to appear together in a tile; drop the rest, then smooth.</li>
