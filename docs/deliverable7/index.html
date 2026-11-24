@@ -14,9 +14,10 @@
   h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
   .sub { color: var(--muted); margin: 0; }
   h2 { font-size: 22px; margin: 48px 0 12px; padding-top: 8px; }
-  h3 { font-size: 18px; margin: 32px 0 8px; }
+  h3 { font-size: 20px; margin: 36px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
   .wrap { overflow-x: auto; }
   h4 { font-size: 16px; margin: 22px 0 6px; }
+  h5 { font-size: 15px; margin: 18px 0 6px; color: #52514e; }
   ul { margin: 6px 0 10px; padding-left: 22px; }
   p { margin: 10px 0; }
   .note { color: var(--muted); font-size: 14px; }
@@ -41,7 +42,7 @@
 <header>
   <h1>Deliverable 7</h1>
   <p class="sub">November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)</p>
-  <nav><a href="#recap">Recap</a><a href="#problem">Problems</a><a href="#prelim">PanNuke tests</a><a href="#prelim-bcss">BCSS tests</a><a href="#pannuke-organs">PanNuke per organ</a><a href="#current">BCSS U-Net</a></nav>
+  <nav><a href="#recap">Recap</a><a href="#problem">Problems</a><a href="#prelim">Preliminary experiments</a><a href="#further">Further experiments</a></nav>
 </header>
 
 <section id="recap">
@@ -54,8 +55,8 @@
   <tr><td>Pair (HW)</td><td class="num dash">—</td><td class="num">0.7097 <span class="d">(+0.0030)</span></td><td class="num">0.6507 <span class="d">(+0.0019)</span></td></tr>
   <tr><td>Pair (DD)</td><td class="num">0.4324 <span class="d">(+0.0001)</span></td><td class="num">0.7090 <span class="d">(+0.0023)</span></td><td class="num">0.6506 <span class="d">(+0.0018)</span></td></tr>
   <tr><td>Hier</td><td class="num">0.4323 <span class="d">(0.0000)</span></td><td class="num">0.7107 <span class="d">(+0.0040)</span></td><td class="num">0.6517 <span class="d">(+0.0028)</span></td></tr>
-  <tr><td>Hier+Decay</td><td class="num">0.4323 <span class="d">(0.0000)</span></td><td class="num">0.7108 <span class="d">(+0.0041)</span></td><td class="num dash">running</td></tr>
-  <tr><td>Cluster</td><td class="num">0.4344 <span class="d">(+0.0020)</span></td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num dash">running</td></tr>
+  <tr><td>Hier+Decay</td><td class="num">0.4323 <span class="d">(0.0000)</span></td><td class="num">0.7108 <span class="d">(+0.0041)</span></td><td class="num">0.6517 <span class="d">(+0.0029)</span></td></tr>
+  <tr><td>Cluster</td><td class="num">0.4344 <span class="d">(+0.0020)</span></td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num">0.6544 <span class="d">(+0.0055)</span></td></tr>
   <tr class="hl"><td>Presence</td><td class="num dash">—</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td><td class="num">0.6550 <span class="d">(+0.0061)</span></td></tr>
   <tr class="hl"><td>Pres+Clust</td><td class="num">0.4484 <span class="d">(+0.0161)</span></td><td class="num">0.7242 <span class="d">(+0.0175)</span></td><td class="num">0.6564 <span class="d">(+0.0075)</span></td></tr>
 </table>
@@ -89,7 +90,9 @@
 </section>
 
 <section id="prelim">
-<h2>PanNuke preliminary tests</h2>
+<h2>Preliminary experiments</h2>
+
+<h3 id="prelim-pannuke">PanNuke</h3>
 <p class="note">Frozen HoVer-Net · 400 dev patches from PanNuke folds 1 and 3 (all organs except Adrenal) · rules counted on 4,089 separate patches · no training.</p>
 <p>On PanNuke, a <b>segmentation</b> error is an outline mistake: a nucleus that is missed, invented, or drawn too big or too small. A <b>class identification</b> error is a kind mistake: the right nucleus with the wrong cell type.</p>
 <div class="wrap"><table>
@@ -119,12 +122,12 @@
 
 <div class="take"><b>HoVer-Net invents combinations the truth almost never has:</b> neoplastic and normal epithelial together in 22% of patches (truth: under 1%), and rare kind combinations in 33% (truth: 3–5%). Presence brings both back to truth levels. It slightly overshoots on immune cells, removing them from 48% of patches where 56% should have them.</div>
 
-<h3>Breast examples</h3>
+<h4>Breast examples</h4>
 <img src="pannuke_breast_examples.png" alt="Four Breast patches: tissue, truth, HoVer-Net, and after presence, with changed nuclei outlined">
 <div class="take"><b>Rows 2–3 show the main fix:</b> HoVer-Net scatters "neoplastic" (red) nuclei through normal breast epithelium (yellow), and presence relabels them. Row 2 also shows one mistake, a real immune cell relabeled. Row 4 is the biggest loss. Of 120 Breast dev patches, 28 improve, 16 get worse and 76 are unchanged.</div>
 <p class="note">Sources: <code>experiments/pannuke_wcsp/prelim_20261123/</code> (<code>analyze.py</code>, <code>results.json</code>). The rows were chosen by a fixed rule: the 3 largest and 1 smallest per-patch change.</p>
 
-<h3>Breast patch comparisons, every method side by side</h3>
+<h4>Breast patch comparisons, every method side by side</h4>
 <p class="note">Breast fold 2 test patches · same frozen HoVer-Net, nucleus outlines fixed. These panels use their own colors: <b>purple = normal epithelial, green = inflammatory, blue = connective</b>. Gold in the last panel marks labels that changed vs. the previous Breast WCSP, not dead cells. Per-patch mIoU averages all five kinds, so kinds absent from a patch score 0 and pull it down.</p>
 <p>Each panel runs left to right: tissue → truth → raw HoVer-Net → previous global WCSP → previous Breast WCSP → larger sweep → BCSS-style presence (only allowed classes) → what changed.</p>
 
@@ -138,38 +141,39 @@
 <div class="take"><b>Regression (patch 72):</b> the stronger sweep correctly fixes two false "neoplastic" nuclei, but also turns the one real neoplastic nucleus (large, right) into connective. With no cancer left in the patch, the whole neoplastic class scores 0, and mIoU drops from 0.405 to 0.301. Stronger presence settings fix more false cancer nuclei but occasionally remove a real one.</div>
 <p class="note">Selected illustrations from 78 patches, including failures, not a representative sample. Full Breast fold-2 cohort (exploratory): previous Breast WCSP 0.4484, larger sweep 0.4479, BCSS-style presence 0.4519. Source: <code>experiments/pannuke_wcsp/bcss_cohesion_20261123/patch_comparisons/</code>.</p>
 
-</section>
 
-<section id="prelim-bcss">
-<h2>BCSS preliminary tests</h2>
+<h3 id="prelim-bcss">BCSS</h3>
 <div class="take"><b>Goal:</b> find out whether <b>segmentation</b> or <b>class identification</b> is the bigger problem for the U-Net, so we know what to fix first.</div>
 <p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
 
-<h3>The two errors</h3>
+<h4>The two errors</h4>
 <ul>
   <li><b>Segmentation error:</b> the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.</li>
   <li><b>Class identification error:</b> the U-Net gets the shape roughly right, but calls the region the wrong tissue.</li>
 </ul>
 
-<h3>Method</h3>
+<h4>Method</h4>
 <p>Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. <b>Right</b> → its wrong pixels are segmentation errors. <b>Wrong</b> → they are class identification errors.</p>
 <img src="prelim_split_diagram.png" alt="Diagram: a mostly-right region gives segmentation errors; a mostly-wrong region gives class identification errors">
 
-<h3>Test 1 · How much of each class is wrong, and why?</h3>
+<h4>Test 1 · How much of each class is wrong, and why?</h4>
 <img src="prelim_error_split.png" alt="Test 1: percent of each class wrong, split into segmentation and class identification errors, with the average">
 <div class="take"><b>Class identification is slightly bigger on average</b> (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.</div>
 
-<h3>Test 2 · What would fixing each one be worth?</h3>
+<h4>Test 2 · What would fixing each one be worth?</h4>
 <ul>
   <li><b>Perfect class identification:</b> keep the U-Net's regions; give each the class most of its true pixels have.</li>
   <li><b>Perfect segmentation:</b> keep the true regions; give each the class the U-Net predicts for most of it.</li>
 </ul>
 <img src="prelim_ladder.png" alt="Test 2: today's methods vs. each problem made perfect">
 <div class="take"><b>Both matter about equally:</b> perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.</div>
+
 </section>
 
-<section id="pannuke-organs">
-<h2>Current experiments · PanNuke: per organ, and a wider presence sweep</h2>
+<section id="further">
+<h2>Further experiments</h2>
+
+<h3 id="further-pannuke">PanNuke</h3>
 <p>Every PanNuke WCSP family was refit and retuned on one organ at a time, then scored once on that organ's held-out test patches. Gain = type set (PanNuke's presence rule) minus fixed-mask voting.</p>
 
 <div class="wrap"><table>
@@ -183,12 +187,12 @@
 
 <div class="take"><b>Per-organ tuning only paid off on Breast.</b> On Colon and Adrenal, the settings picked on dev didn't hold up on test. The original all-organ presence setting, unchanged, still helped Adrenal (+0.0049 [+0.0016, +0.0089]).</div>
 
-<h3>Breast: one tissue type vs. all tissue types</h3>
+<h4>Breast: one tissue type vs. all tissue types</h4>
 <p>Same 169 Breast test patches, presence fit and tuned on Breast only vs. on all tissue types.</p>
 <img src="pannuke_tissue_type.png" alt="PanNuke: Breast-specific fitting vs. global fitting">
 <div class="take"><b>Breast-only fitting wins:</b> 0.4384 (all tissue types) → 0.4484 (Breast only).</div>
 
-<h3>Wider sweep, like BCSS's presence sweep</h3>
+<h4>Wider sweep, like BCSS's presence sweep</h4>
 <p>1,584 settings of the presence rule: strength up to 32 (previously 4), count per organ or all organs, finer groups by nucleus count, and smoothing. Settings were picked on 400 patches and scored once on <b>600 fresh patches</b> from PanNuke folds 1 and 3 (all organs except Adrenal).</p>
 
 <div class="wrap"><table>
@@ -203,18 +207,46 @@
 
 <div class="take"><b>Stronger presence helps:</b> the swept setting triples the original gain over voting (Holm p = 0.034). Its edge over the original setting (+0.0081 [−0.0016, +0.0178]) isn't significant yet. Almost all of it comes from Breast (+0.0125) and Colon (+0.0283, wide interval). The 16 smaller organs see no gain. Counting from 20× more patches with the original setting changed nothing (+0.0003).</div>
 <p class="note">Sources: <code>experiments/pannuke_wcsp/organ_wcsp/README.md</code> (all three organs), <code>organ_wcsp/adrenal_gland/</code>, <code>experiments/pannuke_wcsp/type_set_sweep_20261123/</code>.</p>
-</section>
 
-<section id="current">
-<h2>Current experiments · BCSS: fixing the U-Net itself</h2>
-<p>Same training recipe as the cross-entropy baseline; only the loss changes. Score = raw U-Net, no post-processing.</p>
-<table>
-  <tr><th>Model</th><th>Added loss</th><th>Fixes</th><th class="num">Dev mIoU</th></tr>
-  <tr><td>A (baseline)</td><td>none</td><td class="dash">—</td><td class="num">0.6679</td></tr>
-  <tr><td>B</td><td>Region loss: pixels in the same true region should agree</td><td>Segmentation</td><td class="num dash">—</td></tr>
-  <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Class identification</td><td class="num dash">—</td></tr>
-</table>
+<h3 id="further-bcss">BCSS</h3>
+<h4>1 · Hyperparameter sweeps</h4>
+<p class="note">WCSP settings tuned on 185 BCSS dev tiles; the best of each is used everywhere else.</p>
+<div class="wrap"><table>
+  <tr><th>Setting</th><th>Values tried</th><th>Best</th><th class="num">Dev mIoU</th></tr>
+  <tr><td>Pair table strength λ (HW / DD)</td><td>0.5 – 32</td><td>8</td><td class="num">0.7097 / 0.7090</td></tr>
+  <tr><td>Multi-scale parent–child weight μ</td><td>0 – 1</td><td>0.5</td><td class="num">0.7108</td></tr>
+  <tr><td>Number of block levels</td><td>1 – 5</td><td>3</td><td class="num">0.7101 <span class="d">(μ = 0.2)</span></td></tr>
+  <tr><td>Decay schedules</td><td>23 (blocks, all levels, pixels, Potts, uniform, coarse boost)</td><td>coarse boost</td><td class="num">0.7108</td></tr>
+  <tr><td>Presence strength γ</td><td>10 – 100,000</td><td>3,000</td><td class="num"><b>0.7229</b></td></tr>
+  <tr><td>SLIC superpixels</td><td>64 / 256 / 1,024 · colour / probabilities / both · ± pixel refine</td><td>256, both, refine</td><td class="num">0.7163</td></tr>
+</table></div>
+<div class="take"><b>Only presence strength moves the result.</b> Every smoothing setting stays within 0.002 of the others.</div>
+
+<h4>2 · Adding presence and clusters to WCSP</h4>
+<ul>
+  <li><b>Presence:</b> before labeling, decide which classes the tile may contain. Each possible class set is scored by the U-Net's evidence plus how rare that combination is in the training ground truth; classes outside the best set are removed, then WCSP runs.</li>
+  <li><b>Cluster (SLIC superpixels):</b> SLIC splits the tile into about 256 patches of similar colour and U-Net prediction. Each patch is one WCSP variable with one label, so a whole patch flips at once; a final pixel-level pass lets borders move.</li>
+</ul>
+<div class="wrap"><table>
+  <tr><th>Method</th><th class="num">Dev (185)</th><th class="num">Val (2,124, held out)</th><th class="num">Full-res U-Net, dev</th></tr>
+  <tr><td>U-Net</td><td class="num">0.7067</td><td class="num">0.6489</td><td class="num">0.6524</td></tr>
+  <tr><td>Pixel WCSP</td><td class="num">0.7090 <span class="d">(+0.0023)</span></td><td class="num">0.6506 <span class="d">(+0.0018)</span></td><td class="num">0.6547 <span class="d">(+0.0023)</span></td></tr>
+  <tr><td>Cluster WCSP</td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num">0.6544 <span class="d">(+0.0055)</span></td><td class="num dash">—</td></tr>
+  <tr><td>WCSP + presence</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td><td class="num">0.6550 <span class="d">(+0.0061)</span></td><td class="num">0.6610 <span class="d">(+0.0086)</span></td></tr>
+  <tr class="hl"><td>Cluster WCSP + presence</td><td class="num">0.7242 <span class="d">(+0.0175)</span></td><td class="num">0.6564 <span class="d">(+0.0075)</span></td><td class="num dash">—</td></tr>
+</table></div>
+<div class="take"><b>Presence gives most of the gain and clusters add a little more</b>, on dev, on held-out val, and on the stronger full-resolution U-Net. But even the best (+0.0075 on val) is far below what fixing the U-Net's own errors is worth (about +0.1, preliminary Test 2).</div>
+
+<h4>3 · Fixing the U-Net itself</h4>
+<p>WCSP can only correct the U-Net's output afterwards. Since the U-Net's own segmentation and class identification errors are worth about +0.1 each, we now change <b>how the U-Net is trained</b> so it learns to avoid them. Same training recipe for every model; only the loss changes. Score = raw U-Net, no post-processing.</p>
+<div class="wrap"><table>
+  <tr><th>Model</th><th>Added training loss</th><th>Targets</th><th class="num">Pilot (2 epochs)</th><th class="num">Full (10 epochs)</th></tr>
+  <tr><td>A · baseline</td><td>none (pixel cross-entropy only)</td><td class="dash">—</td><td class="num dash">running</td><td class="num">0.6679</td></tr>
+  <tr><td>B</td><td>Region loss: pixels in the same true region should get the same prediction</td><td>Segmentation</td><td class="num dash">running</td><td class="num dash">—</td></tr>
+  <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Class identification</td><td class="num dash">running</td><td class="num dash">—</td></tr>
+</table></div>
 <div class="take"><b>Success</b> = B or C beats A.</div>
+
 </section>
 
 </main>

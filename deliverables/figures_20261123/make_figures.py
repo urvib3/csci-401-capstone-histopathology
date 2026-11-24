@@ -29,8 +29,8 @@ FAMILIES = [  # (short name, PanNuke Breast test, BCSS dev, BCSS val, is presenc
     ("Pair (HW)", None, 0.709734, 0.650712, False),
     ("Pair (DD)", 0.432412, 0.708998, 0.650602, False),
     ("Hier", 0.432328, 0.710750, 0.651698, False),
-    ("Hier+Decay", 0.432305, 0.710783, None, False),
-    ("Cluster", 0.434374, 0.716253, None, False),
+    ("Hier+Decay", 0.432305, 0.710783, 0.651734, False),
+    ("Cluster", 0.434374, 0.716253, 0.654360, False),
     ("Presence", None, 0.722877, 0.654962, True),
     ("Pres+Clust", 0.448441, 0.724218, 0.656387, True),
 ]
