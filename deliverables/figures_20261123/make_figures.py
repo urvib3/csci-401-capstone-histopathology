@@ -147,3 +147,34 @@ if __name__ == "__main__":
     fig_classes()
     fig_rules()
     print("written to", OUT)
+
+
+def fig_bcss_fixes():
+    """BCSS: WCSP, cluster and presence combinations, dev and val, own mIoU axis each."""
+    rows = [("U-Net", 0.706720, 0.648852, None), ("WCSP", 0.708998, 0.650602, False),
+            ("WCSP\n+ cluster", 0.716253, 0.654360, False), ("WCSP\n+ presence", 0.722877, 0.654962, True),
+            ("WCSP + presence\n+ cluster", 0.724218, 0.656387, True)]
+    fig, axes = plt.subplots(1, 2, figsize=(13, 3.9), gridspec_kw={"wspace": 0.2})
+    for ax, col, name in ((axes[0], 1, "BCSS · dev (185 tiles)"), (axes[1], 2, "BCSS · val (2,124 tiles, held out)")):
+        vals = [r[col] for r in rows]
+        base = vals[0]
+        lo = round(min(vals) - 0.004, 3)
+        for x, r in enumerate(rows):
+            v, rule = r[col], r[3]
+            color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
+            ax.bar(x, v - lo, bottom=lo, color=color, width=0.62, edgecolor=SURFACE, linewidth=2)
+            label = f"{v:.4f}" if rule is None else f"{v:.4f}\n({v - base:+.4f})"
+            ax.text(x, v + 0.0003, label, ha="center", va="bottom", color=INK, fontsize=8)
+        ax.axhline(base, color=INK, linewidth=1, linestyle="--")
+        ax.set_xticks(range(len(rows)), [r[0] for r in rows], fontsize=8)
+        ax.tick_params(axis="x", length=0, colors=INK)
+        ax.set_ylim(lo, max(vals) + 0.006)
+        ax.set_ylabel("mIoU")
+        ax.grid(axis="y", color=GRID, linewidth=0.8)
+        ax.set_axisbelow(True)
+        ax.spines["left"].set_visible(False)
+        ax.set_title(name, loc="left", color=INK, fontsize=11, fontweight="bold")
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (MUTED, LOCAL, SET_RULE)]
+    fig.legend(handles, ["U-Net", "Without presence", "With presence"], loc="lower center", ncol=3, frameon=False,
+               bbox_to_anchor=(0.5, -0.1))
+    fig.savefig(OUT / "bcss_fixes.png", dpi=200, bbox_inches="tight")

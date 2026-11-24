@@ -238,9 +238,11 @@
   <tr><th>Method</th><th class="num">Dev (185)</th><th class="num">Val (2,124, held out)</th><th class="num">Full-res U-Net, dev</th></tr>
   <tr><td>U-Net</td><td class="num">0.7067</td><td class="num">0.6489</td><td class="num">0.6524</td></tr>
   <tr><td>WCSP</td><td class="num">0.7090 <span class="d">(+0.0023)</span></td><td class="num">0.6506 <span class="d">(+0.0018)</span></td><td class="num">0.6547 <span class="d">(+0.0023)</span></td></tr>
+  <tr><td>WCSP + cluster</td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num">0.6544 <span class="d">(+0.0055)</span></td><td class="num dash">—</td></tr>
   <tr><td>WCSP + presence</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td><td class="num">0.6550 <span class="d">(+0.0061)</span></td><td class="num">0.6610 <span class="d">(+0.0086)</span></td></tr>
   <tr class="hl"><td>WCSP + presence + cluster</td><td class="num">0.7242 <span class="d">(+0.0175)</span></td><td class="num">0.6564 <span class="d">(+0.0075)</span></td><td class="num dash">—</td></tr>
 </table></div>
+<img src="bcss_fixes.png" alt="BCSS mIoU for U-Net, WCSP, WCSP + cluster, WCSP + presence and WCSP + presence + cluster, dev and val">
 <div class="take"><b>Presence works but recovers little:</b> +0.0075 on held-out val, against about +0.12 possible from perfect class identification (preliminary Test 2).</div>
 
 <h4>Fixing the U-Net itself: training losses</h4>

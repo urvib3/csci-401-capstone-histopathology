@@ -155,8 +155,11 @@ One fix per error type: **presence** for class identification, and a **segmentat
 |---|---:|---:|---:|
 | U-Net | 0.7067 | 0.6489 | 0.6524 |
 | WCSP | 0.7090 (+0.0023) | 0.6506 (+0.0018) | 0.6547 (+0.0023) |
+| WCSP + cluster | 0.7163 (+0.0095) | 0.6544 (+0.0055) | — |
 | WCSP + presence | 0.7229 (+0.0162) | 0.6550 (+0.0061) | 0.6610 (+0.0086) |
 | **WCSP + presence + cluster** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** | — |
+
+![BCSS fixes](figures_20261123/bcss_fixes.png)
 
 **Presence works but recovers little:** +0.0075 on held-out val, against about +0.12 possible from perfect class identification.
 
