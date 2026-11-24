@@ -49,7 +49,7 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ## Preliminary tests
 
-*Ryan's full-resolution U-Net, 185 dev tiles, no training.*
+*Full-resolution U-Net, 185 dev tiles, no training.*
 
 | Test | Result |
 |---|---|
@@ -72,11 +72,11 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ## Current experiments: fixing the U-Net itself
 
-Same training as Ryan's model; only the loss changes. Score = raw U-Net, no post-processing.
+Same training recipe as the cross-entropy baseline; only the loss changes. Score = raw U-Net, no post-processing.
 
 | Model | Added loss | Fixes | Dev mIoU |
 |---|---|---|:---:|
-| A (Ryan) | none | — | 0.6679 |
+| A (baseline) | none | — | 0.6679 |
 | B | Region loss: pixels in the same true region should agree | Segmentation | — |
 | C | Presence loss: predict which classes are in the tile | Class identification | — |
 

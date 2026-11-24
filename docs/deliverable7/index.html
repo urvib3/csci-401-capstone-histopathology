@@ -87,7 +87,7 @@
 
 <section id="prelim">
 <h2>Preliminary tests</h2>
-<p class="note">Ryan's full-resolution U-Net · 185 dev tiles · no training.</p>
+<p class="note">Full-resolution U-Net · 185 dev tiles · no training.</p>
 <table>
   <tr><th>Test</th><th class="num">Result</th></tr>
   <tr><td>Wrong pixels that are <b>segmentation</b> errors</td><td class="num"><b>48%</b></td></tr>
@@ -109,10 +109,10 @@
 
 <section id="current">
 <h2>Current experiments: fixing the U-Net itself</h2>
-<p>Same training as Ryan's model; only the loss changes. Score = raw U-Net, no post-processing.</p>
+<p>Same training recipe as the cross-entropy baseline; only the loss changes. Score = raw U-Net, no post-processing.</p>
 <table>
   <tr><th>Model</th><th>Added loss</th><th>Fixes</th><th class="num">Dev mIoU</th></tr>
-  <tr><td>A (Ryan)</td><td>none</td><td class="dash">—</td><td class="num">0.6679</td></tr>
+  <tr><td>A (baseline)</td><td>none</td><td class="dash">—</td><td class="num">0.6679</td></tr>
   <tr><td>B</td><td>Region loss: pixels in the same true region should agree</td><td>Segmentation</td><td class="num dash">—</td></tr>
   <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Class identification</td><td class="num dash">—</td></tr>
 </table>
