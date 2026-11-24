@@ -74,12 +74,15 @@
 
 <section id="hypothesis">
 <h2>Hypothesis</h2>
-<p>The segmenter makes two kinds of mistakes, and smoothing fixes neither.</p>
+<div class="take"><b>The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.</b> Smoothing cleans up noisy borders. The U-Net's real errors are bigger than that.</div>
 <table>
-  <tr><th>Mistake</th><th>Example</th><th>What would fix it</th></tr>
-  <tr><td><b>Grouping</b></td><td>One stroma region is predicted as ~10 scattered pieces</td><td>Coherent regions</td></tr>
-  <tr><td><b>Labeling</b></td><td>A whole region is called "other" when it's stroma</td><td>Knowing which classes belong in the tile</td></tr>
+  <tr><th>Problem</th><th>What goes wrong</th><th>Evidence</th><th>What could fix it</th></tr>
+  <tr><td><b>Segmentation</b></td><td>One true region is broken into many pieces</td><td>~10 predicted pieces per true region; 48% of wrong pixels</td><td>Training the U-Net to keep regions whole (region loss)</td></tr>
+  <tr><td><b>Class identification</b></td><td>A whole region is given the wrong class</td><td>52% of wrong pixels; "other" 36% wrong, stroma 25%</td><td>Strong data-derived rules, not light smoothing; a better classifier</td></tr>
+  <tr><td><b>Too many tissue types</b></td><td>The model predicts classes that aren't in the tile</td><td>U-Net: "other" in 20% of tiles vs 11% in truth. PanNuke: extra cell types in a patch</td><td>The presence rule (a data-derived class-set prior)</td></tr>
 </table>
+<p class="note">PanNuke example of too many types: in a tumor patch, one nucleus is labeled non-neoplastic (purple). The type-set rule removes the extra type.</p>
+<img src="pannuke_type_set_example.png" alt="PanNuke patch where an extra cell type is predicted and removed by the type-set rule">
 </section>
 
 <section id="prelim">
@@ -87,8 +90,8 @@
 <p class="note">Ryan's full-resolution U-Net · 185 dev tiles · no training.</p>
 <table>
   <tr><th>Test</th><th class="num">Result</th></tr>
-  <tr><td>Wrong pixels that are <b>grouping</b> mistakes</td><td class="num"><b>48%</b></td></tr>
-  <tr><td>Wrong pixels that are <b>labeling</b> mistakes</td><td class="num"><b>52%</b></td></tr>
+  <tr><td>Wrong pixels that are <b>segmentation</b> errors</td><td class="num"><b>48%</b></td></tr>
+  <tr><td>Wrong pixels that are <b>class identification</b> errors</td><td class="num"><b>52%</b></td></tr>
   <tr><td>Predicted pieces per true region</td><td class="num"><b>~10</b> <span class="d">(should be 1)</span></td></tr>
   <tr><td>Presence + smoothing on this model</td><td class="num">0.6524 → <b>0.6610</b> <span class="d">(+0.0086)</span></td></tr>
   <tr><td>Upper bound: true classes given per tile</td><td class="num"><b>0.7163</b> <span class="d">(+0.0639)</span></td></tr>
@@ -99,9 +102,9 @@
 
 <div class="take"><b>Our presence rule gets only +0.0086 of a possible +0.0639</b>, so knowing the right classes is worth far more than the rule currently recovers. Coherent regions are worth even more (+0.1244). Both are what training arms B and C target.</div>
 
-<img src="prelim_error_split.png" alt="Wrong pixels per class, split into grouping and labeling errors">
+<img src="prelim_error_split.png" alt="Wrong pixels per class, split into segmentation and class identification errors">
 
-<div class="take"><b>Worst classes:</b> "other" (36% wrong) and stroma (25%), both mostly <b>labeling</b> mistakes. Inflammatory and necrosis errors are mostly <b>grouping</b>.</div>
+<div class="take"><b>Worst classes:</b> "other" (36% wrong) and stroma (25%), both mostly <b>class identification</b> errors. Inflammatory and necrosis errors are mostly <b>segmentation</b>.</div>
 </section>
 
 <section id="current">
@@ -110,8 +113,8 @@
 <table>
   <tr><th>Model</th><th>Added loss</th><th>Fixes</th><th class="num">Dev mIoU</th></tr>
   <tr><td>A (Ryan)</td><td>none</td><td class="dash">—</td><td class="num">0.6679</td></tr>
-  <tr><td>B</td><td>Region loss: pixels in the same true region should agree</td><td>Grouping</td><td class="num dash">—</td></tr>
-  <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Labeling</td><td class="num dash">—</td></tr>
+  <tr><td>B</td><td>Region loss: pixels in the same true region should agree</td><td>Segmentation</td><td class="num dash">—</td></tr>
+  <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Class identification</td><td class="num dash">—</td></tr>
 </table>
 <div class="take"><b>Success</b> = B or C beats A.</div>
 </section>
