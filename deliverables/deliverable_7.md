@@ -109,84 +109,48 @@ The other seven families move mIoU by less than ±0.004 on every organ. **Per-or
 
 ### Preliminary experiments
 
-**Goal:** find out whether **segmentation** or **class identification** is the bigger problem for the U-Net, so we know what to fix first.
+*Full-resolution U-Net · 185 dev tiles · no training*
 
-*Full-resolution U-Net · 185 BCSS dev tiles · no training*
+**Question:** is **segmentation** (wrong shape) or **class identification** (wrong tissue) the bigger problem?
 
-#### The two errors
-
-- **Segmentation error:** the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.
-- **Class identification error:** the U-Net gets the shape roughly right, but calls the region the wrong tissue.
-
-#### Method
-
-Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. **Right** → its wrong pixels are segmentation errors. **Wrong** → they are class identification errors.
+**Method:** in each true region, if the U-Net's most common label is right, its wrong pixels are segmentation errors; if not, they are class identification errors.
 
 ![Method](figures_20261123/prelim_split_diagram.png)
 
-#### Test 1 · How much of each class is wrong, and why?
+#### Test 1 · How much of each class is wrong?
 
 ![Test 1](figures_20261123/prelim_error_split.png)
 
-**Class identification is slightly bigger on average** (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.
+About even on average (9.4% vs 12.2%). Class identification dominates for "other" and stroma.
 
-#### Test 2 · What would fixing each one be worth?
-
-- **Perfect class identification:** keep the U-Net's regions; give each the class most of its true pixels have.
-- **Perfect segmentation:** keep the true regions; give each the class the U-Net predicts for most of it.
+#### Test 2 · What is fixing each one worth?
 
 ![Test 2](figures_20261123/prelim_ladder.png)
 
-**Both matter about equally:** perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.
+Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small fraction.
 
 ### Results
 
-Two kinds of fix: **WCSP fixes** correct the U-Net's output afterwards; **U-Net training losses** change the model itself.
+#### 1 · WCSP fixes (after the U-Net)
 
-#### 1 · WCSP fixes (after the U-Net): presence and clusters
-
-*Targets class identification. The U-Net is unchanged; WCSP corrects its output.*
-
-1. From the training ground truth, count how often each **set of classes** appears together in a tile (e.g. tumor + stroma is common; necrosis + "other" is rare).
-2. For a new tile, score every possible class set: the U-Net's confidence in the classes it would keep, plus a penalty for how rare that set is.
-3. Keep the best set and remove the other classes; their pixels go to the U-Net's next-best allowed class. Then smooth with WCSP.
-
-**Cluster** (optional add-on): SLIC groups the tile into about 256 patches of similar colour and prediction, and each patch is labelled as one unit before a final pixel pass.
-
-| Method | Dev (185) | Val (2,124, held out) | Full-res U-Net, dev |
-|---|---:|---:|---:|
-| U-Net | 0.7067 | 0.6489 | 0.6524 |
-| WCSP | 0.7090 (+0.0023) | 0.6506 (+0.0018) | 0.6547 (+0.0023) |
-| WCSP + cluster | 0.7163 (+0.0095) | 0.6544 (+0.0055) | — |
-| WCSP + presence | 0.7229 (+0.0162) | 0.6550 (+0.0061) | 0.6610 (+0.0086) |
-| **WCSP + presence + cluster** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** | — |
+- **Presence:** remove classes whose combination is rare in the training ground truth unless the U-Net is confident, then smooth with WCSP.
+- **Cluster:** label ~256 SLIC patches of similar colour as single units, then refine pixels.
 
 ![BCSS fixes](figures_20261123/bcss_fixes.png)
 
-**Presence works but recovers little:** +0.0075 on held-out val, against about +0.12 possible from perfect class identification.
+Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.
 
 #### 2 · U-Net training losses (changing the model itself)
 
-*Targets both errors at the source. No WCSP afterwards.*
+- **B · Segmentation loss:** pixels in the same true region should get the same prediction.
+- **C · Presence loss:** the model's predicted class set should match the tile's true class set.
 
-Instead of correcting the output afterwards, add a term to the U-Net's training loss. Same recipe for every model (10 epochs, same seed); only the loss changes.
+| Model | Targets | Pilot, 2 epochs (start 0.6450) | Full, 10 epochs |
+|---|---|:---:|:---:|
+| A · cross-entropy | — | 0.5553 | 0.6679 |
+| B · + segmentation loss | Segmentation | 0.5533 | next |
+| C · + presence loss | Class identification | 0.5608 | next |
 
-- **Segmentation loss (B):** for every true region in a training tile, compute the average prediction over its pixels and penalize pixels that stray from it. A region predicted as one coherent class costs nothing; a patchwork costs a lot, even when cross-entropy rates the two the same.
-- **Presence loss (C):** from the prediction, estimate which classes the tile contains, and penalize mismatches with the true class set.
+The 2-epoch pilot is too short: every arm ends below its starting point. The 10-epoch runs decide whether B or C beats A.
 
-| Model | Training loss | Targets | Pilot (2 epochs) | Full (10 epochs) |
-|---|---|---|:---:|:---:|
-| A · baseline | Pixel cross-entropy | — | running | 0.6679 |
-| B | + segmentation loss | Segmentation | running | — |
-| C | + presence loss | Class identification | running | — |
-
-**Success** = B or C beats A on raw U-Net output.
-
-#### Settings (from sweeps on dev)
-
-| Setting | Tried | Used |
-|---|---|---|
-| WCSP strength λ | 0.5 – 32 | 8 |
-| Presence strength γ | 10 – 100,000 | 3,000 |
-| SLIC patches | 64 / 256 / 1,024 | 256 |
-| Multi-scale μ, block levels, decay (23 schedules) | various | no gain over WCSP; not used |
+*Settings from dev sweeps: WCSP λ = 8, presence γ = 3,000, 256 SLIC patches. Multi-scale blocks and 23 decay schedules gave no gain.*

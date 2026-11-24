@@ -198,77 +198,42 @@
 <h2>BCSS</h2>
 
 <h3 id="bcss-prelim">Preliminary experiments</h3>
-<div class="take"><b>Goal:</b> find out whether <b>segmentation</b> or <b>class identification</b> is the bigger problem for the U-Net, so we know what to fix first.</div>
-<p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
+<p class="note">Full-resolution U-Net · 185 dev tiles · no training</p>
+<div class="take"><b>Question:</b> is <b>segmentation</b> (wrong shape) or <b>class identification</b> (wrong tissue) the bigger problem?</div>
+<p><b>Method:</b> in each true region, if the U-Net's most common label is right, its wrong pixels are segmentation errors; if not, they are class identification errors.</p>
+<img src="prelim_split_diagram.png" alt="How wrong pixels are split into segmentation and class identification errors">
 
-<h4>The two errors</h4>
-<ul>
-  <li><b>Segmentation error:</b> the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.</li>
-  <li><b>Class identification error:</b> the U-Net gets the shape roughly right, but calls the region the wrong tissue.</li>
-</ul>
+<h4>Test 1 · How much of each class is wrong?</h4>
+<img src="prelim_error_split.png" alt="Percent of each class wrong, split by error type, with the average">
+<div class="take">About even on average (9.4% vs 12.2%). Class identification dominates for "other" and stroma.</div>
 
-<h4>Method</h4>
-<p>Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. <b>Right</b> → its wrong pixels are segmentation errors. <b>Wrong</b> → they are class identification errors.</p>
-<img src="prelim_split_diagram.png" alt="Diagram: a mostly-right region gives segmentation errors; a mostly-wrong region gives class identification errors">
-
-<h4>Test 1 · How much of each class is wrong, and why?</h4>
-<img src="prelim_error_split.png" alt="Test 1: percent of each class wrong, split into segmentation and class identification errors, with the average">
-<div class="take"><b>Class identification is slightly bigger on average</b> (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.</div>
-
-<h4>Test 2 · What would fixing each one be worth?</h4>
-<ul>
-  <li><b>Perfect class identification:</b> keep the U-Net's regions; give each the class most of its true pixels have.</li>
-  <li><b>Perfect segmentation:</b> keep the true regions; give each the class the U-Net predicts for most of it.</li>
-</ul>
-<img src="prelim_ladder.png" alt="Test 2: today's methods vs. each problem made perfect">
-<div class="take"><b>Both matter about equally:</b> perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.</div>
-
+<h4>Test 2 · What is fixing each one worth?</h4>
+<img src="prelim_ladder.png" alt="mIoU today vs. with each problem made perfect">
+<div class="take">Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small fraction.</div>
 
 <h3 id="bcss-results">Results</h3>
-<p>Two kinds of fix: <b>WCSP fixes</b> correct the U-Net's output afterwards; <b>U-Net training losses</b> change the model itself.</p>
 
-<h4>1 · WCSP fixes (after the U-Net): presence and clusters</h4>
-<p class="note">Targets class identification. The U-Net is unchanged; WCSP corrects its output.</p>
-<ol>
-  <li>From the training ground truth, count how often each <b>set of classes</b> appears together in a tile (e.g. tumor + stroma is common; necrosis + "other" is rare).</li>
-  <li>For a new tile, score every possible class set: the U-Net's confidence in the classes it would keep, plus a penalty for how rare that set is.</li>
-  <li>Keep the best set and remove the other classes; their pixels go to the U-Net's next-best allowed class. Then smooth with WCSP.</li>
-</ol>
-<p><b>Cluster</b> (optional add-on): SLIC groups the tile into about 256 patches of similar colour and prediction, and each patch is labelled as one unit before a final pixel pass.</p>
-<div class="wrap"><table>
-  <tr><th>Method</th><th class="num">Dev (185)</th><th class="num">Val (2,124, held out)</th><th class="num">Full-res U-Net, dev</th></tr>
-  <tr><td>U-Net</td><td class="num">0.7067</td><td class="num">0.6489</td><td class="num">0.6524</td></tr>
-  <tr><td>WCSP</td><td class="num">0.7090 <span class="d">(+0.0023)</span></td><td class="num">0.6506 <span class="d">(+0.0018)</span></td><td class="num">0.6547 <span class="d">(+0.0023)</span></td></tr>
-  <tr><td>WCSP + cluster</td><td class="num">0.7163 <span class="d">(+0.0095)</span></td><td class="num">0.6544 <span class="d">(+0.0055)</span></td><td class="num dash">—</td></tr>
-  <tr><td>WCSP + presence</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td><td class="num">0.6550 <span class="d">(+0.0061)</span></td><td class="num">0.6610 <span class="d">(+0.0086)</span></td></tr>
-  <tr class="hl"><td>WCSP + presence + cluster</td><td class="num">0.7242 <span class="d">(+0.0175)</span></td><td class="num">0.6564 <span class="d">(+0.0075)</span></td><td class="num dash">—</td></tr>
-</table></div>
-<img src="bcss_fixes.png" alt="BCSS mIoU for U-Net, WCSP, WCSP + cluster, WCSP + presence and WCSP + presence + cluster, dev and val">
-<div class="take"><b>Presence works but recovers little:</b> +0.0075 on held-out val, against about +0.12 possible from perfect class identification (preliminary Test 2).</div>
+<h4>1 · WCSP fixes (after the U-Net)</h4>
+<ul>
+  <li><b>Presence:</b> remove classes whose combination is rare in the training ground truth unless the U-Net is confident, then smooth with WCSP.</li>
+  <li><b>Cluster:</b> label ~256 SLIC patches of similar colour as single units, then refine pixels.</li>
+</ul>
+<img src="bcss_fixes.png" alt="BCSS mIoU for WCSP, cluster and presence combinations, dev and val">
+<div class="take">Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.</div>
 
 <h4>2 · U-Net training losses (changing the model itself)</h4>
-<p class="note">Targets both errors at the source. No WCSP afterwards.</p>
-<p>Instead of correcting the output afterwards, add a term to the U-Net's training loss. Same recipe for every model (10 epochs, same seed); only the loss changes.</p>
 <ul>
-  <li><b>Segmentation loss (B):</b> for every true region in a training tile, compute the average prediction over its pixels and penalize pixels that stray from it. A region predicted as one coherent class costs nothing; a patchwork costs a lot, even when cross-entropy rates the two the same.</li>
-  <li><b>Presence loss (C):</b> from the prediction, estimate which classes the tile contains, and penalize mismatches with the true class set. This is the training version of the presence rule.</li>
+  <li><b>B · Segmentation loss:</b> pixels in the same true region should get the same prediction.</li>
+  <li><b>C · Presence loss:</b> the model's predicted class set should match the tile's true class set.</li>
 </ul>
 <div class="wrap"><table>
-  <tr><th>Model</th><th>Training loss</th><th>Targets</th><th class="num">Pilot (2 epochs)</th><th class="num">Full (10 epochs)</th></tr>
-  <tr><td>A · baseline</td><td>Pixel cross-entropy</td><td class="dash">—</td><td class="num dash">running</td><td class="num">0.6679</td></tr>
-  <tr><td>B</td><td>+ segmentation loss</td><td>Segmentation</td><td class="num dash">running</td><td class="num dash">—</td></tr>
-  <tr><td>C</td><td>+ presence loss</td><td>Class identification</td><td class="num dash">running</td><td class="num dash">—</td></tr>
+  <tr><th>Model</th><th>Targets</th><th class="num">Pilot, 2 epochs <span class="d">(start 0.6450)</span></th><th class="num">Full, 10 epochs</th></tr>
+  <tr><td>A · cross-entropy</td><td class="dash">—</td><td class="num">0.5553</td><td class="num">0.6679</td></tr>
+  <tr><td>B · + segmentation loss</td><td>Segmentation</td><td class="num">0.5533</td><td class="num dash">next</td></tr>
+  <tr><td>C · + presence loss</td><td>Class identification</td><td class="num">0.5608</td><td class="num dash">next</td></tr>
 </table></div>
-<div class="take"><b>Success</b> = B or C beats A on raw U-Net output, no post-processing.</div>
-
-<h4>Settings (from sweeps on dev)</h4>
-<div class="wrap"><table>
-  <tr><th>Setting</th><th>Tried</th><th>Used</th></tr>
-  <tr><td>WCSP strength λ</td><td>0.5 – 32</td><td>8</td></tr>
-  <tr><td>Presence strength γ</td><td>10 – 100,000</td><td>3,000</td></tr>
-  <tr><td>SLIC patches</td><td>64 / 256 / 1,024</td><td>256</td></tr>
-  <tr><td>Multi-scale μ, block levels, decay (23 schedules)</td><td>various</td><td>no gain over WCSP; not used</td></tr>
-</table></div>
+<div class="take">The 2-epoch pilot is too short: every arm ends below its starting point. The 10-epoch runs decide whether B or C beats A.</div>
+<p class="note">Settings from dev sweeps: WCSP λ = 8, presence γ = 3,000, 256 SLIC patches. Multi-scale blocks and 23 decay schedules gave no gain.</p>
 </section>
 
 </main>
