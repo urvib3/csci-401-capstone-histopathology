@@ -6,6 +6,7 @@
 #
 #   python deliverables/figures_20261123/issue_examples.py
 
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -18,6 +19,7 @@ from PIL import Image  # noqa: E402
 from scipy import ndimage  # noqa: E402
 
 OUT = Path(__file__).resolve().parent
+sys.path.insert(0, str(OUT.parents[1]))
 INPUTS = Path("data/fullres_multiscale_20261115/inputs")
 IMAGES = Path("/scratch1/ubhuwani/data/bcss_v2/BCSS_512")
 NAMES = ["Tumor", "Inflammatory", "Stroma", "Necrosis", "Other"]
@@ -66,33 +68,27 @@ def scores(path):
 def main():
     rows = [r for r in (scores(p) for p in sorted(INPUTS.glob("*.npz"))) if r is not None]
     picks = [("Segmentation: one true region broken into pieces", max(rows, key=lambda r: r["grouping"])),
-             ("Class identification: a whole region given the wrong class", max(rows, key=lambda r: r["labeling"])),
-             ("Too many tissue types: classes not in the tile", max(rows, key=lambda r: r["extra"]))]
-    cmap = ListedColormap(TISSUE + ["#e4e3df"])
-    fig, axes = plt.subplots(3, 3, figsize=(9.6, 10.2), gridspec_kw={"hspace": 0.22, "wspace": 0.04})
+             ("Class identification: a whole region given the wrong class", max(rows, key=lambda r: r["labeling"]))]
+    from wcsp.labels import COLORS
+    from wcsp.viz import overlay
+
+    fig, axes = plt.subplots(2, 3, figsize=(9.6, 7.6), gridspec_kw={"hspace": 0.32, "wspace": 0.04})
     for i, (title, r) in enumerate(picks):
         img = image_for(r["id"])
-        show = lambda a: np.where(r["target"] == IGNORE, K, a)  # noqa: E731
-        panels = [(img, "Image"), (show(r["target"]), "Ground truth"), (show(r["pred"]), "U-Net")]
+        panels = [(img, "Image"), (overlay(img, r["target"]), "Ground truth"), (overlay(img, r["pred"]), "U-Net")]
         for j, (data, name) in enumerate(panels):
             ax = axes[i, j]
-            if data is None:
-                ax.text(0.5, 0.5, "image not found", ha="center", va="center")
-            elif data.ndim == 3:
-                ax.imshow(data)
-            else:
-                ax.imshow(data, cmap=cmap, vmin=0, vmax=K, interpolation="nearest")
+            ax.imshow(data)
             ax.set_xticks([])
             ax.set_yticks([])
-            for s in ax.spines.values():
-                s.set_visible(False)
-            if i == 0:
-                ax.set_title(name, color=INK, fontsize=11)
-        axes[i, 0].text(0, 1.04, title, transform=axes[i, 0].transAxes, color=INK, fontsize=11,
+            for s_ in ax.spines.values():
+                s_.set_visible(False)
+            ax.set_title(name, color="#52514e", fontsize=10, pad=4)
+        axes[i, 0].text(0, 1.13, title, transform=axes[i, 0].transAxes, color=INK, fontsize=12,
                         fontweight="bold", va="bottom")
         print(title, r["id"])
-    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in TISSUE] + [plt.Rectangle((0, 0), 1, 1, color="#e4e3df")]
-    fig.legend(handles, NAMES + ["Unlabeled"], loc="lower center", ncol=6, frameon=False, bbox_to_anchor=(0.5, 0.04))
+    handles = [plt.Rectangle((0, 0), 1, 1, color=np.asarray(c) / 255) for c in COLORS]
+    fig.legend(handles, NAMES, loc="lower center", ncol=5, frameon=False, bbox_to_anchor=(0.5, 0.02))
     fig.savefig(OUT / "issue_examples.png", dpi=170, bbox_inches="tight", facecolor=SURFACE)
 
 

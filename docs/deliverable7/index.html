@@ -14,6 +14,8 @@
   h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
   .sub { color: var(--muted); margin: 0; }
   h2 { font-size: 22px; margin: 48px 0 12px; padding-top: 8px; }
+  h3 { font-size: 17px; margin: 28px 0 6px; }
+  ul { margin: 6px 0 10px; padding-left: 22px; }
   p { margin: 10px 0; }
   .note { color: var(--muted); font-size: 14px; }
   .take { background: var(--soft); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 4px; margin: 16px 0; }
@@ -37,7 +39,7 @@
 <header>
   <h1>Deliverable 7</h1>
   <p class="sub">November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)</p>
-  <nav><a href="#recap">Recap</a><a href="#hypothesis">Hypothesis</a><a href="#prelim">Preliminary tests</a><a href="#current">Current experiments</a></nav>
+  <nav><a href="#recap">Recap</a><a href="#problem">Problem</a><a href="#prelim">BCSS preliminary tests</a><a href="#current">Current experiments</a></nav>
 </header>
 
 <section id="recap">
@@ -72,44 +74,42 @@
 <p class="note">Sources: PanNuke <code>experiments/pannuke_wcsp/organ_wcsp/breast/evaluation.json</code> (branch <code>organ-wcsp-breast</code>, Nov 22); BCSS run summaries (λ = 8).</p>
 </section>
 
-<section id="hypothesis">
-<h2>Hypothesis</h2>
-<div class="take"><b>The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.</b> Smoothing cleans up noisy borders. The U-Net's real errors are bigger than that.</div>
+<section id="problem">
+<h2>Problem</h2>
+<div class="take"><b>The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.</b> Smoothing cleans up noisy borders; the real errors are bigger.</div>
 <table>
-  <tr><th>Problem</th><th>What goes wrong</th><th>Evidence</th><th>What could fix it</th></tr>
-  <tr><td><b>Segmentation</b></td><td>One true region is broken into many pieces</td><td>~10 predicted pieces per true region; 48% of wrong pixels</td><td>Training the U-Net to keep regions whole (region loss)</td></tr>
-  <tr><td><b>Class identification</b></td><td>A whole region is given the wrong class, or a class that isn't in the tile</td><td>52% of wrong pixels; "other" 36% wrong, stroma 25%; "other" predicted in 20% of tiles vs 11% in truth</td><td>Strong data-derived rules (e.g. presence), not light smoothing; a better classifier</td></tr>
-  <tr><td><b>Too many tissue types</b> <span class="d">(PanNuke only)</span></td><td>Patches from all organs share one model and prior, so cell types from other organs leak in</td><td>Breast-only prior beats the all-organ prior by +0.0100 on the same Breast patches</td><td>Run per tissue type: fit and tune on one organ at a time</td></tr>
+  <tr><th>Problem</th><th>Dataset</th><th>What goes wrong</th><th>What could fix it</th></tr>
+  <tr><td><b>Segmentation</b></td><td>BCSS</td><td>One true region is broken into many pieces</td><td>Train the U-Net to keep regions whole</td></tr>
+  <tr><td><b>Class identification</b></td><td>BCSS</td><td>A whole region gets the wrong class, or a class that isn't in the tile</td><td>Strong data-derived rules (e.g. presence), not light smoothing</td></tr>
+  <tr><td><b>Mixed tissue types</b></td><td>PanNuke</td><td>Patches from all organs share one model and one prior, so no organ is fit well</td><td>Run per tissue type: fit and tune on one organ at a time</td></tr>
 </table>
-<p><b>How a wrong pixel is assigned to a problem:</b> take each true region (one connected piece of one class in the ground truth) and find the class the U-Net predicts for most of its pixels.</p>
-<ul>
-  <li><b>Majority correct:</b> the U-Net identified the region's class, so its wrong pixels are <b>segmentation</b> errors (stray pieces and borders).</li>
-  <li><b>Majority wrong:</b> the U-Net called the whole region the wrong class, so its wrong pixels are <b>class identification</b> errors.</li>
-</ul>
-<p class="note">PanNuke example: in a tumor patch, one nucleus is given a type that doesn't belong (non-neoplastic, purple). The type-set rule removes it.</p>
-<img src="pannuke_type_set_example.png" alt="PanNuke patch where an extra cell type is predicted and removed by the type-set rule">
+<img src="issue_examples.png" alt="BCSS examples: segmentation error and class identification error">
+<p class="note">PanNuke: fitting on Breast only beats fitting on all tissue types, on the same 169 Breast test patches (Global WCSP 0.4384 → Breast WCSP 0.4484).</p>
+<img src="pannuke_tissue_type.png" alt="PanNuke: Breast-specific fitting vs. global fitting">
 </section>
 
 <section id="prelim">
-<h2>Preliminary tests</h2>
-<p class="note">Full-resolution U-Net · 185 dev tiles · no training.</p>
-<table>
-  <tr><th>Test</th><th class="num">Result</th></tr>
-  <tr><td>Wrong pixels that are <b>segmentation</b> errors</td><td class="num"><b>48%</b></td></tr>
-  <tr><td>Wrong pixels that are <b>class identification</b> errors</td><td class="num"><b>52%</b></td></tr>
-  <tr><td>Predicted pieces per true region</td><td class="num"><b>~10</b> <span class="d">(should be 1)</span></td></tr>
-  <tr><td>Presence + smoothing on this model</td><td class="num">0.6524 → <b>0.6610</b> <span class="d">(+0.0086)</span></td></tr>
-  <tr><td>Upper bound: true classes given per tile</td><td class="num"><b>0.7163</b> <span class="d">(+0.0639)</span></td></tr>
-  <tr><td>Upper bound: every true region coherent</td><td class="num"><b>0.7768</b> <span class="d">(+0.1244)</span></td></tr>
-</table>
+<h2>BCSS preliminary tests</h2>
+<p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
 
-<img src="prelim_ladder.png" alt="Gain from presence vs. the two upper bounds">
+<h3>Test 1 · Which problem causes the errors?</h3>
+<p><b>Method:</b> for each true region, check whether the U-Net predicts the right class for most of it.</p>
+<ul>
+  <li><b>Yes:</b> its wrong pixels are <b>segmentation</b> errors (stray pieces, borders).</li>
+  <li><b>No:</b> its wrong pixels are <b>class identification</b> errors (the whole region is misread).</li>
+</ul>
+<img src="prelim_error_split.png" alt="Test 1: errors per class, segmentation vs class identification">
+<div class="take"><b>Answer:</b> about half each (48% segmentation, 52% class identification). "Other" and stroma fail mostly by class identification; inflammatory and necrosis mostly by segmentation.</div>
 
-<div class="take"><b>Our presence rule gets only +0.0086 of a possible +0.0639</b>, so knowing the right classes is worth far more than the rule currently recovers. Coherent regions are worth even more (+0.1244). Both are what training arms B and C target.</div>
-
-<img src="prelim_error_split.png" alt="Wrong pixels per class, split into segmentation and class identification errors">
-
-<div class="take"><b>Worst classes:</b> "other" (36% wrong) and stroma (25%), both mostly <b>class identification</b> errors. Inflammatory and necrosis errors are mostly <b>segmentation</b>.</div>
+<h3>Test 2 · What is fixing each problem worth?</h3>
+<p><b>Method:</b> make one problem perfect, keep the U-Net for everything else, and re-score.</p>
+<ul>
+  <li><b>Only class set fixed:</b> each tile is told which classes it contains; the U-Net still decides where they go.</li>
+  <li><b>Only segmentation fixed:</b> each true region is labeled as one piece, with the class the U-Net predicts on average over it.</li>
+</ul>
+<p class="note">Fixing both would give the ground truth (1.0), so each bar shows what <i>one</i> problem costs.</p>
+<img src="prelim_ladder.png" alt="Test 2: value of fixing each problem">
+<div class="take"><b>Answer:</b> segmentation is worth +0.1244 and the class set +0.0639. Our presence rule recovers only +0.0086 of the class-set gain, and smoothing +0.0023.</div>
 </section>
 
 <section id="current">

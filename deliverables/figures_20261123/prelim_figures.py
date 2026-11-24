@@ -93,13 +93,13 @@ def fig_split(group, label, conf):
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)
     ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=1)
-    title(ax, "Errors per true class: segmentation vs. class identification")
+    title(ax, "Test 1 · Which kind of error, per class")
     fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")
 
 
 def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
-    rows = [("U-Net (raw)", raw, GRAY), ("+ WCSP", wcsp, GRAY), ("+ presence + WCSP", presence, BLUE),
-            ("Upper bound: true classes + WCSP", p_oracle, BLUE), ("Upper bound: coherent regions", r_oracle, ORANGE)]
+    rows = [("U-Net", raw, GRAY), ("+ WCSP smoothing", wcsp, GRAY), ("+ presence rule (today)", presence, BLUE),
+            ("Only class set fixed", p_oracle, BLUE), ("Only segmentation fixed", r_oracle, ORANGE)]
     fig, ax = plt.subplots(figsize=(6.4, 2.8))
     ys = np.arange(len(rows))[::-1]
     for y, (name, v, c) in zip(ys, rows):
@@ -112,7 +112,7 @@ def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
     ax.set_xlabel("mIoU (axis starts at %.2f)" % lo)
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)
-    title(ax, "How much each fix could gain")
+    title(ax, "Test 2 · What fixing one problem is worth")
     fig.savefig(OUT / "prelim_ladder.png", dpi=200, bbox_inches="tight")
 
 
