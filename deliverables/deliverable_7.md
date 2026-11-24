@@ -145,6 +145,31 @@ Either fix is worth about +0.10 to +0.12. Presence and smoothing recover a small
 
 Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.
 
+##### Is the bottleneck the class set or WCSP?
+
+| Dev (185 tiles) | Tiles with the exact true class set | mIoU |
+|---|---:|---:|
+| U-Net | 56.8% | 0.7067 |
+| WCSP + presence (our class set) | 66.5% | 0.7229 (+0.0162) |
+| **WCSP + true class set (upper bound)** | 100% | **0.7883 (+0.0816)** |
+
+**Picking the class set is the bottleneck:** with the right set, WCSP gains five times more. Presence still gets a third of tiles' sets wrong.
+
+##### Other data-derived rules tried
+
+| Rule (from training ground truth) | Alone (Δ vs WCSP) | On top of presence |
+|---|---:|---:|
+| **Presence: rare class combinations cost more** | **+0.0139** | — |
+| Neighbor tiles: a class is likely if an adjacent tile has it | +0.0039 | −0.0023 |
+| Extra cost on "other" / necrosis | +0.0068 / +0.0055 | −0.0070 / +0.0024* |
+| "Other" must cover ≥ 5% of the tile | +0.0029 | 0.0000 |
+| Necrosis regions ≥ 1,024 px | +0.0010 | +0.0002 |
+| Inflammatory must border stroma | +0.0007 | −0.0001 |
+| Minimum piece size, every class | 0.0000 | — |
+| Necrosis must touch tumor · ROI-level presence | not encoded: the ground truth breaks them | |
+
+**Why presence only:** it is one prior learned from data with one strength setting, and it gives most of the gain. The other rules remove the same false "other" and necrosis, so on top of presence they add nothing; the one exception (*necrosis cost) is a per-class value hand-tuned on dev, which we treat as a hack and leave out.
+
 #### 2 · U-Net training losses (changing the model itself)
 
 - **B · Segmentation loss:** pixels in the same true region should get the same prediction.

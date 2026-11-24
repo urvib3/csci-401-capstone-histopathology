@@ -223,6 +223,29 @@
 <img src="bcss_fixes.png" alt="BCSS mIoU for WCSP, cluster and presence combinations, dev and val">
 <div class="take">Presence + cluster is best (+0.0075 on held-out val), but far below the ~+0.1 available. On the full-resolution U-Net, presence adds +0.0086.</div>
 
+<h5>Is the bottleneck the class set or WCSP?</h5>
+<div class="wrap"><table>
+  <tr><th>Dev (185 tiles)</th><th class="num">Tiles with the exact true class set</th><th class="num">mIoU</th></tr>
+  <tr><td>U-Net</td><td class="num">56.8%</td><td class="num">0.7067</td></tr>
+  <tr><td>WCSP + presence (our class set)</td><td class="num">66.5%</td><td class="num">0.7229 <span class="d">(+0.0162)</span></td></tr>
+  <tr class="hl"><td>WCSP + true class set (upper bound)</td><td class="num">100%</td><td class="num">0.7883 <span class="d">(+0.0816)</span></td></tr>
+</table></div>
+<div class="take"><b>Picking the class set is the bottleneck:</b> with the right set, WCSP gains five times more. Presence still gets a third of tiles' sets wrong.</div>
+
+<h5>Other data-derived rules tried</h5>
+<div class="wrap"><table>
+  <tr><th>Rule (from training ground truth)</th><th class="num">Alone (Δ vs WCSP)</th><th class="num">On top of presence</th></tr>
+  <tr class="hl"><td>Presence: rare class combinations cost more</td><td class="num">+0.0139</td><td class="num dash">—</td></tr>
+  <tr><td>Neighbor tiles: a class is likely if an adjacent tile has it</td><td class="num">+0.0039</td><td class="num">−0.0023</td></tr>
+  <tr><td>Extra cost on "other" / necrosis</td><td class="num">+0.0068 / +0.0055</td><td class="num">−0.0070 / +0.0024*</td></tr>
+  <tr><td>"Other" must cover ≥ 5% of the tile</td><td class="num">+0.0029</td><td class="num">0.0000</td></tr>
+  <tr><td>Necrosis regions ≥ 1,024 px</td><td class="num">+0.0010</td><td class="num">+0.0002</td></tr>
+  <tr><td>Inflammatory must border stroma</td><td class="num">+0.0007</td><td class="num">−0.0001</td></tr>
+  <tr><td>Minimum piece size, every class</td><td class="num">0.0000</td><td class="num dash">—</td></tr>
+  <tr><td>Necrosis must touch tumor · ROI-level presence</td><td colspan="2" class="dash">not encoded: the ground truth breaks them</td></tr>
+</table></div>
+<div class="take"><b>Why presence only:</b> it is one prior learned from data with one strength setting, and it gives most of the gain. The other rules remove the same false "other" and necrosis, so on top of presence they add nothing; the one exception (*necrosis cost) is a per-class value hand-tuned on dev, which we treat as a hack and leave out.</div>
+
 <h4>2 · U-Net training losses (changing the model itself)</h4>
 <ul>
   <li><b>B · Segmentation loss:</b> pixels in the same true region should get the same prediction.</li>
