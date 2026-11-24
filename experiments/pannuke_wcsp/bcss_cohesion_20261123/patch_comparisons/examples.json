@@ -1,0 +1,26 @@
+{
+  "scope": "Descriptive examples selected from 78 reconstructed patches available at publication; not representative or an independent test.",
+  "examples": [
+    {
+      "file": "presence_gain_0100.png",
+      "image_index": 100,
+      "selection": "presence_gain",
+      "archived_presence_gain": 0.040309577656209905,
+      "archived_sweep_gain": 0.040309577656209905
+    },
+    {
+      "file": "presence_loss_0081.png",
+      "image_index": 81,
+      "selection": "presence_loss",
+      "archived_presence_gain": -0.12272327790878897,
+      "archived_sweep_gain": 0.01459488543172327
+    },
+    {
+      "file": "sweep_regression_0072.png",
+      "image_index": 72,
+      "selection": "sweep_regression",
+      "archived_presence_gain": -0.10379105852560438,
+      "archived_sweep_gain": -0.10379105852560438
+    }
+  ]
+}

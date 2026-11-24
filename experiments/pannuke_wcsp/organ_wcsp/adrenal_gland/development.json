@@ -1,0 +1,3256 @@
+{
+  "n_dev_patches": 73,
+  "rows": [
+    {
+      "family": "control",
+      "name": "raw_tp",
+      "dev_bio_miou": 0.33170564502708305,
+      "params": {}
+    },
+    {
+      "family": "control",
+      "name": "fixed_mask_vote",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {}
+    },
+    {
+      "family": "control",
+      "name": "organ_v1",
+      "dev_bio_miou": 0.3321113100104827,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "control",
+      "name": "organ_v2",
+      "dev_bio_miou": 0.33208673609842815,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.05",
+      "dev_bio_miou": 0.33211458697620455,
+      "params": {
+        "beta": 0.05
+      }
+    },
+    {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.1",
+      "dev_bio_miou": 0.33189725838035766,
+      "params": {
+        "beta": 0.1
+      }
+    },
+    {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.15",
+      "dev_bio_miou": 0.33173638813293405,
+      "params": {
+        "beta": 0.15
+      }
+    },
+    {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.3",
+      "dev_bio_miou": 0.33226201447545445,
+      "params": {
+        "beta": 0.3
+      }
+    },
+    {
+      "family": "pixel_table",
+      "name": "pixel_table_beta0.5",
+      "dev_bio_miou": 0.3325516674440021,
+      "params": {
+        "beta": 0.5
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.1_par0.03_gamma0",
+      "dev_bio_miou": 0.33185881347000007,
+      "params": {
+        "beta": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "parent": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.3_par0.1_gamma0",
+      "dev_bio_miou": 0.3321113100104827,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.6_par0.3_gamma0",
+      "dev_bio_miou": 0.33216731763162005,
+      "params": {
+        "beta": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "parent": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.1_par0.03_gamma0.1",
+      "dev_bio_miou": 0.3318435375403511,
+      "params": {
+        "beta": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "parent": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "gamma": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.3_par0.1_gamma0.1",
+      "dev_bio_miou": 0.3321102934660036,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.6_par0.3_gamma0.1",
+      "dev_bio_miou": 0.3321724497168391,
+      "params": {
+        "beta": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "parent": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "gamma": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.1_par0.03_gamma0.3",
+      "dev_bio_miou": 0.33184821978540757,
+      "params": {
+        "beta": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "parent": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.3_par0.1_gamma0.3",
+      "dev_bio_miou": 0.33208673609842815,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.6_par0.3_gamma0.3",
+      "dev_bio_miou": 0.3321440385214754,
+      "params": {
+        "beta": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "parent": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.1_par0.03_gamma1",
+      "dev_bio_miou": 0.33186857051194474,
+      "params": {
+        "beta": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "parent": [
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "gamma": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.3_par0.1_gamma1",
+      "dev_bio_miou": 0.3320451267870706,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "hierarchy",
+      "name": "hierarchy_sib0.6_par0.3_gamma1",
+      "dev_bio_miou": 0.3321094959616187,
+      "params": {
+        "beta": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "parent": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "gamma": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "siblings_zero",
+      "dev_bio_miou": 0.33191324881948525,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "zero"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "siblings_potts",
+      "dev_bio_miou": 0.3320575582777461,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "potts"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "siblings_hybrid",
+      "dev_bio_miou": 0.3321113100104827,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.01",
+      "dev_bio_miou": 0.33180434527404473,
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.01,
+          0.04,
+          0.16,
+          0.64,
+          2.56
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.03",
+      "dev_bio_miou": 0.3318578742315289,
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.03,
+          0.12,
+          0.48,
+          1.92,
+          7.68
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.1",
+      "dev_bio_miou": 0.33202063005861693,
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.1,
+          0.4,
+          1.6,
+          6.4,
+          25.6
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.3",
+      "dev_bio_miou": 0.33221415394760834,
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.3,
+          1.2,
+          4.8,
+          19.2,
+          76.8
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "scaling_siblings",
+      "name": "scaled_parent0.5",
+      "dev_bio_miou": 0.33189249307544505,
+      "params": {
+        "beta": [
+          0.3,
+          0.6,
+          1.2,
+          2.4,
+          4.8,
+          9.6
+        ],
+        "parent": [
+          0.5,
+          2.0,
+          8.0,
+          32.0,
+          128.0
+        ],
+        "gamma": [
+          1.2,
+          4.8,
+          19.2,
+          76.8,
+          307.2
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_blocks_0.8",
+      "dev_bio_miou": 0.3320437404162929,
+      "params": {
+        "beta": [
+          0.3,
+          0.12288000000000002,
+          0.15360000000000004,
+          0.19200000000000003,
+          0.24,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_all_0.8",
+      "dev_bio_miou": 0.33202619694783053,
+      "params": {
+        "beta": [
+          0.09830400000000002,
+          0.12288000000000002,
+          0.15360000000000004,
+          0.19200000000000003,
+          0.24,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_pixels_0.8",
+      "dev_bio_miou": 0.33210708964683466,
+      "params": {
+        "beta": [
+          0.09830400000000002,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_potts_blocks_0.8",
+      "dev_bio_miou": 0.33204476899100815,
+      "params": {
+        "beta": [
+          0.3,
+          0.12288000000000002,
+          0.15360000000000004,
+          0.19200000000000003,
+          0.24,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "potts"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_blocks_0.6",
+      "dev_bio_miou": 0.332039067388338,
+      "params": {
+        "beta": [
+          0.3,
+          0.03888,
+          0.06479999999999998,
+          0.108,
+          0.18,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_all_0.6",
+      "dev_bio_miou": 0.33194828436322066,
+      "params": {
+        "beta": [
+          0.023327999999999995,
+          0.03888,
+          0.06479999999999998,
+          0.108,
+          0.18,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_pixels_0.6",
+      "dev_bio_miou": 0.33200908176182137,
+      "params": {
+        "beta": [
+          0.023327999999999995,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_potts_blocks_0.6",
+      "dev_bio_miou": 0.33203620063437655,
+      "params": {
+        "beta": [
+          0.3,
+          0.03888,
+          0.06479999999999998,
+          0.108,
+          0.18,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "potts"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_blocks_0.4",
+      "dev_bio_miou": 0.33203675817990785,
+      "params": {
+        "beta": [
+          0.3,
+          0.007680000000000001,
+          0.019200000000000005,
+          0.04800000000000001,
+          0.12,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_all_0.4",
+      "dev_bio_miou": 0.3319269942579651,
+      "params": {
+        "beta": [
+          0.0030720000000000005,
+          0.007680000000000001,
+          0.019200000000000005,
+          0.04800000000000001,
+          0.12,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_pixels_0.4",
+      "dev_bio_miou": 0.33197828032359583,
+      "params": {
+        "beta": [
+          0.0030720000000000005,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_potts_blocks_0.4",
+      "dev_bio_miou": 0.33203620063437655,
+      "params": {
+        "beta": [
+          0.3,
+          0.007680000000000001,
+          0.019200000000000005,
+          0.04800000000000001,
+          0.12,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "potts"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_blocks_0.2",
+      "dev_bio_miou": 0.33203675817990785,
+      "params": {
+        "beta": [
+          0.3,
+          0.00048000000000000007,
+          0.0024000000000000007,
+          0.012000000000000002,
+          0.06,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_all_0.2",
+      "dev_bio_miou": 0.331926772090653,
+      "params": {
+        "beta": [
+          9.600000000000002e-05,
+          0.00048000000000000007,
+          0.0024000000000000007,
+          0.012000000000000002,
+          0.06,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_pixels_0.2",
+      "dev_bio_miou": 0.3319792940881409,
+      "params": {
+        "beta": [
+          9.600000000000002e-05,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_potts_blocks_0.2",
+      "dev_bio_miou": 0.33203620063437655,
+      "params": {
+        "beta": [
+          0.3,
+          0.00048000000000000007,
+          0.0024000000000000007,
+          0.012000000000000002,
+          0.06,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "potts"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "parent_-1",
+      "dev_bio_miou": 0.33213661949528656,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.25806451612903225,
+          0.12903225806451613,
+          0.06451612903225806,
+          0.03225806451612903,
+          0.016129032258064516
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "sibling_-1",
+      "dev_bio_miou": 0.3321305854618517,
+      "params": {
+        "beta": [
+          0.3,
+          0.7741935483870968,
+          0.3870967741935484,
+          0.1935483870967742,
+          0.0967741935483871,
+          0.04838709677419355
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_-1",
+      "dev_bio_miou": 0.3320384766218699,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.7741935483870968,
+          0.3870967741935484,
+          0.1935483870967742,
+          0.0967741935483871,
+          0.04838709677419355
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "parent_-0.5",
+      "dev_bio_miou": 0.33213245158730464,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.17789414921811064,
+          0.1257901592455376,
+          0.08894707460905532,
+          0.0628950796227688,
+          0.04447353730452766
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "sibling_-0.5",
+      "dev_bio_miou": 0.3321219578717355,
+      "params": {
+        "beta": [
+          0.3,
+          0.5336824476543319,
+          0.3773704777366128,
+          0.26684122382716596,
+          0.1886852388683064,
+          0.13342061191358298
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_-0.5",
+      "dev_bio_miou": 0.33204573416999517,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.5336824476543319,
+          0.3773704777366128,
+          0.26684122382716596,
+          0.1886852388683064,
+          0.13342061191358298
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "parent_0.5",
+      "dev_bio_miou": 0.33191488962076676,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.04447353730452766,
+          0.0628950796227688,
+          0.08894707460905532,
+          0.1257901592455376,
+          0.17789414921811064
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "sibling_0.5",
+      "dev_bio_miou": 0.3320437404162929,
+      "params": {
+        "beta": [
+          0.3,
+          0.13342061191358295,
+          0.18868523886830638,
+          0.2668412238271659,
+          0.37737047773661275,
+          0.5336824476543318
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_0.5",
+      "dev_bio_miou": 0.33208465562118417,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.13342061191358295,
+          0.18868523886830638,
+          0.2668412238271659,
+          0.37737047773661275,
+          0.5336824476543318
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "parent_1",
+      "dev_bio_miou": 0.33189972052122285,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.016129032258064516,
+          0.03225806451612903,
+          0.06451612903225806,
+          0.12903225806451613,
+          0.25806451612903225
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "sibling_1",
+      "dev_bio_miou": 0.332039067388338,
+      "params": {
+        "beta": [
+          0.3,
+          0.04838709677419355,
+          0.0967741935483871,
+          0.1935483870967742,
+          0.3870967741935484,
+          0.7741935483870968
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_1",
+      "dev_bio_miou": 0.33210889001888555,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.04838709677419355,
+          0.0967741935483871,
+          0.1935483870967742,
+          0.3870967741935484,
+          0.7741935483870968
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "parent_area",
+      "dev_bio_miou": 0.33176384802802655,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.001466275659824047,
+          0.005865102639296188,
+          0.02346041055718475,
+          0.093841642228739,
+          0.375366568914956
+        ],
+        "gamma": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "adaptive": false,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_adaptive",
+      "dev_bio_miou": 0.33210879516750885,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "adaptive": true,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_adaptive_fine",
+      "dev_bio_miou": 0.33208585740682894,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.5336824476543319,
+          0.3773704777366128,
+          0.26684122382716596,
+          0.1886852388683064,
+          0.13342061191358298
+        ],
+        "adaptive": true,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "unary_adaptive_coarse",
+      "dev_bio_miou": 0.3321097735209262,
+      "params": {
+        "beta": [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "parent": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "gamma": [
+          0.13342061191358295,
+          0.18868523886830638,
+          0.2668412238271659,
+          0.37737047773661275,
+          0.5336824476543318
+        ],
+        "adaptive": true,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "decay",
+      "name": "decay_combined",
+      "dev_bio_miou": 0.3322172791391839,
+      "params": {
+        "beta": [
+          0.3,
+          0.7741935483870968,
+          0.3870967741935484,
+          0.1935483870967742,
+          0.0967741935483871,
+          0.04838709677419355
+        ],
+        "parent": [
+          0.25806451612903225,
+          0.12903225806451613,
+          0.06451612903225806,
+          0.03225806451612903,
+          0.016129032258064516
+        ],
+        "gamma": [
+          0.13342061191358295,
+          0.18868523886830638,
+          0.2668412238271659,
+          0.37737047773661275,
+          0.5336824476543318
+        ],
+        "adaptive": true,
+        "table": "hybrid"
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.1",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.1",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.1",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.1",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.1",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.1",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.1,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.25",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.25",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.25",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.25",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.25",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.25",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.25_area0.25",
+      "dev_bio_miou": 0.3335147016134208,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.25_area0.25",
+      "dev_bio_miou": 0.33325868892102467,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.25_area0.25",
+      "dev_bio_miou": 0.3357056312170945,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.25_area0.25",
+      "dev_bio_miou": 0.3335147016134208,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.25_area0.25",
+      "dev_bio_miou": 0.33325868892102467,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.25_area0.25",
+      "dev_bio_miou": 0.3357056312170945,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.25_area0.75",
+      "dev_bio_miou": 0.33401320422077324,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.25_area0.75",
+      "dev_bio_miou": 0.33274574448729044,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.25_area0.75",
+      "dev_bio_miou": 0.33205501787783376,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.25_area0.75",
+      "dev_bio_miou": 0.33401320422077324,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.25_area0.75",
+      "dev_bio_miou": 0.3333207805029909,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.25_area0.75",
+      "dev_bio_miou": 0.33205501787783376,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.25,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.5",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.5",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.5",
+      "dev_bio_miou": 0.33524045820052795,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.5",
+      "dev_bio_miou": 0.33478710283724844,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.5",
+      "dev_bio_miou": 0.33475478416415644,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.5",
+      "dev_bio_miou": 0.3336025619693113,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.5_area0.25",
+      "dev_bio_miou": 0.3337767952152472,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.5_area0.25",
+      "dev_bio_miou": 0.3340249715864241,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.5_area0.25",
+      "dev_bio_miou": 0.3357056312170945,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.5_area0.25",
+      "dev_bio_miou": 0.33452608570337283,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.5_area0.25",
+      "dev_bio_miou": 0.33194884282055337,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.5_area0.25",
+      "dev_bio_miou": 0.3357056312170945,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.25
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_0.5_area0.75",
+      "dev_bio_miou": 0.33401320422077324,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_0.5_area0.75",
+      "dev_bio_miou": 0.33255297669127215,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_0.5_area0.75",
+      "dev_bio_miou": 0.3312925521683866,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_0.5_area0.75",
+      "dev_bio_miou": 0.3336135110330988,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_0.5_area0.75",
+      "dev_bio_miou": 0.3321582116278464,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_0.5_area0.75",
+      "dev_bio_miou": 0.3312925521683866,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 0.5,
+        "area_weight": 0.75
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_1",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_1",
+      "dev_bio_miou": 0.33520538688241314,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_1",
+      "dev_bio_miou": 0.33522861805386234,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_1",
+      "dev_bio_miou": 0.3359797484946619,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_1",
+      "dev_bio_miou": 0.33536670626499887,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_1",
+      "dev_bio_miou": 0.3349367842162399,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 1.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_potts_2",
+      "dev_bio_miou": 0.33514137103374564,
+      "params": {
+        "unary": "vote",
+        "table": "potts",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_potts_2",
+      "dev_bio_miou": 0.3365053531253841,
+      "params": {
+        "unary": "mean",
+        "table": "potts",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_potts_2",
+      "dev_bio_miou": 0.3361904108847107,
+      "params": {
+        "unary": "log_mean",
+        "table": "potts",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_vote_hybrid_2",
+      "dev_bio_miou": 0.3364328003333902,
+      "params": {
+        "unary": "vote",
+        "table": "hybrid",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_mean_hybrid_2",
+      "dev_bio_miou": 0.3334823528078132,
+      "params": {
+        "unary": "mean",
+        "table": "hybrid",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "nucleus_pairwise",
+      "name": "nucleus_log_mean_hybrid_2",
+      "dev_bio_miou": 0.3325504949480552,
+      "params": {
+        "unary": "log_mean",
+        "table": "hybrid",
+        "beta": 2.0,
+        "area_weight": 0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_model_0.25",
+      "dev_bio_miou": 0.33518209823641315,
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_blend_0.25",
+      "dev_bio_miou": 0.3325667326140429,
+      "params": {
+        "mode": "count_blend",
+        "unary": "vote",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_model_0.25",
+      "dev_bio_miou": 0.33516019001138797,
+      "params": {
+        "mode": "count_model",
+        "unary": "mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_blend_0.25",
+      "dev_bio_miou": 0.3313186867516623,
+      "params": {
+        "mode": "count_blend",
+        "unary": "mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_model_0.25",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "mode": "count_model",
+        "unary": "log_mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_blend_0.25",
+      "dev_bio_miou": 0.332144661942644,
+      "params": {
+        "mode": "count_blend",
+        "unary": "log_mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_model_0.5",
+      "dev_bio_miou": 0.33423796714902504,
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_blend_0.5",
+      "dev_bio_miou": 0.3306007555708583,
+      "params": {
+        "mode": "count_blend",
+        "unary": "vote",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_model_0.5",
+      "dev_bio_miou": 0.33176577389814393,
+      "params": {
+        "mode": "count_model",
+        "unary": "mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_blend_0.5",
+      "dev_bio_miou": 0.32815251542637774,
+      "params": {
+        "mode": "count_blend",
+        "unary": "mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_model_0.5",
+      "dev_bio_miou": 0.3344982799256425,
+      "params": {
+        "mode": "count_model",
+        "unary": "log_mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_blend_0.5",
+      "dev_bio_miou": 0.33172496646792726,
+      "params": {
+        "mode": "count_blend",
+        "unary": "log_mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_model_1",
+      "dev_bio_miou": 0.3342637177155902,
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_blend_1",
+      "dev_bio_miou": 0.32819676362035294,
+      "params": {
+        "mode": "count_blend",
+        "unary": "vote",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_model_1",
+      "dev_bio_miou": 0.3340354724470253,
+      "params": {
+        "mode": "count_model",
+        "unary": "mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_blend_1",
+      "dev_bio_miou": 0.3273755652225885,
+      "params": {
+        "mode": "count_blend",
+        "unary": "mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_model_1",
+      "dev_bio_miou": 0.3343994110221134,
+      "params": {
+        "mode": "count_model",
+        "unary": "log_mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_blend_1",
+      "dev_bio_miou": 0.32905902280688626,
+      "params": {
+        "mode": "count_blend",
+        "unary": "log_mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_model_2",
+      "dev_bio_miou": 0.3324249943016454,
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_blend_2",
+      "dev_bio_miou": 0.3252975356805801,
+      "params": {
+        "mode": "count_blend",
+        "unary": "vote",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_model_2",
+      "dev_bio_miou": 0.330314687063069,
+      "params": {
+        "mode": "count_model",
+        "unary": "mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_blend_2",
+      "dev_bio_miou": 0.3189964914215718,
+      "params": {
+        "mode": "count_blend",
+        "unary": "mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_model_2",
+      "dev_bio_miou": 0.3320396916513516,
+      "params": {
+        "mode": "count_model",
+        "unary": "log_mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_blend_2",
+      "dev_bio_miou": 0.3212415785403627,
+      "params": {
+        "mode": "count_blend",
+        "unary": "log_mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_model_4",
+      "dev_bio_miou": 0.3301509814067189,
+      "params": {
+        "mode": "count_model",
+        "unary": "vote",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "vote_count_blend_4",
+      "dev_bio_miou": 0.3170846034067201,
+      "params": {
+        "mode": "count_blend",
+        "unary": "vote",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_model_4",
+      "dev_bio_miou": 0.32989130903109104,
+      "params": {
+        "mode": "count_model",
+        "unary": "mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "mean_count_blend_4",
+      "dev_bio_miou": 0.3185927637294447,
+      "params": {
+        "mode": "count_blend",
+        "unary": "mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_model_4",
+      "dev_bio_miou": 0.3307516408179455,
+      "params": {
+        "mode": "count_model",
+        "unary": "log_mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_counts",
+      "name": "log_mean_count_blend_4",
+      "dev_bio_miou": 0.3184268406016287,
+      "params": {
+        "mode": "count_blend",
+        "unary": "log_mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_0.25",
+      "dev_bio_miou": 0.33633465932840195,
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_evidence_0.25",
+      "dev_bio_miou": 0.33633465932840195,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "vote",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_0.25",
+      "dev_bio_miou": 0.33633465932840195,
+      "params": {
+        "mode": "presence",
+        "unary": "mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_evidence_0.25",
+      "dev_bio_miou": 0.33706446421284764,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_0.25",
+      "dev_bio_miou": 0.33640191582885837,
+      "params": {
+        "mode": "presence",
+        "unary": "log_mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_evidence_0.25",
+      "dev_bio_miou": 0.33316446315998116,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "log_mean",
+        "strength": 0.25
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_0.5",
+      "dev_bio_miou": 0.33633465932840195,
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_evidence_0.5",
+      "dev_bio_miou": 0.33633465932840195,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "vote",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_0.5",
+      "dev_bio_miou": 0.33755451401455583,
+      "params": {
+        "mode": "presence",
+        "unary": "mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_evidence_0.5",
+      "dev_bio_miou": 0.33589122155487405,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_0.5",
+      "dev_bio_miou": 0.3326688697431697,
+      "params": {
+        "mode": "presence",
+        "unary": "log_mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_evidence_0.5",
+      "dev_bio_miou": 0.33382955167267303,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "log_mean",
+        "strength": 0.5
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_1",
+      "dev_bio_miou": 0.33767950124679263,
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_evidence_1",
+      "dev_bio_miou": 0.33746646871256103,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "vote",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_1",
+      "dev_bio_miou": 0.34145491922621823,
+      "params": {
+        "mode": "presence",
+        "unary": "mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_evidence_1",
+      "dev_bio_miou": 0.3384370527682787,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_1",
+      "dev_bio_miou": 0.3357532671921026,
+      "params": {
+        "mode": "presence",
+        "unary": "log_mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_evidence_1",
+      "dev_bio_miou": 0.3375495248110035,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "log_mean",
+        "strength": 1.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_2",
+      "dev_bio_miou": 0.3441655851166099,
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_evidence_2",
+      "dev_bio_miou": 0.3459302289930607,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "vote",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_2",
+      "dev_bio_miou": 0.3413703299189203,
+      "params": {
+        "mode": "presence",
+        "unary": "mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_evidence_2",
+      "dev_bio_miou": 0.34461919884611597,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_2",
+      "dev_bio_miou": 0.3404377401174679,
+      "params": {
+        "mode": "presence",
+        "unary": "log_mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_evidence_2",
+      "dev_bio_miou": 0.336698568565423,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "log_mean",
+        "strength": 2.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_4",
+      "dev_bio_miou": 0.34659083239933564,
+      "params": {
+        "mode": "presence",
+        "unary": "vote",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "vote_presence_evidence_4",
+      "dev_bio_miou": 0.34325503832452436,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "vote",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_4",
+      "dev_bio_miou": 0.34123374985122873,
+      "params": {
+        "mode": "presence",
+        "unary": "mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "mean_presence_evidence_4",
+      "dev_bio_miou": 0.33809535504761146,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_4",
+      "dev_bio_miou": 0.3421241482453385,
+      "params": {
+        "mode": "presence",
+        "unary": "log_mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "type_set",
+      "name": "log_mean_presence_evidence_4",
+      "dev_bio_miou": 0.34104510284756695,
+      "params": {
+        "mode": "presence_evidence",
+        "unary": "log_mean",
+        "strength": 4.0
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit128_flat",
+      "dev_bio_miou": 0.33169680010565894,
+      "params": {
+        "strength": 0.1,
+        "limit": 128,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit128_adaptive",
+      "dev_bio_miou": 0.33169901486056697,
+      "params": {
+        "strength": 0.1,
+        "limit": 128,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit256_flat",
+      "dev_bio_miou": 0.33166118836203423,
+      "params": {
+        "strength": 0.1,
+        "limit": 256,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit256_adaptive",
+      "dev_bio_miou": 0.3316643389840774,
+      "params": {
+        "strength": 0.1,
+        "limit": 256,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit65536_flat",
+      "dev_bio_miou": 0.3322098801310558,
+      "params": {
+        "strength": 0.1,
+        "limit": 65536,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.1_limit65536_adaptive",
+      "dev_bio_miou": 0.3320395165859947,
+      "params": {
+        "strength": 0.1,
+        "limit": 65536,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit128_flat",
+      "dev_bio_miou": 0.33169198093569613,
+      "params": {
+        "strength": 0.25,
+        "limit": 128,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit128_adaptive",
+      "dev_bio_miou": 0.33169609510745834,
+      "params": {
+        "strength": 0.25,
+        "limit": 128,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit256_flat",
+      "dev_bio_miou": 0.3316180867117806,
+      "params": {
+        "strength": 0.25,
+        "limit": 256,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit256_adaptive",
+      "dev_bio_miou": 0.3316280911449917,
+      "params": {
+        "strength": 0.25,
+        "limit": 256,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit65536_flat",
+      "dev_bio_miou": 0.33280178484099776,
+      "params": {
+        "strength": 0.25,
+        "limit": 65536,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.25_limit65536_adaptive",
+      "dev_bio_miou": 0.3323842490111149,
+      "params": {
+        "strength": 0.25,
+        "limit": 65536,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit128_flat",
+      "dev_bio_miou": 0.33168745061560234,
+      "params": {
+        "strength": 0.5,
+        "limit": 128,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit128_adaptive",
+      "dev_bio_miou": 0.33168584776881527,
+      "params": {
+        "strength": 0.5,
+        "limit": 128,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit256_flat",
+      "dev_bio_miou": 0.33156152230846625,
+      "params": {
+        "strength": 0.5,
+        "limit": 256,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit256_adaptive",
+      "dev_bio_miou": 0.33158780448120295,
+      "params": {
+        "strength": 0.5,
+        "limit": 256,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit65536_flat",
+      "dev_bio_miou": 0.3336225534763544,
+      "params": {
+        "strength": 0.5,
+        "limit": 65536,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s0.5_limit65536_adaptive",
+      "dev_bio_miou": 0.3325317248605947,
+      "params": {
+        "strength": 0.5,
+        "limit": 65536,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit128_flat",
+      "dev_bio_miou": 0.33169572690957694,
+      "params": {
+        "strength": 1.0,
+        "limit": 128,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit128_adaptive",
+      "dev_bio_miou": 0.33168723723087523,
+      "params": {
+        "strength": 1.0,
+        "limit": 128,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit256_flat",
+      "dev_bio_miou": 0.33148951961850787,
+      "params": {
+        "strength": 1.0,
+        "limit": 256,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit256_adaptive",
+      "dev_bio_miou": 0.33153956212474867,
+      "params": {
+        "strength": 1.0,
+        "limit": 256,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit65536_flat",
+      "dev_bio_miou": 0.334676226627847,
+      "params": {
+        "strength": 1.0,
+        "limit": 65536,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s1_limit65536_adaptive",
+      "dev_bio_miou": 0.3329022821556185,
+      "params": {
+        "strength": 1.0,
+        "limit": 65536,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit128_flat",
+      "dev_bio_miou": 0.33172814426662695,
+      "params": {
+        "strength": 2.0,
+        "limit": 128,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit128_adaptive",
+      "dev_bio_miou": 0.33174482647057646,
+      "params": {
+        "strength": 2.0,
+        "limit": 128,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit256_flat",
+      "dev_bio_miou": 0.3313584859440181,
+      "params": {
+        "strength": 2.0,
+        "limit": 256,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit256_adaptive",
+      "dev_bio_miou": 0.331574470214433,
+      "params": {
+        "strength": 2.0,
+        "limit": 256,
+        "adaptive": true
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit65536_flat",
+      "dev_bio_miou": 0.3368598681447388,
+      "params": {
+        "strength": 2.0,
+        "limit": 65536,
+        "adaptive": false
+      }
+    },
+    {
+      "family": "raw_component",
+      "name": "component_s2_limit65536_adaptive",
+      "dev_bio_miou": 0.3335905018462539,
+      "params": {
+        "strength": 2.0,
+        "limit": 65536,
+        "adaptive": true
+      }
+    }
+  ]
+}
