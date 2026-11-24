@@ -21,50 +21,59 @@ plt.rcParams.update({
 })
 
 
-def gain_panel(ax, title, rows, xlabel):
-    """rows: (label, gain in mIoU points, is_set_rule). Horizontal bars from 0."""
-    labels = [r[0] for r in rows][::-1]
-    values = [r[1] for r in rows][::-1]
-    colors = [SET_RULE if r[2] else LOCAL for r in rows][::-1]
-    bars = ax.barh(labels, values, color=colors, height=0.62, edgecolor=SURFACE, linewidth=2)
-    ax.axvline(0, color=MUTED, linewidth=1)
-    ax.grid(axis="x", color=GRID, linewidth=0.8)
+# One row per method family, same rows for both datasets (None = not run).
+# PanNuke: organ_wcsp/breast/evaluation.json (branch organ-wcsp-breast), Breast test, 169 patches.
+# BCSS: runs/*/dev/summary.csv, dev, 185 tiles (lambda = 8): the only split with every family.
+FAMILIES = [  # (short name, PanNuke Breast test, BCSS dev, BCSS val, is presence); None = not run yet
+    ("Base", 0.432348, 0.706720, 0.648852, None),
+    ("Pair (HW)", None, 0.709734, 0.650712, False),
+    ("Pair (DD)", 0.432412, 0.708998, 0.650602, False),
+    ("Hier", 0.432328, 0.710750, 0.651698, False),
+    ("Hier+Decay", 0.432305, 0.710783, None, False),
+    ("Cluster", 0.434374, 0.716253, None, False),
+    ("Presence", None, 0.722877, 0.654962, True),
+    ("Pres+Clust", 0.448441, 0.724218, 0.656387, True),
+]
+
+
+def family_panel(ax, title, col):
+    """Vertical bars for every method on this panel's own mIoU axis; methods not run yet are
+    drawn as empty dashed outlines up to the base level, labelled 'not run'."""
+    base = FAMILIES[0][col]
+    vals = [f[col] for f in FAMILIES if f[col] is not None]
+    lo = round(min(vals) - 0.006, 2)
+    xs = range(len(FAMILIES))
+    for x, f in zip(xs, FAMILIES):
+        v, rule = f[col], f[4]
+        if v is None:
+            ax.bar(x, base - lo, bottom=lo, facecolor="none", edgecolor=LOCAL, linewidth=1.2,
+                   linestyle="--", width=0.65)
+            ax.text(x, base + 0.0004, "running" if col == 3 else "not run", ha="center", va="bottom", color=MUTED, fontsize=7.5,
+                    style="italic")
+            continue
+        color = MUTED if rule is None else (SET_RULE if rule else LOCAL)
+        ax.bar(x, v - lo, bottom=lo, color=color, width=0.65, edgecolor=SURFACE, linewidth=2)
+        ax.text(x, v + 0.0004, f"{v:.4f}", ha="center", va="bottom", color=INK, fontsize=7.5)
+    ax.axhline(base, color=INK, linewidth=1, linestyle="--")
+    ax.set_xticks(list(xs), [f[0] for f in FAMILIES], rotation=35, ha="right")
+    ax.tick_params(axis="x", length=0, colors=INK)
+    ax.set_ylim(lo, max(vals) + 0.004)
+    ax.set_ylabel("mIoU")
+    ax.grid(axis="y", color=GRID, linewidth=0.8)
     ax.set_axisbelow(True)
-    ax.tick_params(axis="y", length=0)
-    lo, hi = min(0, min(values)), max(values)
-    ax.set_xlim(lo - 0.15 * (hi - lo) - 0.05, hi * 1.22)
-    for bar, v in zip(bars, values):
-        ax.text(v + (0.03 if v >= 0 else -0.03) * (hi - lo + 0.5), bar.get_y() + bar.get_height() / 2,
-                ("0.00" if abs(v) < 0.005 else f"{v:+.2f}"), va="center", ha="left" if v >= 0 else "right", color=INK, fontsize=9)
+    ax.spines["left"].set_visible(False)
     ax.set_title(title, loc="left", color=INK, fontsize=11, fontweight="bold")
-    ax.set_xlabel(xlabel)
 
 
 def fig_gains():
-    bcss = [  # dev, 185 tiles, gain over the U-Net (0.7067)
-        ("Pixel WCSP (pair table)", 0.23, False),
-        ("Multi-scale block WCSP", 0.41, False),
-        ("Best block decay schedule", 0.41, False),
-        ("Cluster WCSP (SLIC + refine)", 0.96, False),
-        ("Class presence", 1.62, True),
-        ("Cluster WCSP + class presence", 1.75, True),
-    ]
-    pannuke = [  # Breast test, 169 patches, gain over each family's matched control
-        ("Pixel learned table", 0.01, False),
-        ("Hierarchy V1/V2", 0.00, False),
-        ("Scaling / siblings", -0.01, False),
-        ("Hierarchical decay", 0.00, False),
-        ("Nucleus pairwise", -0.09, False),
-        ("Type counts", -0.38, False),
-        ("Raw TP components", 0.32, False),
-        ("Patch-wide type set", 1.41, True),
-    ]
-    fig, axes = plt.subplots(1, 2, figsize=(11, 3.9), gridspec_kw={"wspace": 0.75})
-    gain_panel(axes[0], "BCSS: gain over the U-Net (dev)", bcss, "mIoU points")
-    gain_panel(axes[1], "PanNuke Breast: gain over matched control (test)", pannuke, "mIoU points")
-    handles = [plt.Rectangle((0, 0), 1, 1, color=SET_RULE), plt.Rectangle((0, 0), 1, 1, color=LOCAL)]
-    fig.legend(handles, ["Tile / patch-level class-set rule", "Local or pairwise structure"],
-               loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.13))
+    fig, axes = plt.subplots(1, 3, figsize=(17, 4.4), gridspec_kw={"wspace": 0.28})
+    family_panel(axes[0], "PanNuke · Breast test", 1)
+    family_panel(axes[1], "BCSS · dev", 2)
+    family_panel(axes[2], "BCSS · val", 3)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in (MUTED, LOCAL, SET_RULE)]
+    handles.append(plt.Line2D([], [], color=INK, linestyle="--"))
+    fig.legend(handles, ["Base model", "Smoothing", "Presence", "Base level"],
+               loc="lower center", ncol=4, frameon=False, bbox_to_anchor=(0.5, -0.14))
     fig.savefig(OUT / "gains_both_datasets.png", dpi=200, bbox_inches="tight")
 
 
