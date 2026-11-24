@@ -31,7 +31,7 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ---
 
-## Problem
+## Problems
 
 **The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.** Smoothing cleans up noisy borders; the real errors are bigger.
 
@@ -55,9 +55,9 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ### Test 1 · Which problem causes the errors?
 
-**Method:** for each true region, check whether the U-Net predicts the right class for most of it.
-- **Yes:** its wrong pixels are **segmentation** errors (stray pieces, borders).
-- **No:** its wrong pixels are **class identification** errors (the whole region is misread).
+**Method:** look at each true region (one connected piece of one class in the ground truth) and the U-Net's labels inside it.
+- **Example A:** a true stroma region of 100 pixels; the U-Net calls 90 stroma and 10 tumor. It got the region right, so the 10 wrong pixels are **segmentation** errors.
+- **Example B:** a true stroma region of 100 pixels; the U-Net calls 70 "other" and 30 stroma. It misread the region, so the 70 wrong pixels are **class identification** errors.
 
 ![Test 1](figures_20261123/prelim_error_split.png)
 
@@ -65,15 +65,14 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ### Test 2 · What is fixing each problem worth?
 
-**Method:** make one problem perfect, keep the U-Net for everything else, and re-score.
-- **Only class set fixed:** each tile is told which classes it contains; the U-Net still decides where they go.
-- **Only segmentation fixed:** each true region is labeled as one piece, with the class the U-Net predicts on average over it.
-
-Fixing both would give the ground truth (1.0), so each bar shows what *one* problem costs.
+**Method:** make one problem perfect, keep the U-Net for the other, and re-score. No WCSP.
+- **Perfect class identification:** keep the U-Net's own regions, and give each one the class most of its true pixels have.
+- **Perfect segmentation:** keep the true regions, and give each one the class the U-Net predicts for most of it.
+- **Both perfect** = the ground truth (1.0).
 
 ![Test 2](figures_20261123/prelim_ladder.png)
 
-**Answer:** segmentation is worth +0.1244 and the class set +0.0639. Our presence rule recovers only +0.0086 of the class-set gain, and smoothing +0.0023.
+**Answer:** both problems are worth about the same: perfect class identification +0.1186, perfect segmentation +0.1028. Our presence rule recovers +0.0086 and smoothing +0.0023, a small fraction of either.
 
 ---
 

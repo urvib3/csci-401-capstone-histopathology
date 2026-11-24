@@ -97,10 +97,10 @@ def fig_split(group, label, conf):
     fig.savefig(OUT / "prelim_error_split.png", dpi=200, bbox_inches="tight")
 
 
-def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
-    rows = [("U-Net", raw, GRAY), ("+ WCSP smoothing", wcsp, GRAY), ("+ presence rule (today)", presence, BLUE),
-            ("Only class set fixed", p_oracle, BLUE), ("Only segmentation fixed", r_oracle, ORANGE)]
-    fig, ax = plt.subplots(figsize=(6.4, 2.8))
+def fig_ladder(raw, wcsp, presence, class_id, seg):
+    rows = [("U-Net", raw, GRAY), ("+ WCSP smoothing", wcsp, GRAY), ("+ presence rule", presence, BLUE),
+            ("Perfect class identification", class_id, BLUE), ("Perfect segmentation", seg, ORANGE)]
+    fig, ax = plt.subplots(figsize=(6.6, 2.9))
     ys = np.arange(len(rows))[::-1]
     for y, (name, v, c) in zip(ys, rows):
         ax.barh(y, v, color=c, height=0.6, edgecolor=SURFACE, linewidth=2)
@@ -108,8 +108,8 @@ def fig_ladder(raw, wcsp, presence, p_oracle, r_oracle):
     ax.set_yticks(ys, [r[0] for r in rows])
     ax.tick_params(axis="y", length=0)
     lo = raw - 0.02
-    ax.set_xlim(lo, max(r[1] for r in rows) + 0.05)
-    ax.set_xlabel("mIoU (axis starts at %.2f)" % lo)
+    ax.set_xlim(lo, max(r[1] for r in rows) + 0.06)
+    ax.set_xlabel("mIoU (axis starts at %.2f; both perfect = 1.0)" % lo)
     ax.grid(axis="x", color=GRID)
     ax.set_axisbelow(True)
     title(ax, "Test 2 · What fixing one problem is worth")

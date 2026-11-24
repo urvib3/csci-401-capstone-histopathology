@@ -41,7 +41,7 @@
 <header>
   <h1>Deliverable 7</h1>
   <p class="sub">November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)</p>
-  <nav><a href="#recap">Recap</a><a href="#problem">Problem</a><a href="#prelim">Preliminary tests</a><a href="#pannuke-organs">PanNuke per organ</a><a href="#current">BCSS U-Net</a></nav>
+  <nav><a href="#recap">Recap</a><a href="#problem">Problems</a><a href="#prelim">Preliminary tests</a><a href="#pannuke-organs">PanNuke per organ</a><a href="#current">BCSS U-Net</a></nav>
 </header>
 
 <section id="recap">
@@ -77,7 +77,7 @@
 </section>
 
 <section id="problem">
-<h2>Problem</h2>
+<h2>Problems</h2>
 <div class="take"><b>The U-Net has limitations, and WCSP right now is only a smoother, so it can't fix them.</b> Smoothing cleans up noisy borders; the real errors are bigger.</div>
 <table>
   <tr><th>Problem</th><th>Dataset</th><th>What goes wrong</th><th>What could fix it</th></tr>
@@ -146,23 +146,24 @@
 <h3>BCSS · U-Net</h3>
 <p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
 <h4>Test 1 · Which problem causes the errors?</h4>
-<p><b>Method:</b> for each true region, check whether the U-Net predicts the right class for most of it.</p>
+<p><b>Method:</b> look at each true region (one connected piece of one class in the ground truth) and the U-Net's labels inside it.</p>
 <ul>
-  <li><b>Yes:</b> its wrong pixels are <b>segmentation</b> errors (stray pieces, borders).</li>
-  <li><b>No:</b> its wrong pixels are <b>class identification</b> errors (the whole region is misread).</li>
+  <li><b>Example A:</b> a true stroma region of 100 pixels; the U-Net calls 90 stroma and 10 tumor. It got the region right, so the 10 wrong pixels are <b>segmentation</b> errors (the shape is off).</li>
+  <li><b>Example B:</b> a true stroma region of 100 pixels; the U-Net calls 70 "other" and 30 stroma. It misread the region, so the 70 wrong pixels are <b>class identification</b> errors.</li>
 </ul>
+<p class="note">Rule: if the U-Net's most common label in a true region is correct, that region's wrong pixels are segmentation errors; otherwise they are class identification errors.</p>
 <img src="prelim_error_split.png" alt="Test 1: errors per class, segmentation vs class identification">
 <div class="take"><b>Answer:</b> about half each (48% segmentation, 52% class identification). "Other" and stroma fail mostly by class identification; inflammatory and necrosis mostly by segmentation.</div>
 
 <h4>Test 2 · What is fixing each problem worth?</h4>
-<p><b>Method:</b> make one problem perfect, keep the U-Net for everything else, and re-score.</p>
+<p><b>Method:</b> make one problem perfect, keep the U-Net for the other, and re-score. No WCSP.</p>
 <ul>
-  <li><b>Only class set fixed:</b> each tile is told which classes it contains; the U-Net still decides where they go.</li>
-  <li><b>Only segmentation fixed:</b> each true region is labeled as one piece, with the class the U-Net predicts on average over it.</li>
+  <li><b>Perfect class identification:</b> keep the U-Net's own regions, and give each one the class most of its true pixels have.</li>
+  <li><b>Perfect segmentation:</b> keep the true regions, and give each one the class the U-Net predicts for most of it.</li>
+  <li><b>Both perfect</b> = the ground truth (1.0).</li>
 </ul>
-<p class="note">Fixing both would give the ground truth (1.0), so each bar shows what <i>one</i> problem costs.</p>
 <img src="prelim_ladder.png" alt="Test 2: value of fixing each problem">
-<div class="take"><b>Answer:</b> segmentation is worth +0.1244 and the class set +0.0639. Our presence rule recovers only +0.0086 of the class-set gain, and smoothing +0.0023.</div>
+<div class="take"><b>Answer:</b> both problems are worth about the same: perfect class identification +0.1186, perfect segmentation +0.1028. Our presence rule recovers +0.0086 and smoothing +0.0023, a small fraction of either.</div>
 </section>
 
 <section id="pannuke-organs">
