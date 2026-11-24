@@ -94,44 +94,45 @@ Take each true region (one connected piece of one class in the ground truth) and
 
 ### Results
 
-#### 1 · Hyperparameter sweeps
+One fix per error type: **presence** for class identification, and a **segmentation loss** in training for segmentation.
 
-*WCSP settings tuned on 185 BCSS dev tiles; the best of each is used everywhere else.*
+#### Fixing class identification: presence
 
-| Setting | Values tried | Best | Dev mIoU |
-|---|---|---|---:|
-| Pair table strength λ (HW / DD) | 0.5 – 32 | 8 | 0.7097 / 0.7090 |
-| Multi-scale parent–child weight μ | 0 – 1 | 0.5 | 0.7108 |
-| Number of block levels | 1 – 5 | 3 | 0.7101 (μ = 0.2) |
-| Decay schedules | 23 | coarse boost | 0.7108 |
-| Presence strength γ | 10 – 100,000 | 3,000 | **0.7229** |
-| SLIC superpixels | 64 / 256 / 1,024 · colour / probabilities / both · ± pixel refine | 256, both, refine | 0.7163 |
+1. From the training ground truth, count how often each **set of classes** appears together in a tile (e.g. tumor + stroma is common; necrosis + "other" is rare).
+2. For a new tile, score every possible class set: the U-Net's confidence in the classes it would keep, plus a penalty for how rare that set is.
+3. Keep the best set and remove the other classes; their pixels go to the U-Net's next-best allowed class. Then smooth with WCSP.
 
-**Only presence strength moves the result.**
-
-#### 2 · Adding presence and clusters to WCSP
-
-- **Presence:** before labeling, decide which classes the tile may contain. Each possible class set is scored by the U-Net's evidence plus how rare that combination is in the training ground truth; classes outside the best set are removed, then WCSP runs.
-- **Cluster (SLIC superpixels):** SLIC splits the tile into about 256 patches of similar colour and U-Net prediction. Each patch is one WCSP variable with one label; a final pixel-level pass lets borders move.
+**Cluster** (optional add-on): SLIC groups the tile into about 256 patches of similar colour and prediction, and each patch is labelled as one unit before a final pixel pass.
 
 | Method | Dev (185) | Val (2,124, held out) | Full-res U-Net, dev |
 |---|---:|---:|---:|
 | U-Net | 0.7067 | 0.6489 | 0.6524 |
-| Pixel WCSP | 0.7090 (+0.0023) | 0.6506 (+0.0018) | 0.6547 (+0.0023) |
-| Cluster WCSP | 0.7163 (+0.0095) | 0.6544 (+0.0055) | — |
+| WCSP | 0.7090 (+0.0023) | 0.6506 (+0.0018) | 0.6547 (+0.0023) |
 | WCSP + presence | 0.7229 (+0.0162) | 0.6550 (+0.0061) | 0.6610 (+0.0086) |
-| **Cluster WCSP + presence** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** | — |
+| **WCSP + presence + cluster** | **0.7242 (+0.0175)** | **0.6564 (+0.0075)** | — |
 
-**Presence gives most of the gain and clusters add a little more**, but even the best (+0.0075 on val) is far below what fixing the U-Net's own errors is worth (about +0.1).
+**Presence works but recovers little:** +0.0075 on held-out val, against about +0.12 possible from perfect class identification.
 
-#### 3 · Fixing the U-Net itself
+#### Fixing the U-Net itself: training losses
 
-WCSP can only correct the U-Net's output afterwards. Since the U-Net's own segmentation and class identification errors are worth about +0.1 each, we now change **how the U-Net is trained**. Same recipe for every model; only the loss changes. Score = raw U-Net.
+Instead of correcting the output afterwards, add a term to the U-Net's training loss. Same recipe for every model (10 epochs, same seed); only the loss changes.
 
-| Model | Added training loss | Targets | Pilot (2 epochs) | Full (10 epochs) |
+- **Segmentation loss (B):** for every true region in a training tile, compute the average prediction over its pixels and penalize pixels that stray from it. A region predicted as one coherent class costs nothing; a patchwork costs a lot, even when cross-entropy rates the two the same.
+- **Presence loss (C):** from the prediction, estimate which classes the tile contains, and penalize mismatches with the true class set.
+
+| Model | Training loss | Targets | Pilot (2 epochs) | Full (10 epochs) |
 |---|---|---|:---:|:---:|
-| A · baseline | none (pixel cross-entropy only) | — | running | 0.6679 |
-| B | Region loss: pixels in the same true region should get the same prediction | Segmentation | running | — |
-| C | Presence loss: predict which classes are in the tile | Class identification | running | — |
+| A · baseline | Pixel cross-entropy | — | running | 0.6679 |
+| B | + segmentation loss | Segmentation | running | — |
+| C | + presence loss | Class identification | running | — |
 
-**Success** = B or C beats A.
+**Success** = B or C beats A on raw U-Net output.
+
+#### Settings (from sweeps on dev)
+
+| Setting | Tried | Used |
+|---|---|---|
+| WCSP strength λ | 0.5 – 32 | 8 |
+| Presence strength γ | 10 – 100,000 | 3,000 |
+| SLIC patches | 64 / 256 / 1,024 | 256 |
+| Multi-scale μ, block levels, decay (23 schedules) | various | no gain over WCSP; not used |
