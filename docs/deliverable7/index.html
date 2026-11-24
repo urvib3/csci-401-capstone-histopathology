@@ -171,6 +171,20 @@
 <img src="pannuke_breast_examples.png" alt="Four Breast patches: tissue, truth, HoVer-Net, and after presence, with changed nuclei outlined">
 <div class="take"><b>Rows 2–3 show the main fix:</b> HoVer-Net scatters "neoplastic" (red) nuclei through normal breast epithelium (yellow), and presence relabels them. Row 2 also shows one mistake, a real immune cell relabeled. Row 4 is the biggest loss. Of 120 Breast dev patches, 28 improve, 16 get worse and 76 are unchanged.</div>
 <p class="note">Sources: <code>experiments/pannuke_wcsp/prelim_20261123/</code> (<code>analyze.py</code>, <code>results.json</code>). The rows were chosen by a fixed rule: the 3 largest and 1 smallest per-patch change.</p>
+
+<h3>Breast patch comparisons, every method side by side</h3>
+<p class="note">By Kashvi · Breast fold 2 test patches · same frozen HoVer-Net, nucleus outlines fixed. These panels use their own colors: <b>purple = normal epithelial, green = inflammatory, blue = connective</b>. Gold in the last panel marks labels that changed vs. the previous Breast WCSP, not dead cells. Per-patch mIoU averages all five kinds, so kinds absent from a patch score 0 and pull it down.</p>
+<p>Each panel runs left to right: tissue → truth → raw HoVer-Net → previous global WCSP → previous Breast WCSP → larger sweep → BCSS-style presence (only allowed classes) → what changed.</p>
+
+<img src="pannuke_breast_patch_gain_0100.png" alt="Breast patch 100: presence relabels false neoplastic nuclei as normal epithelial">
+<div class="take"><b>Gain (patch 100):</b> the larger sweep and BCSS-style presence turn every false "neoplastic" (red) nucleus into normal epithelium (purple), matching the truth. mIoU goes from 0.242 to 0.282.</div>
+
+<img src="pannuke_breast_patch_loss_0081.png" alt="Breast patch 81: BCSS-style presence wrongly removes the epithelial class">
+<div class="take"><b>Loss (patch 81):</b> BCSS-style presence removes the one real epithelial nucleus (bottom left) by relabeling it connective, and mIoU drops from 0.227 to 0.104. A single small nucleus of a rare kind is exactly what a presence rule is built to delete, so sometimes it deletes a real one.</div>
+
+<img src="pannuke_breast_patch_regression_0072.png" alt="Breast patch 72: the larger sweep relabels the true neoplastic nuclei">
+<div class="take"><b>Regression (patch 72):</b> the stronger sweep correctly fixes two false "neoplastic" nuclei, but also turns the one real neoplastic nucleus (large, right) into connective. With no cancer left in the patch, the whole neoplastic class scores 0, and mIoU drops from 0.405 to 0.301. Stronger presence settings fix more false cancer nuclei but occasionally remove a real one.</div>
+<p class="note">Selected illustrations from 78 patches, including failures, not a representative sample. Full Breast fold-2 cohort (exploratory): previous Breast WCSP 0.4484, larger sweep 0.4479, BCSS-style presence 0.4519. Source: <code>experiments/pannuke_wcsp/bcss_cohesion_20261123/patch_comparisons/</code>.</p>
 </section>
 
 <section id="current">
