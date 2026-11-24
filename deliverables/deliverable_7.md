@@ -46,13 +46,21 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ---
 
-## Preliminary experiments
+## PanNuke
 
-### PanNuke
+### Preliminary experiments
 
-Same two tests on HoVer-Net: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#prelim-pannuke).
+Same two tests on HoVer-Net: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#pannuke-prelim).
 
-### BCSS
+### Results
+
+Per-organ fitting (Breast, Colon, Adrenal) and a wider presence sweep: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#pannuke-results).
+
+---
+
+## BCSS
+
+### Preliminary experiments
 
 **Goal:** find out whether **segmentation** or **class identification** is the bigger problem for the U-Net, so we know what to fix first.
 
@@ -84,15 +92,7 @@ Take each true region (one connected piece of one class in the ground truth) and
 
 **Both matter about equally:** perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.
 
----
-
-## Further experiments
-
-### PanNuke
-
-Per-organ fitting (Breast, Colon, Adrenal) and a wider presence sweep: see the [web version](https://urvib3.github.io/csci-401-capstone-histopathology/deliverable7/#further-pannuke).
-
-### BCSS
+### Results
 
 #### 1 · Hyperparameter sweeps
 

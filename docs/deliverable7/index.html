@@ -42,7 +42,7 @@
 <header>
   <h1>Deliverable 7</h1>
   <p class="sub">November 23, 2026 · PanNuke (cell nuclei) and BCSS (tissue regions)</p>
-  <nav><a href="#recap">Recap</a><a href="#problem">Problems</a><a href="#prelim">Preliminary experiments</a><a href="#further">Further experiments</a></nav>
+  <nav><a href="#recap">Recap</a><a href="#problem">Problems</a><a href="#pannuke">PanNuke</a><a href="#bcss">BCSS</a></nav>
 </header>
 
 <section id="recap">
@@ -89,10 +89,10 @@
 <img src="issue_examples.png" alt="BCSS examples: segmentation error and class identification error">
 </section>
 
-<section id="prelim">
-<h2>Preliminary experiments</h2>
+<section id="pannuke">
+<h2>PanNuke</h2>
 
-<h3 id="prelim-pannuke">PanNuke</h3>
+<h3 id="pannuke-prelim">Preliminary experiments</h3>
 <p class="note">Frozen HoVer-Net · 400 dev patches from PanNuke folds 1 and 3 (all organs except Adrenal) · rules counted on 4,089 separate patches · no training.</p>
 <p>On PanNuke, a <b>segmentation</b> error is an outline mistake: a nucleus that is missed, invented, or drawn too big or too small. A <b>class identification</b> error is a kind mistake: the right nucleus with the wrong cell type.</p>
 <div class="wrap"><table>
@@ -142,38 +142,8 @@
 <p class="note">Selected illustrations from 78 patches, including failures, not a representative sample. Full Breast fold-2 cohort (exploratory): previous Breast WCSP 0.4484, larger sweep 0.4479, BCSS-style presence 0.4519. Source: <code>experiments/pannuke_wcsp/bcss_cohesion_20261123/patch_comparisons/</code>.</p>
 
 
-<h3 id="prelim-bcss">BCSS</h3>
-<div class="take"><b>Goal:</b> find out whether <b>segmentation</b> or <b>class identification</b> is the bigger problem for the U-Net, so we know what to fix first.</div>
-<p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
 
-<h4>The two errors</h4>
-<ul>
-  <li><b>Segmentation error:</b> the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.</li>
-  <li><b>Class identification error:</b> the U-Net gets the shape roughly right, but calls the region the wrong tissue.</li>
-</ul>
-
-<h4>Method</h4>
-<p>Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. <b>Right</b> → its wrong pixels are segmentation errors. <b>Wrong</b> → they are class identification errors.</p>
-<img src="prelim_split_diagram.png" alt="Diagram: a mostly-right region gives segmentation errors; a mostly-wrong region gives class identification errors">
-
-<h4>Test 1 · How much of each class is wrong, and why?</h4>
-<img src="prelim_error_split.png" alt="Test 1: percent of each class wrong, split into segmentation and class identification errors, with the average">
-<div class="take"><b>Class identification is slightly bigger on average</b> (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.</div>
-
-<h4>Test 2 · What would fixing each one be worth?</h4>
-<ul>
-  <li><b>Perfect class identification:</b> keep the U-Net's regions; give each the class most of its true pixels have.</li>
-  <li><b>Perfect segmentation:</b> keep the true regions; give each the class the U-Net predicts for most of it.</li>
-</ul>
-<img src="prelim_ladder.png" alt="Test 2: today's methods vs. each problem made perfect">
-<div class="take"><b>Both matter about equally:</b> perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.</div>
-
-</section>
-
-<section id="further">
-<h2>Further experiments</h2>
-
-<h3 id="further-pannuke">PanNuke</h3>
+<h3 id="pannuke-results">Results</h3>
 <p>Every PanNuke WCSP family was refit and retuned on one organ at a time, then scored once on that organ's held-out test patches. Gain = type set (PanNuke's presence rule) minus fixed-mask voting.</p>
 
 <div class="wrap"><table>
@@ -208,7 +178,40 @@
 <div class="take"><b>Stronger presence helps:</b> the swept setting triples the original gain over voting (Holm p = 0.034). Its edge over the original setting (+0.0081 [−0.0016, +0.0178]) isn't significant yet. Almost all of it comes from Breast (+0.0125) and Colon (+0.0283, wide interval). The 16 smaller organs see no gain. Counting from 20× more patches with the original setting changed nothing (+0.0003).</div>
 <p class="note">Sources: <code>experiments/pannuke_wcsp/organ_wcsp/README.md</code> (all three organs), <code>organ_wcsp/adrenal_gland/</code>, <code>experiments/pannuke_wcsp/type_set_sweep_20261123/</code>.</p>
 
-<h3 id="further-bcss">BCSS</h3>
+
+</section>
+
+<section id="bcss">
+<h2>BCSS</h2>
+
+<h3 id="bcss-prelim">Preliminary experiments</h3>
+<div class="take"><b>Goal:</b> find out whether <b>segmentation</b> or <b>class identification</b> is the bigger problem for the U-Net, so we know what to fix first.</div>
+<p class="note">Full-resolution U-Net · 185 BCSS dev tiles · no training</p>
+
+<h4>The two errors</h4>
+<ul>
+  <li><b>Segmentation error:</b> the U-Net knows what a region is, but gets its shape wrong: pieces break off, borders are off.</li>
+  <li><b>Class identification error:</b> the U-Net gets the shape roughly right, but calls the region the wrong tissue.</li>
+</ul>
+
+<h4>Method</h4>
+<p>Take each true region (one connected piece of one class in the ground truth) and check the U-Net's most common label inside it. <b>Right</b> → its wrong pixels are segmentation errors. <b>Wrong</b> → they are class identification errors.</p>
+<img src="prelim_split_diagram.png" alt="Diagram: a mostly-right region gives segmentation errors; a mostly-wrong region gives class identification errors">
+
+<h4>Test 1 · How much of each class is wrong, and why?</h4>
+<img src="prelim_error_split.png" alt="Test 1: percent of each class wrong, split into segmentation and class identification errors, with the average">
+<div class="take"><b>Class identification is slightly bigger on average</b> (12.2% vs 9.4% of a class's pixels). It dominates for "other" and stroma, while segmentation dominates for inflammatory, necrosis and tumor.</div>
+
+<h4>Test 2 · What would fixing each one be worth?</h4>
+<ul>
+  <li><b>Perfect class identification:</b> keep the U-Net's regions; give each the class most of its true pixels have.</li>
+  <li><b>Perfect segmentation:</b> keep the true regions; give each the class the U-Net predicts for most of it.</li>
+</ul>
+<img src="prelim_ladder.png" alt="Test 2: today's methods vs. each problem made perfect">
+<div class="take"><b>Both matter about equally:</b> perfect class identification +0.1186, perfect segmentation +0.1028. Presence (+0.0086) and smoothing (+0.0023) recover only a small fraction.</div>
+
+
+<h3 id="bcss-results">Results</h3>
 <h4>1 · Hyperparameter sweeps</h4>
 <p class="note">WCSP settings tuned on 185 BCSS dev tiles; the best of each is used everywhere else.</p>
 <div class="wrap"><table>
@@ -246,6 +249,7 @@
   <tr><td>C</td><td>Presence loss: predict which classes are in the tile</td><td>Class identification</td><td class="num dash">running</td><td class="num dash">—</td></tr>
 </table></div>
 <div class="take"><b>Success</b> = B or C beats A.</div>
+
 
 </section>
 
