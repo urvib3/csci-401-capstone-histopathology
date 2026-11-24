@@ -62,3 +62,139 @@ Deliverable 5's set is the one we can reproduce exactly.
       (`configs/sweeps/bcss_decay_dev.txt`). Smoke-tested on 2 tiles; `test_level_lam_schedule` passes.
 - [ ] Combine the best rule with multi-scale; freeze; one val run
 - [ ] Charts + concise rewrite of my Deliverable 6 sections; push
+
+## Full-512 follow-up audit — 2026-11-22
+
+The earlier checklist describes historical pretrained/central-256 work. Its
+"running" labels are historical notes, not a current scheduler check. Those
+scores and oracle ceilings must not be treated as measurements of the current
+full-512 checkpoint or its cohort.
+
+### Submitted on Discovery
+
+- Sweep array **14477362**, account `dilkina_1463`, partition `main`:
+  15 uncapped lambda={4,8,16} x mu={0,0.5,1,2,4} treatments and two
+  lambda=8, mu={0,1} outer-curve treatments with 4/8/12-round checkpoints.
+- 185 frozen development tiles per treatment; 3,145 tile solves. Four array
+  tasks run concurrently, each with eight single-threaded workers.
+- Dependent report **14477363** uses `afterany` so partial results are reported
+  even when a task fails or reaches its allocation limit.
+- Protocol/output root: `data/fullres_expanded_20261122_v2/`. Launch verification
+  found 32 worker logs, live traces, completed audited tiles and no tracebacks.
+- Only this sweep and report were submitted. The candidates below are proposals.
+
+**Subsequent authorized launch:** the 40-treatment correction follow-up is now
+implemented and submitted on Discovery: preparation/full-512 smoke job
+**14477975**, dependent correction array **14477976**, report **14477977**.
+The array covers 7,400 development tile solves and starts only after the
+preparation and smoke checks pass. The exact configurations, fit-only
+appearance classifier, region-move budget, controls and reproduction commands
+are documented in the [BCSS README](../README.md#full-512-correction-follow-ups).
+Outputs and submission records live in `data/fullres_corrections_20261122/`.
+The recommendations below retain their rationale; secondary candidates not
+listed in that 40-treatment table remain proposals.
+
+### Does the U-Net need a higher temperature?
+
+The implementation already supports `p_T = softmax(log(p)/T)` in
+[`unary.py`](../../../wcsp/model/unary.py). Away from probability clipping,
+the cost gap between two pixel classes is divided by T. For example, changing
+a 90/10 prediction costs log(9)=2.197 at T=1 and 1.099 at T=2. The argmax
+baseline does not change. This makes a higher temperature a useful test of
+weaker fidelity, even when it does not improve probability calibration.
+
+A dev-only check sampled up to 2,000 labeled pixels per frozen tile with seed
+0 (367,552 pixels total) and used the existing `fit_temperature` implementation.
+Among its 41 log-spaced temperatures from 0.25 to 8 plus explicit
+{1,1.5,2,3,4,6,8}, **T=1 minimized sampled negative log-likelihood**:
+
+| T | Sampled NLL |
+|---|---:|
+| 1 | 0.501001 |
+| 1.5 | 0.546415 |
+| 2 | 0.633104 |
+| 3 | 0.805417 |
+| 4 | 0.939359 |
+
+Of 67,306 sampled argmax errors, 9,803 (14.6%) had >=90% confidence. This
+does not establish global overconfidence or identify which errors a WCSP
+can repair. Calibration NLL and correction mIoU answer different questions.
+No probabilities, protocol settings, or running experiments were changed.
+
+For pixel-only energies, temperature and scalar unary weight overlap:
+`E = (alpha/T) U + lambda V`, up to clipping. In the hierarchy, coarse
+probabilities are reconstructed from pixel unaries before pooling, so alpha
+or T also changes block evidence; neither is a pure pixel-fidelity ablation.
+Use `block_alpha` to independently vary the strength of the pooled block
+unary. The generic `wcsp` pipeline takes temperature from
+`classifier.temperature` and overwrites `problem.temperature`; the frozen
+full-resolution runners instead build directly from their problem settings.
+
+### Inventory of written plans and transferable methods
+
+| Candidate | Existing evidence / implementation | Remaining work for current BCSS corrections |
+|---|---|---|
+| Temperature or weaker unary fidelity | Calibration/unary code exists; no temperature treatment in the running grid | Dev-only T={1,1.5,2,3,4} pilot with structural weights fixed; distinguish NLL calibration from correction selection |
+| Weaker block fidelity, separate weights at each scale | Historical BCSS no-block-unary ablation; PanNuke family-decay experiments | Matched `block_alpha` ablation; then separate scale weights if justified |
+| Confidence-dependent fidelity or class-specific penalties | PanNuke confidence-weighted block unary and edit gates; class-specific parent-child costs proposed | Adapt to BCSS; verify rare-class effects and confident errors, not just low-margin edits |
+| Tile class-presence/co-occurrence prior | BCSS presence solver, fit-prior script, seven gamma configs and prior artifact exist; TODO explicitly proposes combining with multiscale | Refit/check priors against current fit split and tile field; retune gamma; compare presence alone, hierarchy alone, combination |
+| Biological exclusion costs | BCSS exclusion tables with entries 15/50 and dev configs exist | Test on current frozen dev inputs with matched controls; inspect fake boundaries and rare-class deletion |
+| Region-label WCSP over superpixels/RAG | [Design](../../../docs/design/segmentation-wcsp-pipeline.md) proposes region labels, boundary keep/merge multicut, boundary-band refinement and region-then-boundary hybrid; marked unimplemented | Implement image-derived regions and aggregated costs; retain small structures; compare region-only and hybrid |
+| Region-wide or fusion proposal moves | New search proposal; existing descent audits only single-variable stationarity | Propose coordinated connected-region flips or fusions, accept energy-lowering moves, compare equal runtime and semantic gains |
+| Robust higher-order region consistency | Research extension of the region plan; no current implementation | Soft/truncated region agreement so uncertain segments can split without forcing every pixel to one type |
+| Class-area/proportion/cardinality priors | PanNuke type-count and type-set code; count priors did not beat voting there | Adapt to tissue area fractions; preserve plausible rare classes; do not copy nucleus-count priors directly |
+| Image-aware boundaries and informative nonlocal links | RGB/HED contrast and distant edges already implemented; old random distant pairs gave no gain | Match links using appearance/embeddings and normalize degree; use independent image evidence rather than random extra smoothing |
+| Richer regional unaries | [Earlier handoff](../../../benchmarks/bcss/HANDOFF_unsupervised_pixel_classification.md) proposes HED+texture, GMM probability unaries, small cluster-naming classifier and Phikon-v2 comparison | Add complementary appearance evidence to U-Net region costs; compare against each unary source alone |
+| Scale/context-specific learned compatibility | BCSS data-derived pixel table exists; PanNuke has scale-specific tables | Fit on region/scale-appropriate training relations, with shrinkage and matched Potts controls |
+| Wider slide context | Region design explicitly considers stitched-ROI inference and cut segments | Build tile-neighbor context from coordinates; test boundary artifacts and larger-field presence priors |
+| Structured learning of correction costs | Old CE+expected-pairwise training arms gave no gain over CE | A genuinely different follow-up could learn WCSP weights/unroll correction; larger implementation effort |
+
+The PanNuke [type-set replication](../../pannuke_wcsp/presence_scale_20261114/README.md)
+is the strongest existing context lead: on 300 patches it improved biological
+mIoU by 0.00249 over fixed-mask voting, with a paired interval excluding zero.
+It is evidence for that nucleus formulation, not a measured BCSS improvement.
+The [family-decay study](../../pannuke_wcsp/family_decay_20261117/README.md)
+found no clear benefit from its graded/adaptive hierarchy schedules. The
+[scaling report](../../pannuke_wcsp/scaling_siblings_20261109/REPORT.md)
+still proposes mixed-class block summaries and class-specific parent-child
+costs to protect small/rare structures.
+
+### Recommended next sequence
+
+1. Finish the submitted grid. Run a small, separately frozen temperature and
+   block-fidelity pilot on dev, retaining T=1 and unchanged-block controls.
+2. Revisit BCSS class-presence plus hierarchy, using current fit-split priors.
+   The existing presence method selects an allowed set from unary evidence
+   plus its prior before spatial solving; this does not jointly optimize the
+   full spatial energy. Joint set/region optimization is a separate extension.
+3. Add coordinated region proposals to distinguish an ICM energy barrier from
+   a misspecified objective. A region can be single-pixel-stable even when a
+   coordinated relabeling would lower energy. More iterations alone cannot
+   escape that state. Lower energy still does not guarantee better mIoU.
+4. Introduce independent image/feature-based regional evidence and robust
+   region constraints if the objective continues to prefer wrong regions.
+
+For every candidate report pooled/per-class IoU, wrong-to-right fixes,
+right-to-wrong breaks, wrong-to-other-wrong edits, interior-region versus
+boundary changes, ROI-paired intervals, runtime and energy. A larger edited
+fraction alone is not success. Select on dev and freeze before new held-out
+evaluation. Store any new protocol in a separate output root; keep the
+running sweep's source hashes and frozen inputs intact.
+
+Do not prioritize deeper grids or random distant edges without new evidence:
+historical BCSS deeper levels added no gain and random distant edges were
+slower without a gain. Unlimited Toulbar2 also failed to complete the older
+benchmark within its allocation; it is not a demonstrated accuracy solution.
+
+### Research references for extensions
+
+- [Guo et al., temperature calibration](https://proceedings.mlr.press/v70/guo17a.html).
+- [Lempitsky et al., fusion moves](https://www.robots.ox.ac.uk/~vgg/publications/2010/Lempitsky10a/Lempitsky10a.pdf).
+- [Kohli et al., robust higher-order region consistency](https://ora.ox.ac.uk/objects/uuid%3Af5b8b0ce-cb7d-4c41-b10a-dbdc03d813df).
+- [Delong et al., label costs](https://www.csd.uwo.ca/~yboykov/Abstracts/cvpr10-abs.html).
+- [Boykov et al., graph-cut move making](https://www.cs.cornell.edu/rdz/Papers/BVZ-pami01-final.pdf).
+  Standard alpha-expansion guarantees require metric compatibility costs.
+  A direct triangle-inequality check found 2 violating ordered triples in
+  the current data-derived table and 12 in the handwritten table. Do not
+  assume standard metric guarantees for either; consider compatible fusion
+  solvers, exact small-region moves, or an explicitly evaluated metric model.
