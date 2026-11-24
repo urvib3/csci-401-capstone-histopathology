@@ -83,11 +83,9 @@
   <tr><th>Problem</th><th>Dataset</th><th>What goes wrong</th><th>What could fix it</th></tr>
   <tr><td><b>Segmentation</b></td><td>BCSS</td><td>One true region is broken into many pieces</td><td>Train the U-Net to keep regions whole</td></tr>
   <tr><td><b>Class identification</b></td><td>BCSS</td><td>A whole region gets the wrong class, or a class that isn't in the tile</td><td>Strong data-derived rules (e.g. presence), not light smoothing</td></tr>
-  <tr><td><b>Mixed tissue types</b></td><td>PanNuke</td><td>Patches from all organs share one model and one prior, so no organ is fit well</td><td>Run per tissue type: fit and tune on one organ at a time (paid off on Breast so far)</td></tr>
+  <tr><td><b>Mixed tissue types</b></td><td>PanNuke</td><td>Patches from all organs share one model and one prior, so no organ is fit well</td><td>Run per tissue type: fit and tune on one organ at a time</td></tr>
 </table>
 <img src="issue_examples.png" alt="BCSS examples: segmentation error and class identification error">
-<p class="note">PanNuke: fitting on Breast only beats fitting on all tissue types, on the same 169 Breast test patches (Global WCSP 0.4384 → Breast WCSP 0.4484).</p>
-<img src="pannuke_tissue_type.png" alt="PanNuke: Breast-specific fitting vs. global fitting">
 </section>
 
 <section id="prelim">
@@ -177,6 +175,11 @@
 <p class="note">The other seven families (pixel table, hierarchy, scaling, decay, nucleus pairwise, type counts, component) move mIoU by less than ±0.004 on every organ, and none is significant. Adrenal uses PanNuke folds 1–3, since fold 2 alone left only 29 test patches.</p>
 
 <div class="take"><b>Per-organ tuning only paid off on Breast.</b> On Colon and Adrenal, the settings picked on dev didn't hold up on test. The original all-organ presence setting, unchanged, still helped Adrenal (+0.0049 [+0.0016, +0.0089]).</div>
+
+<h3>Breast: one tissue type vs. all tissue types</h3>
+<p>Same 169 Breast test patches, presence fit and tuned on Breast only vs. on all tissue types.</p>
+<img src="pannuke_tissue_type.png" alt="PanNuke: Breast-specific fitting vs. global fitting">
+<div class="take"><b>Breast-only fitting wins:</b> 0.4384 (all tissue types) → 0.4484 (Breast only).</div>
 
 <h3>Wider sweep, like BCSS's presence sweep</h3>
 <p>1,584 settings of the presence rule: strength up to 32 (previously 4), count per organ or all organs, finer groups by nucleus count, and smoothing. Settings were picked on 400 patches and scored once on <b>600 fresh patches</b> from PanNuke folds 1 and 3 (all organs except Adrenal).</p>

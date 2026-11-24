@@ -43,9 +43,6 @@ mIoU, with the change vs. the base model in brackets. "—" = not run (yet).
 
 ![BCSS examples of the two problems](figures_20261123/issue_examples.png)
 
-*PanNuke: fitting on Breast only beats fitting on all tissue types, on the same 169 Breast test patches (Global WCSP 0.4384 → Breast WCSP 0.4484).*
-
-![PanNuke per-tissue-type fitting](figures_20261123/pannuke_tissue_type.png)
 
 ---
 
